@@ -13,7 +13,7 @@ BOARD_ID="TEENSY41"
 BOARD_OPTIONS="speed=600,usb=mtpserial,opt=o3std,keys=en-us"
 
 HARDWARE="-hardware ./hardware"
-TOOLS="-tools /usr/share/arduino/tools-builder"
+TOOLS="-tools ./hardware/tools-linux -tools /usr/share/arduino/tools-builder"
 BUILD_PATH=".build"
 BUILD_CACHE=".cache"
 FQBN=-fqbn=$BOARD_FQBN:$BOARD_OPTIONS
