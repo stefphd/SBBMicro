@@ -16,7 +16,6 @@
 
 //includes
 #include <HostPort.h> //for debug operations
-#include <Objects.h> //for debug operations
 
 //variables and objects
 HostPort debug_port(&Serial, HEADER, TERMINATOR); //tx/rx object for communication with host pc
