@@ -4,3 +4,10 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
+.cache
+lib/controlModel/controlModel_ert_rtw
+lib/controlModel/slprj
+lib/*/examples
+lib/*/extras
+lib/*/.github
+
