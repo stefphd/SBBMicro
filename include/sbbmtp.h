@@ -9,14 +9,28 @@
 #ifdef DOMTP //must exist both DOMTP and DOLOG for enabling MTP!
 
 //defines
-#define STORAGENAME "SBB Logger"
+#define STORAGENAME         "SBB Logger"
+#define MTP_ENABLE_TIMEOUT  3000 //timeout for enabling mtp mode (ms)
+
+#ifndef DOLOG
+#define sd			            SD.sdfs //sd card obj (uses sd fat now included in SD library w/ teensyduino)
+#define SD_CONFIG	          SdioConfig(FIFO_SDIO) //configuration of sd card
+#endif
 
 //check mtp function
 bool check_mtp(void) {
-  //timeout on input pin with button (enable is pu) for XX seconds
-  //if check success return true
+  uint32_t mtp_timer = millis();
+  while ((millis()-mtp_timer) <= MTP_ENABLE_TIMEOUT) {
+    if (digitalReadFast(ONOFF_STATE_PIN)) { return false; } 
+    delay(100); //wait 100ms for the next check
+  }
+  if (!sd.begin(SD_CONFIG)) { return false; }    
+  LEDmode = LedMode::MTP;
   return true;
 }
+
+//just a prototype
+void do_led(void);
 
 //do mtp
 void do_mtp(void) {
@@ -37,6 +51,10 @@ void do_mtp(void) {
   //mtp loop
   while (true) {
     if (usb_configuration) mtpd.loop(); //do mtp if usb connected
+    if ((micros() - sampling_timer) >= SAMPLING_TIME) {
+	  	sampling_timer = micros(); //update timer
+      do_led();
+    }
   }
   return;
 }
