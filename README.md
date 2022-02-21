@@ -23,7 +23,13 @@ Compilation is performed using the arduino-builder, while uploading using the te
 * Linux: 
 
   ```
-  ./build_linux
+  ./build_linux.sh
+  ```
+
+  or 
+  
+  ```
+  bash build_linux.sh
   ```
 
   Tested with Arch-Linux x64.
