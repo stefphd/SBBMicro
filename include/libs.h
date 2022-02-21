@@ -15,5 +15,6 @@
 #include <TimeLib.h> //for date & time (already included when installing teensyduino)
 #include <T4_PowerButton.h> //for on/off button management https://github.com/FrankBoesing/T4_PowerButton/blob/master/examples/power/power.ino
 #include <myfuncs.h> //include myfuncs (containing definition of user-defined C/C++ functions used in Simulink)
+#include <controlModel.h> //include control model librariy (generated with the Embedeed coder)
 
 #endif
