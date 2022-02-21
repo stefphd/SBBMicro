@@ -16,9 +16,9 @@ Additional utilities (only recommended):
 * teensyduino: not stricktly necessary for compilation b/c core code for teensy MCU is alredy included in `/hardware`
 * Visual Studio Code with C/C++ IntelliSense (ms-vscode) for code completation only (not for compilation)
 
-## Building and uploading
+## Building
 
-Building is performed using the arduino-builder, while uploading using the teensy_loader_cli. Shell scripts provide simple usage depending on the operative system:
+Compilation is performed using the arduino-builder, while uploading using the teensy_loader_cli. Shell scripts provide simple usage depending on the operative system:
 
 * Linux: 
 
