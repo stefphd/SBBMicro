@@ -59,8 +59,8 @@ void setup() {
 	delay(200);
 	set_arm_power_button_callback(&turnoff_callback);
 
-  //check mtp - after setting turnoff callback, before enabling other stuff!
-  if (check_mtp()) do_mtp(); //if true 
+    //check mtp - after setting turnoff callback, before enabling other stuff!
+    if (check_mtp()) do_mtp(); //if true 
 
 	//begin IO buses
 	start_IObus();
@@ -124,6 +124,9 @@ void loop() {
 
 		//do logging stuff if necessary (otherwise do nothing)
 		do_logger();
+		
+		//do led stuff
+		do_led();
 
 	}
 

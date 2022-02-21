@@ -4,6 +4,14 @@
 #ifndef __OBJECTS_H__
 #define __OBJECTS_H__
 
+//namespaces
+namespace LedMode {
+	constexpr int8_t DEF = 0;
+	constexpr int8_t LOG = 1;
+	constexpr int8_t MTP = 2;
+	constexpr int8_t ERR = 3;
+}
+
 //type def
 struct ImuData_T { //raw acc (g), gyro (mdeg/s), and mag (mG) data
 	int32_t accs_mg[3], gyros_mdps[3], mags_mG[3]; //imu and mag readings
@@ -39,7 +47,7 @@ struct Voltage_T {
 	float batVolt_offset; //offset (for zero)
 };
 struct Counter_T {
-	uint8_t speedSensor = 0, mag = 0, imu = 0, debug = 0, log = 0, logLED = 0; //counter for lower sampling rate
+	uint16_t speedSensor = 0, mag = 0, imu = 0, debug = 0, log = 0, LED = 0; //counter for lower sampling rate
 };
 struct Timing_T {
 	uint32_t dt_cycle, duty_cycle, dt_debug, dt_logger; //time differences
@@ -67,7 +75,9 @@ Voltage_T voltage_raw; //raw battery voltage
 Channel_T channel_raw; //raw channels
 uint8_t GPSserial_extra_buffer[GPS_EXTBUFSIZE];
 uint32_t nanVal = NAN_VAL;
-
+int8_t LEDmode = LedMode::DEF; //LED mode
+boolean LEDstate = false; //state of LED
+                             
 //global objects
 ISM330DHCXSensor imu(&USED_SPI, CS_IMU, SPISPEED_IMU); //imu object
 LIS3MDLSensor mag(&USED_SPI, CS_MAG, SPISPEED_MAG); //mag object

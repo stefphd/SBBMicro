@@ -117,6 +117,7 @@ void set_GPIO(void) {
 	pinMode(MTR_DIR_PIN, OUTPUT);
 	pinMode(RELAY_EN_PIN, OUTPUT);
 	pinMode(LED_BUILTIN, OUTPUT);
+	pinMode(ONOFF_STATE_PIN, INPUT_PULLUP);
 	digitalWriteFast(MTR_EN_PIN, !MTR_EN_STATE);
 	digitalWriteFast(MTR_DIR_PIN, CW);
 	digitalWriteFast(RELAY_EN_PIN, !RELAY_EN_STATE);
@@ -274,6 +275,33 @@ boolean check_voltage(void) {
 //return internal RTC time
 time_t getTime() {
 	return Teensy3Clock.get();
+}
+
+//do led stuff
+void do_led() {
+	if (counters.LED == 0) {
+		uint16_t ledfac = DEF_LED;
+      	switch (LEDmode) {
+      	case LedMode::LOG:
+        	ledfac = LOG_LED;
+        	break;
+      	case LedMode::MTP:
+        	ledfac = MTP_LED;
+        	break;
+      	case LedMode::ERR:
+        	ledfac = ERR_LED;
+        	break;
+      	default:
+        	ledfac = DEF_LED;
+        	break;    
+		}                    
+		LEDstate = !LEDstate;
+		if (LEDstate) LEDON;
+		else LEDOFF;
+		//reset counter
+		counters.LED = ledfac - 1;
+	}
+	else counters.LED--;  
 }
 
 #endif
