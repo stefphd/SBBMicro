@@ -14,9 +14,6 @@
 #define DEBUG_SAMPLING_FAC	2 //sampling factor of speed sensor (expressed in units of SAMPLING_TIME)
 #define MAX_MISSING_READS 50 //max consecutive missing reads
 
-//includes
-#include <HostPort.h> //for debug operations
-
 //variables and objects
 HostPort debug_port(&Serial, HEADER, TERMINATOR); //tx/rx object for communication with host pc
 debut_rx_T rx_packet; //rx object

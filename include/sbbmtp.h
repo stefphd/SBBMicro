@@ -8,10 +8,6 @@
 
 #ifdef DOMTP //must exist both DOMTP and DOLOG for enabling MTP!
 
-//includes
-#include <MTP.h> //for media transfer protocol with pc (already included when installing teensyduino)
-#include <SD.h> //for SD stuff
-
 //defines
 #define STORAGENAME "SBB Logger"
 

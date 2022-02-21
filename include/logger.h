@@ -8,10 +8,6 @@
 
 #ifdef DOLOG
 
-//includes
-#include "SD.h" //for saving in SD, includes SDFat
-#include "RingBuf.h" //ring buffer for logging
-
 //defines
 #define LOG_SAMPLING_FAC	2 //sampling factor of data logging (expressed in units of SAMPLING_TIME)
 #define LOGLED_FAC			100 //on/off time of logger LED (expressed in units of SAMPLING_TIME)
