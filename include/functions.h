@@ -266,10 +266,12 @@ void turnoff_callback(void) {
 boolean check_voltage(void) {
 	voltage_raw.batVolt = analogRead(VOLTAGE);
 	float volts = CONVERT_VOLTAGE_TO_V(float(voltage_raw.batVolt)) - voltage_raw.batVolt_offset;
-	if (volts > MAX_VOLTAGE | volts < MIN_VOLTAGE) {
+	if ((volts > MAX_VOLTAGE) | (volts < MIN_VOLTAGE)) {
 		delay(1000);
 		POWER_OFF;
+		return false;
 	}
+	return true;
 }
 
 //return internal RTC time
