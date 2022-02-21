@@ -3,21 +3,22 @@
 # Created by SL, 02-20-2022
 #############################################################################
 
-NAME			:= src/main.cpp
+NAME			:= main.cpp
+SRC				:= src
 BOARD_FQBN		:= teensy:avr:teensy41
 BOARD_ID		:= TEENSY41
-BOARD_OPTIONS		:= speed=600,usb=mtpserial,opt=o3std,keys=en-us
+BOARD_OPTIONS	:= speed=600,usb=mtpserial,opt=o3std,keys=en-us
 
 HARDWARE		:= -hardware ./hardware
 TOOLS			:= -tools ./hardware/tools/avr \
-			-tools /usr/share/arduino/tools-builder 
+				-tools /usr/share/arduino/tools-builder 
 BUILD_PATH		:= .build
 BUILD_CACHE		:= .cache
 FQBN			:= -fqbn=$(BOARD_FQBN):$(BOARD_OPTIONS)
 LIBRARIES		:= -libraries ./ \
-			-libraries ./include/ \
-			-libraries ./lib/ 
-FLAGS			:= -compile -verbose 
+				-libraries ./include/ \
+				-libraries ./lib/ 
+FLAGS			:=  
 
 TARGET_HEX		:= $(BUILD_PATH)/$(NAME).hex
 
@@ -47,8 +48,8 @@ compiling:
 	@echo Build path is $(BUILD_PATH)
 	@echo Cache path is $(BUILD_CACHE) 
 	@echo Library paths are $(LIBRARIES)
-	$(BUILDER) -dump-prefs -build-path $(BUILD_PATH) -build-cache $(BUILD_CACHE) $(HARDWARE) $(TOOLS) $(LIBRARIES) $(FQBN) $(NAME)
-	$(BUILDER) $(FLAGS) -build-path $(BUILD_PATH) -build-cache $(BUILD_CACHE) $(HARDWARE) $(TOOLS) $(LIBRARIES) $(FQBN) $(NAME)
+	$(BUILDER) -dump-prefs -build-path $(BUILD_PATH) -build-cache $(BUILD_CACHE) $(HARDWARE) $(TOOLS) $(LIBRARIES) $(FQBN) $(SRC)/$(NAME)
+	$(BUILDER) -compile $(FLAGS) -build-path $(BUILD_PATH) -build-cache $(BUILD_CACHE) $(HARDWARE) $(TOOLS) $(LIBRARIES) $(FQBN) $(SRC)/$(NAME)
 	@echo Target hex file $(TARGET_HEX) generated
 	@echo
 	
