@@ -8,6 +8,7 @@ Author: Stefano Lovato, 2022
 
 * arduino-builder (>=1.6.1), also provided with Arduino IDE
 * teeny_loader_cli (>=2.2, Linux only), also provided with teensyduino. For Windows x64 pre-compiled binaries in XX are used
+* MATLAB/Simulink with Embedeed Coder Toolbox (>=2021a), for control algorithm code generation only
 
 No other dependecies are necessary: all used libraries are already included in `/lib`.
 
@@ -15,6 +16,14 @@ Additional utilities (only recommended):
 
 * teensyduino: not stricktly necessary for compilation b/c core code for teensy MCU is alredy included in `/hardware`
 * Visual Studio Code with C/C++ IntelliSense (ms-vscode) for code completation only (not for compilation)
+
+## Code generation
+
+Code generation of the control algorithm is performed via MATLAB/Simulink with the Embedeed Coder Toolbox. Code generation can be lauch with MATLAB using
+
+```
+gencode
+```
 
 ## Building
 
