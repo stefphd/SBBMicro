@@ -7,7 +7,7 @@ Author: Stefano Lovato, 2022
 ## Dependencies
 
 * arduino-builder (>=1.6.1), also provided with Arduino IDE
-* teeny_loader_cli (Linux only), also provided with teensyduino. For Windows x64 pre-compiled binaries in XX are used
+* teeny_loader_cli (>=2.2, Linux only), also provided with teensyduino. For Windows x64 pre-compiled binaries in XX are used
 
 No other dependecies are necessary: all used libraries are already included in `/lib`.
 
@@ -20,14 +20,14 @@ Additional utilities (only recommended):
 
 Compilation is performed using the arduino-builder, while uploading using the teensy_loader_cli. Shell scripts provide simple usage depending on the operative system:
 
-* Linux: 
+* Linux:
 
   ```
   ./build_linux.sh
   ```
 
-  or 
-  
+  or
+
   ```
   bash build_linux.sh
   ```
