@@ -10,7 +10,6 @@
 
 //defines
 #define LOG_SAMPLING_FAC	2 //sampling factor of data logging (expressed in units of SAMPLING_TIME)
-#define LOGLED_FAC			100 //on/off time of logger LED (expressed in units of SAMPLING_TIME)
 #define sd					SD.sdfs //sd card obj (uses sd fat now included in SD library w/ teensyduino)
 #define SD_CONFIG			SdioConfig(FIFO_SDIO) //configuration of sd card
 #define PREALLOC			1024L*1024L*1024L //file preallocation (bytes)
@@ -23,7 +22,6 @@
 
 //variables and objects
 volatile boolean doLog = true; //true when logging ok - volatile b/c used in on/off irq
-boolean logLEDstate = false; //state of log LED
 char filename[FILENAME_MAXSIZE] = { 0 }; //filename
 float fill_packet[(DATAPACKET_SIZE - sizeof(ControlClass::controlModel_U) - sizeof(ControlClass::controlModel_Y)) / sizeof(float)];
 volatile uint64_t logSampleWritten = 0; //written logged bytes (to troncate the file correctly at the end)
@@ -49,6 +47,8 @@ void start_logger(void) {
 
 	//fill log_packet with nan vals
 	for (int i = 0; i < (sizeof(fill_packet) / sizeof(float)); i++) fill_packet[i] = *((float*) &nanVal);
+  
+  if (doLog) LEDmode = LedMode::LOG;
 }
 
 //log closer function
@@ -99,18 +99,7 @@ void do_logger(void) {
 			return;
 		}
 	}
-
-	//on/off log LED
-	if (doLog) {
-		if (counters.logLED == 0) {
-			digitalWriteFast(LED_BUILTIN, logLEDstate);
-			logLEDstate = !logLEDstate;
-			//reset counter
-			counters.logLED = LOGLED_FAC - 1;
-		}
-		else counters.logLED--;
-	} else digitalWriteFast(LED_BUILTIN, LOW);
-
+                       
 	//timing
 	timing.dt_logger = micros() - startWriteLogTime;
 }
