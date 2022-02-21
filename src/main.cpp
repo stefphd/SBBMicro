@@ -23,7 +23,6 @@
 
 //include libraries
 #include <libs.h> //include source libraries for buses etc.
-#include <genlibs.h> //include generated code with Simulink
 
 //config
 #include <config.h> //configuration file
