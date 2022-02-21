@@ -1,0 +1,19 @@
+// include libraries
+// written by SL
+
+#ifndef __LIBS_H__
+#define __LIBS_H__
+
+#include <ISM330DHCXSensor.h> //for imu https://github.com/stm32duino/ISM330DHCX
+#include <LIS3MDLSensor.h> //for magnetometer https://github.com/stm32duino/LIS3MDL
+#include <Adafruit_GPS.h> //for GPS 
+#include <SPI.h> //for SPI communication (already included when installing teensyduino)
+#include <ADC.h> //for ADC stuff https://github.com/pedvide/ADC (already included when installing teensyduino)
+#include <ADC_util.h> //for ADC stuff https://github.com/pedvide/ADC (already included when installing teensyduino)
+#include <MCP492X.h>  //for DAC https://github.com/michd/Arduino-MCP492X, modified by SL to use different SPI and added function latch() to latch DAC output
+#include <SerialTransfer.h> //for serial trasfer with speed sensor https://github.com/PowerBroker2/SerialTransfer
+#include <TimeLib.h> //for date & time (already included when installing teensyduino)
+#include <T4_PowerButton.h> //for on/off button management https://github.com/FrankBoesing/T4_PowerButton/blob/master/examples/power/power.ino
+#include <myfuncs.h> //include myfuncs (containing definition of user-defined C/C++ functions used in Simulink)
+
+#endif
