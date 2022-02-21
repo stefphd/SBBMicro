@@ -4,6 +4,7 @@ lib/controlModel/controlModel_ert_rtw
 lib/controlModel/slprj
 lib/*/examples
 lib/*/extras
+lib/*/docs
 lib/*/.github
-
+lib/*/*.html
 *.png
