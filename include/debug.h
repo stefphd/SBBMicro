@@ -9,10 +9,10 @@
 #ifdef DODEBUG
 
 //defines
-#define HEADER				0xFF812345 //start byte of data transfer - ovf in float (not used)
-#define TERMINATOR			0xFF8CABDE //stop byte of data transfer - ovf in float (not used)
+#define HEADER				      0xFF812345 //start byte of data transfer - ovf in float (not used)
+#define TERMINATOR			    0xFF8CABDE //stop byte of data transfer - ovf in float (not used)
 #define DEBUG_SAMPLING_FAC	2 //sampling factor of speed sensor (expressed in units of SAMPLING_TIME)
-#define MAX_MISSING_READS 50 //max consecutive missing reads
+#define MAX_MISSING_READS   50 //max consecutive missing reads
 
 //variables and objects
 HostPort debug_port(&Serial, HEADER, TERMINATOR); //tx/rx object for communication with host pc
