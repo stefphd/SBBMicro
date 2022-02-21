@@ -97,7 +97,7 @@ void ControlClass::reset()
   controlModel_DW.blockOrdering = false;
 
   // CCaller: '<S4>/C Caller'
-  initTimer();
+  //initTimer();
 
   // End of Outputs for SubSystem: '<Root>/Reset Function'
 }
@@ -630,7 +630,7 @@ void ControlClass::update()
   //   Constant: '<Root>/Constant6'
   //   MATLABSystem: '<Root>/Lowpass Filter'
 
-  controlModel_Y.user_data[1] = getTimer();
+  controlModel_Y.user_data[1] = 0; //getTimer();
   controlModel_Y.user_data[0] = b_s;
   controlModel_Y.user_data[2] = 0.0F;
   controlModel_Y.user_data[3] = 0.0F;
@@ -934,7 +934,7 @@ void ControlClass::begin()
 
     // Outputs for Atomic SubSystem: '<Root>/Initialize Function'
     // CCaller: '<S2>/C Caller'
-    initTimer();
+    //initTimer();
 
     // End of Outputs for SubSystem: '<Root>/Initialize Function'
   }
