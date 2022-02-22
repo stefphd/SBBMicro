@@ -77,6 +77,8 @@ Compilation is performed using the *arduino-builder*, while uploading using the 
   Tested with Windows 10 x64.
 * MacOS: not implemented yet
 
+Alternatively, one can use `ctrl+shift+B` to build the code in Visual Studio Code (this makes use of `build_linux.sh` or `build_win.sh` depending on the operative system).
+
 ## Known issues
 
 * Uploading in Linux only possible by entering in program mode in Teensy MCU (press program button)
