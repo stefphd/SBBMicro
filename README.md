@@ -67,7 +67,7 @@ Compilation is performed using the arduino-builder, while uploading using the te
 * Windows:
 
    ```
-  build_win.bat
+ ./build_win.bat
   ```
   
   Tested with Windows 10 x64.
