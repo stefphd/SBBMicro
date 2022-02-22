@@ -39,7 +39,7 @@ No other dependecies are necessary: all used libraries are already included in `
 Additional utilities (only recommended):
 
 * *teensyduino*: not stricktly necessary for compilation b/c core code for teensy MCU is already included in `./hardware/`
-* *Visual Studio Code* with *C/C++ IntelliSense* (ms-vscode) for code completation and simpler code building
+* *Visual Studio Code* with *C/C++ (ms-vscode)* for code completation and simpler code building
 
 ## Code generation
 
@@ -77,7 +77,7 @@ Compilation is performed using the *arduino-builder*, while uploading using the 
   Tested with Windows 10 x64.
 * MacOS: not implemented yet
 
-Alternatively, one can use `ctrl+shift+B` to build the code in Visual Studio Code with both Linux and Windows (this makes use of `build_linux.sh` or `build_win.sh` depending on the operative system).
+Alternatively, one can use `ctrl+shift+B` to build the code in *Visual Studio Code* with both Linux and Windows (this makes use of `build_linux.sh` or `build_win.sh` depending on the operative system).
 
 ## Known issues
 
