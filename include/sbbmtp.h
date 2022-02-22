@@ -29,9 +29,6 @@ bool check_mtp(void) {
   return true;
 }
 
-//just a prototype
-void do_led(void);
-
 //do mtp
 void do_mtp(void) {
   //wait for serial activation
