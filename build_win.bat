@@ -14,6 +14,8 @@ set BOARD_OPTIONS=speed=600,usb=mtpserial,opt=o3std,keys=en-us
 
 set ARDUINO_FOLDER=C:\Program Files (x86)\Arduino
 
+set PATH=%ARDUINO_FOLDER%;%PATH%
+
 set HARDWARE=-hardware .\hardware
 set TOOLS=-tools "%ARDUINO_FOLDER%\tools-builder"
 set BUILD_PATH=.build
