@@ -18,29 +18,8 @@
 #ifndef __MAIN_CPP__
 #define __MAIN_CPP__ //main define
 
-//include Arduino.h
-#include <Arduino.h>
-
-//include libraries
-#include <libs.h> //include source libraries for buses etc.
-
-//config
-#include <config.h> //configuration file
-
-//gloabal variables & objects
-#include <objects.h>
-
-//logger
-#include <logger.h>
-
-//mtp
-#include <sbbmtp.h>
-
-//user-defined functions
-#include <functions.h>
-
-//debug stuff
-#include <debug.h>
+//include
+#include <include.h>
 
 void setup() {
 	//set the pins
