@@ -5,7 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/src",
-                "${workspaceFolder}/hardware/teensy/avr/cores/teensy4",
+                "${workspaceFolder}/hardware/teensy/avr/cores/teensy4/**",
                 "${workspaceFolder}/lib",
                 "${workspaceFolder}/lib/SPI",
                 "${workspaceFolder}/lib/Wire",
