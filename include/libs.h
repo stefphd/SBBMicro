@@ -1,4 +1,4 @@
-// include libraries
+// include libraries, can be found in ./libs
 // written by SL
 
 #ifndef __LIBS_H__
