@@ -5,9 +5,6 @@ Source code for the self-balancing-bike microcontroller unit (Teensy 4.1-based).
 Author: Stefano Lovato, 2022
 
 ## Files
-
-Files:
-
 * `controlModel.slx`: control model implementation in Simulink
 * `gencode.m`: MATLAB function for code generation from Simulink model
 * `params.sldd`: Simulink parameters used in `controlModel.slx`
@@ -43,7 +40,7 @@ Additional utilities (only recommended):
 
 ## Code generation
 
-Code generation of the control algorithm is performed via MATLAB/Simulink with the Embedeed Coder Toolbox. Code generation can be launch with MATLAB using
+Code generation of the control algorithm is performed via MATLAB/Simulink with the Embedeed Coder Toolbox. Code generation can be lauch with MATLAB using
 
 ```MATLAB
 gencode()
@@ -53,7 +50,7 @@ By default `controlModel.slx` is used for code generation, with the parameters d
 
 ## Building
 
-Compilation is performed using `the arduino-builder`, while uploading using the `teensy_loader_cli`. Shell scripts provide simple usage depending on the operative system:
+Compilation is performed using the `arduino-builder`, while uploading using the `teensy_loader_cli`. Shell scripts provide simple usage depending on the operative system:
 
 * Linux:
 
@@ -67,19 +64,18 @@ Compilation is performed using `the arduino-builder`, while uploading using the 
   bash build_linux.sh
   ```
 
-  Tested with Arch-Linux x64.
-* Windows:
+  Tested with Arch-Linux x64. Sometimes it is necessary to delete manually the folders `.build` and `.cache`.
+* Windows: 
 
   ```batch
   ./build_win.bat
   ```
-  
+
   Tested with Windows 10 x64.
-* MacOS: Not implemented yet
+* MacOS: not implemented yet
 
 ## Known issues
 
-* Issue in `myfunc.h` file during compilation (`micros()` not recognized) - now `myfunc.h` disabled
 * Uploading in Linux only possible by entering in program mode in Teensy MCU (press program button)
 * Undefined identifiers found by Visual Studio Code, however this is only a C/C++ IntelliSense issue (compilation works fine)
 
