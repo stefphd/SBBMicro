@@ -43,7 +43,7 @@ Additional utilities (only recommended):
 
 ## Code generation
 
-Code generation of the control algorithm is performed via MATLAB/Simulink with the Embedeed Coder Toolbox. Code generation can be launch with MATLAB using
+Code generation of the control algorithm is performed via *MATLAB/Simulink* with the *Embedeed Coder Toolbox*. Code generation can be launch with *MATLAB* using
 
 ```MATLAB
 gencode()
@@ -53,7 +53,7 @@ By default `controlModel.slx` is used for code generation, with the parameters d
 
 ## Building
 
-Compilation is performed using the `arduino-builder`, while uploading using the `teensy_loader_cli`. Shell scripts provide simple usage depending on the operative system:
+Compilation is performed using the *arduino-builder*, while uploading using the *teensy_loader_cli*. Shell scripts provide simple usage depending on the operative system:
 
 * Linux:
 
