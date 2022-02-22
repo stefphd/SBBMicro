@@ -23,7 +23,7 @@ set LIBRARIES=-libraries .\ -libraries .\include\ -libraries .\lib\
 set FLAGS=-verbose
 
 set BUILDER=arduino-builder
-set UPL_CLI=teensy_loader_cli
+set UPL_CLI=.\hardware\teeny_loader_cli-win-x64\teensy_loader_cli
 
 set TARGET_HEX=%BUILD_PATH%\%NAME%.hex
 
@@ -49,10 +49,10 @@ echo Library paths are %LIBRARIES%
 echo Target hex file %TARGET_HEX% generated
 echo
 
+:::::::::::::::::::::::::::::::::::::::::::::::::::
+::UPLOADING CODE
+:::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
-
-
-
-
+echo Uploading target hex %TARGET_HEX% for board %BOARD_ID%
+%UPL_CLI% --mcu=%BOARD_ID% -v %TARGET_HEX%
+echo
