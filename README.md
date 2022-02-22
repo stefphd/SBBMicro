@@ -20,7 +20,7 @@ Code folders:
 
 Additional folders:
 * `./hardware/teensy-windows`: build tools for Windows
-* `./hardware/teensy-linux`: build tools for Windows
+* `./hardware/teensy-linux`: build tools for Linux
 * `./.vscode`: contains VS code property file(s)
 * `./.build` and `.cache`: hidden folders created only during compilation
 
