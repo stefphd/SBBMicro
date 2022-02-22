@@ -5,6 +5,9 @@ Source code for the self-balancing-bike microcontroller unit (Teensy 4.1-based).
 Author: Stefano Lovato, 2022
 
 ## Files
+
+Files:
+
 * `controlModel.slx`: control model implementation in Simulink
 * `gencode.m`: MATLAB function for code generation from Simulink model
 * `params.sldd`: Simulink parameters used in `controlModel.slx`
@@ -40,7 +43,7 @@ Additional utilities (only recommended):
 
 ## Code generation
 
-Code generation of the control algorithm is performed via MATLAB/Simulink with the Embedeed Coder Toolbox. Code generation can be lauch with MATLAB using
+Code generation of the control algorithm is performed via MATLAB/Simulink with the Embedeed Coder Toolbox. Code generation can be launch with MATLAB using
 
 ```MATLAB
 gencode()
