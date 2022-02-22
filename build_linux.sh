@@ -13,12 +13,12 @@ BOARD_ID="TEENSY41"
 BOARD_OPTIONS="speed=600,usb=mtpserial,opt=o3std,keys=en-us"
 
 HARDWARE="-hardware ./hardware"
-TOOLS="-tools ./hardware/tools/avr -tools /usr/share/arduino/tools-builder"
+TOOLS="-tools /usr/share/arduino/tools-builder"
 BUILD_PATH=".build"
 BUILD_CACHE=".cache"
 FQBN=-fqbn=$BOARD_FQBN:$BOARD_OPTIONS
 LIBRARIES="-libraries ./ -libraries ./include/ -libraries ./lib/"
-FLAGS=""
+FLAGS="-verbose"
 
 BUILDER="arduino-builder"
 UPL_CLI="teensy_loader_cli"
