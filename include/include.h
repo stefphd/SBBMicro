@@ -5,17 +5,21 @@
 #define __INCLUDE_H__
 
 /*
-include function prototypes
+include function prototypes - here all functions used in logger.h, sbbmtp.h, functions.h, and debug.h
 */
 #include <prototypes.h> 
 
 /*
-include implementations
+include libraries used, configurations (define etc), and variables, datatypes and objects
 */
 #include <Arduino.h>    //Arduino functions
 #include <libs.h>       //include libraries for buses, sensors, etc.
 #include <config.h>     //configuration file
 #include <objects.h>    //data types, variables, and objects
+
+/*
+include implementations - workaround: put in .h file instead of .cpp (which does not works in Arduino environment)
+*/
 #include <logger.h>     //include logger functions
 #include <sbbmtp.h>     //include mtp functions
 #include <functions.h>  //include user-defined functions
