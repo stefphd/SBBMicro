@@ -18,7 +18,7 @@ include libraries used, configurations (define etc), and variables, datatypes an
 #include <objects.h>    //data types, variables, and objects
 
 /*
-include implementations - workaround: put in .h file instead of .cpp (which does not works in Arduino environment)
+include implementations - workaround: put in .h file instead of .cpp (which does not work in Arduino environment)
 */
 #include <logger.h>     //include logger functions
 #include <sbbmtp.h>     //include mtp functions
