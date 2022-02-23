@@ -38,7 +38,7 @@ void setup() {
 	delay(200);
 	set_arm_power_button_callback(&turnoff_callback);
 
-    //check mtp - after setting turnoff callback, before enabling other stuff!
+    //check mtp - after set_arm_power_button_callback, before enabling other relay etc
     if (check_mtp()) do_mtp(); //if true 
 
 	//begin IO buses
