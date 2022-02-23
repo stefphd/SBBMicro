@@ -26,12 +26,11 @@ void start_debug(void) waits for the usb serial for debugging
 void start_debug(void) {
 	//Serial.begin(12e6) //not necessary with teensy
 	//attach pointers (i.e. RAM address of first byte) of objects to transmit and corresponding size
-	debug_port.attachTx((uint8_t*) &ctrl.controlModel_U, sizeof(ControlClass::ExtU_controlModel_T)); //control input, this are 20*4=80 bytes
-	debug_port.attachTx((uint8_t*) &ctrl.controlModel_Y, sizeof(ControlClass::ExtY_controlModel_T)); //control output, this are 11*4=44 bytes
-	//to trasmitted bytes are 80+44=124bytes, plus 4*2=8 bytes of start and stop bytes, resulting in 132 bytes to transmit
+	debug_port.attachTx((uint8_t*) &ctrl.controlModel_U, sizeof(ControlClass::ExtU_controlModel_T)); //control input
+	debug_port.attachTx((uint8_t*) &ctrl.controlModel_Y, sizeof(ControlClass::ExtY_controlModel_T)); //control output
 
 	//attach pointers (i.e. RAM address of first byte) of objects to receive and corresponding size
-	debug_port.attachRx((uint8_t*) &rx_packet, sizeof(rx_packet)); //receive rx_packe, this are 2*4=8bytes
+	debug_port.attachRx((uint8_t*) &rx_packet, sizeof(rx_packet)); //receive rx_packet
 
   rx_packet.curr_ref = *((float*) &nanVal);
   rx_packet.throttle_ref = *((float*) &nanVal);

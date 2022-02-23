@@ -199,6 +199,7 @@ void do_control(void) {
 	//set gps
 	ctrl.controlModel_U.gps[0] = gpsData_raw.lat;
 	ctrl.controlModel_U.gps[1] = gpsData_raw.lon;
+	ctrl.controlModel_U.gps[2] = gpsData_raw.speed;
 	//set steer position and speed
 	ctrl.controlModel_U.steer[0] = 0;
 	ctrl.controlModel_U.steer[1] = 0;

@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 1.137
+// Model version                  : 1.140
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Mon Feb 21 09:04:27 2022
+// C/C++ source code generated on : Wed Feb 23 12:14:32 2022
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -95,9 +95,6 @@ void ControlClass::reset()
   //   Constant: '<S4>/Constant'
 
   controlModel_DW.blockOrdering = false;
-
-  // CCaller: '<S4>/C Caller'
-  //initTimer();
 
   // End of Outputs for SubSystem: '<Root>/Reset Function'
 }
@@ -544,8 +541,8 @@ void ControlClass::update()
   real32_T K[2];
   real32_T s[2];
   real32_T Rsqrt;
+  real32_T Vf;
   real32_T b_s;
-  real32_T rtb_CCaller;
   real32_T unusedExpr;
   real32_T zEstimated;
   boolean_T guard1 = false;
@@ -569,7 +566,7 @@ void ControlClass::update()
 
   // System object Outputs function: dsp.FIRFilter
   b_s = controlModel_U.torque;
-  rtb_CCaller = 0.0F;
+  Vf = 0.0F;
 
   // load input sample
   for (n = 0; n < 20; n++) {
@@ -580,24 +577,24 @@ void ControlClass::update()
 
     // compute one tap
     unusedExpr *= obj_0->P1_Coefficients[n];
-    rtb_CCaller += unusedExpr;
+    Vf += unusedExpr;
   }
 
   // compute last tap
   unusedExpr = obj->cSFunObject.P1_Coefficients[n] * b_s;
 
   // store output sample
-  b_s = rtb_CCaller + unusedExpr;
+  b_s = Vf + unusedExpr;
 
   // DeadZone: '<Root>/Dead Zone' incorporates:
   //   MATLABSystem: '<Root>/Lowpass Filter'
 
   if (b_s > controlParams.riderTrqTreshold) {
-    rtb_CCaller = b_s - controlParams.riderTrqTreshold;
+    Vf = b_s - controlParams.riderTrqTreshold;
   } else if (b_s >= (-controlParams.riderTrqTreshold)) {
-    rtb_CCaller = 0.0F;
+    Vf = 0.0F;
   } else {
-    rtb_CCaller = b_s - (-controlParams.riderTrqTreshold);
+    Vf = b_s - (-controlParams.riderTrqTreshold);
   }
 
   // End of DeadZone: '<Root>/Dead Zone'
@@ -606,32 +603,31 @@ void ControlClass::update()
   //   Gain: '<Root>/Belt and gear'
   //   Gain: '<Root>/Gain'
 
-  rtb_CCaller = ((1.0F / (controlParams.beltRatio * controlParams.gearRatio)) *
-                 (controlParams.trqGainControl * rtb_CCaller)) * (1.0F /
-    controlParams.trqConstant);
+  Vf = ((1.0F / (controlParams.beltRatio * controlParams.gearRatio)) *
+        (controlParams.trqGainControl * Vf)) * (1.0F / controlParams.trqConstant);
 
   // Saturate: '<Root>/Saturation'
-  if (rtb_CCaller > controlParams.maxCurrent) {
+  if (Vf > controlParams.maxCurrent) {
     // Outport: '<Root>/curr_ref'
     controlModel_Y.curr_ref = controlParams.maxCurrent;
-  } else if (rtb_CCaller < (-controlParams.maxCurrent)) {
+  } else if (Vf < (-controlParams.maxCurrent)) {
     // Outport: '<Root>/curr_ref'
     controlModel_Y.curr_ref = -controlParams.maxCurrent;
   } else {
     // Outport: '<Root>/curr_ref'
-    controlModel_Y.curr_ref = rtb_CCaller;
+    controlModel_Y.curr_ref = Vf;
   }
 
   // End of Saturate: '<Root>/Saturation'
 
   // Outport: '<Root>/user_data' incorporates:
-  //   CCaller: '<Root>/C Caller'
   //   Constant: '<Root>/Constant4'
+  //   Constant: '<Root>/Constant5'
   //   Constant: '<Root>/Constant6'
   //   MATLABSystem: '<Root>/Lowpass Filter'
 
-  controlModel_Y.user_data[1] = 0; //getTimer();
   controlModel_Y.user_data[0] = b_s;
+  controlModel_Y.user_data[1] = 0.0F;
   controlModel_Y.user_data[2] = 0.0F;
   controlModel_Y.user_data[3] = 0.0F;
 
@@ -673,18 +669,18 @@ void ControlClass::update()
               static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) ^ 1))) ? (
           static_cast<int32_T>(1)) : (static_cast<int32_T>(0)))))) {
     b_s = controlParams.Romx;
-    rtb_CCaller = 1.0F;
+    Vf = 1.0F;
     if (controlParams.Romx != 0.0F) {
       b_s = std::abs(controlParams.Romx);
     }
 
     if (b_s < 0.0F) {
       b_s = -b_s;
-      rtb_CCaller = -1.0F;
+      Vf = -1.0F;
     }
   } else {
     b_s = (rtNaNF);
-    rtb_CCaller = (rtNaNF);
+    Vf = (rtNaNF);
   }
 
   //  Construct the function handle for measurement fcn
@@ -698,8 +694,8 @@ void ControlClass::update()
 
   //  MeasurementJacobianFcn
   rollEKF_measurementJac(controlModel_DW.x, K);
-  EKFCorrectorAdditive_getMeasure(rtb_CCaller * std::sqrt(b_s),
-    controlModel_DW.x, controlModel_DW.P, &zEstimated, K, &unusedExpr, s, &Rsqrt);
+  EKFCorrectorAdditive_getMeasure(Vf * std::sqrt(b_s), controlModel_DW.x,
+    controlModel_DW.P, &zEstimated, K, &unusedExpr, s, &Rsqrt);
   b_s = controlModel_U.gyros[0] - zEstimated;
   C[0] = K[0];
   C[1] = K[1];
@@ -821,11 +817,11 @@ void ControlClass::update()
     rtb_Q[A_tmp] = 0.0F;
     b_s = Ss[A_tmp];
     rtb_Q[A_tmp] += b_s * A[0];
-    rtb_CCaller = Ss[A_tmp + 1];
-    rtb_Q[A_tmp] += rtb_CCaller * A[2];
+    Vf = Ss[A_tmp + 1];
+    rtb_Q[A_tmp] += Vf * A[2];
     rtb_Q[A_tmp + 1] = 0.0F;
     rtb_Q[A_tmp + 1] += b_s * A[1];
-    rtb_Q[A_tmp + 1] += rtb_CCaller * A[3];
+    rtb_Q[A_tmp + 1] += Vf * A[3];
   }
 
   co_EKFPredictorAdditive_predict(rtb_Q, K, controlModel_DW.P);
@@ -931,12 +927,6 @@ void ControlClass::begin()
     }
 
     // End of InitializeConditions for MATLABSystem: '<Root>/Lowpass Filter'
-
-    // Outputs for Atomic SubSystem: '<Root>/Initialize Function'
-    // CCaller: '<S2>/C Caller'
-    //initTimer();
-
-    // End of Outputs for SubSystem: '<Root>/Initialize Function'
   }
 }
 

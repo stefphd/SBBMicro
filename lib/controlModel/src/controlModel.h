@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 1.137
+// Model version                  : 1.140
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Mon Feb 21 09:04:27 2022
+// C/C++ source code generated on : Wed Feb 23 12:14:32 2022
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -29,9 +29,6 @@
 #include "rt_nonfinite.h"
 
 // Macros for accessing real-time model data structure
-
-// user code (top of header file)
-#include "myfuncs.h"
 
 // Type definition for custom storage class: Struct
 struct controlParams_type {
@@ -100,7 +97,7 @@ class ControlClass {
     real32_T accs[3];                  // '<Root>/accs'
     real32_T gyros[3];                 // '<Root>/gyros'
     real32_T mags[3];                  // '<Root>/mags'
-    real32_T gps[2];                   // '<Root>/gps'
+    real32_T gps[3];                   // '<Root>/gps'
     real32_T steer[2];                 // '<Root>/steer'
     real32_T forkdisp;                 // '<Root>/forkdisp'
     real32_T curr;                     // '<Root>/curr'
