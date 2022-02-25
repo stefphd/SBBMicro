@@ -81,10 +81,9 @@ Alternatively, one can use `ctrl+shift+B` to build the code in *Visual Studio Co
 
 ## Known issues
 
-* Uploading in Linux only possible by entering in program mode in Teensy MCU (press program button)
+* Uploading only possible by entering in program mode in Teensy MCU (press program button)
 * Undefined identifiers found by Visual Studio Code, however this is only a C/C++ IntelliSense issue (compilation works fine)
 
 ## TODO list
 
-* Put only function prototypes in `./include/*.h` and add source code in `./src/*.cpp`. Maybe necessary: (1) to add `./src` to libraries in `arduino-builder`), and (2) to add some or all `#include <*.h>` in `./include/*.h`.
-* Make header `./include/include.h` to include all files in `./include/` and add `#include <include.h>`
+* Make using user-defined C functions in Simulink working when compiling
