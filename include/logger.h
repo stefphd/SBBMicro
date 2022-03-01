@@ -9,7 +9,7 @@
 #ifdef DOLOG
 
 //defines
-#define LOG_SAMPLING_FAC	2 //sampling factor of data logging (expressed in units of SAMPLING_TIME)
+#define LOG_SAMPLING_FAC	1 //sampling factor of data logging (expressed in units of SAMPLING_TIME)
 #define sd					SD.sdfs //sd card obj (uses sd fat now included in SD library w/ teensyduino)
 #define SD_CONFIG			SdioConfig(FIFO_SDIO) //configuration of sd card
 #define PREALLOC			1024L*1024L*1024L //file preallocation (bytes)
