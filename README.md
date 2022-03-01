@@ -79,6 +79,14 @@ Compilation is performed using the *arduino-builder*, while uploading using the 
 
 Alternatively, one can use `ctrl+shift+B` to build the code in *Visual Studio Code* with both Linux and Windows (this makes use of `build_linux.sh` or `build_win.sh` depending on the operative system).
 
+## MTP mode
+
+MTP mode allows to recognize the microcontroller as an MTP device (see e.g. <https://en.wikipedia.org/wiki/Media_Transfer_Protocol>), in order to be capable of getting the log file (with extension `.sbb`) from the internal SD memory. 
+To enter in MTP mode, it is sufficient to keep the on/off button pressed for at least 3s when turning on. To get the MTP mode working:
+
+* Windows: no additional operation is usually necessary, the microcontroller should be automatically recognized as an MTP device
+* Linux: install *gMTP* (from <https://gmtp.sourceforge.io/downloads.htmls>), which is a MTP client for UNIX and UNIX like systems (this should include the *libmtp* library)
+
 ## Known issues
 
 * Uploading only possible by entering in program mode in Teensy MCU (press program button)
