@@ -68,7 +68,7 @@ Compilation is performed using the *arduino-builder*, while uploading using the 
   ```
 
   Tested with Arch-Linux x64. Sometimes it is necessary to delete manually the folders `.build` and `.cache`.
-* Windows: 
+* Windows:
 
   ```batch
   ./build_win.bat
