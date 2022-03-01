@@ -61,6 +61,10 @@ void do_debug(void) {
         ctrl.controlModel_Y.user_data[3] = -1.0F;
       }*/
 
+      ctrl.controlModel_Y.user_data[1] = timing.dt_cycle;
+      ctrl.controlModel_Y.user_data[2] = timing.dt_debug;
+      ctrl.controlModel_Y.user_data[3] = timing.dt_logger;
+
 			//write and read
 			uint32_t streamStartTime = micros();
 			debug_port.write(); //write data to debug port - send control input, output and additional user data
