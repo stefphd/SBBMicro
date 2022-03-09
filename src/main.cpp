@@ -9,8 +9,6 @@
  * TODO list:
  * Implement receiver decoding with proper library, channel_raw struct already created, todo is create rx object, initialize serial, do read, create funs etc...
  * Add new two float inputs to ctrl input, corrisponding to ch0 and ch1 (converted to proper values)
- * Implement button routine for MTP activation
- * Write function do_MTP (after having set power callbck, before enabling relay)
  * 
  * 
  */
@@ -74,6 +72,9 @@ void setup() {
 	//begin control loop - to be called just before starting loop
 	ctrl.begin();
 	sampling_timer = micros() - SAMPLING_TIME; //to be sure that the control loop starts immediately at the first loop
+
+	//flush serials
+	serial_flush();
 }
 
 void loop() {
