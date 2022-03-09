@@ -18,6 +18,7 @@
 #define BAUD_GPS_DEF	9600 //default baudrate of GPS sensor (for init only)
 #define BAUD_GPS		57600 //actual baudrate of GPS sensor
 #define GPS_EXTBUFSIZE	128 //extra buffer size for GPS sensor serial
+//#define UART_SBUS		Serial8 //used UART for SBUS communication
 
 //ADC
 #define ADC_RES			12 //adc resolution (bits)
@@ -57,7 +58,7 @@
 #define RELAY_EN_PIN	33 //digital out for relay enable pin
 
 //DIGITAL IN 
-#define ONOFF_STATE_PIN	34 //digital in for on/off buttun state (diode between onoff and this)	
+#define ONOFF_STATE_PIN	34 //digital in for on/off buttun state (diode between onoff and this) //this has to become 36
 
 //.............................CONSTANTS & FACTORS.............................
 //TIMES
