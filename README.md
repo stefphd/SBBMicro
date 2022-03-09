@@ -94,4 +94,5 @@ To enter in MTP mode, it is sufficient to keep the on/off button pressed for at 
 
 ## TODO list
 
+* HW mod: Use pin 36 instead of 34 for on/off button state, in order to make the Serial8 available
 * Make using user-defined C functions in Simulink working when compiling
