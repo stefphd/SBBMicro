@@ -24,6 +24,10 @@
 */
 
 #include "sbus.h"  // NOLINT
+
+#ifdef SL_MOD //for Arduino environment only
+#include <Arduino.h>
+#else
 #if defined(ARDUINO)
 #include <Arduino.h>
 #else
@@ -33,8 +37,11 @@
 #include <cstdint>
 #include <cmath>
 #include <array>
+#endif
 
+#ifndef SL_MOD
 namespace bfs {
+#endif
 
 #if defined(ESP32)
 void SbusRx::Begin(const int8_t rxpin, const int8_t txpin) {
@@ -43,6 +50,7 @@ void SbusRx::Begin() {
 #endif
   /* Start the bus */
   /* Teensy 3.0 || Teensy 3.1/3.2 */
+  #ifndef SL_MOD
   #if defined(__MK20DX128__) || defined(__MK20DX256__)
     uart_->begin(BAUD_, SERIAL_8E1_RXINV_TXINV);
   /*
@@ -64,6 +72,9 @@ void SbusRx::Begin() {
   /* Everything else, with a hardware inverter */
   #else
     uart_->begin(BAUD_, SERIAL_8E2);
+  #endif
+  #else //SL use teensy 4.1 always
+  uart_->begin(BAUD_, SERIAL_8E2_RXINV_TXINV);
   #endif
   /* flush the bus */
   uart_->flush();
@@ -158,6 +169,7 @@ namespace {
 }  // namespace
 #endif
 
+#ifndef SL_MOD //SL skip SbusTx
 #if defined(ESP32)
 void SbusTx::Begin(const int8_t rxpin, const int8_t txpin) {
 #else
@@ -231,5 +243,8 @@ void SbusTx::Write() {
   uart_->write(buf_, sizeof(buf_));
   #endif
 }
+#endif
 
+#ifndef SL_MOD
 }  // namespace bfs
+#endif

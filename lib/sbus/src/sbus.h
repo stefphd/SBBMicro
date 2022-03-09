@@ -26,6 +26,11 @@
 #ifndef SRC_SBUS_H_
 #define SRC_SBUS_H_
 
+#define SL_MOD //SL modifications
+
+#ifdef SL_MOD //for Arduino environment only
+#include <Arduino.h>
+#else
 #if defined(ARDUINO)
 #include <Arduino.h>
 #else
@@ -35,8 +40,11 @@
 #include <cstdint>
 #include <cmath>
 #include <array>
+#endif
 
+#ifndef SL_MOD
 namespace bfs {
+#endif
 
 class SbusRx {
  private:
@@ -62,7 +70,11 @@ class SbusRx {
   uint8_t buf_[BUF_LEN_];
   /* Data */
   bool new_data_;
+  #ifdef SL_MOD //SL use standard array instead of std::array
+  int16_t ch_[NUM_SBUS_CH_];
+  #else
   std::array<int16_t, NUM_SBUS_CH_> ch_;
+  #endif
   bool failsafe_ = false, lost_frame_ = false, ch17_ = false, ch18_ = false;
   bool Parse();
 
@@ -75,13 +87,18 @@ class SbusRx {
   #endif
   bool Read();
   static constexpr int8_t NUM_CH() {return NUM_SBUS_CH_;}
+  #ifdef SL_MOD
+  inline int16_t* ch() {return ch_;}
+  #else
   inline std::array<int16_t, NUM_SBUS_CH_> ch() const {return ch_;}
+  #endif
   inline bool failsafe() const {return failsafe_;}
   inline bool lost_frame() const {return lost_frame_;}
   inline bool ch17() const {return ch17_;}
   inline bool ch18() const {return ch18_;}
 };
 
+#ifndef SL_MOD //SL skip SbusTx
 class SbusTx {
  private:
   /* Communication */
@@ -123,7 +140,10 @@ class SbusTx {
   inline bool ch17() const {return ch17_;}
   inline bool ch18() const {return ch18_;}
 };
+#endif
 
+#ifndef SL_MOD
 }  // namespace bfs
+#endif
 
 #endif  // SRC_SBUS_H_
