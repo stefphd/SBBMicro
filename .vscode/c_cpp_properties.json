@@ -6,22 +6,7 @@
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/src",
                 "${workspaceFolder}/hardware/teensy/avr/cores/teensy4/**",
-                "${workspaceFolder}/lib",
-                "${workspaceFolder}/lib/SPI",
-                "${workspaceFolder}/lib/Wire",
-                "${workspaceFolder}/lib/Time",
-                "${workspaceFolder}/lib/ADC",
-                "${workspaceFolder}/lib/SD/src",
-                "${workspaceFolder}/lib/SdFat/src",
-                "${workspaceFolder}/lib/T4_PowerButton-master",
-                "${workspaceFolder}/lib/Adafruit_GPS_Library/src",
-                "${workspaceFolder}/lib/Arduino-MCP492X-master",
-                "${workspaceFolder}/lib/controlModel/src",
-                "${workspaceFolder}/lib/HostPort",
-                "${workspaceFolder}/lib/ISM330DHCX-main/src",
-                "${workspaceFolder}/lib/LIS3MDL-main/src",
-                "${workspaceFolder}/lib/MTP_t4/src",
-                "${workspaceFolder}/lib/SerialTransfer/src"
+                "${workspaceFolder}/lib/**"
             ]
         }
     ],
