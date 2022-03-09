@@ -17,6 +17,7 @@ void turnoff_callback(void);
 boolean check_voltage(void);
 time_t getTime();
 void do_led();
+void serial_flush();
 
 //prototypes for logger.h
 void start_logger(void);

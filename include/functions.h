@@ -307,4 +307,9 @@ void do_led() {
 	else counters.LED--;  
 }
 
+void serial_flush(void) {
+	UART_SPEEDSENS.flush();
+	UART_GPS.flush();
+}
+
 #endif
