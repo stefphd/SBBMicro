@@ -8,4 +8,7 @@ lib/*/docs
 lib/*/.github
 lib/*/.git
 lib/*/*.html
+lib/*/.gitignore
+lib/*/*.yml
+lib/*/CMakeLists.txt
 *.png
