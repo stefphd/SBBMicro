@@ -17,6 +17,7 @@
 #include <SD.h> //for saving in SD, includes SDFat
 #include <RingBuf.h> //ring buffer for logging
 #include <MTP.h> //for media transfer protocol with pc (already included when installing teensyduino)
+#include <sbus.h> //for SBUS communication protocol with remote controller https://github.com/bolderflight/SBUS - modified by SL (simplifications)
 #include <HostPort.h> //for debug operations
 #include <controlModel.h> //include control model librariy (generated with the Embedeed coder)
 
