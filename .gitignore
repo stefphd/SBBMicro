@@ -6,5 +6,6 @@ lib/*/examples
 lib/*/extras
 lib/*/docs
 lib/*/.github
+lib/*/.git
 lib/*/*.html
 *.png
