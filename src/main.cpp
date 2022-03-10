@@ -13,8 +13,8 @@
  * 
  */
 
-#ifndef __MAIN_CPP__
-#define __MAIN_CPP__ //main define
+#ifndef __SBBMICRO_MAIN_CPP__
+#define __SBBMICRO_MAIN_CPP__ //main define
 
 //include
 #include <include.h>

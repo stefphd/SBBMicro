@@ -18,7 +18,7 @@
 #define BAUD_GPS_DEF	9600 //default baudrate of GPS sensor (for init only)
 #define BAUD_GPS		57600 //actual baudrate of GPS sensor
 #define GPS_EXTBUFSIZE	128 //extra buffer size for GPS sensor serial
-//#define UART_SBUS		Serial8 //used UART for SBUS communication
+//#define UART_SBUS		Serial8 //used UART for SBUS communication TODO sbus
 
 //ADC
 #define ADC_RES			12 //adc resolution (bits)

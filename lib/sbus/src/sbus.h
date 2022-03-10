@@ -88,7 +88,7 @@ class SbusRx {
   bool Read();
   static constexpr int8_t NUM_CH() {return NUM_SBUS_CH_;}
   #ifdef SL_MOD
-  inline int16_t* ch() {return ch_;}
+  inline int16_t ch(size_t ch) {return ch_[ch];}
   #else
   inline std::array<int16_t, NUM_SBUS_CH_> ch() const {return ch_;}
   #endif

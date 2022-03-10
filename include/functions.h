@@ -30,6 +30,8 @@ void start_IObus(void) {
 	gps.sendCommand(PMTK_SET_BAUD_57600), delay(66);
 	UART_GPS.end(), delay(66);
 	UART_GPS.begin(BAUD_GPS);*/
+	//start sbus
+	//sbus.Begin(); //TODO sbus
 }
 
 /*
@@ -175,6 +177,15 @@ void get_sensors(void) {
 	steer_raw.steerVel = analogRead(STEER_SPEED);
 	voltage_raw.batVolt = analogRead(VOLTAGE);
 	forkDisp_raw.forkDisp = analogRead(FORK_DISP);
+
+	//sbus TODO
+	/*
+	if (sbus.Read()) {
+		remote_ctrl.ch0 = sbus_rx.ch(0);
+		remote_ctrl.ch1 = sbus_rx.ch(1);
+		blabla other channels for enable brake etc...
+	}
+	*/
 }
 
 /*
@@ -216,7 +227,11 @@ void do_control(void) {
 	ctrl.controlModel_U.voltage = CONVERT_VOLTAGE_TO_V(float(voltage_raw.batVolt)) - voltage_raw.batVolt_offset;
 	//CPU temp
 	ctrl.controlModel_U.CPUTemp = tempmonGetTemp();
-
+	//set remote control (2 channels) sbus TODO
+	/*
+	ctrl.controlModel_U.ch0 = CONVERT_CH0_FOR_CONTROL(remote_ctrl.ch0);
+	ctrl.controlModel_U.ch1 = CONVERT_CH1_FOR_CONTROL(remote_ctrl.ch1);
+	*/
 	//update control
 	ctrl.update();
 }
@@ -308,8 +323,9 @@ void do_led() {
 }
 
 void serial_flush(void) {
-	UART_SPEEDSENS.flush();
-	UART_GPS.flush();
+	UART_SPEEDSENS.flush(); //speed sensor
+	UART_GPS.flush(); //gps
+	//UART_SBUS.flush(); //TODO sbus
 }
 
 #endif

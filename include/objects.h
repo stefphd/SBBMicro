@@ -86,5 +86,5 @@ Adafruit_GPS gps(&UART_GPS);
 MCP492X dac(&USED_SPI, SPISPEED_DAC, CS_DAC); //dac object
 ControlClass ctrl; //control loop object
 SerialTransfer speedSensor; //SerialTransfer object for speed sensor
-
+//SbusRx sbus(&UART_SBUS); //TODO sbus object for remote controller
 #endif
