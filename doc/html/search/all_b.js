@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['macros_0',['Macros',['../group__macros.html',1,'']]],
+  ['mag_1',['mag',['../structCounter__T.html#a2b398c6db6fc73798d7b6458015992ca',1,'Counter_T']]],
+  ['mag_5fodr_2',['MAG_ODR',['../group__constants.html#gaa42914727c0f5c56229dc8eb631194c0',1,'config.h']]],
+  ['mag_5frotmat_3',['mag_rotMat',['../group__userparams.html#gaf9442460cbb06c83036b0cfa19d20658',1,'config.h']]],
+  ['mag_5fsampling_5ffac_4',['MAG_SAMPLING_FAC',['../group__constants.html#gaf19c6364be453c53d924c78bdb8e8262',1,'config.h']]],
+  ['mag_5fscale_5',['MAG_SCALE',['../group__constants.html#gaf91ea782523c15cb13ede694b43d1510',1,'config.h']]],
+  ['mags_5fmg_6',['mags_mG',['../structImuData__T.html#aa88ed4bded43f44ad6c7e81e8b4e3b88',1,'ImuData_T']]],
+  ['main_2ecpp_7',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['mask_5fhostport_8',['MASK_HOSTPORT',['../HostPort_8h.html#a951a71dd4f08f0af0f94eabde6c0ad4d',1,'HostPort.h']]],
+  ['max_5fmissing_5freads_9',['MAX_MISSING_READS',['../debug_8h.html#a500dfb43922edb8ed31db903d2ea8b13',1,'debug.h']]],
+  ['max_5fobjs_10',['MAX_OBJS',['../HostPort_8h.html#aa7ce2f282677bf5f1411827270958fe2',1,'HostPort.h']]],
+  ['max_5frefcur_11',['MAX_REFCUR',['../group__constants.html#ga0e54cc12bd9c8f03814eb80cad6d31a7',1,'config.h']]],
+  ['max_5frefthrottle_12',['MAX_REFTHROTTLE',['../group__constants.html#ga1418d6ad5d86af50ca218dc7fdcef881',1,'config.h']]],
+  ['max_5fvoltage_13',['MAX_VOLTAGE',['../group__constants.html#ga0637861f9419cef73e2e7e6210280e4e',1,'config.h']]],
+  ['min_5fvoltage_14',['MIN_VOLTAGE',['../group__constants.html#ga34badbf9acae6cc5c2eed2ab51b32d30',1,'config.h']]],
+  ['missing_5freads_15',['missing_reads',['../debug_8h.html#a0eec55d220ee92bd8aba66e434794fd3',1,'debug.h']]],
+  ['mtp_16',['MTP',['../namespaceLedMode.html#a29705e031e56f6a3030dc158c68f8ab9',1,'LedMode']]],
+  ['mtp_5fenable_5ftimeout_17',['MTP_ENABLE_TIMEOUT',['../sbbmtp_8h.html#af445ce0f5e2ca9ea7ece908baf75640e',1,'sbbmtp.h']]],
+  ['mtp_5fled_18',['MTP_LED',['../group__constants.html#ga78e83fa846657dc71872e35d38cd431a',1,'config.h']]],
+  ['mtr_5fctrl_5fmode_19',['MTR_CTRL_MODE',['../group__userparams.html#gaab127c827040328f9b72d0e28500bf4a',1,'config.h']]],
+  ['mtr_5fdir_5fpin_20',['MTR_DIR_PIN',['../group__pin.html#ga7d4b45a38e113d8ba0f7e526ba7e442f',1,'config.h']]],
+  ['mtr_5fen_5fpin_21',['MTR_EN_PIN',['../group__pin.html#gae06560422f3f0cc3c1943535ceee06d3',1,'config.h']]],
+  ['mtr_5fen_5fstate_22',['MTR_EN_STATE',['../group__macros.html#ga6f33722d82d0c0c925fa286cf9dfd29e',1,'config.h']]],
+  ['mtr_5fenable_23',['MTR_ENABLE',['../group__macros.html#ga800de20d77a39e8a2a62555ce28c71a5',1,'config.h']]]
+];

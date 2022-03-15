@@ -22,7 +22,7 @@ include implementations - workaround: put in .h file instead of .cpp (which does
 */
 #include <logger.h>     //include logger functions
 #include <sbbmtp.h>     //include mtp functions
-#include <functions.h>  //include user-defined functions
+#include <userfun.h>    //include user-defined functions
 #include <debug.h>      //include debug functions
 
 #endif
