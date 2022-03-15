@@ -1,5 +1,6 @@
 .build
 .cache
+/doc/latex
 lib/controlModel/controlModel_ert_rtw
 lib/controlModel/slprj
 lib/*/examples
