@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('config_8h.html',''); initResizable(); 
 </div><!--header-->
 <div class="contents">
 
-<p>A configuration file for the source code.  
+<p>General configurations for the source code.  
 <a href="#details">More...</a></p>
 
 <p><a href="config_8h_source.html">Go to the source code of this file.</a></p>
@@ -111,13 +111,13 @@ Macros</h2></td></tr>
 <tr class="memdesc:ga175e9f39223b6eedc734418340c87c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used SPI for sensor IO bus.  <a href="group__bus.html#ga175e9f39223b6eedc734418340c87c13">More...</a><br /></td></tr>
 <tr class="separator:ga175e9f39223b6eedc734418340c87c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5a1c5191e0768008bc1952bca226272e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__bus.html#ga5a1c5191e0768008bc1952bca226272e">SPISPEED_IMU</a>&#160;&#160;&#160;10e6</td></tr>
-<tr class="memdesc:ga5a1c5191e0768008bc1952bca226272e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed of IMU SPI, max is 10e6.  <a href="group__bus.html#ga5a1c5191e0768008bc1952bca226272e">More...</a><br /></td></tr>
+<tr class="memdesc:ga5a1c5191e0768008bc1952bca226272e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSpeed.html" title="Speed raw data.">Speed</a> of IMU SPI, max is 10e6.  <a href="group__bus.html#ga5a1c5191e0768008bc1952bca226272e">More...</a><br /></td></tr>
 <tr class="separator:ga5a1c5191e0768008bc1952bca226272e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabaf70520c44044e406b85a4f3a26509e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__bus.html#gabaf70520c44044e406b85a4f3a26509e">SPISPEED_MAG</a>&#160;&#160;&#160;10e6</td></tr>
-<tr class="memdesc:gabaf70520c44044e406b85a4f3a26509e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed of MAG SPI, max is 10e6.  <a href="group__bus.html#gabaf70520c44044e406b85a4f3a26509e">More...</a><br /></td></tr>
+<tr class="memdesc:gabaf70520c44044e406b85a4f3a26509e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSpeed.html" title="Speed raw data.">Speed</a> of MAG SPI, max is 10e6.  <a href="group__bus.html#gabaf70520c44044e406b85a4f3a26509e">More...</a><br /></td></tr>
 <tr class="separator:gabaf70520c44044e406b85a4f3a26509e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7d343ef88fe32834cf09d9acd41a2b48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__bus.html#ga7d343ef88fe32834cf09d9acd41a2b48">SPISPEED_DAC</a>&#160;&#160;&#160;10e6</td></tr>
-<tr class="memdesc:ga7d343ef88fe32834cf09d9acd41a2b48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed of MAG SPI, max is 20e6.  <a href="group__bus.html#ga7d343ef88fe32834cf09d9acd41a2b48">More...</a><br /></td></tr>
+<tr class="memdesc:ga7d343ef88fe32834cf09d9acd41a2b48"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSpeed.html" title="Speed raw data.">Speed</a> of MAG SPI, max is 20e6.  <a href="group__bus.html#ga7d343ef88fe32834cf09d9acd41a2b48">More...</a><br /></td></tr>
 <tr class="separator:ga7d343ef88fe32834cf09d9acd41a2b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga02867a687d1d1e1e993c7302e5b33da4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__bus.html#ga02867a687d1d1e1e993c7302e5b33da4">UART_SPEEDSENS</a>&#160;&#160;&#160;Serial7</td></tr>
 <tr class="memdesc:ga02867a687d1d1e1e993c7302e5b33da4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used UART for speed sensor bus.  <a href="group__bus.html#ga02867a687d1d1e1e993c7302e5b33da4">More...</a><br /></td></tr>
@@ -174,22 +174,22 @@ Macros</h2></td></tr>
 <tr class="memdesc:ga2ddc36d42271305a713cba8e377a26cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chip select pin of DAC.  <a href="group__pin.html#ga2ddc36d42271305a713cba8e377a26cc">More...</a><br /></td></tr>
 <tr class="separator:ga2ddc36d42271305a713cba8e377a26cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad33d8242119f64a4afd8e0525ffbaa17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pin.html#gad33d8242119f64a4afd8e0525ffbaa17">STEER_POS</a>&#160;&#160;&#160;A16</td></tr>
-<tr class="memdesc:gad33d8242119f64a4afd8e0525ffbaa17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steer position analog in.  <a href="group__pin.html#gad33d8242119f64a4afd8e0525ffbaa17">More...</a><br /></td></tr>
+<tr class="memdesc:gad33d8242119f64a4afd8e0525ffbaa17"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSteer.html" title="Steering raw data.">Steer</a> position analog input pin.  <a href="group__pin.html#gad33d8242119f64a4afd8e0525ffbaa17">More...</a><br /></td></tr>
 <tr class="separator:gad33d8242119f64a4afd8e0525ffbaa17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5efa9432b982a6616f35abd1768f7e52"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pin.html#ga5efa9432b982a6616f35abd1768f7e52">STEER_SPEED</a>&#160;&#160;&#160;A0</td></tr>
-<tr class="memdesc:ga5efa9432b982a6616f35abd1768f7e52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steer speed analog in.  <a href="group__pin.html#ga5efa9432b982a6616f35abd1768f7e52">More...</a><br /></td></tr>
+<tr class="memdesc:ga5efa9432b982a6616f35abd1768f7e52"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSteer.html" title="Steering raw data.">Steer</a> speed analog input pin.  <a href="group__pin.html#ga5efa9432b982a6616f35abd1768f7e52">More...</a><br /></td></tr>
 <tr class="separator:ga5efa9432b982a6616f35abd1768f7e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2b4b8f9fd72533da4240bc35a55204bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pin.html#ga2b4b8f9fd72533da4240bc35a55204bd">ACT_CURR</a>&#160;&#160;&#160;A1</td></tr>
-<tr class="memdesc:ga2b4b8f9fd72533da4240bc35a55204bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual current analog in.  <a href="group__pin.html#ga2b4b8f9fd72533da4240bc35a55204bd">More...</a><br /></td></tr>
+<tr class="memdesc:ga2b4b8f9fd72533da4240bc35a55204bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual current analog input pin.  <a href="group__pin.html#ga2b4b8f9fd72533da4240bc35a55204bd">More...</a><br /></td></tr>
 <tr class="separator:ga2b4b8f9fd72533da4240bc35a55204bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1972e102d147b0783e4ce14aaa8b2066"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pin.html#ga1972e102d147b0783e4ce14aaa8b2066">RIDER_TRQ</a>&#160;&#160;&#160;A17</td></tr>
-<tr class="memdesc:ga1972e102d147b0783e4ce14aaa8b2066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rider torque analog in.  <a href="group__pin.html#ga1972e102d147b0783e4ce14aaa8b2066">More...</a><br /></td></tr>
+<tr class="memdesc:ga1972e102d147b0783e4ce14aaa8b2066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rider torque analog input pin.  <a href="group__pin.html#ga1972e102d147b0783e4ce14aaa8b2066">More...</a><br /></td></tr>
 <tr class="separator:ga1972e102d147b0783e4ce14aaa8b2066"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga95f77a4b46f8270143622e8f7de8faa7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pin.html#ga95f77a4b46f8270143622e8f7de8faa7">VOLTAGE</a>&#160;&#160;&#160;A15</td></tr>
-<tr class="memdesc:ga95f77a4b46f8270143622e8f7de8faa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Battery voltage.  <a href="group__pin.html#ga95f77a4b46f8270143622e8f7de8faa7">More...</a><br /></td></tr>
+<tr class="memdesc:ga95f77a4b46f8270143622e8f7de8faa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Battery voltage analog input pin.  <a href="group__pin.html#ga95f77a4b46f8270143622e8f7de8faa7">More...</a><br /></td></tr>
 <tr class="separator:ga95f77a4b46f8270143622e8f7de8faa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga43b52247e3fe06a477e44548566b315d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pin.html#ga43b52247e3fe06a477e44548566b315d">FORK_DISP</a>&#160;&#160;&#160;A14</td></tr>
-<tr class="memdesc:ga43b52247e3fe06a477e44548566b315d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Front fork displacement.  <a href="group__pin.html#ga43b52247e3fe06a477e44548566b315d">More...</a><br /></td></tr>
+<tr class="memdesc:ga43b52247e3fe06a477e44548566b315d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Front fork displacement analog input pin.  <a href="group__pin.html#ga43b52247e3fe06a477e44548566b315d">More...</a><br /></td></tr>
 <tr class="separator:ga43b52247e3fe06a477e44548566b315d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf5a48adc9d939102a42f2829b7a1b8ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pin.html#gaf5a48adc9d939102a42f2829b7a1b8ac">PWM_PIN</a>&#160;&#160;&#160;18</td></tr>
 <tr class="memdesc:gaf5a48adc9d939102a42f2829b7a1b8ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM pin for motor current reference.  <a href="group__pin.html#gaf5a48adc9d939102a42f2829b7a1b8ac">More...</a><br /></td></tr>
@@ -240,7 +240,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:gaa42914727c0f5c56229dc8eb631194c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output data rate of magnetometer (sps).  <a href="group__constants.html#gaa42914727c0f5c56229dc8eb631194c0">More...</a><br /></td></tr>
 <tr class="separator:gaa42914727c0f5c56229dc8eb631194c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf0048c7001abe7c261bb3f45d64dd281"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__constants.html#gaf0048c7001abe7c261bb3f45d64dd281">SPEED_SCALE</a>&#160;&#160;&#160;1.0e-3F</td></tr>
-<tr class="memdesc:gaf0048c7001abe7c261bb3f45d64dd281"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed scale.  <a href="group__constants.html#gaf0048c7001abe7c261bb3f45d64dd281">More...</a><br /></td></tr>
+<tr class="memdesc:gaf0048c7001abe7c261bb3f45d64dd281"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSpeed.html" title="Speed raw data.">Speed</a> scale.  <a href="group__constants.html#gaf0048c7001abe7c261bb3f45d64dd281">More...</a><br /></td></tr>
 <tr class="separator:gaf0048c7001abe7c261bb3f45d64dd281"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7769876a0046c44037b4c76478f304de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__constants.html#ga7769876a0046c44037b4c76478f304de">DIST_SCALE</a>&#160;&#160;&#160;0.25F</td></tr>
 <tr class="memdesc:ga7769876a0046c44037b4c76478f304de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance scale.  <a href="group__constants.html#ga7769876a0046c44037b4c76478f304de">More...</a><br /></td></tr>
@@ -375,13 +375,13 @@ Macros</h2></td></tr>
 <tr class="memdesc:gaf1343cba3fa95d5715b27fa9404da2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Samples used to perform the zero of sensors.  <a href="group__userparams.html#gaf1343cba3fa95d5715b27fa9404da2bd">More...</a><br /></td></tr>
 <tr class="separator:gaf1343cba3fa95d5715b27fa9404da2bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8395bd4f9136d83d19f90e0a1790f619"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userparams.html#ga8395bd4f9136d83d19f90e0a1790f619">STEERVEL_RATIO</a>&#160;&#160;&#160;(controlParams.beltRatio*controlParams.gearRatio)</td></tr>
-<tr class="memdesc:ga8395bd4f9136d83d19f90e0a1790f619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed ratio of steer velocity.  <a href="group__userparams.html#ga8395bd4f9136d83d19f90e0a1790f619">More...</a><br /></td></tr>
+<tr class="memdesc:ga8395bd4f9136d83d19f90e0a1790f619"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSpeed.html" title="Speed raw data.">Speed</a> ratio of steer velocity.  <a href="group__userparams.html#ga8395bd4f9136d83d19f90e0a1790f619">More...</a><br /></td></tr>
 <tr class="separator:ga8395bd4f9136d83d19f90e0a1790f619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2635709fc71b4c669dce3234d4d378ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userparams.html#ga2635709fc71b4c669dce3234d4d378ff">FULLEXT_FORKDISP</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memdesc:ga2635709fc71b4c669dce3234d4d378ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fork displacement at full extended suspension (in mm).  <a href="group__userparams.html#ga2635709fc71b4c669dce3234d4d378ff">More...</a><br /></td></tr>
 <tr class="separator:ga2635709fc71b4c669dce3234d4d378ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1ada7fd1f94ea9dae26b2767bf35d3ee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userparams.html#ga1ada7fd1f94ea9dae26b2767bf35d3ee">NAN_VAL</a>&#160;&#160;&#160;0xFFC00000</td></tr>
-<tr class="memdesc:ga1ada7fd1f94ea9dae26b2767bf35d3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">NaN value used to fill invalid data in the log file.  <a href="group__userparams.html#ga1ada7fd1f94ea9dae26b2767bf35d3ee">More...</a><br /></td></tr>
+<tr class="memdesc:ga1ada7fd1f94ea9dae26b2767bf35d3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">NaN value used for invalid data.  <a href="group__userparams.html#ga1ada7fd1f94ea9dae26b2767bf35d3ee">More...</a><br /></td></tr>
 <tr class="separator:ga1ada7fd1f94ea9dae26b2767bf35d3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaec13acb5dce7cb97bcff20113fac24b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>&#160;&#160;&#160;1.3426</td></tr>
 <tr class="memdesc:gaec13acb5dce7cb97bcff20113fac24b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pitch iinclination of MCU box (in rad).  <a href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">More...</a><br /></td></tr>
@@ -397,10 +397,9 @@ Variables</h2></td></tr>
 <tr class="separator:gaf9442460cbb06c83036b0cfa19d20658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >A configuration file for the source code. </p>
+<div class="textblock"><p >General configurations for the source code. </p>
 <p >Configuration file with defines and macros for the source code of the SBB Micro code. This includes PIN definitions, BUS settings, DAC settings, definitions of constants and factors, conversions of raw data, and other user-defined parameters. </p><dl class="section note"><dt>Note</dt><dd>Building is necessary for changes to take effect. </dd></dl>
-<dl class="section author"><dt>Author</dt><dd>Stefano Lovato </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2022 </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__config.html" title="Settings, defines and macros.">Configurations</a> <a class="el" href="group__bus.html" title="Settings for the buses.">Bus settings</a> <a class="el" href="group__pin.html" title="Settings for the pins.">Pin settings</a> <a class="el" href="group__constants.html" title="Constant and factor definitions.">Constants</a> <a class="el" href="group__macros.html" title="Macro definitions.">Macros</a> <a class="el" href="group__userparams.html" title="User-defined parameters.">User paramters</a> </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

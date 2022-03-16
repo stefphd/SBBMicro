@@ -1,23 +1,36 @@
-//debug file
-//written by SL
 
 #ifndef __DEBUG_H_
 #define __DEBUG_H_
 
-#define DODEBUG //enable debug
-
-#ifdef DODEBUG
+/*! \file debug.h
+	\brief Definitions of debug functions and variables.
+	\details File to defined the debug functions and variables. Function prototypes are in prototypes.h.
+	\see debfun prototypes.h
+*/
 
 //defines
-#define HEADER				      0xFF812345 //start byte of data transfer - ovf in float (not used)
-#define TERMINATOR			    0xFF8CABDE //stop byte of data transfer - ovf in float (not used)
-#define DEBUG_SAMPLING_FAC	2 //sampling factor of speed sensor (expressed in units of SAMPLING_TIME)
-#define MAX_MISSING_READS   50 //max consecutive missing reads
+#define DODEBUG             1 //!< Enable or disable debugging (1/0). \ingroup debfun
+#define HEADER				      0xFF812345 //!< 4-bytes header of data packet. \details Current selected value is an ovf in float, and thus it is safe. \see HostPort \ingroup debfun
+#define TERMINATOR			    0xFF8CABDE //!< 4-bytes terminator of data packet. \details Current selected value is an ovf in float, and thus it is safe. \see HostPort \ingroup debfun
+#define DEBUG_SAMPLING_FAC	2 //!< Sampling factor of data streaming (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME \ingroup debfun
+#define MAX_MISSING_READS   50 //!< Maximum consecutive missing readings. \details The maximum consecutive missing readings after which the overriding with received signals is disabled. \ingroup debfun
+
+#if DODEBUG == 1
 
 //variables and objects
-HostPort debug_port(&Serial, HEADER, TERMINATOR); //tx/rx object for communication with host pc
-debut_rx_T rx_packet; //rx object
-unsigned long missing_reads = MAX_MISSING_READS; // counts missing read
+HostPort hostPort(&Serial, HEADER, TERMINATOR); //!< Object for the host communication with PC vis USB/serial. \see HostPort \ingroup debfun
+
+/*! \brief Receive struct for debug.
+	  \details The struct contains the received signals which overrides the corresponding signals in ctrl.controlModel_Y.
+    \see debfun debug.h rx_packet
+    \ingroup debfun
+*/
+struct Debug_rx {
+	float curr_ref; //!< Reference current.
+	float throttle_ref; //!< Reference throttle.
+} rx_packet; //!< Struct with received signals. \see Debug_rx \ingroup debfun
+
+unsigned long missing_reads = MAX_MISSING_READS; //!< Counter for missing readings. \details Initial value is set to #MAX_MISSING_READS. \see MAX_MISSING_READS \ingroup debfun
 
 //functions
 /*
@@ -26,12 +39,13 @@ void start_debug(void) waits for the usb serial for debugging
 void start_debug(void) {
 	//Serial.begin(12e6) //not necessary with teensy
 	//attach pointers (i.e. RAM address of first byte) of objects to transmit and corresponding size
-	debug_port.attachTx((uint8_t*) &ctrl.controlModel_U, sizeof(ControlClass::ExtU_controlModel_T)); //control input
-	debug_port.attachTx((uint8_t*) &ctrl.controlModel_Y, sizeof(ControlClass::ExtY_controlModel_T)); //control output
+	hostPort.attachTx((uint8_t*) &ctrl.controlModel_U, sizeof(ControlClass::ExtU_controlModel_T)); //control input
+	hostPort.attachTx((uint8_t*) &ctrl.controlModel_Y, sizeof(ControlClass::ExtY_controlModel_T)); //control output
 
 	//attach pointers (i.e. RAM address of first byte) of objects to receive and corresponding size
-	debug_port.attachRx((uint8_t*) &rx_packet, sizeof(rx_packet)); //receive rx_packet
+	hostPort.attachRx((uint8_t*) &rx_packet, sizeof(rx_packet)); //receive rx_packet
 
+  //init rx_packet with NaNs
   rx_packet.curr_ref = *((float*) &nanVal);
   rx_packet.throttle_ref = *((float*) &nanVal);
 }
@@ -42,7 +56,7 @@ void do_debug(void) performs debug stuff
 void do_debug(void) {
     
     //this is done in the main loop
-    if (missing_reads<MAX_MISSING_READS) { //read the last receive packet util missing_reads<MAX_MISSING_READS
+    if (missing_reads<MAX_MISSING_READS) { //set the last receive packet until missing_reads<MAX_MISSING_READS and if not NaN
       if (*((uint32_t*)&rx_packet.curr_ref) != nanVal) ctrl.controlModel_Y.curr_ref = rx_packet.curr_ref;
       if (*((uint32_t*)&rx_packet.throttle_ref) != nanVal) ctrl.controlModel_Y.throttle_ref = rx_packet.throttle_ref;
     }
@@ -67,8 +81,8 @@ void do_debug(void) {
 
 			//write and read
 			uint32_t streamStartTime = micros();
-			debug_port.write(); //write data to debug port - send control input, output and additional user data
-      if (debug_port.read()) missing_reads = 0; //read from debug port - overwrite control output structure)
+			hostPort.write(); //write data to debug port - send control input, output and additional user data
+      if (hostPort.read()) missing_reads = 0; //read from debug port - overwrite control output structure)
       else { if (missing_reads<MAX_MISSING_READS) missing_reads++;} //increase missing reads (up to MAX_MISSING_READS);
 			timing.dt_debug = micros() - streamStartTime;
 

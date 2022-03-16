@@ -35,6 +35,7 @@ var NAVTREE =
       [ "Known issues", "index.html#autotoc_md7", null ],
       [ "TODO list", "index.html#autotoc_md8", null ]
     ] ],
+    [ "Todo List", "todo.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -67,7 +68,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "HostPort_8cpp.html",
-"objects_8h.html#af73dd5440556adb22dd71c309c8931b7"
+"namespaceLedMode.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

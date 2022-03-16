@@ -100,137 +100,36 @@ $(document).ready(function(){initNavTree('sbbmtp_8h.html',''); initResizable(); 
 </div><!--header-->
 <div class="contents">
 
+<p>Definitions of MTP functions and variables.  
+<a href="#details">More...</a></p>
+
 <p><a href="sbbmtp_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a455570e267db160d4af364f69bd9a4a9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sbbmtp_8h.html#a455570e267db160d4af364f69bd9a4a9">DOMTP</a></td></tr>
-<tr class="separator:a455570e267db160d4af364f69bd9a4a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35aa94d6bb18bf8dffccefd6813c2121"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sbbmtp_8h.html#a35aa94d6bb18bf8dffccefd6813c2121">STORAGENAME</a>&#160;&#160;&#160;&quot;SBB Logger&quot;</td></tr>
-<tr class="separator:a35aa94d6bb18bf8dffccefd6813c2121"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af445ce0f5e2ca9ea7ece908baf75640e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sbbmtp_8h.html#af445ce0f5e2ca9ea7ece908baf75640e">MTP_ENABLE_TIMEOUT</a>&#160;&#160;&#160;3000</td></tr>
-<tr class="separator:af445ce0f5e2ca9ea7ece908baf75640e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6a69f686cea87b52058a57a904a33e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sbbmtp_8h.html#aa6a69f686cea87b52058a57a904a33e7">sd</a>&#160;&#160;&#160;SD.sdfs</td></tr>
-<tr class="separator:aa6a69f686cea87b52058a57a904a33e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0584f45d96c62d7d203d272b99af6fa1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sbbmtp_8h.html#a0584f45d96c62d7d203d272b99af6fa1">SD_CONFIG</a>&#160;&#160;&#160;SdioConfig(FIFO_SDIO)</td></tr>
-<tr class="separator:a0584f45d96c62d7d203d272b99af6fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga455570e267db160d4af364f69bd9a4a9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mtpfun.html#ga455570e267db160d4af364f69bd9a4a9">DOMTP</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:ga455570e267db160d4af364f69bd9a4a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable MTP (1/0).  <a href="group__mtpfun.html#ga455570e267db160d4af364f69bd9a4a9">More...</a><br /></td></tr>
+<tr class="separator:ga455570e267db160d4af364f69bd9a4a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35aa94d6bb18bf8dffccefd6813c2121"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mtpfun.html#ga35aa94d6bb18bf8dffccefd6813c2121">STORAGENAME</a>&#160;&#160;&#160;&quot;SBB Logger&quot;</td></tr>
+<tr class="memdesc:ga35aa94d6bb18bf8dffccefd6813c2121"><td class="mdescLeft">&#160;</td><td class="mdescRight">MTP storage name.  <a href="group__mtpfun.html#ga35aa94d6bb18bf8dffccefd6813c2121">More...</a><br /></td></tr>
+<tr class="separator:ga35aa94d6bb18bf8dffccefd6813c2121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf445ce0f5e2ca9ea7ece908baf75640e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mtpfun.html#gaf445ce0f5e2ca9ea7ece908baf75640e">MTP_ENABLE_TIMEOUT</a>&#160;&#160;&#160;3000</td></tr>
+<tr class="memdesc:gaf445ce0f5e2ca9ea7ece908baf75640e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout for enabling MTP mode (ms).  <a href="group__mtpfun.html#gaf445ce0f5e2ca9ea7ece908baf75640e">More...</a><br /></td></tr>
+<tr class="separator:gaf445ce0f5e2ca9ea7ece908baf75640e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2e72cddd0e416696b31c2d583d0e18b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sbbmtp_8h.html#a2e72cddd0e416696b31c2d583d0e18b0">check_mtp</a> (void)</td></tr>
-<tr class="separator:a2e72cddd0e416696b31c2d583d0e18b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6427f8813eda463f5bd6ca13981f25e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sbbmtp_8h.html#ae6427f8813eda463f5bd6ca13981f25e">do_mtp</a> (void)</td></tr>
-<tr class="separator:ae6427f8813eda463f5bd6ca13981f25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2e72cddd0e416696b31c2d583d0e18b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mtpfun.html#ga2e72cddd0e416696b31c2d583d0e18b0">check_mtp</a> (void)</td></tr>
+<tr class="memdesc:ga2e72cddd0e416696b31c2d583d0e18b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check for MTP mode.  <a href="group__mtpfun.html#ga2e72cddd0e416696b31c2d583d0e18b0">More...</a><br /></td></tr>
+<tr class="separator:ga2e72cddd0e416696b31c2d583d0e18b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae6427f8813eda463f5bd6ca13981f25e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mtpfun.html#gae6427f8813eda463f5bd6ca13981f25e">do_mtp</a> (void)</td></tr>
+<tr class="memdesc:gae6427f8813eda463f5bd6ca13981f25e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run MTP mode.  <a href="group__mtpfun.html#gae6427f8813eda463f5bd6ca13981f25e">More...</a><br /></td></tr>
+<tr class="separator:gae6427f8813eda463f5bd6ca13981f25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a455570e267db160d4af364f69bd9a4a9" name="a455570e267db160d4af364f69bd9a4a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a455570e267db160d4af364f69bd9a4a9">&#9670;&nbsp;</a></span>DOMTP</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DOMTP</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af445ce0f5e2ca9ea7ece908baf75640e" name="af445ce0f5e2ca9ea7ece908baf75640e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af445ce0f5e2ca9ea7ece908baf75640e">&#9670;&nbsp;</a></span>MTP_ENABLE_TIMEOUT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MTP_ENABLE_TIMEOUT&#160;&#160;&#160;3000</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa6a69f686cea87b52058a57a904a33e7" name="aa6a69f686cea87b52058a57a904a33e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6a69f686cea87b52058a57a904a33e7">&#9670;&nbsp;</a></span>sd</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define sd&#160;&#160;&#160;SD.sdfs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0584f45d96c62d7d203d272b99af6fa1" name="a0584f45d96c62d7d203d272b99af6fa1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0584f45d96c62d7d203d272b99af6fa1">&#9670;&nbsp;</a></span>SD_CONFIG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SD_CONFIG&#160;&#160;&#160;SdioConfig(FIFO_SDIO)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a35aa94d6bb18bf8dffccefd6813c2121" name="a35aa94d6bb18bf8dffccefd6813c2121"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35aa94d6bb18bf8dffccefd6813c2121">&#9670;&nbsp;</a></span>STORAGENAME</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define STORAGENAME&#160;&#160;&#160;&quot;SBB Logger&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a2e72cddd0e416696b31c2d583d0e18b0" name="a2e72cddd0e416696b31c2d583d0e18b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e72cddd0e416696b31c2d583d0e18b0">&#9670;&nbsp;</a></span>check_mtp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool check_mtp </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae6427f8813eda463f5bd6ca13981f25e" name="ae6427f8813eda463f5bd6ca13981f25e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6427f8813eda463f5bd6ca13981f25e">&#9670;&nbsp;</a></span>do_mtp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void do_mtp </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Definitions of MTP functions and variables. </p>
+<p >File to defined the MTP functions and variables. Function prototypes are in <a class="el" href="prototypes_8h.html" title="Declaration of prototypes.">prototypes.h</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__mtpfun.html" title="Functions and definitions for MTP mode.">MTP</a> <a class="el" href="prototypes_8h.html" title="Declaration of prototypes.">prototypes.h</a> </dd></dl>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

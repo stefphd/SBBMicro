@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ridertorque_5ft_0',['RiderTorque_T',['../structRiderTorque__T.html',1,'']]]
+  ['ridertorque_0',['RiderTorque',['../structRiderTorque.html',1,'']]]
 ];

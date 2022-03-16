@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SBB Micro: Logger functions</title>
+<title>SBB Micro: Data logging</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -94,27 +94,280 @@ $(document).ready(function(){initNavTree('group__logfun.html',''); initResizable
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Logger functions</div></div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Data logging</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Functions for signal logging.  
+<p>Functions and definitions for signal logging.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespaceLedMode"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceLedMode.html">LedMode</a></td></tr>
+<tr class="memdesc:namespaceLedMode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Led mode constants. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga58400b92b57363e09764906d242f3a97"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga58400b92b57363e09764906d242f3a97">DOLOG</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:ga58400b92b57363e09764906d242f3a97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable logging (1/0).  <a href="group__logfun.html#ga58400b92b57363e09764906d242f3a97">More...</a><br /></td></tr>
+<tr class="separator:ga58400b92b57363e09764906d242f3a97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga63e86ebc3b2725e421905f67f242aebd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga63e86ebc3b2725e421905f67f242aebd">LOG_SAMPLING_FAC</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:ga63e86ebc3b2725e421905f67f242aebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sampling factor of data logging (expressed in units of <a class="el" href="group__constants.html#gafe4be61d10dd9068bae19c0b74dac665" title="Sampling time of the control loop (us).">SAMPLING_TIME</a>).  <a href="group__logfun.html#ga63e86ebc3b2725e421905f67f242aebd">More...</a><br /></td></tr>
+<tr class="separator:ga63e86ebc3b2725e421905f67f242aebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6a69f686cea87b52058a57a904a33e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#gaa6a69f686cea87b52058a57a904a33e7">sd</a>&#160;&#160;&#160;SD.sdfs</td></tr>
+<tr class="memdesc:gaa6a69f686cea87b52058a57a904a33e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">SD fat object (uses sd fat included in SD library).  <a href="group__logfun.html#gaa6a69f686cea87b52058a57a904a33e7">More...</a><br /></td></tr>
+<tr class="separator:gaa6a69f686cea87b52058a57a904a33e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0584f45d96c62d7d203d272b99af6fa1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga0584f45d96c62d7d203d272b99af6fa1">SD_CONFIG</a>&#160;&#160;&#160;SdioConfig(FIFO_SDIO)</td></tr>
+<tr class="memdesc:ga0584f45d96c62d7d203d272b99af6fa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration type of sd card.  <a href="group__logfun.html#ga0584f45d96c62d7d203d272b99af6fa1">More...</a><br /></td></tr>
+<tr class="separator:ga0584f45d96c62d7d203d272b99af6fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9dadacd5ee41d21ea8974d66757983dd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga9dadacd5ee41d21ea8974d66757983dd">PREALLOC</a>&#160;&#160;&#160;1024L*1024L*1024L</td></tr>
+<tr class="memdesc:ga9dadacd5ee41d21ea8974d66757983dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log file preallocation (in bytes).  <a href="group__logfun.html#ga9dadacd5ee41d21ea8974d66757983dd">More...</a><br /></td></tr>
+<tr class="separator:ga9dadacd5ee41d21ea8974d66757983dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6422fc77e66a7c9f359cc0d81b3549d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga6422fc77e66a7c9f359cc0d81b3549d2">DATAPACKET_SIZE</a>&#160;&#160;&#160;sizeof(float)*64</td></tr>
+<tr class="memdesc:ga6422fc77e66a7c9f359cc0d81b3549d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of logged data packet (in bytes).  <a href="group__logfun.html#ga6422fc77e66a7c9f359cc0d81b3549d2">More...</a><br /></td></tr>
+<tr class="separator:ga6422fc77e66a7c9f359cc0d81b3549d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f905678aa4ffbb3eb713cb039dd9053"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga3f905678aa4ffbb3eb713cb039dd9053">RING_BUF_SIZE</a>&#160;&#160;&#160;<a class="el" href="group__logfun.html#ga6422fc77e66a7c9f359cc0d81b3549d2">DATAPACKET_SIZE</a>*10</td></tr>
+<tr class="memdesc:ga3f905678aa4ffbb3eb713cb039dd9053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the ring buffer.  <a href="group__logfun.html#ga3f905678aa4ffbb3eb713cb039dd9053">More...</a><br /></td></tr>
+<tr class="separator:ga3f905678aa4ffbb3eb713cb039dd9053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf53c96323082b86c5740ee588a0aa1d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#gaf53c96323082b86c5740ee588a0aa1d7">SDSECTOR_SIZE</a>&#160;&#160;&#160;512</td></tr>
+<tr class="memdesc:gaf53c96323082b86c5740ee588a0aa1d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the SD sector (in bytes).  <a href="group__logfun.html#gaf53c96323082b86c5740ee588a0aa1d7">More...</a><br /></td></tr>
+<tr class="separator:gaf53c96323082b86c5740ee588a0aa1d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf1986d9291d2530b2bb7629d39c4655"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#gacf1986d9291d2530b2bb7629d39c4655">FILENAME_MAXSIZE</a>&#160;&#160;&#160;32</td></tr>
+<tr class="memdesc:gacf1986d9291d2530b2bb7629d39c4655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max length of the name of the log file.  <a href="group__logfun.html#gacf1986d9291d2530b2bb7629d39c4655">More...</a><br /></td></tr>
+<tr class="separator:gacf1986d9291d2530b2bb7629d39c4655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2fe3e4463239e42fa82b64e539b04ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#gac2fe3e4463239e42fa82b64e539b04ef">FILENAME_FORMAT</a>&#160;&#160;&#160;&quot;log_%04d-%02d-%02d_%02d.%02d.%02d.sbb&quot;</td></tr>
+<tr class="memdesc:gac2fe3e4463239e42fa82b64e539b04ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log filename format.  <a href="group__logfun.html#gac2fe3e4463239e42fa82b64e539b04ef">More...</a><br /></td></tr>
+<tr class="separator:gac2fe3e4463239e42fa82b64e539b04ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabb30495a5891704b1de04005b49fdb86"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#gabb30495a5891704b1de04005b49fdb86">FILENAME_ENTRIES</a>&#160;&#160;&#160;year(), month(), day(), hour(), minute(), second()</td></tr>
+<tr class="memdesc:gabb30495a5891704b1de04005b49fdb86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entries of the log filename format.  <a href="group__logfun.html#gabb30495a5891704b1de04005b49fdb86">More...</a><br /></td></tr>
+<tr class="separator:gabb30495a5891704b1de04005b49fdb86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga47360902f2cb2cbf01d6b98524f7dbc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga47360902f2cb2cbf01d6b98524f7dbc1">start_logger</a> (void)</td></tr>
 <tr class="memdesc:ga47360902f2cb2cbf01d6b98524f7dbc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the logger.  <a href="group__logfun.html#ga47360902f2cb2cbf01d6b98524f7dbc1">More...</a><br /></td></tr>
 <tr class="separator:ga47360902f2cb2cbf01d6b98524f7dbc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3d7a8cc89ba27623d0e3981acc70bf86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga3d7a8cc89ba27623d0e3981acc70bf86">log_closer</a> (void)</td></tr>
+<tr class="memdesc:ga3d7a8cc89ba27623d0e3981acc70bf86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the log file.  <a href="group__logfun.html#ga3d7a8cc89ba27623d0e3981acc70bf86">More...</a><br /></td></tr>
 <tr class="separator:ga3d7a8cc89ba27623d0e3981acc70bf86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad77b04379297001a7daf5d2764430ac3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#gad77b04379297001a7daf5d2764430ac3">do_logger</a> (void)</td></tr>
+<tr class="memdesc:gad77b04379297001a7daf5d2764430ac3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log signals.  <a href="group__logfun.html#gad77b04379297001a7daf5d2764430ac3">More...</a><br /></td></tr>
 <tr class="separator:gad77b04379297001a7daf5d2764430ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga0b0b75e00435dedf8d92084babdf94c9"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga0b0b75e00435dedf8d92084babdf94c9">doLog</a> = true</td></tr>
+<tr class="memdesc:ga0b0b75e00435dedf8d92084babdf94c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when logging.  <a href="group__logfun.html#ga0b0b75e00435dedf8d92084babdf94c9">More...</a><br /></td></tr>
+<tr class="separator:ga0b0b75e00435dedf8d92084babdf94c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d17ea4a81e1bd719a97ae7ff1fd0555"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga2d17ea4a81e1bd719a97ae7ff1fd0555">filename</a> [<a class="el" href="group__logfun.html#gacf1986d9291d2530b2bb7629d39c4655">FILENAME_MAXSIZE</a>] = { 0 }</td></tr>
+<tr class="memdesc:ga2d17ea4a81e1bd719a97ae7ff1fd0555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log filename.  <a href="group__logfun.html#ga2d17ea4a81e1bd719a97ae7ff1fd0555">More...</a><br /></td></tr>
+<tr class="separator:ga2d17ea4a81e1bd719a97ae7ff1fd0555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9d37fe5166494490b4a77d530a09b27"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#gaa9d37fe5166494490b4a77d530a09b27">fill_packet</a> [(<a class="el" href="group__logfun.html#ga6422fc77e66a7c9f359cc0d81b3549d2">DATAPACKET_SIZE</a> - sizeof(ControlClass::controlModel_U) - sizeof(ControlClass::controlModel_Y))/sizeof(float)]</td></tr>
+<tr class="memdesc:gaa9d37fe5166494490b4a77d530a09b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the data packet.  <a href="group__logfun.html#gaa9d37fe5166494490b4a77d530a09b27">More...</a><br /></td></tr>
+<tr class="separator:gaa9d37fe5166494490b4a77d530a09b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga474323a96b6ba97b2ca5a724186562ea"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga474323a96b6ba97b2ca5a724186562ea">logSampleWritten</a> = 0</td></tr>
+<tr class="memdesc:ga474323a96b6ba97b2ca5a724186562ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of logged bytes.  <a href="group__logfun.html#ga474323a96b6ba97b2ca5a724186562ea">More...</a><br /></td></tr>
+<tr class="separator:ga474323a96b6ba97b2ca5a724186562ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9863b3d596e46e9f4e19d4981b3e7518"><td class="memItemLeft" align="right" valign="top">FsFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga9863b3d596e46e9f4e19d4981b3e7518">logFile</a></td></tr>
+<tr class="memdesc:ga9863b3d596e46e9f4e19d4981b3e7518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log file object.  <a href="group__logfun.html#ga9863b3d596e46e9f4e19d4981b3e7518">More...</a><br /></td></tr>
+<tr class="separator:ga9863b3d596e46e9f4e19d4981b3e7518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga295dd2331c0a157a483b4711cf346ebe"><td class="memItemLeft" align="right" valign="top">RingBuf&lt; FsFile, <a class="el" href="group__logfun.html#ga3f905678aa4ffbb3eb713cb039dd9053">RING_BUF_SIZE</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga295dd2331c0a157a483b4711cf346ebe">log_buf</a></td></tr>
+<tr class="memdesc:ga295dd2331c0a157a483b4711cf346ebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ring buffer object.  <a href="group__logfun.html#ga295dd2331c0a157a483b4711cf346ebe">More...</a><br /></td></tr>
+<tr class="separator:ga295dd2331c0a157a483b4711cf346ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p >Functions for signal logging. </p>
-<p >Definition of the logger functions. This includes function to initialize the logger, log the signals, and close the log when the microcontroller turns off. The signal logging makes use of the built-in SD card using SDIO card configuration for best performances. The logger creates a *.sbb file where signals are saved in binary (as float types, i.e. 4 bytes per value) in group of <a class="el" href="logger_8h.html#a6422fc77e66a7c9f359cc0d81b3549d2">DATAPACKET_SIZE</a> bytes per sample. This means a maximum number of signal logged of <a class="el" href="logger_8h.html#a6422fc77e66a7c9f359cc0d81b3549d2">DATAPACKET_SIZE</a>/sizeof(float). A ring buffer is used to write to the SD card only when free, in order to have a low writing time. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="logger_8h.html">logger.h</a> <a class="el" href="sbbmtp_8h.html#a0584f45d96c62d7d203d272b99af6fa1">SD_CONFIG</a> <a class="el" href="logger_8h.html#a6422fc77e66a7c9f359cc0d81b3549d2">DATAPACKET_SIZE</a> </dd></dl>
+<p >Functions and definitions for signal logging. </p>
+<p >Definition of the logger functions, variables, and macros. This include functions to initialize the logger, log the signals, and close the log when the microcontroller turns off. The signal logging makes use of the built-in SD card using SDIO card configuration for best performances. The logger creates a *.sbb file where signals are saved in binary (as float types, i.e. 4 bytes per value) in group of <a class="el" href="group__logfun.html#ga6422fc77e66a7c9f359cc0d81b3549d2" title="Size of logged data packet (in bytes).">DATAPACKET_SIZE</a> bytes per sample. This means a maximum number of signal logged of <a class="el" href="group__logfun.html#ga6422fc77e66a7c9f359cc0d81b3549d2" title="Size of logged data packet (in bytes).">DATAPACKET_SIZE</a>/sizeof(float). The data packet is filled with NaN values untill the defined size is reached. <br  />
+ A ring buffer is used to write to the SD card only when free, in order to have a low writing time. Logging rate is defined by <a class="el" href="group__logfun.html#ga63e86ebc3b2725e421905f67f242aebd" title="Sampling factor of data logging (expressed in units of SAMPLING_TIME).">LOG_SAMPLING_FAC</a>, while the maximum log file dimension is <a class="el" href="group__logfun.html#ga9dadacd5ee41d21ea8974d66757983dd" title="Log file preallocation (in bytes).">PREALLOC</a> (in bytes). During logging the LEDmode is <a class="el" href="namespaceLedMode.html#a8d6f6d02626a516c46ee703722a7f956" title="Default mode with signal-logging.">LedMode::LOG</a>, and status LED blinks depending on <a class="el" href="group__constants.html#gaabdccb3d58b5328e2597d57a0bfcfa36" title="Sampling factor of led in log mode (expressed in units of SAMPLING_TIME).">LOG_LED</a>. Data logging is not active in MTP mode. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="logger_8h.html" title="Definitions of logger functions and variables.">logger.h</a> <a class="el" href="group__userparams.html#ga1ada7fd1f94ea9dae26b2767bf35d3ee" title="NaN value used for invalid data.">NAN_VAL</a> <a class="el" href="namespaceLedMode.html" title="Led mode constants.">LedMode</a> <a class="el" href="group__constants.html#gaabdccb3d58b5328e2597d57a0bfcfa36" title="Sampling factor of led in log mode (expressed in units of SAMPLING_TIME).">LOG_LED</a> <a class="el" href="group__mtpfun.html" title="Functions and definitions for MTP mode.">MTP</a> </dd></dl>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga6422fc77e66a7c9f359cc0d81b3549d2" name="ga6422fc77e66a7c9f359cc0d81b3549d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6422fc77e66a7c9f359cc0d81b3549d2">&#9670;&nbsp;</a></span>DATAPACKET_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DATAPACKET_SIZE&#160;&#160;&#160;sizeof(float)*64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Size of logged data packet (in bytes). </p>
+<p >Note that sizeof(float)=4. </p>
+
+</div>
+</div>
+<a id="ga58400b92b57363e09764906d242f3a97" name="ga58400b92b57363e09764906d242f3a97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga58400b92b57363e09764906d242f3a97">&#9670;&nbsp;</a></span>DOLOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DOLOG&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable or disable logging (1/0). </p>
+
+</div>
+</div>
+<a id="gabb30495a5891704b1de04005b49fdb86" name="gabb30495a5891704b1de04005b49fdb86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabb30495a5891704b1de04005b49fdb86">&#9670;&nbsp;</a></span>FILENAME_ENTRIES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FILENAME_ENTRIES&#160;&#160;&#160;year(), month(), day(), hour(), minute(), second()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Entries of the log filename format. </p>
+<p >Please refer to <a class="el" href="group__logfun.html#gac2fe3e4463239e42fa82b64e539b04ef" title="Log filename format.">FILENAME_FORMAT</a> for the filename format used. \ </p>
+
+</div>
+</div>
+<a id="gac2fe3e4463239e42fa82b64e539b04ef" name="gac2fe3e4463239e42fa82b64e539b04ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac2fe3e4463239e42fa82b64e539b04ef">&#9670;&nbsp;</a></span>FILENAME_FORMAT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FILENAME_FORMAT&#160;&#160;&#160;&quot;log_%04d-%02d-%02d_%02d.%02d.%02d.sbb&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Log filename format. </p>
+<p >The current name format is log_YYYY-MM-DD_hh.mm.ss.sbb. </p>
+
+</div>
+</div>
+<a id="gacf1986d9291d2530b2bb7629d39c4655" name="gacf1986d9291d2530b2bb7629d39c4655"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacf1986d9291d2530b2bb7629d39c4655">&#9670;&nbsp;</a></span>FILENAME_MAXSIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FILENAME_MAXSIZE&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Max length of the name of the log file. </p>
+<p >Standard length of the name should be 27 chars w/ format log_YYYY-MM-DD_hh.mm.ss.sbb. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__logfun.html#gac2fe3e4463239e42fa82b64e539b04ef" title="Log filename format.">FILENAME_FORMAT</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga63e86ebc3b2725e421905f67f242aebd" name="ga63e86ebc3b2725e421905f67f242aebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga63e86ebc3b2725e421905f67f242aebd">&#9670;&nbsp;</a></span>LOG_SAMPLING_FAC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_SAMPLING_FAC&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sampling factor of data logging (expressed in units of <a class="el" href="group__constants.html#gafe4be61d10dd9068bae19c0b74dac665" title="Sampling time of the control loop (us).">SAMPLING_TIME</a>). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__constants.html#gafe4be61d10dd9068bae19c0b74dac665" title="Sampling time of the control loop (us).">SAMPLING_TIME</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga9dadacd5ee41d21ea8974d66757983dd" name="ga9dadacd5ee41d21ea8974d66757983dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9dadacd5ee41d21ea8974d66757983dd">&#9670;&nbsp;</a></span>PREALLOC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PREALLOC&#160;&#160;&#160;1024L*1024L*1024L</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Log file preallocation (in bytes). </p>
+
+</div>
+</div>
+<a id="ga3f905678aa4ffbb3eb713cb039dd9053" name="ga3f905678aa4ffbb3eb713cb039dd9053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3f905678aa4ffbb3eb713cb039dd9053">&#9670;&nbsp;</a></span>RING_BUF_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RING_BUF_SIZE&#160;&#160;&#160;<a class="el" href="group__logfun.html#ga6422fc77e66a7c9f359cc0d81b3549d2">DATAPACKET_SIZE</a>*10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Size of the ring buffer. </p>
+<p >Bytes of data packet multiplied by the buffered samples. </p>
+
+</div>
+</div>
+<a id="gaa6a69f686cea87b52058a57a904a33e7" name="gaa6a69f686cea87b52058a57a904a33e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa6a69f686cea87b52058a57a904a33e7">&#9670;&nbsp;</a></span>sd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define sd&#160;&#160;&#160;SD.sdfs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SD fat object (uses sd fat included in SD library). </p>
+
+</div>
+</div>
+<a id="ga0584f45d96c62d7d203d272b99af6fa1" name="ga0584f45d96c62d7d203d272b99af6fa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0584f45d96c62d7d203d272b99af6fa1">&#9670;&nbsp;</a></span>SD_CONFIG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SD_CONFIG&#160;&#160;&#160;SdioConfig(FIFO_SDIO)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configuration type of sd card. </p>
+
+</div>
+</div>
+<a id="gaf53c96323082b86c5740ee588a0aa1d7" name="gaf53c96323082b86c5740ee588a0aa1d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf53c96323082b86c5740ee588a0aa1d7">&#9670;&nbsp;</a></span>SDSECTOR_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDSECTOR_SIZE&#160;&#160;&#160;512</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Size of the SD sector (in bytes). </p>
+<p >Note that it is a multiple of <a class="el" href="group__logfun.html#ga6422fc77e66a7c9f359cc0d81b3549d2" title="Size of logged data packet (in bytes).">DATAPACKET_SIZE</a> </p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="gad77b04379297001a7daf5d2764430ac3" name="gad77b04379297001a7daf5d2764430ac3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gad77b04379297001a7daf5d2764430ac3">&#9670;&nbsp;</a></span>do_logger()</h2>
@@ -131,6 +384,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Log signals. </p>
+<p >Function to log and write the signals to the ring buffer at a sampling rate defined by <a class="el" href="group__logfun.html#ga63e86ebc3b2725e421905f67f242aebd" title="Sampling factor of data logging (expressed in units of SAMPLING_TIME).">LOG_SAMPLING_FAC</a>. The ring buffer is written out to the log file every <a class="el" href="group__constants.html#gafe4be61d10dd9068bae19c0b74dac665" title="Sampling time of the control loop (us).">SAMPLING_TIME</a> and when the SD card is free, for best performance in terms of writing time. The function must be called continously at a sampling rate of <a class="el" href="group__constants.html#gafe4be61d10dd9068bae19c0b74dac665" title="Sampling time of the control loop (us).">SAMPLING_TIME</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__logfun.html#ga63e86ebc3b2725e421905f67f242aebd" title="Sampling factor of data logging (expressed in units of SAMPLING_TIME).">LOG_SAMPLING_FAC</a> <a class="el" href="group__constants.html#gafe4be61d10dd9068bae19c0b74dac665" title="Sampling time of the control loop (us).">SAMPLING_TIME</a> </dd></dl>
 
 </div>
 </div>
@@ -149,6 +405,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Close the log file. </p>
+<p >Function to flush, truncate, and close the log file. The function is called when turning off the microcntroler, or when the maximum log file dimension is reached or a logging error occurs. </p>
 
 </div>
 </div>
@@ -169,7 +428,107 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize the logger. </p>
-<p >Function to initialize the logger. It initializes the SD card and create a log file names log_YYYY-MM-YY_hh.mm.ss.sbb </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="logger_8h.html#ac2fe3e4463239e42fa82b64e539b04ef">FILENAME_FORMAT</a> </dd></dl>
+<p >Function to initialize the logger. It initializes the SD card and create a log file with name having format log_YYYY-MM-YY_hh.mm.ss.sbb. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__logfun.html#gac2fe3e4463239e42fa82b64e539b04ef" title="Log filename format.">FILENAME_FORMAT</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ga0b0b75e00435dedf8d92084babdf94c9" name="ga0b0b75e00435dedf8d92084babdf94c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0b0b75e00435dedf8d92084babdf94c9">&#9670;&nbsp;</a></span>doLog</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean doLog = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>True when logging. </p>
+
+</div>
+</div>
+<a id="ga2d17ea4a81e1bd719a97ae7ff1fd0555" name="ga2d17ea4a81e1bd719a97ae7ff1fd0555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d17ea4a81e1bd719a97ae7ff1fd0555">&#9670;&nbsp;</a></span>filename</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char filename[<a class="el" href="group__logfun.html#gacf1986d9291d2530b2bb7629d39c4655">FILENAME_MAXSIZE</a>] = { 0 }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Log filename. </p>
+
+</div>
+</div>
+<a id="gaa9d37fe5166494490b4a77d530a09b27" name="gaa9d37fe5166494490b4a77d530a09b27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa9d37fe5166494490b4a77d530a09b27">&#9670;&nbsp;</a></span>fill_packet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float fill_packet[(<a class="el" href="group__logfun.html#ga6422fc77e66a7c9f359cc0d81b3549d2">DATAPACKET_SIZE</a> - sizeof(ControlClass::controlModel_U) - sizeof(ControlClass::controlModel_Y))/sizeof(float)]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fill the data packet. </p>
+<p >Float array to fill the data packet with NaN for invalid values. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__userparams.html#ga1ada7fd1f94ea9dae26b2767bf35d3ee" title="NaN value used for invalid data.">NAN_VAL</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga295dd2331c0a157a483b4711cf346ebe" name="ga295dd2331c0a157a483b4711cf346ebe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga295dd2331c0a157a483b4711cf346ebe">&#9670;&nbsp;</a></span>log_buf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RingBuf&lt;FsFile, <a class="el" href="group__logfun.html#ga3f905678aa4ffbb3eb713cb039dd9053">RING_BUF_SIZE</a>&gt; log_buf</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ring buffer object. </p>
+<p >Ring buffer object with base class FsFile and size <a class="el" href="group__logfun.html#ga3f905678aa4ffbb3eb713cb039dd9053" title="Size of the ring buffer.">RING_BUF_SIZE</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__logfun.html#ga3f905678aa4ffbb3eb713cb039dd9053" title="Size of the ring buffer.">RING_BUF_SIZE</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga9863b3d596e46e9f4e19d4981b3e7518" name="ga9863b3d596e46e9f4e19d4981b3e7518"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9863b3d596e46e9f4e19d4981b3e7518">&#9670;&nbsp;</a></span>logFile</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FsFile logFile</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Log file object. </p>
+
+</div>
+</div>
+<a id="ga474323a96b6ba97b2ca5a724186562ea" name="ga474323a96b6ba97b2ca5a724186562ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga474323a96b6ba97b2ca5a724186562ea">&#9670;&nbsp;</a></span>logSampleWritten</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t logSampleWritten = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of logged bytes. </p>
+<p >The number of the written bytes into the log file, in order to troncate the file correctly at the end. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__logfun.html#ga3d7a8cc89ba27623d0e3981acc70bf86" title="Close the log file.">log_closer()</a> </dd></dl>
 
 </div>
 </div>

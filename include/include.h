@@ -1,8 +1,12 @@
-//main include file
-//written by SL
 
 #ifndef __INCLUDE_H__
 #define __INCLUDE_H__
+
+/*! \file include.h
+	\brief Include of user-defined files.
+	\details File to include all the *.h files with the functions used. This file is included in main.cpp.
+	\see main.cpp prototypes.h config.h objects.h logger.h sbbmtp.h userfun.h debug.h
+*/
 
 /*
 include function prototypes - here all functions used in logger.h, sbbmtp.h, functions.h, and debug.h

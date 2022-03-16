@@ -11,14 +11,14 @@
 HostPort::HostPort(Stream* serial, uint32_t start_bytes, uint32_t stop_bytes) {
 	init(); //general init
 	_serial = serial;
-	_start_bytes = start_bytes; //set the header bytes
-	_stop_bytes = stop_bytes; //set the terminator bytes
+	_header = start_bytes; //set the header bytes
+	_terminator = stop_bytes; //set the terminator bytes
 }
 
 HostPort::HostPort(Stream* serial, uint32_t start_bytes) {
 	init(); //general init
 	_serial = serial;
-	_start_bytes = start_bytes; //set the header bytes
+	_header = start_bytes; //set the header bytes
 }
 
 HostPort::HostPort(Stream* serial) {
@@ -29,8 +29,8 @@ HostPort::HostPort(Stream* serial) {
 // General initialization in constructors
 void HostPort::init(void) {
 	//reset vars
-	_start_bytes = 0;
-	_stop_bytes = 0;
+	_header = 0;
+	_terminator = 0;
 	_numObj_rx = 0;
 	_numObj_tx = 0;
 	_totSize_tx = 0;
@@ -78,11 +78,11 @@ boolean HostPort::write() {
 
 	//put start bytes in buf if necessary
 	//note that c++ return the current value of c, and then increment c, e.g. if c=4, _tx_buf[c++] returns _tx_buf[0] and puts c=1
-	if (_start_bytes != 0) {
-		_tx_buf[c++] = _start_bytes & MASK_HOSTPORT;
-		_tx_buf[c++] = (_start_bytes >> 8) & MASK_HOSTPORT;
-		_tx_buf[c++] = (_start_bytes >> 16) & MASK_HOSTPORT;
-		_tx_buf[c++] = (_start_bytes >> 24) & MASK_HOSTPORT;
+	if (_header != 0) {
+		_tx_buf[c++] = _header & MASK;
+		_tx_buf[c++] = (_header >> 8) & MASK;
+		_tx_buf[c++] = (_header >> 16) & MASK;
+		_tx_buf[c++] = (_header >> 24) & MASK;
 	}
 
 	//put each byte of attached objects in buf
@@ -91,11 +91,11 @@ boolean HostPort::write() {
 	}
 
 	//put stop bytes in buf if necessary
-	if (_stop_bytes != 0) {
-		_tx_buf[c++] = _stop_bytes & MASK_HOSTPORT;
-		_tx_buf[c++] = (_stop_bytes >> 8) & MASK_HOSTPORT;
-		_tx_buf[c++] = (_stop_bytes >> 16) & MASK_HOSTPORT;
-		_tx_buf[c++] = (_stop_bytes >> 24) & MASK_HOSTPORT;
+	if (_terminator != 0) {
+		_tx_buf[c++] = _terminator & MASK;
+		_tx_buf[c++] = (_terminator >> 8) & MASK;
+		_tx_buf[c++] = (_terminator >> 16) & MASK;
+		_tx_buf[c++] = (_terminator >> 24) & MASK;
 	}
 
 	//write buf to serial
@@ -123,12 +123,12 @@ boolean HostPort::read() {
 	uint8_t c = 0; //counter
 	uint32_t time0 = micros(); //start time for timeout
 
-	if (_start_bytes == 0) c = 4; //put i directly to 4 if no start bytes
+	if (_header == 0) c = 4; //put i directly to 4 if no start bytes
 
 	while ((micros() - time0) <= TIMEOUT_HOSTPORT) { //check timeout TIMEOUT_HOSTPORT
 		if (_serial->available()) { //do stuff if serial data available 
 			if (c < 4) { 
-				if (_serial->read() == ((_start_bytes >> (8 * c)) & MASK_HOSTPORT)) { //read and compare to _start_bytes
+				if (_serial->read() == ((_header >> (8 * c)) & MASK)) { //read and compare to _header
 					c++; //increment c if read is ok
 					continue; //start new cycle as soon as data are available 
 				}
@@ -144,7 +144,7 @@ boolean HostPort::read() {
 							return false; //return false if data size not consistent
 				}
 
-				if (_stop_bytes == 0) { //if _stop_bytes==0 all is ok
+				if (_terminator == 0) { //if _terminator==0 all is ok
 					copyrx(); //copy buffer in rx objects
 					return true; //all is ok
 				}
@@ -153,7 +153,7 @@ boolean HostPort::read() {
 				continue; //start new cycle
 			}
 			else { //c > 4, all data read 
-				if (_serial->read() == ((_stop_bytes >> (8 * (c - 5))) & MASK_HOSTPORT)) { //check stop bytes
+				if (_serial->read() == ((_terminator >> (8 * (c - 5))) & MASK)) { //check stop bytes
 					c++;  //increment c if read byte is ok
 					if (c == 9) { //if c=9 all stop bytes read ok
 						copyrx(); //copy buffer in rx objects

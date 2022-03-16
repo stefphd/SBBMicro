@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imudata_5ft_0',['ImuData_T',['../structImuData__T.html',1,'']]]
+  ['imudata_0',['ImuData',['../structImuData.html',1,'']]]
 ];

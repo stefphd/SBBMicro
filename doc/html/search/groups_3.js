@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logger_20functions_0',['Logger functions',['../group__logfun.html',1,'']]]
+  ['entry_2dpoint_20functions_0',['Entry-point functions',['../group__mainfun.html',1,'']]]
 ];

@@ -1,8 +1,12 @@
-// include libraries, can be found in ./libs
-// written by SL
 
 #ifndef __LIBS_H__
 #define __LIBS_H__
+
+/*! \file libs.h
+	\brief Include of libraries.
+	\details File to include the necessary (external) library for objects. 
+	\see objects.h
+*/
 
 #include <ISM330DHCXSensor.h> //for imu https://github.com/stm32duino/ISM330DHCX
 #include <LIS3MDLSensor.h> //for magnetometer https://github.com/stm32duino/LIS3MDL

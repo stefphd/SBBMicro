@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['channel_5ft_0',['Channel_T',['../structChannel__T.html',1,'']]],
-  ['counter_5ft_1',['Counter_T',['../structCounter__T.html',1,'']]]
+  ['channel_0',['Channel',['../structChannel.html',1,'']]],
+  ['counter_1',['Counter',['../structCounter.html',1,'']]]
 ];

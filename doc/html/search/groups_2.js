@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['entry_2dpoint_20functions_0',['Entry-point functions',['../group__mainfun.html',1,'']]]
+  ['data_20logging_0',['Data logging',['../group__logfun.html',1,'']]],
+  ['debugging_1',['Debugging',['../group__debfun.html',1,'']]]
 ];

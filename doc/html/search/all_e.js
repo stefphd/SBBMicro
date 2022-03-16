@@ -2,7 +2,7 @@ var searchData=
 [
   ['pin_20settings_0',['Pin settings',['../group__pin.html',1,'']]],
   ['power_5foff_1',['POWER_OFF',['../group__macros.html#gae8131694b06a62416e7b799b129de381',1,'config.h']]],
-  ['prealloc_2',['PREALLOC',['../logger_8h.html#a9dadacd5ee41d21ea8974d66757983dd',1,'logger.h']]],
+  ['prealloc_2',['PREALLOC',['../group__logfun.html#ga9dadacd5ee41d21ea8974d66757983dd',1,'logger.h']]],
   ['prototypes_2eh_3',['prototypes.h',['../prototypes_8h.html',1,'']]],
   ['pwm_5ffreq_4',['PWM_FREQ',['../group__bus.html#ga76fe84d83b8d236bd4f0d20d7e2ed06f',1,'config.h']]],
   ['pwm_5fmax_5',['PWM_MAX',['../group__bus.html#ga391fa1e490bd712720989b58fa0d9904',1,'config.h']]],

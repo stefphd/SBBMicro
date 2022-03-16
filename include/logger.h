@@ -1,32 +1,35 @@
-//logger file
-//written by SL
 
 #ifndef __LOG_H__
 #define __LOG_H__
 
-#define DOLOG //enable logging - comment to disable
-
-#ifdef DOLOG
+/*! \file logger.h
+	\brief Definitions of logger functions and variables.
+	\details File to defined the logger functions and variables. Function prototypes are in prototypes.h.
+	\see logfun prototypes.h
+*/
 
 //defines
-#define LOG_SAMPLING_FAC	1 //sampling factor of data logging (expressed in units of SAMPLING_TIME)
-#define sd					SD.sdfs //sd card obj (uses sd fat now included in SD library w/ teensyduino)
-#define SD_CONFIG			SdioConfig(FIFO_SDIO) //configuration of sd card
-#define PREALLOC			1024L*1024L*1024L //file preallocation (bytes)
-#define DATAPACKET_SIZE		sizeof(float)*64 //size of data packet (bytes)
-#define RING_BUF_SIZE		DATAPACKET_SIZE*10 //ring buffer size (bytes of data packet multiplied by buffered samples)
-#define SDSECTOR_SIZE		512 //size of SD sector (bytes)
-#define FILENAME_MAXSIZE	32 //max length of filename (standard length should be 27 chars) w/ format log_YYYY-MM-DD_hh.mm.ss.sbb
-#define FILENAME_FORMAT		"log_%04d-%02d-%02d_%02d.%02d.%02d.sbb" //filename string format (now log_YYYY-MM-DD_hh.mm.ss.sbb)
-#define FILENAME_ENTRIES	year(), month(), day(), hour(), minute(), second() //filename format entries
+#define DOLOG 				1 //!< Enable or disable logging (1/0). \ingroup logfun
+#define LOG_SAMPLING_FAC	1 //!< Sampling factor of data logging (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME \ingroup logfun
+#define sd					SD.sdfs //!< SD fat object (uses sd fat included in SD library). \ingroup logfun
+#define SD_CONFIG			SdioConfig(FIFO_SDIO) //!< Configuration type of sd card. \ingroup logfun
+#define PREALLOC			1024L*1024L*1024L //!< Log file preallocation (in bytes). \ingroup logfun
+#define DATAPACKET_SIZE		sizeof(float)*64 //!< Size of logged data packet (in bytes). \details Note that sizeof(float)=4. \ingroup logfun
+#define RING_BUF_SIZE		DATAPACKET_SIZE*10 //!< Size of the ring buffer. \details Bytes of data packet multiplied by the buffered samples. \ingroup logfun
+#define SDSECTOR_SIZE		512 //!< Size of the SD sector (in bytes). \details Note that it is a multiple of #DATAPACKET_SIZE \ingroup logfun
+#define FILENAME_MAXSIZE	32 //!< Max length of the name of the log file. \details Standard length of the name should be 27 chars w/ format log_YYYY-MM-DD_hh.mm.ss.sbb. \see FILENAME_FORMAT \ingroup logfun
+#define FILENAME_FORMAT		"log_%04d-%02d-%02d_%02d.%02d.%02d.sbb" //!< Log filename format. \details The current name format is log_YYYY-MM-DD_hh.mm.ss.sbb. \ingroup logfun
+#define FILENAME_ENTRIES	year(), month(), day(), hour(), minute(), second() //!< Entries of the log filename format. \details Please refer to #FILENAME_FORMAT for the filename format used. \ingroup logfun \see FILENAME_FORMAT
+
+#if DOLOG == 1
 
 //variables and objects
-volatile boolean doLog = true; //true when logging ok - volatile b/c used in on/off irq
-char filename[FILENAME_MAXSIZE] = { 0 }; //filename
-float fill_packet[(DATAPACKET_SIZE - sizeof(ControlClass::controlModel_U) - sizeof(ControlClass::controlModel_Y)) / sizeof(float)];
-volatile uint64_t logSampleWritten = 0; //written logged bytes (to troncate the file correctly at the end)
-FsFile logFile; //logfile obj
-RingBuf<FsFile, RING_BUF_SIZE> log_buf; //ring buffer
+boolean doLog = true; //!< True when logging. \ingroup logfun
+char filename[FILENAME_MAXSIZE] = { 0 }; //!< Log filename. \ingroup logfun
+float fill_packet[(DATAPACKET_SIZE - sizeof(ControlClass::controlModel_U) - sizeof(ControlClass::controlModel_Y)) / sizeof(float)]; //!< Fill the data packet. \details Float array to fill the data packet with NaN for invalid values. \see NAN_VAL \ingroup logfun
+uint64_t logSampleWritten = 0; //!< Number of logged bytes \details The number of the written bytes into the log file, in order to troncate the file correctly at the end. \see log_closer() \ingroup logfun
+FsFile logFile; //!< Log file object. \ingroup logfun
+RingBuf<FsFile, RING_BUF_SIZE> log_buf; //!< Ring buffer object. \details Ring buffer object with base class FsFile and size #RING_BUF_SIZE. \see RING_BUF_SIZE \ingroup logfun
 
 //start logger function
 void start_logger(void) {
@@ -58,6 +61,8 @@ void log_closer(void) {
 		logFile.flush();
 		logFile.truncate(DATAPACKET_SIZE*logSampleWritten);
 		logFile.close();
+		doLog = false;
+		LEDmode = LedMode::DEF;
 	}
 }
 

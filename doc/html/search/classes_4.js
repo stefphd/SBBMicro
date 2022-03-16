@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gpsdata_5ft_0',['GPSData_T',['../structGPSData__T.html',1,'']]]
+  ['gpsdata_0',['GPSData',['../structGPSData.html',1,'']]]
 ];

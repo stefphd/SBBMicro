@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['log_5fsampling_5ffac_0',['LOG_SAMPLING_FAC',['../logger_8h.html#a63e86ebc3b2725e421905f67f242aebd',1,'logger.h']]]
+  ['timeout_5fhostport_0',['TIMEOUT_HOSTPORT',['../HostPort_8h.html#a61c9044bbaf61a30e4d730ca8fdc4770',1,'HostPort.h']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['ridertorque_0',['riderTorque',['../structRiderTorque__T.html#a9893820ea73a9c2aa761c88b4234dbf3',1,'RiderTorque_T']]],
-  ['ridertorque_5foffset_1',['riderTorque_offset',['../structRiderTorque__T.html#a256b3557d9b37671cf701322b90a1887',1,'RiderTorque_T']]],
-  ['ridertorque_5fraw_2',['riderTorque_raw',['../objects_8h.html#a8796a5ab818b74f0ffca7225388e62a8',1,'objects.h']]],
-  ['rx_5fpacket_3',['rx_packet',['../debug_8h.html#a230ed1d0db98147473e0295f79a89b9d',1,'debug.h']]]
+  ['ridertorque_0',['riderTorque',['../structRiderTorque.html#ae04e1cc9e40f59adebd3c66ca389d27b',1,'RiderTorque']]],
+  ['ridertorque_5foffset_1',['riderTorque_offset',['../structRiderTorque.html#a7b45fe5bf3d719533608a4ea62849565',1,'RiderTorque']]],
+  ['ridertorque_5fraw_2',['riderTorque_raw',['../group__vars.html#gab160016dad586229de1321833886d5f1',1,'objects.h']]],
+  ['rx_5fpacket_3',['rx_packet',['../group__debfun.html#gaac48454b9a24d0e09c188069fa91ce80',1,'debug.h']]]
 ];

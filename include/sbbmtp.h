@@ -1,21 +1,19 @@
-//mtp file
-//written by SL
 
 #ifndef __MTP_H__
 #define __MTP_H__
 
-#define DOMTP //enable MTP
-
-#ifdef DOMTP //must exist both DOMTP and DOLOG for enabling MTP!
+/*! \file sbbmtp.h
+	\brief Definitions of MTP functions and variables.
+	\details File to defined the MTP functions and variables. Function prototypes are in prototypes.h.
+	\see mtpfun prototypes.h
+*/
 
 //defines
-#define STORAGENAME         "SBB Logger"
-#define MTP_ENABLE_TIMEOUT  3000 //timeout for enabling mtp mode (ms)
+#define DOMTP               1 //!< Enable or disable MTP (1/0). \ingroup mtpfun
+#define STORAGENAME         "SBB Logger" //!< MTP storage name. \details The name shown in the PC when connecting the USB. \ingroup mtpfun
+#define MTP_ENABLE_TIMEOUT  3000 //!< Timeout for enabling MTP mode (ms). \details If the on/off button is pressed for a time longer than this, the microcontroller enters in MTP mode. \ingroup mtpfun
 
-#ifndef DOLOG
-#define sd			            SD.sdfs //sd card obj (uses sd fat now included in SD library w/ teensyduino)
-#define SD_CONFIG	          SdioConfig(FIFO_SDIO) //configuration of sd card
-#endif
+#if DOMTP == 1 //must exist both DOMTP and DOLOG for enabling MTP!
 
 //check mtp function
 bool check_mtp(void) {
@@ -41,10 +39,6 @@ void do_mtp(void) {
   //add SD to storage
   storage.addFilesystem(SD, STORAGENAME);
 
-  //init SD
-  // if not init correctly return
-  //TODOOOOO
-
   //mtp loop
   while (true) {
     if (usb_configuration) mtpd.loop(); //do mtp if usb connected
@@ -53,7 +47,6 @@ void do_mtp(void) {
       do_led();
     }
   }
-  return;
 }
 
 

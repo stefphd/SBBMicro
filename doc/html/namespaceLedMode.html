@@ -95,22 +95,37 @@ $(document).ready(function(){initNavTree('namespaceLedMode.html',''); initResiza
 <div class="header">
   <div class="summary">
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">LedMode Namespace Reference</div></div>
+  <div class="headertitle"><div class="title">LedMode Namespace Reference<div class="ingroups"><a class="el" href="group__vars.html">Variables</a> &#124; <a class="el" href="group__logfun.html">Data logging</a> &#124; <a class="el" href="group__mtpfun.html">MTP</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Led mode constants.  
+<a href="namespaceLedMode.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a10e122ec322ab40e9743109b999d2d17"><td class="memItemLeft" align="right" valign="top">constexpr int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceLedMode.html#a10e122ec322ab40e9743109b999d2d17">DEF</a> = 0</td></tr>
+<tr class="memdesc:a10e122ec322ab40e9743109b999d2d17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default mode without signal-logging.  <a href="namespaceLedMode.html#a10e122ec322ab40e9743109b999d2d17">More...</a><br /></td></tr>
 <tr class="separator:a10e122ec322ab40e9743109b999d2d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d6f6d02626a516c46ee703722a7f956"><td class="memItemLeft" align="right" valign="top">constexpr int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceLedMode.html#a8d6f6d02626a516c46ee703722a7f956">LOG</a> = 1</td></tr>
+<tr class="memdesc:a8d6f6d02626a516c46ee703722a7f956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default mode with signal-logging.  <a href="namespaceLedMode.html#a8d6f6d02626a516c46ee703722a7f956">More...</a><br /></td></tr>
 <tr class="separator:a8d6f6d02626a516c46ee703722a7f956"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29705e031e56f6a3030dc158c68f8ab9"><td class="memItemLeft" align="right" valign="top">constexpr int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceLedMode.html#a29705e031e56f6a3030dc158c68f8ab9">MTP</a> = 2</td></tr>
+<tr class="memdesc:a29705e031e56f6a3030dc158c68f8ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">MTP mode.  <a href="namespaceLedMode.html#a29705e031e56f6a3030dc158c68f8ab9">More...</a><br /></td></tr>
 <tr class="separator:a29705e031e56f6a3030dc158c68f8ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35c7502591d8ac1ae2456b00a780a5f4"><td class="memItemLeft" align="right" valign="top">constexpr int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceLedMode.html#a35c7502591d8ac1ae2456b00a780a5f4">ERR</a> = 3</td></tr>
+<tr class="memdesc:a35c7502591d8ac1ae2456b00a780a5f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error mode.  <a href="namespaceLedMode.html#a35c7502591d8ac1ae2456b00a780a5f4">More...</a><br /></td></tr>
 <tr class="separator:a35c7502591d8ac1ae2456b00a780a5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Variable Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Led mode constants. </p>
+<p >The namespace contains constants for the status LED mode. Depending on the LED blinking, the microcontroller mode is:</p><ul>
+<li>Default mode without signal-logging: LEDmode is <a class="el" href="namespaceLedMode.html#a10e122ec322ab40e9743109b999d2d17" title="Default mode without signal-logging.">LedMode::DEF</a>, LED blinks depending on <a class="el" href="group__constants.html#gac75a3ec39d543ae303e8edef00c3dca1" title="Sampling factor of led in default mode (expressed in units of SAMPLING_TIME).">DEF_LED</a>.</li>
+<li>Default mode with signal-logging: LEDmode is <a class="el" href="namespaceLedMode.html#a8d6f6d02626a516c46ee703722a7f956" title="Default mode with signal-logging.">LedMode::LOG</a>, LED blinks depending on <a class="el" href="group__constants.html#gaabdccb3d58b5328e2597d57a0bfcfa36" title="Sampling factor of led in log mode (expressed in units of SAMPLING_TIME).">LOG_LED</a>.</li>
+<li>MTP mode: LEDmode is <a class="el" href="namespaceLedMode.html#a29705e031e56f6a3030dc158c68f8ab9" title="MTP mode.">LedMode::MTP</a>, LED blinks depending on <a class="el" href="group__constants.html#ga78e83fa846657dc71872e35d38cd431a" title="Sampling factor of led in mtp mode (expressed in units of SAMPLING_TIME).">MTP_LED</a>.</li>
+<li>Error mode: LEDmode is <a class="el" href="namespaceLedMode.html#a35c7502591d8ac1ae2456b00a780a5f4" title="Error mode.">LedMode::ERR</a>, LED blinks depending on <a class="el" href="group__constants.html#ga29c80150517b1375edea1474971f4b39" title="Sampling factor of led in error mode (expressed in units of SAMPLING_TIME).">ERR_LED</a>. </li>
+</ul>
+</div><h2 class="groupheader">Variable Documentation</h2>
 <a id="a10e122ec322ab40e9743109b999d2d17" name="a10e122ec322ab40e9743109b999d2d17"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10e122ec322ab40e9743109b999d2d17">&#9670;&nbsp;</a></span>DEF</h2>
 
@@ -130,6 +145,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default mode without signal-logging. </p>
 
 </div>
 </div>
@@ -153,6 +170,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Error mode. </p>
+
 </div>
 </div>
 <a id="a8d6f6d02626a516c46ee703722a7f956" name="a8d6f6d02626a516c46ee703722a7f956"></a>
@@ -175,6 +194,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Default mode with signal-logging. </p>
+
 </div>
 </div>
 <a id="a29705e031e56f6a3030dc158c68f8ab9" name="a29705e031e56f6a3030dc158c68f8ab9"></a>
@@ -196,6 +217,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>MTP mode. </p>
 
 </div>
 </div>

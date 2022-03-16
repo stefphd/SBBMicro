@@ -1,12 +1,11 @@
 /*! \file config.h
-	\brief A configuration file for the source code.
+	\brief General configurations for the source code.
 	\details Configuration file with defines and macros for the source code of the 
 	SBB Micro code. This includes PIN definitions, BUS settings, DAC settings, 
 	definitions of constants and factors, conversions of raw data, 
 	and other user-defined parameters.
 	\note Building is necessary for changes to take effect.
-	\author Stefano Lovato
-	\date 2022
+	\see config bus pin constants macros userparams
 */
 
 #ifndef __CONFIG_H__
@@ -29,7 +28,7 @@
    \details Settings of the used buses for the communications with sensorsaand drivers. 
    This includes defines for the SPI and UART(s) used for the sensors, settings for the
    ADCs, DACs, and PWM.
-	\warning Be careful to modify this parameters. Changes may lead to possible short circuit which kill the circuit.
+	\warning Be careful to modify this parameters. Changes may lead to possible short circuits which kill the circuit.
    @{
  */
 
@@ -72,7 +71,7 @@
    \details Used pins in the Teensy 4.1 microcontroller. 
    This includes the chip-select pins used for the SPI, analog input
    pin to read analog signals, PWM pin, and digital in and out pins.
-   \warning Be careful to change the pin settings. Changes may lead to possible short circuit which kill the circuit.
+   \warning Be careful to change the pin settings. Changes may lead to possible short circuits which kill the circuit.
    @{
  */
 
@@ -82,12 +81,12 @@
 #define CS_DAC			3 //!< Chip select pin of DAC.
 
 //ANALOG PINS
-#define STEER_POS		A16 //!< Steer position analog in.
-#define STEER_SPEED		A0 //!< Steer speed analog in.
-#define ACT_CURR		A1 //!< Actual current analog in.
-#define RIDER_TRQ		A17 //!< Rider torque analog in.
-#define VOLTAGE			A15 //!< Battery voltage.
-#define FORK_DISP		A14 //!< Front fork displacement.
+#define STEER_POS		A16 //!< Steer position analog input pin.
+#define STEER_SPEED		A0 //!< Steer speed analog input pin.
+#define ACT_CURR		A1 //!< Actual current analog input pin.
+#define RIDER_TRQ		A17 //!< Rider torque analog input pin.
+#define VOLTAGE			A15 //!< Battery voltage analog input pin.
+#define FORK_DISP		A14 //!< Front fork displacement analog input pin.
 
 //PWM
 #define PWM_PIN			18 //!< PWM pin for motor current reference.
@@ -173,7 +172,7 @@
 /*! \brief Convert rider torque to Nm.
 	\details Macro for the conversion of the rider torque from raw value (in bits from the ADC) to Nm.
 	The macro makes use of #GAIN_RIDERTRQ, #OFFSET_RIDERTRQ, and #ADC_RES to remap the values using a linear interpolation.
-	\param X The ADC value to conver (in bits).
+	\param X The ADC value to convert (in bits).
 	\return The value in Nm.
 	\see ADC_RES GAIN_RIDERTRQ OFFSET_RIDERTRQ
 */
@@ -182,7 +181,7 @@
 /*! \brief Convert steer position to radiants.
 	\details Macro for the conversion of the steer position from raw value (in bits from the ADC) to radiants.
 	The macro makes use of #GAIN_STEERPOS, #OFFSET_STEERPOS, and #ADC_RES to remap the values using a linear interpolation.
-	\param X The ADC value to conver (in bits).
+	\param X The ADC value to convert (in bits).
 	\return The value in radiants.
 	\see ADC_RES GAIN_STEERPOS OFFSET_STEERPOS
 */
@@ -191,7 +190,7 @@
 /*! \brief Convert steer rate to rad/s.
 	\details Macro for the conversion of the steer rate from raw value (in bits from the ADC) to rad/s.
 	The macro makes use of #GAIN_STEERVEL, #OFFSET_STEERVEL, and #ADC_RES to remap the values using a linear interpolation.
-	\param X The ADC value to conver (in bits).
+	\param X The ADC value to convert (in bits).
 	\return The value in rad.
 	\see ADC_RES GAIN_STEERVEL OFFSET_STEERVEL
 */
@@ -200,7 +199,7 @@
 /*! \brief Convert steer rate to rad/s.
 	\details Macro for the conversion of the steer rate from raw value (in bits from the ADC) to rad/s.
 	The macro makes use of #GAIN_STEERVEL, #OFFSET_STEERVEL, and #ADC_RES to remap the values using a linear interpolation.
-	\param X The ADC value to conver (in bits).
+	\param X The ADC value to convert (in bits).
 	\return The value in rad.
 	\see ADC_RES GAIN_STEERVEL OFFSET_STEERVEL
 */
@@ -278,7 +277,7 @@
 #define NUM_ZERO_SAMPLES	500 //!< Samples used to perform the zero of sensors.
 #define STEERVEL_RATIO		(controlParams.beltRatio*controlParams.gearRatio) //!< Speed ratio of steer velocity. \details Values from Simulink model.
 #define FULLEXT_FORKDISP	0 //!< Fork displacement at full extended suspension (in mm).
-#define NAN_VAL				0xFFC00000 //!< NaN value used to fill invalid data in the log file.
+#define NAN_VAL				0xFFC00000 //!< NaN value used for invalid data.
 #define YINCL_MCUBOX		1.3426 //!< Pitch iinclination of MCU box (in rad). \details Value of 76.928deg, found from a static calibration with the IMU.
 const float imu_rotMat[3][3] = { {0, cosf(YINCL_MCUBOX), sinf(YINCL_MCUBOX)}, 
 								  {1, 0, 0},  

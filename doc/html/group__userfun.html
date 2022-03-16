@@ -104,6 +104,12 @@ $(document).ready(function(){initNavTree('group__userfun.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:gacc2107cfceecd2abf098064b3c406291"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userfun.html#gacc2107cfceecd2abf098064b3c406291">tempmonGetTemp</a> (void)</td></tr>
+<tr class="memdesc:gacc2107cfceecd2abf098064b3c406291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the CPU temperature.  <a href="group__userfun.html#gacc2107cfceecd2abf098064b3c406291">More...</a><br /></td></tr>
+<tr class="separator:gacc2107cfceecd2abf098064b3c406291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01f554db1c07c31f60f5167060279699"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userfun.html#ga01f554db1c07c31f60f5167060279699">set_arm_clock</a> (uint32_t frequency)</td></tr>
+<tr class="memdesc:ga01f554db1c07c31f60f5167060279699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the CPU clock.  <a href="group__userfun.html#ga01f554db1c07c31f60f5167060279699">More...</a><br /></td></tr>
+<tr class="separator:ga01f554db1c07c31f60f5167060279699"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae8a720b1a7a4a44aee590fadc28466cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userfun.html#gae8a720b1a7a4a44aee590fadc28466cd">start_IObus</a> (void)</td></tr>
 <tr class="memdesc:gae8a720b1a7a4a44aee590fadc28466cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the IO buses.  <a href="group__userfun.html#gae8a720b1a7a4a44aee590fadc28466cd">More...</a><br /></td></tr>
 <tr class="separator:gae8a720b1a7a4a44aee590fadc28466cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,7 +152,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p >User-defined functions. </p>
-<p >Definition of the user defined functions called in <a class="el" href="group__mainfun.html#ga4fc01d736fe50cf5b977f755b675f11d" title="Setup function of Arduino environment.">setup()</a> and <a class="el" href="group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f" title="Loop function of Arduino environment.">loop()</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__mainfun.html#ga4fc01d736fe50cf5b977f755b675f11d" title="Setup function of Arduino environment.">setup()</a> <a class="el" href="group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f" title="Loop function of Arduino environment.">loop()</a> <a class="el" href="userfun_8h.html">userfun.h</a> </dd></dl>
+<p >Definition of the user defined functions called in <a class="el" href="group__mainfun.html#ga4fc01d736fe50cf5b977f755b675f11d" title="Setup function of Arduino environment.">setup()</a> and <a class="el" href="group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f" title="Loop function of Arduino environment.">loop()</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__mainfun.html#ga4fc01d736fe50cf5b977f755b675f11d" title="Setup function of Arduino environment.">setup()</a> <a class="el" href="group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f" title="Loop function of Arduino environment.">loop()</a> <a class="el" href="userfun_8h.html" title="Definitions of user functions.">userfun.h</a> </dd></dl>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ga33fd832a9e1a27bddb7d9837a2dcf2f1" name="ga33fd832a9e1a27bddb7d9837a2dcf2f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga33fd832a9e1a27bddb7d9837a2dcf2f1">&#9670;&nbsp;</a></span>check_error()</h2>
@@ -208,7 +214,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Update the control loop. </p>
-<p >Function to convert sensor readings to convenient units and update the control loop with the new sensor readings. </p>
+<p >Function to convert sensor readings to convenient units and update the control loop with the new sensor readings. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__macros.html" title="Macro definitions.">Macros</a> </dd></dl>
 
 </div>
 </div>
@@ -229,10 +235,10 @@ Functions</h2></td></tr>
 
 <p>Management of the status LED. </p>
 <p >Function to manage the status LED according to the microcontroller mode. Depending on the LED blinking, the microcontroller mode is:</p><ul>
-<li>Default mode without signal-logging: LEDmode is <a class="el" href="namespaceLedMode.html#a10e122ec322ab40e9743109b999d2d17">LedMode::DEF</a>, LED blinks depending on <a class="el" href="group__constants.html#gac75a3ec39d543ae303e8edef00c3dca1" title="Sampling factor of led in default mode (expressed in units of SAMPLING_TIME).">DEF_LED</a>.</li>
-<li>Default mode with signal-logging: LEDmode is <a class="el" href="namespaceLedMode.html#a8d6f6d02626a516c46ee703722a7f956">LedMode::LOG</a>, LED blinks depending on <a class="el" href="group__constants.html#gaabdccb3d58b5328e2597d57a0bfcfa36" title="Sampling factor of led in log mode (expressed in units of SAMPLING_TIME).">LOG_LED</a>.</li>
-<li>MTP mode: LEDmode is <a class="el" href="namespaceLedMode.html#a29705e031e56f6a3030dc158c68f8ab9">LedMode::MTP</a>, LED blinks depending on <a class="el" href="group__constants.html#ga78e83fa846657dc71872e35d38cd431a" title="Sampling factor of led in mtp mode (expressed in units of SAMPLING_TIME).">MTP_LED</a>.</li>
-<li>Error mode: LEDmode is <a class="el" href="namespaceLedMode.html#a35c7502591d8ac1ae2456b00a780a5f4">LedMode::ERR</a>, LED blinks depending on <a class="el" href="group__constants.html#ga29c80150517b1375edea1474971f4b39" title="Sampling factor of led in error mode (expressed in units of SAMPLING_TIME).">ERR_LED</a>. <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceLedMode.html">LedMode</a> <a class="el" href="group__constants.html#gac75a3ec39d543ae303e8edef00c3dca1" title="Sampling factor of led in default mode (expressed in units of SAMPLING_TIME).">DEF_LED</a> <a class="el" href="group__constants.html#gaabdccb3d58b5328e2597d57a0bfcfa36" title="Sampling factor of led in log mode (expressed in units of SAMPLING_TIME).">LOG_LED</a> <a class="el" href="group__constants.html#ga78e83fa846657dc71872e35d38cd431a" title="Sampling factor of led in mtp mode (expressed in units of SAMPLING_TIME).">MTP_LED</a> <a class="el" href="group__constants.html#ga29c80150517b1375edea1474971f4b39" title="Sampling factor of led in error mode (expressed in units of SAMPLING_TIME).">ERR_LED</a> </dd></dl>
+<li>Default mode without signal-logging: LEDmode is <a class="el" href="namespaceLedMode.html#a10e122ec322ab40e9743109b999d2d17" title="Default mode without signal-logging.">LedMode::DEF</a>, LED blinks depending on <a class="el" href="group__constants.html#gac75a3ec39d543ae303e8edef00c3dca1" title="Sampling factor of led in default mode (expressed in units of SAMPLING_TIME).">DEF_LED</a>.</li>
+<li>Default mode with signal-logging: LEDmode is <a class="el" href="namespaceLedMode.html#a8d6f6d02626a516c46ee703722a7f956" title="Default mode with signal-logging.">LedMode::LOG</a>, LED blinks depending on <a class="el" href="group__constants.html#gaabdccb3d58b5328e2597d57a0bfcfa36" title="Sampling factor of led in log mode (expressed in units of SAMPLING_TIME).">LOG_LED</a>.</li>
+<li>MTP mode: LEDmode is <a class="el" href="namespaceLedMode.html#a29705e031e56f6a3030dc158c68f8ab9" title="MTP mode.">LedMode::MTP</a>, LED blinks depending on <a class="el" href="group__constants.html#ga78e83fa846657dc71872e35d38cd431a" title="Sampling factor of led in mtp mode (expressed in units of SAMPLING_TIME).">MTP_LED</a>.</li>
+<li>Error mode: LEDmode is <a class="el" href="namespaceLedMode.html#a35c7502591d8ac1ae2456b00a780a5f4" title="Error mode.">LedMode::ERR</a>, LED blinks depending on <a class="el" href="group__constants.html#ga29c80150517b1375edea1474971f4b39" title="Sampling factor of led in error mode (expressed in units of SAMPLING_TIME).">ERR_LED</a>. <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceLedMode.html" title="Led mode constants.">LedMode</a> <a class="el" href="group__constants.html#gac75a3ec39d543ae303e8edef00c3dca1" title="Sampling factor of led in default mode (expressed in units of SAMPLING_TIME).">DEF_LED</a> <a class="el" href="group__constants.html#gaabdccb3d58b5328e2597d57a0bfcfa36" title="Sampling factor of led in log mode (expressed in units of SAMPLING_TIME).">LOG_LED</a> <a class="el" href="group__constants.html#ga78e83fa846657dc71872e35d38cd431a" title="Sampling factor of led in mtp mode (expressed in units of SAMPLING_TIME).">MTP_LED</a> <a class="el" href="group__constants.html#ga29c80150517b1375edea1474971f4b39" title="Sampling factor of led in error mode (expressed in units of SAMPLING_TIME).">ERR_LED</a> </dd></dl>
 </li>
 </ul>
 
@@ -255,7 +261,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Perform the zero. </p>
-<p >Function to perform the zero-calibration of some sensors. These include the torsiometer, the actual motor current and the actual steer rate. It also sets the pre-defined offsets (e.g. for the gyrometer). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__constants.html#ga02a250c43b1b4dd09d96b35ba5d788f1" title="Offset of gyro x.">GYROX_OFFSET</a> <a class="el" href="group__constants.html#ga7a088044bdaccb6910a1277718a4b895" title="Offset of gyro y.">GYROY_OFFSET</a> <a class="el" href="group__constants.html#ga2676a196647e348b0c882a47a0176868" title="Offset of gyro z.">GYROZ_OFFSET</a> </dd></dl>
+<p >Function to perform the zero-calibration of some sensors. These include the torsiometer, the actual motor current and the actual steer rate. It also sets the pre-defined offsets (e.g. for the gyrometer). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structRiderTorque.html#a7b45fe5bf3d719533608a4ea62849565" title="Rider torque offset (in Nm).">RiderTorque::riderTorque_offset</a> <a class="el" href="group__constants.html#ga02a250c43b1b4dd09d96b35ba5d788f1" title="Offset of gyro x.">GYROX_OFFSET</a> <a class="el" href="group__constants.html#ga7a088044bdaccb6910a1277718a4b895" title="Offset of gyro y.">GYROY_OFFSET</a> <a class="el" href="group__constants.html#ga2676a196647e348b0c882a47a0176868" title="Offset of gyro z.">GYROZ_OFFSET</a> </dd></dl>
 
 </div>
 </div>
@@ -316,7 +322,35 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Flush the UARTs. </p>
-<p >Function to flush the receive buffer of the UARTs before calling <a class="el" href="group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f" title="Loop function of Arduino environment.">loop()</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__bus.html#ga02867a687d1d1e1e993c7302e5b33da4" title="Used UART for speed sensor bus.">UART_SPEEDSENS</a> <a class="el" href="objects_8h.html#adeddc2c3e8e90c1b964324757f5ed704">UART_GPS</a> <a class="el" href="group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f" title="Loop function of Arduino environment.">loop()</a> </dd></dl>
+<p >Function to flush the receive buffer of the UARTs before calling <a class="el" href="group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f" title="Loop function of Arduino environment.">loop()</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__bus.html#ga02867a687d1d1e1e993c7302e5b33da4" title="Used UART for speed sensor bus.">UART_SPEEDSENS</a> <a class="el" href="group__vars.html#gadeddc2c3e8e90c1b964324757f5ed704" title="GPS object.">UART_GPS</a> <a class="el" href="group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f" title="Loop function of Arduino environment.">loop()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga01f554db1c07c31f60f5167060279699" name="ga01f554db1c07c31f60f5167060279699"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga01f554db1c07c31f60f5167060279699">&#9670;&nbsp;</a></span>set_arm_clock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t set_arm_clock </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>frequency</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the CPU clock. </p>
+<p >Extern function to set the CPU clock. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frequency</td><td>The CPU clock in Hz. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The actual CPU frequency in Hz. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://forum.pjrc.com/threads/57444-How-to-change-clock-speed-on-Teensy-4-0">https://forum.pjrc.com/threads/57444-How-to-change-clock-speed-on-Teensy-4-0</a> </dd></dl>
 
 </div>
 </div>
@@ -337,7 +371,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set the drivers. </p>
-<p >Function to set the drivers, such as the steer-motor driver and the throttle via the DAC. Drivers are set only if no error is found, </p>
+<p >Function to set the drivers, such as the steer-motor driver and the throttle via the DAC. Drivers are set only if no error is found. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__macros.html" title="Macro definitions.">Macros</a> </dd></dl>
 
 </div>
 </div>
@@ -400,7 +434,29 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize the IO buses. </p>
-<p >Function to initialize the IO buses for the sensors and drivers. This incluses initialization of SPI and the related sensors (IMU, magnetometer, and DAC), initialization of the UARTs for the speed sensor and GPS. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="objects_8h.html#a7781908d71a6c9f74e24f1261df76e82">USED_SPI</a> <a class="el" href="group__bus.html#ga02867a687d1d1e1e993c7302e5b33da4" title="Used UART for speed sensor bus.">UART_SPEEDSENS</a> <a class="el" href="objects_8h.html#adeddc2c3e8e90c1b964324757f5ed704">UART_GPS</a> </dd></dl>
+<p >Function to initialize the IO buses for the sensors and drivers. This incluses initialization of SPI and the related sensors (IMU, magnetometer, and DAC), initialization of the UARTs for the speed sensor and GPS. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__vars.html#ga7781908d71a6c9f74e24f1261df76e82" title="IMU object (accelerometer and gryometer).">USED_SPI</a> <a class="el" href="group__bus.html#ga02867a687d1d1e1e993c7302e5b33da4" title="Used UART for speed sensor bus.">UART_SPEEDSENS</a> <a class="el" href="group__vars.html#gadeddc2c3e8e90c1b964324757f5ed704" title="GPS object.">UART_GPS</a> </dd></dl>
+
+</div>
+</div>
+<a id="gacc2107cfceecd2abf098064b3c406291" name="gacc2107cfceecd2abf098064b3c406291"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacc2107cfceecd2abf098064b3c406291">&#9670;&nbsp;</a></span>tempmonGetTemp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float tempmonGetTemp </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the CPU temperature. </p>
+<p >Extern function to get the CPU temperature in Celsius degrees. </p><dl class="section return"><dt>Returns</dt><dd>The CPU temperature in Celsius degrees. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://forum.pjrc.com/threads/59813-Teensy-4-0-Internal-Temperature-measurement">https://forum.pjrc.com/threads/59813-Teensy-4-0-Internal-Temperature-measurement</a> </dd></dl>
 
 </div>
 </div>

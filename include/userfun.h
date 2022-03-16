@@ -1,14 +1,13 @@
-//function file
-//written by SL
 
 #ifndef __FUNCTIONS_H__
 #define __FUNCTIONS_H__
 
-/*
-extern functions
+/*! \file userfun.h
+	\brief Definitions of user functions.
+	\details File to defined the user-defined functions, except for those related to the logging, debugging, and mtp-mode.
+	Function prototypes are in prototypes.h.
+	\see userfun prototypes.h
 */
-extern float tempmonGetTemp(void);
-extern "C" uint32_t set_arm_clock(uint32_t frequency);
 
 /*
 void set_buses(void) starts the IO buses

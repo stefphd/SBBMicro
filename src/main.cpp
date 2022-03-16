@@ -2,8 +2,8 @@
 	\brief Main file of the low-level code for the controller.
 	\details Main file of the low-level code for the controller. This contains the definitions for the entry-point functions 
 	setup() and loop() used in the Arduino environment. Them main function is automatically created during 
-	compilation by the Arduino builder.
-	\see setup loop
+	compilation by the Arduino builder. Function prototypes are in prototypes.h.
+	\see mainfun prototypes.h
 */
 
 //include

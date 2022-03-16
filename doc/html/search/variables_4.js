@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['debug_0',['debug',['../structCounter__T.html#ab270a9391da84a6aee2995b5c4c2091d',1,'Counter_T']]],
+  ['debug_0',['debug',['../structCounter.html#a09323beeace814dc474db5e5fd25d7d2',1,'Counter']]],
   ['def_1',['DEF',['../namespaceLedMode.html#a10e122ec322ab40e9743109b999d2d17',1,'LedMode']]],
-  ['dist_2',['dist',['../structSpeed__T.html#a285b92dbaafec2780e54829843e92d01',1,'Speed_T']]],
-  ['dolog_3',['doLog',['../logger_8h.html#a5743de169b81927efc7f2f34f61cd5f8',1,'logger.h']]],
-  ['dt_5fcycle_4',['dt_cycle',['../structTiming__T.html#ae9160769461a2d3c03a577e4922d3ccd',1,'Timing_T']]],
-  ['dt_5fdebug_5',['dt_debug',['../structTiming__T.html#a58d6e24862e7cb463af7dfc13dfe0653',1,'Timing_T']]],
-  ['dt_5flogger_6',['dt_logger',['../structTiming__T.html#aecff40abda18b890835f8ab7758423b7',1,'Timing_T']]],
-  ['duty_5fcycle_7',['duty_cycle',['../structTiming__T.html#a8b27ea8496b0fcf0a32c943da56375b0',1,'Timing_T']]]
+  ['dist_2',['dist',['../structSpeed.html#add6b46adc62e6b20891a73039298e2da',1,'Speed']]],
+  ['dolog_3',['doLog',['../group__logfun.html#ga0b0b75e00435dedf8d92084babdf94c9',1,'logger.h']]],
+  ['dt_5fcycle_4',['dt_cycle',['../structTiming.html#adf2db4bc7bbd86c89b5d0c0c65032e39',1,'Timing']]],
+  ['dt_5fdebug_5',['dt_debug',['../structTiming.html#a6cc06eb039ab1b495959919341313531',1,'Timing']]],
+  ['dt_5flogger_6',['dt_logger',['../structTiming.html#a535a9c17c3c2e069ccdf967f79293fd2',1,'Timing']]],
+  ['duty_5fcycle_7',['duty_cycle',['../structTiming.html#aa41b52269f634638f74255be23eb9fd8',1,'Timing']]]
 ];
