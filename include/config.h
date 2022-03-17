@@ -45,7 +45,7 @@
 #define BAUD_GPS_DEF	9600 //!< Default baudrate of GPS sensor (for init only).
 #define BAUD_GPS		57600 //!< Actual baudrate of GPS sensor.
 #define GPS_EXTBUFSIZE	128 //!< Extra buffer size for GPS sensor UART.
-//#define UART_SBUS		Serial8 //used UART for SBUS communication TODO sbus
+#define UART_SBUS		Serial8 //!< Used UART for SBUS communication. /details The UART used for the SBUS receiver. This runs with a baudrate of 100000. Initialization and setting is performed by the SBUS library.
 
 //ADC
 #define ADC_RES			12 //!< ADC resolution (in bits).
@@ -97,7 +97,7 @@
 #define RELAY_EN_PIN	33 //!< Digital out for relay enable pin.
 
 //DIGITAL IN 
-#define ONOFF_STATE_PIN	34 //!< Digital in for on/off buttun state (diode between onoff and this). \warning This has to become 36.
+#define ONOFF_STATE_PIN	36 //!< Digital in for on/off buttun state (diode between onoff and this).
 
 /*! @} */ 
 
@@ -115,8 +115,9 @@
 //TIMES
 #define SAMPLING_TIME		1e3 //!< Sampling time of the control loop (us). \details This is also the fundamental sampling time of the system. All other sampling times are expresed in units of this value. \warning Must be consistent with that in Simulink. 
 #define SPEED_SAMPLING_FAC	1 //!< Sampling factor of speed sensor (expressed in units of #SAMPLING_TIME). \note This is the rate at which the sensor is read, not its output data rate. \warning Not used now. Speed sensor is read as fast as possible. \see SAMPLING_TIME
-#define IMU_SAMPLING_FAC	1 //!< Sampling factor of speed sensor (expressed in units of #SAMPLING_TIME). \note This is the rate at which the sensor is read, not its output data rate (i.e. #ACC_ODR or #GYRO_ODR). \see SAMPLING_TIME ACC_ODR GYRO_ODR
-#define MAG_SAMPLING_FAC	5 //!< Sampling factor of speed sensor (expressed in units of #SAMPLING_TIME). \note This is the rate at which the sensor is read, not its output data rate (i.e. #MAG_ODR). \see SAMPLING_TIME MAG_ODR
+#define IMU_SAMPLING_FAC	1 //!< Sampling factor of IMU (expressed in units of #SAMPLING_TIME). \note This is the rate at which the sensor is read, not its output data rate (i.e. #ACC_ODR or #GYRO_ODR). \see SAMPLING_TIME ACC_ODR GYRO_ODR
+#define MAG_SAMPLING_FAC	5 //!< Sampling factor of magnetometer (expressed in units of #SAMPLING_TIME). \note This is the rate at which the sensor is read, not its output data rate (i.e. #MAG_ODR). \see SAMPLING_TIME MAG_ODR
+#define SBUS_SAMPLING_FAC	14 //!< Sampling factor of the SBUSr receiver. \note This is the rate at which the sensor is read, not its output data rate. \warning Not used now. SBUS is read as fast as possible. \see SAMPLING_TIME
 #define DEF_LED 			1000 //!< Sampling factor of led in default mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::DEF
 #define LOG_LED 			500 //!< Sampling factor of led in log mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::LOG
 #define MTP_LED 			250 //!< Sampling factor of led in mtp mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::MTP
@@ -149,6 +150,12 @@
 #define GYROX_OFFSET    +0.0059F/GYRO_SCALE //!< Offset of gyro x. \details Value from offset calibration of the IMU.
 #define GYROY_OFFSET    -0.0066F/GYRO_SCALE //!< Offset of gyro y. \details Value from offset calibration of the IMU.
 #define GYROZ_OFFSET    -0.0080F/GYRO_SCALE //!< Offset of gyro z. \details Value from offset calibration of the IMU.
+#define MAX_SBUS		1811 //!< Maximum value from SBUS. \details Maximum value received by the SBUS.
+#define MIN_SBUS		172 //!< Minimum value from SBUS. \details Minimum value received by the SBUS.
+#define TRESHOLD_SBUS	1000 //!< Treshold for SBUS. \details Treshold value for logic state received by the SBUS.	
+#define MAX_CH			1 //!< Maximum value for channels. \details Maximum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. \see CH_MIN CONVERT_CHANNEL_TO_FLOAT
+#define MAX_CH			-1 //!< Minimum value for channels. \details Minimum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. \see CH_MAX CONVERT_CHANNEL_TO_FLOAT
+#define MAX_MISSING_SBUS	10*SBUS_SAMPLING_FAC //!< Maximum missing packets for SBUS. \details Maximum missing packets for the SBUS communication. \note Check for missing packet is performed avery #SAMPLING_TIME milliseconds. \see SAMPLING_TIME
 
 //LIMITS
 #define MAX_REFCUR		controlParams.maxCurrent //!< Maximum reference current. \warning Must be consistent with that in ESCON studio and Simulink. 
@@ -249,6 +256,16 @@
 	\see ADC_RES GAIN_FORKDISP OFFSET_FORKDISP
 */
 #define CONVERT_FORKDISP_TO_MM(X)		(GAIN_FORKDISP * X / (powf(2, ADC_RES) - 1) + OFFSET_FORKDISP) //macro for conversion of front fork displacement to mm
+
+/*! \brief Convert SBUS channel to float.
+	\details Macro for the conversion of the value of a SBUS channel from int16_t to a float within a defined range.
+	\param X The value of SBUS channel. It must be within #MIN_SBUS and #MAX_SBUS.
+	\param XMIN The minimum value of the float.
+	\param XMAX The maximum value of the float.
+	\return The float value within MIN and MAX.
+	\see MAX_SBUS MIN_SBUS
+*/
+#define CONVERT_CHANNEL_TO_FLOAT(X, XMIN, XMAX)	(float(X)-MIN_SBUS)/(MAX_SBUS-MIN_SBUS)*(XMAX-XMIN) + XMIN //macro for conversion of SBUS channels to floats
 
 //ENABLES
 #define MTR_EN_STATE	HIGH //!< Enable state for motor.
