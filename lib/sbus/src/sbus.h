@@ -75,7 +75,11 @@ class SbusRx {
   #else
   std::array<int16_t, NUM_SBUS_CH_> ch_;
   #endif
+  #ifdef SL_MOD
+  bool failsafe_ = true, lost_frame_ = true, ch17_ = false, ch18_ = false; //SL lost frame and fail safe init to true at the beggining
+  #else
   bool failsafe_ = false, lost_frame_ = false, ch17_ = false, ch18_ = false;
+  #endif
   bool Parse();
 
  public:
@@ -89,6 +93,8 @@ class SbusRx {
   static constexpr int8_t NUM_CH() {return NUM_SBUS_CH_;}
   #ifdef SL_MOD
   inline int16_t ch(size_t ch) {return ch_[ch];}
+  inline void ch(int16_t* ch) { memcpy(ch, ch_, NUM_SBUS_CH_*sizeof(int16_t));}
+  inline void ch(int16_t* ch, size_t len) { memcpy(ch, ch_, len);}
   #else
   inline std::array<int16_t, NUM_SBUS_CH_> ch() const {return ch_;}
   #endif
