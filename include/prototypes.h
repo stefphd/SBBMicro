@@ -106,6 +106,14 @@ void do_control(void);
 */
 void check_error(void);
 
+/*! \brief Check for SBUS.
+	\details Function to check for unfeasible values of SBUS channels, which must be within #MIN_SBUS and #MAX_SBUS.
+    The function checks also for lost frame and fail safe.
+    \return True if success, false for errors.
+    \see MIN_SBUS MAX_SBUS
+*/
+bool check_sbus(void);
+
 /*! \brief Set the drivers.
 	\details Function to set the drivers, such as the steer-motor driver and the throttle via the DAC. Drivers are set only if no error is found.
     \see macros

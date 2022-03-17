@@ -71,7 +71,7 @@ class SbusRx {
   /* Data */
   bool new_data_;
   #ifdef SL_MOD //SL use standard array instead of std::array
-  int16_t ch_[NUM_SBUS_CH_];
+  int16_t ch_[NUM_SBUS_CH_] = {  };
   #else
   std::array<int16_t, NUM_SBUS_CH_> ch_;
   #endif

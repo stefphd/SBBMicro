@@ -172,17 +172,29 @@ struct Timing {
 	uint32_t dt_logger; //!< Logger time. \details The time taken by the data logging. The value is much lower than #SAMPLING_TIME, except for possible overrunning. \see logfun SAMPLING_TIME
 };
 
-/*! \brief Channels from remote controller.
-	\details The struct contains values of the channels sent by the remote controller.
+/*! \brief Signals from remote controller.
+	\details The struct contains values of the signals sent by the remote controller.
     \ingroup vars
 */
-struct Channel { //controller channels
-	int16_t ch0; //!< Channel 0. \details The channel is the up/down positoon of the left stick. Value ranges from #MIN_SBUS to #MAX_SBUS. \note Channel type depends also on the settings of remote controller. \see MIN_SBUS MAX_SBUS
-	int16_t ch1; //!< Channel 1. \details The channel is the left/right positoon of the right stick. Value ranges from #MIN_SBUS to #MAX_SBUS. \note Channel type depends also on the settings of remote controller. \see MIN_SBUS MAX_SBUS
-	int16_t ch2; //!< Channel 2. \details The channel is the up/down positoon of the right stick. Value ranges from #MIN_SBUS to #MAX_SBUS. \note Channel type depends also on the settings of remote controller. \see MIN_SBUS MAX_SBUS
-	int16_t ch3; //!< Channel 3. \details The channel is the left/right positoon of the left stick. Value ranges from #MIN_SBUS to #MAX_SBUS. \note Channel type depends also on the settings of remote controller. \see MIN_SBUS MAX_SBUS
-	int16_t ch4; //!< Channel 3. \details The channel is the logic state of the SD switch. Low value is #MIN_SBUS while high value is #MAX_SBUS. \note Channel type depends also on the settings of remote controller. \see MIN_SBUS MAX_SBUS
-	int16_t ch5; //!< Channel 3. \details The channel is the logic state of the SE switch. Low value is #MIN_SBUS while high value is #MAX_SBUS. \note Channel type depends also on the settings of remote controller. \see MIN_SBUS MAX_SBUS
+struct RemoteCtrl { //controller channels
+	/*! \brief Channels from remote controller.
+		\details The array contains values of the channels sent by the remote controller.
+		The size of the array is #NUM_CH_SBUS. Current channels are:
+		- Channel 1: up/down positoon of the left stick.
+		- Channel 2: left/right positoon of the right stick.
+		- Channel 3: up/down positoon of the right stick.
+		- Channel 4: left/right positoon of the left stick.
+		- Channel 5: logic state of the SD switch.
+		- Channel 6: logic state of the SE switch.
+
+		Values range from #MIN_SBUS to #MAX_SBUS and are initialized to #ZERO_SBUS. For logic channels the low state is #MIN_SBUS, while the
+		high state is #MAX_SBUS.
+		\note Channel type depends on the settings of remote controller. 
+		\see NUM_CH_SBUS MIN_SBUS MAX_SBUS ZERO_SBUS
+	*/
+	int16_t ch[NUM_CH_SBUS] = { ZERO_SBUS }; 
+	//bool lost_frame = true; // Lost frame. \details The lost frame is true when a frame is lost from the receiver. It is initialize to true (frame is lost at the begginging).
+	uint32_t missing_frame = 0; //!< Number of missing frame. \details The counter increment when failing to read SBUS or frame is lost. The counter is reset when reading success. When #MAX_MISSING_SBUS is reached, an error is thrown. \see MAX_MISSING_SBUS
 };
 
 //global variables
@@ -201,7 +213,7 @@ ActCurr actCurr_raw; //!< Raw data from the motor current sensor.
 Steer steer_raw; //!< Raw data from the steering sensors.
 ForkDisp forkDisp_raw; //!< Raw data from the fork-displacement sensor.
 Voltage voltage_raw; //!< Raw data from the battery voltage sensor.
-Channel channel_raw; //!< Channels from the remote controller.
+RemoteCtrl remote_raw; //!< Channels from the remote controller.
                              
 //global objects
 ISM330DHCXSensor imu(&USED_SPI, CS_IMU, SPISPEED_IMU); //!< IMU object (accelerometer and gryometer).

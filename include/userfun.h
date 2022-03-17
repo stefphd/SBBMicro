@@ -30,7 +30,7 @@ void start_IObus(void) {
 	UART_GPS.end(), delay(66);
 	UART_GPS.begin(BAUD_GPS);*/
 	//start sbus
-	//sbus.Begin(); //TODO sbus
+	sbus.Begin(); //This inclues begin of the #UART_SBUS
 }
 
 /*
@@ -177,14 +177,29 @@ void get_sensors(void) {
 	voltage_raw.batVolt = analogRead(VOLTAGE);
 	forkDisp_raw.forkDisp = analogRead(FORK_DISP);
 
-	//sbus TODO
-	/*
+	//sbus
 	if (sbus.Read()) {
-		remote_ctrl.ch0 = sbus_rx.ch(0);
-		remote_ctrl.ch1 = sbus_rx.ch(1);
-		blabla other channels for enable brake etc...
+		if (check_sbus()) { //success!!!
+			sbus.ch(remote_raw.ch, NUM_CH_SBUS*sizeof(int16_t)); //read channels
+			remote_raw.missing_frame = 0; //reset missing frame
+		} else remote_raw.missing_frame++; //increment missing frame
+	} else remote_raw.missing_frame++; //increment missing frame
+	if (remote_raw.missing_frame >= MAX_MISSING_SBUS) { //set zero values to 
+		remote_raw.missing_frame = MAX_MISSING_SBUS; //set to #MAX_MISSING_SBUS to avoid overflow
+		for (uint8_t i = 0; i < NUM_CH_SBUS; ++i) remote_raw.ch[i] = ZERO_SBUS; //set channel to zero
 	}
-	*/
+}
+
+/*
+bool check_sbus(void) check for SBUS errors
+*/
+bool check_sbus(void)  {
+	if (sbus.lost_frame()) { return false; }
+	if (sbus.failsafe()) { return false; }
+	for (uint8_t i = 0; i < NUM_CH_SBUS; ++i) {
+		if ((sbus.ch(i) < MIN_SBUS) || (sbus.ch(i) > MAX_SBUS)) { return false; } //return false as soon as an unfeasible value is found
+	}
+	return true; //all checks ok
 }
 
 /*

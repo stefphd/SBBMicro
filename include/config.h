@@ -150,11 +150,13 @@
 #define GYROX_OFFSET    +0.0059F/GYRO_SCALE //!< Offset of gyro x. \details Value from offset calibration of the IMU.
 #define GYROY_OFFSET    -0.0066F/GYRO_SCALE //!< Offset of gyro y. \details Value from offset calibration of the IMU.
 #define GYROZ_OFFSET    -0.0080F/GYRO_SCALE //!< Offset of gyro z. \details Value from offset calibration of the IMU.
+#define NUM_CH_SBUS		6 //!< Number channels from SBUS. \details Number of the stored channel from the SBUS. \see RemoteCtrl
 #define MAX_SBUS		1811 //!< Maximum value from SBUS. \details Maximum value received by the SBUS.
 #define MIN_SBUS		172 //!< Minimum value from SBUS. \details Minimum value received by the SBUS.
-#define TRESHOLD_SBUS	1000 //!< Treshold for SBUS. \details Treshold value for logic state received by the SBUS.	
-#define MAX_CH			1 //!< Maximum value for channels. \details Maximum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. \see CH_MIN CONVERT_CHANNEL_TO_FLOAT
-#define MAX_CH			-1 //!< Minimum value for channels. \details Minimum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. \see CH_MAX CONVERT_CHANNEL_TO_FLOAT
+#define ZERO_SBUS		992 //!< Zero-value for SBUS. \details Value corresponding to zero for the SBUS. This is hust the average of #MAX_SBUS and #MIN_SBUS. \see MAX_SBUS MIN_SBUS
+#define TRESHOLD_SBUS	1400 //!< Treshold for SBUS. \details Treshold value for logic state received by the SBUS. If greaten than this value, it is a high state. \attention This value should be larger than #ZERO_SBUS, in order to recognize it as a low state. \see ZERO_SBUS
+#define MAX_CH_SBUS		1 //!< Maximum value for channels. \details Maximum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. \see CH_MIN CONVERT_CHANNEL_TO_FLOAT
+#define MAX_CH_SBUS		-1 //!< Minimum value for channels. \details Minimum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. \see CH_MAX CONVERT_CHANNEL_TO_FLOAT
 #define MAX_MISSING_SBUS	10*SBUS_SAMPLING_FAC //!< Maximum missing packets for SBUS. \details Maximum missing packets for the SBUS communication. \note Check for missing packet is performed avery #SAMPLING_TIME milliseconds. \see SAMPLING_TIME
 
 //LIMITS

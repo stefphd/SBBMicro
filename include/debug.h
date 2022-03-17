@@ -21,7 +21,7 @@
 HostPort hostPort(&Serial, HEADER, TERMINATOR); //!< Object for the host communication with PC vis USB/serial. \see HostPort \ingroup debfun
 
 /*! \brief Receive struct for debug.
-	  \details The struct contains the received signals which overrides the corresponding signals in ctrl.controlModel_Y.
+	  \details The struct containing the received signals which overrides the corresponding signals in ctrl.controlModel_Y.
     \see debfun debug.h rx_packet
     \ingroup debfun
 */
@@ -30,7 +30,7 @@ struct Debug_rx {
 	float throttle_ref; //!< Reference throttle.
 } rx_packet; //!< Struct with received signals. \see Debug_rx \ingroup debfun
 
-unsigned long missing_reads = MAX_MISSING_READS; //!< Counter for missing readings. \details Initial value is set to #MAX_MISSING_READS. \see MAX_MISSING_READS \ingroup debfun
+uint32_t missing_reads = MAX_MISSING_READS; //!< Counter for missing readings. \details Initial value is set to #MAX_MISSING_READS. \see MAX_MISSING_READS \ingroup debfun
 
 //functions
 /*
