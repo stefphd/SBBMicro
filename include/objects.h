@@ -174,14 +174,15 @@ struct Timing {
 
 /*! \brief Channels from remote controller.
 	\details The struct contains values of the channels sent by the remote controller.
-	\todo Tell range of the values. Should be: ch0 speed ref, ch1 roll ref, ch2,ch3 logic channels
     \ingroup vars
 */
 struct Channel { //controller channels
-  uint16_t ch0; //!< Channel 0. \todo Values ranging from .. to ..
-  uint16_t ch1; //!< Channel 1. \todo Values ranging from .. to ..
-  uint16_t ch2; //!< Channel 2. \details Logic channel.
-  uint16_t ch3; //!< Channel 3. \details Logic channel.
+	int16_t ch0; //!< Channel 0. \details The channel is the up/down positoon of the left stick. Value ranges from #MIN_SBUS to #MAX_SBUS. \note Channel type depends also on the settings of remote controller. \see MIN_SBUS MAX_SBUS
+	int16_t ch1; //!< Channel 1. \details The channel is the left/right positoon of the right stick. Value ranges from #MIN_SBUS to #MAX_SBUS. \note Channel type depends also on the settings of remote controller. \see MIN_SBUS MAX_SBUS
+	int16_t ch2; //!< Channel 2. \details The channel is the up/down positoon of the right stick. Value ranges from #MIN_SBUS to #MAX_SBUS. \note Channel type depends also on the settings of remote controller. \see MIN_SBUS MAX_SBUS
+	int16_t ch3; //!< Channel 3. \details The channel is the left/right positoon of the left stick. Value ranges from #MIN_SBUS to #MAX_SBUS. \note Channel type depends also on the settings of remote controller. \see MIN_SBUS MAX_SBUS
+	int16_t ch4; //!< Channel 3. \details The channel is the logic state of the SD switch. Low value is #MIN_SBUS while high value is #MAX_SBUS. \note Channel type depends also on the settings of remote controller. \see MIN_SBUS MAX_SBUS
+	int16_t ch5; //!< Channel 3. \details The channel is the logic state of the SE switch. Low value is #MIN_SBUS while high value is #MAX_SBUS. \note Channel type depends also on the settings of remote controller. \see MIN_SBUS MAX_SBUS
 };
 
 //global variables
@@ -210,7 +211,7 @@ Adafruit_GPS gps(&UART_GPS); //!< GPS object.
 MCP492X dac(&USED_SPI, SPISPEED_DAC, CS_DAC); //!< DAC object.
 ControlClass ctrl; //!< Control object.
 SerialTransfer speedSensor; //!< SerialTransfer object for speed sensor.
-//SbusRx sbus(&UART_SBUS); //TODO sbus object for remote controller
+SbusRx sbus(&UART_SBUS); //!< SBUS object for remote controller.
 
 /*! @} */
 
