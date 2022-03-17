@@ -104,7 +104,7 @@ GENERATE_LATEX  = YES
 in `Doxyfile`. The latex version will be in `./docs/latex`) and can be compiled using latex with
 
 ```shell
-cd ./docs
+cd ./docs/latex
 make
 ```
 
