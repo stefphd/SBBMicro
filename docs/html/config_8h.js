@@ -5,6 +5,8 @@ var config_8h =
     [ "ACT_CURR", "group__pin.html#ga2b4b8f9fd72533da4240bc35a55204bd", null ],
     [ "ADC_AVERAGE", "group__bus.html#ga9e49a67f99885d85d011f4968fb36e13", null ],
     [ "ADC_RES", "group__bus.html#gab298faea909e0aa62203195aa3d6ca80", null ],
+    [ "ANALOG1", "group__pin.html#ga36d8b275c1932cdf4756f31894566156", null ],
+    [ "ANALOG2", "group__pin.html#gac0aadc4bdf9dbd568a0e5b2f842a49ae", null ],
     [ "BAUD_GPS", "group__bus.html#gad8cebcbdfefe7b55ff74616dbd258ad2", null ],
     [ "BAUD_GPS_DEF", "group__bus.html#gaabd9c6425be53d81ac771a5cb7906ba4", null ],
     [ "BAUD_SPEEDSENS", "group__bus.html#ga24e9c4844ac97005cfb355f9f894132c", null ],

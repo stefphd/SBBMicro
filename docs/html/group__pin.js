@@ -1,6 +1,8 @@
 var group__pin =
 [
     [ "ACT_CURR", "group__pin.html#ga2b4b8f9fd72533da4240bc35a55204bd", null ],
+    [ "ANALOG1", "group__pin.html#ga36d8b275c1932cdf4756f31894566156", null ],
+    [ "ANALOG2", "group__pin.html#gac0aadc4bdf9dbd568a0e5b2f842a49ae", null ],
     [ "CS_DAC", "group__pin.html#ga2ddc36d42271305a713cba8e377a26cc", null ],
     [ "CS_IMU", "group__pin.html#ga88aa54aa214da6fe8a39d56cc05804b5", null ],
     [ "CS_MAG", "group__pin.html#gacbf9b6821e3a24a4dd9278411957191d", null ],

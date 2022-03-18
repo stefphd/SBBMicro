@@ -147,6 +147,16 @@ struct Voltage {
 	float batVolt_offset = 0; //!< Battery voltage offset (inV). \details The value is set to 0. \see do_zeros()
 };
 
+/*! \brief Additiona analog.
+	\details The struct contains the raw data of the additional analogs. All values are in bits.
+	\see constants
+    \ingroup vars
+*/
+struct Analogs {
+	uint16_t an1; //!< Additional analog 1 (bits). \details An additional analog to be used by the user. \see ANALOG1
+	uint16_t an2; //!< Additional analog 1 (bits). \details An additional analog to be used by the user. \see ANALOG1
+};
+
 /*! \brief Counters for lower sampling rate.
 	\details The struct contains counters for lower sampling rate than #SAMPLING_TIME.
 	\see constants

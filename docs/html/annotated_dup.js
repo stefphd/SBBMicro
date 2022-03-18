@@ -1,6 +1,7 @@
 var annotated_dup =
 [
     [ "ActCurr", "structActCurr.html", "structActCurr" ],
+    [ "Analogs", "structAnalogs.html", "structAnalogs" ],
     [ "Counter", "structCounter.html", "structCounter" ],
     [ "Debug_rx", "structDebug__rx.html", "structDebug__rx" ],
     [ "ForkDisp", "structForkDisp.html", "structForkDisp" ],
