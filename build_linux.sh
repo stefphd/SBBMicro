@@ -8,20 +8,19 @@
 
 NAME="main.cpp"
 SRC="./src"
-BOARD_FQBN="teensy:avr:teensy41"
-BOARD_ID="TEENSY41"
+BOARD="teensy:avr:teensy41"
 BOARD_OPTIONS="speed=600,usb=mtpserial,opt=o3std,keys=en-us"
 
 HARDWARE="-hardware ./hardware"
 TOOLS="-tools ./hardware/tools-linux -tools /usr/share/arduino/tools-builder"
 BUILD_PATH=".build"
 BUILD_CACHE=".cache"
-FQBN=-fqbn=$BOARD_FQBN:$BOARD_OPTIONS
+FQBN=-fqbn=$BOARD:$BOARD_OPTIONS
 LIBRARIES="-libraries ./ -libraries ./include/ -libraries ./lib/"
 FLAGS="-verbose"
 
-BUILDER="arduino-builder"
-UPL_CLI="teensy_loader_cli"
+BUILDER="arduino-builder" 
+REBOOT="./hardware/tools-linux/teensy_reboot"
 
 TARGET_HEX=$BUILD_PATH/$NAME.hex
 
@@ -38,7 +37,7 @@ echo
 # COMPILING CODE
 ###################################################
 
-echo Compiling $NAME for $BOARD_FQBN with options $BOARD_OPTIONS
+echo Compiling $NAME for $BOARD with options $BOARD_OPTIONS
 echo Build path is $BUILD_PATH
 echo Cache path is $BUILD_CACHE
 echo Library paths are $LIBRARIES
@@ -51,6 +50,6 @@ echo
 # UPLOADING CODE
 ###################################################
 
-echo Uploading target hex $TARGET_HEX for board $BOARD_ID
-$UPL_CLI --mcu=$BOARD_ID -v $TARGET_HEX
+echo Uploading target hex $TARGET_HEX for board $BOARD
+$REBOOT
 echo

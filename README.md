@@ -31,7 +31,6 @@ Additional folders:
 ## Prerequisites
 
 * *arduino-builder* (>=1.6.1), also provided with Arduino IDE
-* *teeny_loader_cli* (>=2.2, Linux only), also provided with teensyduino. For Windows x64 pre-compiled binaries in `./hardware/teeny_loader_cli-win-x64` are used
 * *MATLAB/Simulink* with *Embedeed Coder Toolbox* (>=2021a), for control algorithm code generation only
 
 No other dependecies are necessary: all used libraries are already included in `./lib/`.
@@ -115,7 +114,6 @@ Documentation generation has been tested on Linux only, but it should work also 
 
 ## Known issues
 
-* Uploading only possible by entering in program mode in Teensy MCU (press program button)
 * Undefined identifiers found by Visual Studio Code, however this is only a C/C++ IntelliSense issue (compilation works fine)
 
 ## TODO list

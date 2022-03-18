@@ -8,8 +8,7 @@
 
 set NAME=main.cpp
 set SRC=.\src
-set BOARD_FQBN=teensy:avr:teensy41
-set BOARD_ID=TEENSY41
+set BOARD=teensy:avr:teensy41
 set BOARD_OPTIONS=speed=600,usb=mtpserial,opt=o3std,keys=en-us
 
 set ARDUINO_FOLDER=C:\Program Files (x86)\Arduino
@@ -20,12 +19,12 @@ set HARDWARE=-hardware .\hardware
 set TOOLS=-tools "%ARDUINO_FOLDER%\tools-builder"
 set BUILD_PATH=.build
 set BUILD_CACHE=.cache
-set FQBN=-fqbn=%BOARD_FQBN%:%BOARD_OPTIONS%
+set FQBN=-fqbn=%BOARD%:%BOARD_OPTIONS%
 set LIBRARIES=-libraries .\ -libraries .\include\ -libraries .\lib\
 set FLAGS=-verbose
 
 set BUILDER=arduino-builder
-set UPL_CLI=.\hardware\teeny_loader_cli-win-x64\teensy_loader_cli
+set REBOOT=.\hardware\tools-windows\teensy_reboot
 
 set TARGET_HEX=%BUILD_PATH%\%NAME%.hex
 
@@ -42,7 +41,7 @@ echo
 ::COMPILING CODE
 :::::::::::::::::::::::::::::::::::::::::::::::::::
 
-echo Compiling %NAME% for %BOARD_FQBN% with options %BOARD_OPTIONS%
+echo Compiling %NAME% for %BOARD% with options %BOARD_OPTIONS%
 echo Build path is %BUILD_PATH%
 echo Cache path is %BUILD_CACHE%
 echo Library paths are %LIBRARIES%
@@ -55,6 +54,6 @@ echo
 ::UPLOADING CODE
 :::::::::::::::::::::::::::::::::::::::::::::::::::
 
-echo Uploading target hex %TARGET_HEX% for board %BOARD_ID%
-%UPL_CLI% --mcu=%BOARD_ID% -v %TARGET_HEX%
+echo Uploading target hex %TARGET_HEX% for board %BOARD%
+%REBOOT%
 echo
