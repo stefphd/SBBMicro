@@ -97,6 +97,7 @@ var menudata={children:[
 {text:"d",url:"globals_func.html#index_d"},
 {text:"g",url:"globals_func.html#index_g"},
 {text:"l",url:"globals_func.html#index_l"},
+{text:"m",url:"globals_func.html#index_m"},
 {text:"s",url:"globals_func.html#index_s"},
 {text:"t",url:"globals_func.html#index_t"}]},
 {text:"Variables",url:"globals_vars.html",children:[

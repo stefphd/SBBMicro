@@ -17,6 +17,5 @@ var searchData=
   ['logfile_14',['logFile',['../group__logfun.html#ga9863b3d596e46e9f4e19d4981b3e7518',1,'logger.h']]],
   ['logger_2eh_15',['logger.h',['../logger_8h.html',1,'']]],
   ['logsamplewritten_16',['logSampleWritten',['../group__logfun.html#ga474323a96b6ba97b2ca5a724186562ea',1,'logger.h']]],
-  ['lon_17',['lon',['../structGPSData.html#a62eb9b4065fcda6964d743e53e571d12',1,'GPSData']]],
-  ['loop_18',['loop',['../group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;main.cpp'],['../group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;main.cpp']]]
+  ['lon_17',['lon',['../structGPSData.html#a62eb9b4065fcda6964d743e53e571d12',1,'GPSData']]]
 ];

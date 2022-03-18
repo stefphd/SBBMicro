@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SBB Micro: Entry-point functions</title>
+<title>SBB Micro: Entry-point function</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -102,34 +102,31 @@ $(document).ready(function(){initNavTree('group__mainfun.html',''); initResizabl
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Entry-point functions</div></div>
+  <div class="headertitle"><div class="title">Entry-point function</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Entry-point functions of the Arduino environment.  
+<p>Entry-point function of the code.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mainfun.html#ga4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
-<tr class="memdesc:ga4fc01d736fe50cf5b977f755b675f11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup function of Arduino environment.  <a href="group__mainfun.html#ga4fc01d736fe50cf5b977f755b675f11d">More...</a><br /></td></tr>
-<tr class="separator:ga4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
-<tr class="memdesc:gafe461d27b9c48d5921c00d521181f12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loop function of Arduino environment.  <a href="group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f">More...</a><br /></td></tr>
-<tr class="separator:gafe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mainfun.html#gae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:gae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry-point function.  <a href="group__mainfun.html#gae66f6b31b5ad750f1fe042a706a4e3d4">More...</a><br /></td></tr>
+<tr class="separator:gae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p >Entry-point functions of the Arduino environment. </p>
-<p >Definition of the entry-point functions <a class="el" href="group__mainfun.html#ga4fc01d736fe50cf5b977f755b675f11d" title="Setup function of Arduino environment.">setup()</a> and <a class="el" href="group__mainfun.html#gafe461d27b9c48d5921c00d521181f12f" title="Loop function of Arduino environment.">loop()</a> used in the Arduino environment. The main function is automatically created during compilation by the Arduino builder. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="main_8cpp.html" title="Main file of the low-level code for the controller.">main.cpp</a> </dd></dl>
+<p >Entry-point function of the code. </p>
+<p >This contains the definition for main function, which is the entry-point function of the code. Note that this is different from the standard Arduino workflow, which makes use of the setup() and loop() function with the <a class="el" href="group__mainfun.html#gae66f6b31b5ad750f1fe042a706a4e3d4" title="Entry-point function.">main()</a> written in the core code (actually, the main function defined in this file overrides that in the core code). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="main_8cpp.html" title="Main file of the low-level code for the controller.">main.cpp</a> </dd></dl>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gafe461d27b9c48d5921c00d521181f12f" name="gafe461d27b9c48d5921c00d521181f12f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafe461d27b9c48d5921c00d521181f12f">&#9670;&nbsp;</a></span>loop()</h2>
+<a id="gae66f6b31b5ad750f1fe042a706a4e3d4" name="gae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void loop </td>
+          <td class="memname">int main </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -137,28 +134,21 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Loop function of Arduino environment. </p>
-<p >The loop function runs over and over again forever, untill the microcontroller turns off. A non-blocking timer is used with a sampling time of <a class="el" href="group__constants.html#gafe4be61d10dd9068bae19c0b74dac665" title="Sampling time of the control loop (us).">SAMPLING_TIME</a>. During the cycle the function reads the sensors, converts the readings into convenient units, performs a control steps, checks possible errors, sets the drivers, does debug stuff, and finally logs all the necessary signals. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__constants.html#gafe4be61d10dd9068bae19c0b74dac665" title="Sampling time of the control loop (us).">SAMPLING_TIME</a> </dd></dl>
-
-</div>
-</div>
-<a id="ga4fc01d736fe50cf5b977f755b675f11d" name="ga4fc01d736fe50cf5b977f755b675f11d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4fc01d736fe50cf5b977f755b675f11d">&#9670;&nbsp;</a></span>setup()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void setup </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Setup function of Arduino environment. </p>
-<p >The setup funtion runs once when the microcontroller turns on. It initializes and sets the buses, enables the main relay, and performs initial checks. </p>
+<p>Entry-point function. </p>
+<p >Definition for main function, which is the entry-point function of the code. The function implementation is structured as follows</p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="group__mainfun.html#gae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//initializations here</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span>(1) { <span class="comment">//infinite loop, running forever</span></div>
+<div class="line">        <span class="comment">//loop here</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__mainfun_html_gae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="group__mainfun.html#gae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Entry-point function.</div><div class="ttdef"><b>Definition:</b> main.cpp:45</div></div>
+</div><!-- fragment --><dl class="section return"><dt>Returns</dt><dd>The exit status (0 in this case). </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="main_8cpp.html" title="Main file of the low-level code for the controller.">main.cpp</a> </dd></dl>
 
 </div>
 </div>
