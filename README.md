@@ -120,17 +120,17 @@ Documentation generation has been tested on Linux only, but it should work also 
 
 ## Make
 
-In Linux one may also use **make* for the building and the documentation generation. This allows several operations using similar syntax:
+In Linux one may also use *make* for the building and the documentation generation. This allows several operations using similar syntax:
 * `make` or `make all` to build and upload the code.
 * `make build` to build the code only.
 * `make upload` to upload code only.
-* `make remake` to clear, build and upload the code.
-* `make rebuild` to clear and rebuild.
+* `make remake` to clean, build and upload the code.
+* `make rebuild` to clean and rebuild.
 * `make directories` to make the directories.
-* `make doc` to build the documentation (see later).
-* `make cleandoc` to clear the documentation (see later).
+* `make doc` to build the documentation.
+* `make cleandoc` to clean the documentation.
 * `make clean` to clear the build and cache directories.
-* `make cleanall` to clear the build and cache directories.
+* `make cleanall` to clean the build and cache directories.
 
 ## Known issues
 
