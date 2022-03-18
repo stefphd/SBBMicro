@@ -11,7 +11,7 @@
 
 //prototypes for main.cpp
 
-/*! @defgroup mainfun Entry-point functions
+/* @defgroup mainfun Entry-point functions
    \brief Entry-point functions of the Arduino environment.
    \details Definition of the entry-point functions setup() and loop() used in the Arduino environment. 
    The main function is automatically created during compilation by the Arduino builder.
@@ -19,22 +19,22 @@
    @{
 */
 
-/*! \brief Setup function of Arduino environment.
+/* \brief Setup function of Arduino environment.
 	\details The setup funtion runs once when the microcontroller turns on. It initializes and sets the buses, 
     enables the main relay, and performs initial checks.
 */
-void setup();
+//void setup();
 
-/*! \brief Loop function of Arduino environment.
+/* \brief Loop function of Arduino environment.
 	\details The loop function runs over and over again forever, untill the microcontroller turns off.
     A non-blocking timer is used with a sampling time of #SAMPLING_TIME. During the cycle the function reads 
     the sensors, converts the readings into convenient units, performs a control steps, checks possible errors, 
     sets the drivers, does debug stuff, and finally logs all the necessary signals.
     \see SAMPLING_TIME
 */
-void loop();
+//void loop();
 
-/*! @} */
+/* @} */
 
 
 // prototypes for functions.h

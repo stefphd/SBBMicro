@@ -1,15 +1,48 @@
 /*! \file main.cpp
 	\brief Main file of the low-level code for the controller.
-	\details Main file of the low-level code for the controller. This contains the definitions for the entry-point functions 
-	setup() and loop() used in the Arduino environment. Them main function is automatically created during 
-	compilation by the Arduino builder. Function prototypes are in prototypes.h.
-	\see mainfun prototypes.h
+	\details Main file of the low-level code for the controller. This contains the definition for main function, which is the
+	entry-point function of the code. Note that this is different from the standard Arduino workflow, which makes use of the setup() and
+	loop() function with the main() written in the core code (actually, the main function defined in this file overrides that
+	in the core code).
+	\see mainfun
 */
 
 //include
 #include <include.h>
 
-void setup() {
+#undef main //remove Arduino main function - maybe not necessary (?)
+
+/*! @defgroup mainfun Entry-point function
+	\brief Entry-point function of the code.
+	\details This contains the definition for main function, which is the
+	entry-point function of the code. Note that this is different from the standard Arduino workflow, which makes use of the setup() and
+	loop() function with the main() written in the core code (actually, the main function defined in this file overrides that
+	in the core code).
+    \see main.cpp
+    @{
+*/
+
+/*! \brief Entry-point function.
+	\details Definition for main function, which is the entry-point function of the code.
+	The function implementation is structured as follows
+
+	```
+	int main() {
+
+		//initializations here
+
+		while(1) { //infinite loop, running forever
+			//loop here
+		}
+
+		return 0;
+	}
+	```
+
+	\return The exit status (0 in this case).
+    \see main.cpp
+*/
+int main() {
 
 	//set the pins
 	set_GPIO();
@@ -66,10 +99,9 @@ void setup() {
 
 	//flush serials
 	serial_flush();
-}
 
-void loop() {
-	if ((micros() - sampling_timer) >= SAMPLING_TIME) {
+	while(1) {
+		if ((micros() - sampling_timer) >= SAMPLING_TIME) {
 		timing.dt_cycle = micros() - sampling_timer; //cycle time (should be equal to SAMPLING_TIME)
 		sampling_timer = micros(); //update timer
 		
@@ -101,4 +133,12 @@ void loop() {
 
 	}
 
+	yield(); //maybe not necessary
+
+	}
+
+	return 0;
+
 }
+
+/*! @} */
