@@ -53,7 +53,7 @@ recipe.hooks.objcopy.postobjcopy.1.pattern="{compiler.path}teensy_secure" encryp
 
 
 ## Post Build - inform Teensy Loader of new file
-recipe.hooks.postbuild.1.pattern="{compiler.path}teensy_post_compile" "-file={build.project_name}" "-path={build.path}" "-tools={compiler.path}" "-board={build.board}"
+#recipe.hooks.postbuild.1.pattern="{compiler.path}teensy_post_compile" "-file={build.project_name}" "-path={build.path}" "-tools={compiler.path}" "-board={build.board}"
 recipe.hooks.postbuild.2.pattern="{compiler.path}stdout_redirect" "{build.path}/{build.project_name}.sym" "{compiler.path}{build.toolchain}{build.command.objdump}" -t -C "{build.path}/{build.project_name}.elf"
 recipe.hooks.postbuild.3.pattern="{compiler.path}teensy_size" "{build.path}/{build.project_name}.elf"
 #

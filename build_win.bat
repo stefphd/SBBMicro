@@ -11,20 +11,22 @@ set SRC=.\src
 set BOARD=teensy:avr:teensy41
 set BOARD_OPTIONS=speed=600,usb=mtpserial,opt=o3std,keys=en-us
 
-set ARDUINO_FOLDER=C:\Program Files (x86)\Arduino
+set ARDUINO_FOLDER="C:\Program Files (x86)\Arduino\tools-builder"
+set TEENSY_TOOLS=.\hardware\tools-windows
 
 set PATH=%ARDUINO_FOLDER%;%PATH%
 
 set HARDWARE=-hardware .\hardware
-set TOOLS=-tools "%ARDUINO_FOLDER%\tools-builder"
+set TOOLS=-tools %TEENSY_TOOLS% -tools "%ARDUINO_FOLDER%\tools-builder" 
 set BUILD_PATH=.build
-set BUILD_CACHE=.cache
+set CACHE_PATH=.cache
 set FQBN=-fqbn=%BOARD%:%BOARD_OPTIONS%
 set LIBRARIES=-libraries .\ -libraries .\include\ -libraries .\lib\
 set FLAGS=-verbose
 
 set BUILDER=arduino-builder
-set REBOOT=.\hardware\tools-windows\teensy_reboot
+set POSTCOMPILER=%TEENSY_TOOLS%\teensy_post_compile
+set REBOOT=%TEENSY_TOOLS%\teensy_reboot
 
 set TARGET_HEX=%BUILD_PATH%\%NAME%.hex
 
@@ -34,7 +36,7 @@ set TARGET_HEX=%BUILD_PATH%\%NAME%.hex
 
 echo Creating necessary directories if not existing...
 mkdir %BUILD_PATH%
-mkdir %BUILD_CACHE%
+mkdir %CACHE_PATH%
 echo 
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -43,10 +45,10 @@ echo
 
 echo Compiling %NAME% for %BOARD% with options %BOARD_OPTIONS%
 echo Build path is %BUILD_PATH%
-echo Cache path is %BUILD_CACHE%
+echo Cache path is %CACHE_PATH%
 echo Library paths are %LIBRARIES%
-%BUILDER% -dump-prefs -build-path %BUILD_PATH% -build-cache %BUILD_CACHE% %HARDWARE% %TOOLS% %LIBRARIES% %FQBN% %SRC%\%NAME%
-%BUILDER% -compile %FLAGS% -build-path %BUILD_PATH% -build-cache %BUILD_CACHE% %HARDWARE% %TOOLS% %LIBRARIES% %FQBN% %SRC%\%NAME%
+%BUILDER% -dump-prefs -build-path %BUILD_PATH% -build-cache %CACHE_PATH% %HARDWARE% %TOOLS% %LIBRARIES% %FQBN% %SRC%\%NAME%
+%BUILDER% -compile %FLAGS% -build-path %BUILD_PATH% -build-cache %CACHE_PATH% %HARDWARE% %TOOLS% %LIBRARIES% %FQBN% %SRC%\%NAME%
 echo Target hex file %TARGET_HEX% generated
 echo
 
@@ -55,5 +57,6 @@ echo
 :::::::::::::::::::::::::::::::::::::::::::::::::::
 
 echo Uploading target hex %TARGET_HEX% for board %BOARD%
+%POSTCOMPILER% -file=%NAME% -path=%BUILD_PATH% -tools=%TEENSY_TOOLS% -board %BOARD%
 %REBOOT%
 echo
