@@ -155,8 +155,8 @@
 #define MIN_SBUS		172 //!< Minimum value from SBUS. \details Minimum value received by the SBUS.
 #define ZERO_SBUS		992 //!< Zero-value for SBUS. \details Value corresponding to zero for the SBUS. This is hust the average of #MAX_SBUS and #MIN_SBUS. \see MAX_SBUS MIN_SBUS
 #define TRESHOLD_SBUS	1400 //!< Treshold for SBUS. \details Treshold value for logic state received by the SBUS. If greaten than this value, it is a high state. \attention This value should be larger than #ZERO_SBUS, in order to recognize it as a low state. \see ZERO_SBUS
-#define MAX_CH_SBUS		1 //!< Maximum value for channels. \details Maximum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. \see CH_MIN CONVERT_CHANNEL_TO_FLOAT
-#define MAX_CH_SBUS		-1 //!< Minimum value for channels. \details Minimum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. \see CH_MAX CONVERT_CHANNEL_TO_FLOAT
+#define MAX_CH_SBUS		1 //!< Maximum value for channels. \details Maximum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #MIN_CH_SBUS and #MAX_CH_SBUS as float numbers. \see MIN_CH_SBUS CONVERT_CHANNEL_TO_FLOAT
+#define MIN_CH_SBUS		-1 //!< Minimum value for channels. \details Minimum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #MIN_CH_SBUS and #MAX_CH_SBUS as float numbers. \see MAX_CH_SBUS CONVERT_CHANNEL_TO_FLOAT
 #define MAX_MISSING_SBUS	10*SBUS_SAMPLING_FAC //!< Maximum missing packets for SBUS. \details Maximum missing packets for the SBUS communication. \note Check for missing packet is performed avery #SAMPLING_TIME milliseconds. \see SAMPLING_TIME
 
 //LIMITS
