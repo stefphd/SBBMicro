@@ -227,9 +227,9 @@ Macros</h2></td></tr>
 <tr class="memitem:ga09abe0cf8262c656a355bb39e9bbb896"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__constants.html#ga09abe0cf8262c656a355bb39e9bbb896">MAX_CH_SBUS</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:ga09abe0cf8262c656a355bb39e9bbb896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum value for channels.  <a href="group__constants.html#ga09abe0cf8262c656a355bb39e9bbb896">More...</a><br /></td></tr>
 <tr class="separator:ga09abe0cf8262c656a355bb39e9bbb896"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga09abe0cf8262c656a355bb39e9bbb896"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__constants.html#ga09abe0cf8262c656a355bb39e9bbb896">MAX_CH_SBUS</a>&#160;&#160;&#160;-1</td></tr>
-<tr class="memdesc:ga09abe0cf8262c656a355bb39e9bbb896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum value for channels.  <a href="group__constants.html#ga09abe0cf8262c656a355bb39e9bbb896">More...</a><br /></td></tr>
-<tr class="separator:ga09abe0cf8262c656a355bb39e9bbb896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5c3570b35234aa61212ad630e033d1c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__constants.html#gad5c3570b35234aa61212ad630e033d1c">MIN_CH_SBUS</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memdesc:gad5c3570b35234aa61212ad630e033d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum value for channels.  <a href="group__constants.html#gad5c3570b35234aa61212ad630e033d1c">More...</a><br /></td></tr>
+<tr class="separator:gad5c3570b35234aa61212ad630e033d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf5a17b8732d19efff3d79dffc1d88806"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__constants.html#gaf5a17b8732d19efff3d79dffc1d88806">MAX_MISSING_SBUS</a>&#160;&#160;&#160;10*<a class="el" href="group__constants.html#ga9d331b17a3a336d8357f81206617511c">SBUS_SAMPLING_FAC</a></td></tr>
 <tr class="memdesc:gaf5a17b8732d19efff3d79dffc1d88806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum missing packets for SBUS.  <a href="group__constants.html#gaf5a17b8732d19efff3d79dffc1d88806">More...</a><br /></td></tr>
 <tr class="separator:gaf5a17b8732d19efff3d79dffc1d88806"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -630,7 +630,7 @@ Macros</h2></td></tr>
 </div>
 </div>
 <a id="ga09abe0cf8262c656a355bb39e9bbb896" name="ga09abe0cf8262c656a355bb39e9bbb896"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga09abe0cf8262c656a355bb39e9bbb896">&#9670;&nbsp;</a></span>MAX_CH_SBUS <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga09abe0cf8262c656a355bb39e9bbb896">&#9670;&nbsp;</a></span>MAX_CH_SBUS</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -642,28 +642,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Maximum value for channels. </p>
-<p >Minimum value for channels.</p>
-<p >Maximum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. </p><dl class="section see"><dt>See also</dt><dd>CH_MIN <a class="el" href="group__macros.html#ga28c4f672447b2fc848a05e1a3bac8632" title="Convert SBUS channel to float.">CONVERT_CHANNEL_TO_FLOAT</a></dd></dl>
-<p>Minimum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. </p><dl class="section see"><dt>See also</dt><dd>CH_MAX <a class="el" href="group__macros.html#ga28c4f672447b2fc848a05e1a3bac8632" title="Convert SBUS channel to float.">CONVERT_CHANNEL_TO_FLOAT</a> </dd></dl>
-
-</div>
-</div>
-<a id="ga09abe0cf8262c656a355bb39e9bbb896" name="ga09abe0cf8262c656a355bb39e9bbb896"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga09abe0cf8262c656a355bb39e9bbb896">&#9670;&nbsp;</a></span>MAX_CH_SBUS <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAX_CH_SBUS&#160;&#160;&#160;-1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum value for channels. </p>
-<p >Minimum value for channels.</p>
-<p >Maximum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. </p><dl class="section see"><dt>See also</dt><dd>CH_MIN <a class="el" href="group__macros.html#ga28c4f672447b2fc848a05e1a3bac8632" title="Convert SBUS channel to float.">CONVERT_CHANNEL_TO_FLOAT</a></dd></dl>
-<p>Minimum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. </p><dl class="section see"><dt>See also</dt><dd>CH_MAX <a class="el" href="group__macros.html#ga28c4f672447b2fc848a05e1a3bac8632" title="Convert SBUS channel to float.">CONVERT_CHANNEL_TO_FLOAT</a> </dd></dl>
+<p >Maximum value for SBUS channels. Signals from SBUS (int16_t) are remapped within <a class="el" href="group__constants.html#gad5c3570b35234aa61212ad630e033d1c" title="Minimum value for channels.">MIN_CH_SBUS</a> and <a class="el" href="group__constants.html#ga09abe0cf8262c656a355bb39e9bbb896" title="Maximum value for channels.">MAX_CH_SBUS</a> as float numbers. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__constants.html#gad5c3570b35234aa61212ad630e033d1c" title="Minimum value for channels.">MIN_CH_SBUS</a> <a class="el" href="group__macros.html#ga28c4f672447b2fc848a05e1a3bac8632" title="Convert SBUS channel to float.">CONVERT_CHANNEL_TO_FLOAT</a> </dd></dl>
 
 </div>
 </div>
@@ -749,6 +728,23 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Maximum battery voltage (overvoltage) (V). </p>
+
+</div>
+</div>
+<a id="gad5c3570b35234aa61212ad630e033d1c" name="gad5c3570b35234aa61212ad630e033d1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad5c3570b35234aa61212ad630e033d1c">&#9670;&nbsp;</a></span>MIN_CH_SBUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MIN_CH_SBUS&#160;&#160;&#160;-1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Minimum value for channels. </p>
+<p >Minimum value for SBUS channels. Signals from SBUS (int16_t) are remapped within <a class="el" href="group__constants.html#gad5c3570b35234aa61212ad630e033d1c" title="Minimum value for channels.">MIN_CH_SBUS</a> and <a class="el" href="group__constants.html#ga09abe0cf8262c656a355bb39e9bbb896" title="Maximum value for channels.">MAX_CH_SBUS</a> as float numbers. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__constants.html#ga09abe0cf8262c656a355bb39e9bbb896" title="Maximum value for channels.">MAX_CH_SBUS</a> <a class="el" href="group__macros.html#ga28c4f672447b2fc848a05e1a3bac8632" title="Convert SBUS channel to float.">CONVERT_CHANNEL_TO_FLOAT</a> </dd></dl>
 
 </div>
 </div>
