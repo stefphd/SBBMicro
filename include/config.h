@@ -87,8 +87,6 @@
 #define RIDER_TRQ		A17 //!< Rider torque analog input pin.
 #define VOLTAGE			A15 //!< Battery voltage analog input pin.
 #define FORK_DISP		A14 //!< Front fork displacement analog input pin.
-#define ANALOG1			A19 //!< Additional analog input pin.
-#define ANALOG2			A20 //!< Additional analog input pin.
 
 //PWM
 #define PWM_PIN			18 //!< PWM pin for motor current reference.
@@ -155,7 +153,7 @@
 #define NUM_CH_SBUS		6 //!< Number channels from SBUS. \details Number of the stored channel from the SBUS. \see RemoteCtrl
 #define MAX_SBUS		1811 //!< Maximum value from SBUS. \details Maximum value received by the SBUS.
 #define MIN_SBUS		172 //!< Minimum value from SBUS. \details Minimum value received by the SBUS.
-#define ZERO_SBUS		992 //!< Zero-value for SBUS. \details Value corresponding to zero for the SBUS. This is just the average of #MAX_SBUS and #MIN_SBUS. \see MAX_SBUS MIN_SBUS
+#define ZERO_SBUS		992 //!< Zero-value for SBUS. \details Value corresponding to zero for the SBUS. This is hust the average of #MAX_SBUS and #MIN_SBUS. \see MAX_SBUS MIN_SBUS
 #define TRESHOLD_SBUS	1400 //!< Treshold for SBUS. \details Treshold value for logic state received by the SBUS. If greaten than this value, it is a high state. \attention This value should be larger than #ZERO_SBUS, in order to recognize it as a low state. \see ZERO_SBUS
 #define MAX_CH_SBUS		1 //!< Maximum value for channels. \details Maximum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. \see CH_MIN CONVERT_CHANNEL_TO_FLOAT
 #define MAX_CH_SBUS		-1 //!< Minimum value for channels. \details Minimum value for SBUS channels. Signals from SBUS (int16_t) are remapped within #CH_MIN and #CH_MAX as float numbers. \see CH_MAX CONVERT_CHANNEL_TO_FLOAT
@@ -266,7 +264,7 @@
 	\param X The value of SBUS channel. It must be within #MIN_SBUS and #MAX_SBUS.
 	\param XMIN The minimum value of the float.
 	\param XMAX The maximum value of the float.
-	\return The float value within XMIN and XMAX.
+	\return The float value within MIN and MAX.
 	\see MAX_SBUS MIN_SBUS
 */
 #define CONVERT_CHANNEL_TO_FLOAT(X, XMIN, XMAX)	(float(X)-MIN_SBUS)/(MAX_SBUS-MIN_SBUS)*(XMAX-XMIN) + XMIN //macro for conversion of SBUS channels to floats

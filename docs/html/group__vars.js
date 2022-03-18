@@ -38,10 +38,6 @@ var group__vars =
       [ "batVolt", "structVoltage.html#ab278938118eb1621f72d797220d0f321", null ],
       [ "batVolt_offset", "structVoltage.html#af8a868d668c6820240e6fbb68efc1c74", null ]
     ] ],
-    [ "Analogs", "structAnalogs.html", [
-      [ "an1", "structAnalogs.html#ab23af673558a7dcceb1ec6e1f3f2677a", null ],
-      [ "an2", "structAnalogs.html#a970b424bfef187001e279149842fa13c", null ]
-    ] ],
     [ "Counter", "structCounter.html", [
       [ "debug", "structCounter.html#a09323beeace814dc474db5e5fd25d7d2", null ],
       [ "imu", "structCounter.html#a40e5e905ced1a6784f53777f3b6b299e", null ],

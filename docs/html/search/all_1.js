@@ -11,11 +11,6 @@ var searchData=
   ['adc_8',['adc',['../group__vars.html#gadfc4cf75de73dc229c45303c75fc1178',1,'objects.h']]],
   ['adc_5faverage_9',['ADC_AVERAGE',['../group__bus.html#ga9e49a67f99885d85d011f4968fb36e13',1,'config.h']]],
   ['adc_5fres_10',['ADC_RES',['../group__bus.html#gab298faea909e0aa62203195aa3d6ca80',1,'config.h']]],
-  ['an1_11',['an1',['../structAnalogs.html#ab23af673558a7dcceb1ec6e1f3f2677a',1,'Analogs']]],
-  ['an2_12',['an2',['../structAnalogs.html#a970b424bfef187001e279149842fa13c',1,'Analogs']]],
-  ['analog1_13',['ANALOG1',['../group__pin.html#ga36d8b275c1932cdf4756f31894566156',1,'config.h']]],
-  ['analog2_14',['ANALOG2',['../group__pin.html#gac0aadc4bdf9dbd568a0e5b2f842a49ae',1,'config.h']]],
-  ['analogs_15',['Analogs',['../structAnalogs.html',1,'']]],
-  ['attachrx_16',['attachRx',['../classHostPort.html#a059f045a2b6be875572556e1b31cd479',1,'HostPort']]],
-  ['attachtx_17',['attachTx',['../classHostPort.html#a62bcf2a93353c4c726e09c0b46c6409c',1,'HostPort']]]
+  ['attachrx_11',['attachRx',['../classHostPort.html#a059f045a2b6be875572556e1b31cd479',1,'HostPort']]],
+  ['attachtx_12',['attachTx',['../classHostPort.html#a62bcf2a93353c4c726e09c0b46c6409c',1,'HostPort']]]
 ];
