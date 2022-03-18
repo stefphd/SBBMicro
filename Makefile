@@ -3,6 +3,10 @@
 # Makefile for compilation of SBBMicro in Linux
 #---------------------------------------------------------------------------------
 
+#---------------------------------------------------------------------------------
+#USER SETTINGS
+#---------------------------------------------------------------------------------
+
 #Name and code
 NAME			:= main.cpp
 SRC				:= ./src
@@ -11,12 +15,16 @@ SRC				:= ./src
 TARGET_HEX		:=$(BUILD_PATH)/$(NAME).hex
 
 #Board
-BOARD			:= teensy:avr:teensy41
+BOARD			:= teensy41
 BOARD_OPTIONS	:= speed=600,usb=mtpserial,opt=o3std,keys=en-us
 
 #Directories
 BUILD_PATH		:= .build
 CACHE_PATH		:= .cache
+
+#---------------------------------------------------------------------------------
+#USUALLY EDITING BELOW THIS LINE NOT NECESSARY
+#---------------------------------------------------------------------------------
 
 #Tools (be careful to chemaknge this)
 TEENSY_TOOLS	:= ./hardware/tools-linux
@@ -28,7 +36,7 @@ REBOOT			:= $(TEENSY_TOOLS)/teensy_reboot
 #Builder options (be careful to chenge this)
 HARDWARE		:= -hardware ./hardware
 TOOLS			:= -tools $(TEENSY_TOOLS) -tools $(ARDUINO_FOLDER)/tools-builder
-FQBN			:= -fqbn=$(BOARD):$(BOARD_OPTIONS)
+FQBN			:= -fqbn=teensy:avr:$(BOARD):$(BOARD_OPTIONS)
 LIBRARIES		:= -libraries ./ -libraries ./include/ -libraries ./lib/
 FLAGS			:= -verbose
 
@@ -46,7 +54,7 @@ build: directories
 
 #Upload the code
 upload:
-	$(POSTCOMPILER) -file=$(NAME) -path=$(BUILD_PATH) -tools=$(TEENSY_TOOLS) -board $(BOARD)
+	$(POSTCOMPILER) -file=$(NAME) -path=$(BUILD_PATH) -tools=$(TEENSY_TOOLS) -board teensy:avr:$(BOARD)
 	$(REBOOT)
 
 #Make documentation
