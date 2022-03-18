@@ -64,7 +64,7 @@ public:
 		\details The constructor with user-defined header and terminator.
 		\param serial The pointer to the Stream object used for the serial.
 		\param header The 4-bytes header of the data packet. Use HostPort::NULL_HEADER for no header.
-		\param terminaor The 4-bytes terminator of the data packet. Use HostPort::NULL_TERMINATOR for no header.
+		\param terminator The 4-bytes terminator of the data packet. Use HostPort::NULL_TERMINATOR for no header.
 	*/
 	HostPort(Stream* serial, uint32_t header, uint32_t terminator); //constructor with both header and terminator
 
@@ -125,7 +125,7 @@ private:
 	//static constexpr
 	static constexpr size_t BUF_SIZE = 256; //!< Buffer size. \details The size of the transmit and receive buffers.
 	static constexpr size_t MAX_OBJS = 4; //!< Maximum objects. \details The number of maximum attached objects to the transmit and receive buffers-
-	static constexpr uint32_t MASK = 0x000000FF; //!< Mask.
+	static constexpr uint32_t MASK = 0x000000FF; //!< A mask for parsing stuff.
 	static constexpr uint32_t TIMEOUT_HOSTPORT = 500; //!< Timeout for the reading (us).
 
 	//funs
