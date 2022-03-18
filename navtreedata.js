@@ -32,8 +32,9 @@ var NAVTREE =
       [ "Building", "index.html#autotoc_md4", null ],
       [ "MTP mode", "index.html#autotoc_md5", null ],
       [ "Documentation", "index.html#autotoc_md6", null ],
-      [ "Known issues", "index.html#autotoc_md7", null ],
-      [ "TODO list", "index.html#autotoc_md8", null ]
+      [ "Make", "index.html#autotoc_md7", null ],
+      [ "Known issues", "index.html#autotoc_md8", null ],
+      [ "TODO list", "index.html#autotoc_md9", null ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
