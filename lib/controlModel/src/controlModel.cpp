@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 1.141
+// Model version                  : 1.142
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Tue Mar 22 11:46:06 2022
+// C/C++ source code generated on : Tue Mar 22 14:07:13 2022
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -632,9 +632,9 @@ void ControlClass::update()
   controlModel_Y.user_data[3] = 0.0F;
 
   // Outport: '<Root>/throttle_ref' incorporates:
-  //   Constant: '<Root>/Constant1'
+  //   Inport: '<Root>/ref_inputs'
 
-  controlModel_Y.throttle_ref = 0.0F;
+  controlModel_Y.throttle_ref = controlModel_U.ref_inputs[1];
 
   // MATLAB Function: '<Root>/Q and R'
   K[0] = controlParams.Qphi;
