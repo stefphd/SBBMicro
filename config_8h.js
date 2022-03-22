@@ -52,7 +52,7 @@ var config_8h =
     [ "MAG_SAMPLING_FAC", "group__constants.html#gaf19c6364be453c53d924c78bdb8e8262", null ],
     [ "MAG_SCALE", "group__constants.html#gaf91ea782523c15cb13ede694b43d1510", null ],
     [ "MAX_MISSING_SBUS", "group__constants.html#gaf5a17b8732d19efff3d79dffc1d88806", null ],
-    [ "MAX_REF_INTPUT", "group__constants.html#ga5349a4e381637d3299c2eaefc69f858c", null ],
+    [ "MAX_REF_INPUT", "group__constants.html#ga2b9ba535f6fd8011efa1fd895f2cb984", null ],
     [ "MAX_REFCUR", "group__constants.html#ga0e54cc12bd9c8f03814eb80cad6d31a7", null ],
     [ "MAX_REFTHROTTLE", "group__constants.html#ga1418d6ad5d86af50ca218dc7fdcef881", null ],
     [ "MAX_SBUS", "group__constants.html#ga10adcf123bdcbb94941f0a7660d2ed9a", null ],

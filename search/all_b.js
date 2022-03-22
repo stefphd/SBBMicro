@@ -13,7 +13,7 @@ var searchData=
   ['max_5fmissing_5freads_10',['MAX_MISSING_READS',['../group__debfun.html#ga500dfb43922edb8ed31db903d2ea8b13',1,'debug.h']]],
   ['max_5fmissing_5fsbus_11',['MAX_MISSING_SBUS',['../group__constants.html#gaf5a17b8732d19efff3d79dffc1d88806',1,'config.h']]],
   ['max_5fobjs_12',['MAX_OBJS',['../classHostPort.html#a33e81a1842131529ddaa4d0d4b1c9c7d',1,'HostPort']]],
-  ['max_5fref_5fintput_13',['MAX_REF_INTPUT',['../group__constants.html#ga5349a4e381637d3299c2eaefc69f858c',1,'config.h']]],
+  ['max_5fref_5finput_13',['MAX_REF_INPUT',['../group__constants.html#ga2b9ba535f6fd8011efa1fd895f2cb984',1,'config.h']]],
   ['max_5frefcur_14',['MAX_REFCUR',['../group__constants.html#ga0e54cc12bd9c8f03814eb80cad6d31a7',1,'config.h']]],
   ['max_5frefthrottle_15',['MAX_REFTHROTTLE',['../group__constants.html#ga1418d6ad5d86af50ca218dc7fdcef881',1,'config.h']]],
   ['max_5fsbus_16',['MAX_SBUS',['../group__constants.html#ga10adcf123bdcbb94941f0a7660d2ed9a',1,'config.h']]],
