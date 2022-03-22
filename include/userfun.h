@@ -242,8 +242,8 @@ void do_control(void) {
 	//CPU temp
 	ctrl.controlModel_U.CPUTemp = tempmonGetTemp();
 	//set remote control (2 channels) sbus TODO
-	ctrl.controlModel_U.ref_inputs[0] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[0], MAX_REF_INTPUT, MIN_REF_INPUT);
-	ctrl.controlModel_U.ref_inputs[1] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[1], MAX_REF_INTPUT, MIN_REF_INPUT);
+	ctrl.controlModel_U.ref_inputs[0] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[0], MAX_REF_INPUT, MIN_REF_INPUT);
+	ctrl.controlModel_U.ref_inputs[1] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[1], MAX_REF_INPUT, MIN_REF_INPUT);
 
 	//update control
 	ctrl.update(); //this performs the control loop
