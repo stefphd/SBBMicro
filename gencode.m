@@ -42,7 +42,7 @@ Simulink.fileGenControl('reset') %reset setup
 %% make include file for quick include in source code
 dir_main = [CodeGenFolder '/' modelname '_ert_rtw' '/'];
 dir_shared = [CodeGenFolder '/slprj/ert/_sharedutils/'];
-dir_codegen = [CodeGenFolder '/' destdir '/'];
+dir_codegen = [CodeGenFolder '/src/'];
 codegen_file = [CodeGenFolder '/genlibs.h'];
 
 list_h_main = dir([dir_main '*.h']);
