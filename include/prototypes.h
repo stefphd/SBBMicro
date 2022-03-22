@@ -19,7 +19,7 @@
    @{
 */
 
-/* \brief Setup function of Arduino environment.
+/*! \brief Setup function of Arduino environment.
 	\details The setup funtion runs once when the microcontroller turns on. It initializes and sets the buses, 
     enables the main relay, and performs initial checks.
 */
