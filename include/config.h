@@ -150,20 +150,26 @@
 #define GYROX_OFFSET    +0.0059F/GYRO_SCALE //!< Offset of gyro x. \details Value from offset calibration of the IMU.
 #define GYROY_OFFSET    -0.0066F/GYRO_SCALE //!< Offset of gyro y. \details Value from offset calibration of the IMU.
 #define GYROZ_OFFSET    -0.0080F/GYRO_SCALE //!< Offset of gyro z. \details Value from offset calibration of the IMU.
+
+//SBUS
 #define NUM_CH_SBUS		6 //!< Number channels from SBUS. \details Number of the stored channel from the SBUS. \see RemoteCtrl
 #define MAX_SBUS		1811 //!< Maximum value from SBUS. \details Maximum value received by the SBUS.
 #define MIN_SBUS		172 //!< Minimum value from SBUS. \details Minimum value received by the SBUS.
 #define ZERO_SBUS		992 //!< Zero-value for SBUS. \details Value corresponding to zero for the SBUS. This is hust the average of #MAX_SBUS and #MIN_SBUS. \see MAX_SBUS MIN_SBUS
-#define TRESHOLD_SBUS	1400 //!< Treshold for SBUS. \details Treshold value for logic state received by the SBUS. If greaten than this value, it is a high state. \attention This value should be larger than #ZERO_SBUS, in order to recognize it as a low state. \see ZERO_SBUS
+#define TRESHOLD_LOGIC_SBUS	1400 //!< Treshold for SBUS logic channels. \details Treshold value for logic state received by the SBUS. If greaten than this value, it is a high state. \attention This value should be larger than #ZERO_SBUS, in order to recognize it as a low state. \see ZERO_SBUS
 #define MAX_MISSING_SBUS	10*SBUS_SAMPLING_FAC //!< Maximum missing packets for SBUS. \details Maximum missing packets for the SBUS communication. \note Check for missing packet is performed avery #SAMPLING_TIME milliseconds. \see SAMPLING_TIME
 #define MAX_REF_INPUT	1 //!< Maximum value for input reference. \details Maximum value for the input reference in the control model. Signals from SBUS (int16_t) are remapped within #MIN_CH_SBUS and #MAX_CH_SBUS as float numbers. \see MIN_CH_SBUS CONVERT_CHANNEL_TO_FLOAT
 #define MIN_REF_INPUT	-1 //!< Minimum value for input reference. \details Minimum value for the input reference in the control model.  Signals from SBUS (int16_t) are remapped within #MIN_CH_SBUS and #MAX_CH_SBUS as float numbers. \see MAX_CH_SBUS CONVERT_CHANNEL_TO_FLOAT
+#define SBUS_THROTTLE_CH 1 //!< Throttle channel in SBUS. \details Channel of SBUS for throttle reference. \warning Channel number is one-based.
+#define SBUS_ROLL_CH	2 //!< Roll channel in SBUS. \details Channel of SBUS for roll reference. \warning Channel number is one-based.
+#define SBUS_EN_CH		5 //!< Enable channel in SBUS. \details Channel of SBUS for enable signal. \warning Channel number is one-based.
 
 //LIMITS
 #define MAX_REFCUR		controlParams.maxCurrent //!< Maximum reference current. \warning Must be consistent with that in ESCON studio and Simulink. 
 #define MAX_REFTHROTTLE 1.0F //!< Maximum throttle value. \warning Must be consistent with that in Simulink. 
 #define MIN_VOLTAGE		18 //!< Minimum battery voltage (undervoltage) (V).
 #define MAX_VOLTAGE		35 //!< Maximum battery voltage (overvoltage) (V).
+#define MAX_STEER_ANGLE 0.3 //!< Maximum steering angle. \details Maximum steering angle above which motor drivers are disabled and the system stops. \todo Implement check steering angle.
 //TODO define for MAX_STEER_ANGLE, like 0.3 or 0.4
 
 /*! @} */

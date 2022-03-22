@@ -242,8 +242,8 @@ void do_control(void) {
 	//CPU temp
 	ctrl.controlModel_U.CPUTemp = tempmonGetTemp();
 	//set remote control (2 channels) sbus TODO
-	ctrl.controlModel_U.ref_inputs[0] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[0], MAX_REF_INPUT, MIN_REF_INPUT);
-	ctrl.controlModel_U.ref_inputs[1] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[1], MAX_REF_INPUT, MIN_REF_INPUT);
+	ctrl.controlModel_U.ref_inputs[0] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_ROLL_CH-1], MIN_REF_INPUT, MAX_REF_INPUT);
+	ctrl.controlModel_U.ref_inputs[1] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_THROTTLE_CH-1], MIN_REF_INPUT, MAX_REF_INPUT);
 
 	//update control
 	ctrl.update(); //this performs the control loop
@@ -268,6 +268,8 @@ void check_error(void) {
 
 //set drivers
 void set_driver(void) {
+	bool enable = remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS; //enable from remote control.
+
 	//set motor driver
 #if MTR_CTRL_MODE==0
 	analogWrite(PWM_PIN, constrain(CONVERT_CURRENT_TO_PWM(ctrl.controlModel_Y.curr_ref), PWM_MIN*(powf(2, PWM_RES) - 1), PWM_MAX*(powf(2, PWM_RES) - 1))); 
@@ -275,9 +277,10 @@ void set_driver(void) {
 	dac.analogWrite(DAC_MTR_CH, constrain(CONVERT_CURRENT_TO_DAC(ctrl.controlModel_Y.curr_ref), 0, pow(2, DAC_RES) - 1)); 
 #endif
 	digitalWriteFast(MTR_DIR_PIN, (ctrl.controlModel_Y.curr_ref >= 0) ? CW : !CW);
+	digitalWriteFast(MTR_EN_PIN, (enable) ? MTR_EN_STATE : !MTR_EN_STATE);
 
-  //set throttle signal
-  dac.analogWrite(DAC_THROTTLE_CH, constrain(CONVERT_TRHOTTLE_TO_DAC(ctrl.controlModel_Y.throttle_ref), 0, pow(2, DAC_RES) - 1)); 
+	//set throttle signal
+	dac.analogWrite(DAC_THROTTLE_CH, enable*constrain(CONVERT_TRHOTTLE_TO_DAC(ctrl.controlModel_Y.throttle_ref), 0, pow(2, DAC_RES) - 1)); 
   
 	//set other stuff below
 }
