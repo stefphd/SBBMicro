@@ -4,6 +4,7 @@
 #include "src/qrFactor_rz4DISpF.h"
 #include "src/rtGetInf.h"
 #include "src/rtGetNaN.h"
+#include "src/rt_atan2f_snf.h"
 #include "src/rt_defines.h"
 #include "src/rt_hypotf_snf.h"
 #include "src/rt_nonfinite.h"
