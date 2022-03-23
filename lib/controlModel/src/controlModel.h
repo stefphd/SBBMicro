@@ -9,7 +9,7 @@
 //
 // Model version                  : 1.146
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Wed Mar 23 15:27:07 2022
+// C/C++ source code generated on : Wed Mar 23 15:35:44 2022
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -32,6 +32,8 @@
 
 // Type definition for custom storage class: Struct
 struct controlParams_type {
+  real32_T speed_dergain;              // Referenced by: '<Root>/Constant2'
+  real32_T speed_intgain;              // Referenced by: '<Root>/Constant1'
   real32_T wheelInertia;               // Referenced by:
                                           //  '<S6>/MATLAB Function'
                                           //  '<S7>/MATLAB Function'
@@ -40,10 +42,12 @@ struct controlParams_type {
                                           //  '<S6>/MATLAB Function'
                                           //  '<S7>/MATLAB Function'
 
+  real32_T speed_propgain;             // Referenced by: '<Root>/Constant'
   real32_T Qomx;                       // Referenced by: '<Root>/Q and R'
   real32_T Qphi;                       // Referenced by: '<Root>/Q and R'
   real32_T Romx;                       // Referenced by: '<Root>/Q and R'
   real32_T riderTrqTreshold;           // Referenced by: '<Root>/Dead Zone'
+  real32_T max_ref_speed;              // Referenced by: '<Root>/Gain1'
   real32_T gravity;                    // Referenced by:
                                           //  '<S6>/MATLAB Function'
                                           //  '<S7>/MATLAB Function'
@@ -71,18 +75,10 @@ struct controlParams_type {
   real32_T gearRatio;                  // Referenced by: '<Root>/Belt and gear'
 };
 
-struct rt_Simulink_Struct_type {
-  real32_T Dspeed;                     // Referenced by: '<Root>/Constant2'
-  real32_T Ispeed;                     // Referenced by: '<Root>/Constant1'
-  real32_T Pspeed;                     // Referenced by: '<Root>/Constant'
-  real32_T Vmax;                       // Referenced by: '<Root>/Gain1'
-};
-
 // Exported data declaration
 
 // Declaration for custom storage class: Struct
 extern controlParams_type controlParams;
-extern rt_Simulink_Struct_type rt_Simulink_Struct;
 
 // Class declaration for model controlModel
 class ControlClass {

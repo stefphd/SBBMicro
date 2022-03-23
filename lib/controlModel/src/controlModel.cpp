@@ -9,7 +9,7 @@
 //
 // Model version                  : 1.146
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Wed Mar 23 15:27:07 2022
+// C/C++ source code generated on : Wed Mar 23 15:35:44 2022
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -40,11 +40,20 @@
 
 // Definition for custom storage class: Struct
 controlParams_type controlParams = {
+  // speed_dergain
+  0.0F,
+
+  // speed_intgain
+  0.0F,
+
   // wheelInertia
   0.3F,
 
   // rollInertia
   10.0F,
+
+  // speed_propgain
+  1.0F,
 
   // Qomx
   0.001F,
@@ -57,6 +66,9 @@ controlParams_type controlParams = {
 
   // riderTrqTreshold
   0.5F,
+
+  // max_ref_speed
+  25.0F,
 
   // gravity
   9.806F,
@@ -87,20 +99,6 @@ controlParams_type controlParams = {
 
   // gearRatio
   36.0F
-};
-
-rt_Simulink_Struct_type rt_Simulink_Struct = {
-  // Dspeed
-  0.0F,
-
-  // Ispeed
-  0.0F,
-
-  // Pspeed
-  1.0F,
-
-  // Vmax
-  25.0F
 };
 
 void ControlClass::reset()
@@ -654,7 +652,7 @@ void ControlClass::update()
   //   Inport: '<Root>/ref_inputs'
   //   Inport: '<Root>/speed'
 
-  rtb_Sum_h = (rt_Simulink_Struct.Vmax * controlModel_U.ref_inputs[1]) -
+  rtb_Sum_h = (controlParams.max_ref_speed * controlModel_U.ref_inputs[1]) -
     controlModel_U.speed;
 
   // SampleTimeMath: '<S38>/Tsamp' incorporates:
@@ -664,7 +662,7 @@ void ControlClass::update()
   //  About '<S38>/Tsamp':
   //   y = u * K where K = 1 / ( w * Ts )
 
-  rtb_Tsamp = (rtb_Sum_h * rt_Simulink_Struct.Dspeed) * 1000.0F;
+  rtb_Tsamp = (rtb_Sum_h * controlParams.speed_dergain) * 1000.0F;
 
   // Sum: '<S52>/Sum' incorporates:
   //   Constant: '<Root>/Constant'
@@ -673,7 +671,7 @@ void ControlClass::update()
   //   Product: '<S48>/PProd Out'
   //   Sum: '<S36>/Diff'
 
-  b_s = ((rtb_Sum_h * rt_Simulink_Struct.Pspeed) +
+  b_s = ((rtb_Sum_h * controlParams.speed_propgain) +
          controlModel_DW.Integrator_DSTATE) + (rtb_Tsamp -
     controlModel_DW.UD_DSTATE);
 
@@ -921,8 +919,8 @@ void ControlClass::update()
   //   Constant: '<Root>/Constant1'
   //   Product: '<S40>/IProd Out'
 
-  controlModel_DW.Integrator_DSTATE += (rtb_Sum_h * rt_Simulink_Struct.Ispeed) *
-    0.001F;
+  controlModel_DW.Integrator_DSTATE += (rtb_Sum_h * controlParams.speed_intgain)
+    * 0.001F;
 
   // Update for Delay: '<S36>/UD'
   controlModel_DW.UD_DSTATE = rtb_Tsamp;
