@@ -28,13 +28,12 @@ var NAVTREE =
     [ "General", "index.html", [
       [ "Files", "index.html#autotoc_md1", null ],
       [ "Prerequisites", "index.html#autotoc_md2", null ],
-      [ "Code generation", "index.html#autotoc_md3", null ],
-      [ "Building", "index.html#autotoc_md4", null ],
-      [ "MTP mode", "index.html#autotoc_md5", null ],
-      [ "Documentation", "index.html#autotoc_md6", null ],
-      [ "Make", "index.html#autotoc_md7", null ],
-      [ "Known issues", "index.html#autotoc_md8", null ],
-      [ "TODO list", "index.html#autotoc_md9", null ]
+      [ "Documentation", "index.html#autotoc_md3", null ],
+      [ "Code generation", "index.html#autotoc_md4", null ],
+      [ "Building", "index.html#autotoc_md5", null ],
+      [ "Make tools", "index.html#autotoc_md6", null ],
+      [ "MTP mode", "index.html#autotoc_md7", null ],
+      [ "Known issues", "index.html#autotoc_md8", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Modules", "modules.html", "modules" ],
