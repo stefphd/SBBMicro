@@ -44,7 +44,7 @@ controlParams_type controlParams = {
   0.0F,
 
   // speed_intgain
-  0.0F,
+  0.5F,
 
   // wheelInertia
   0.3F,
@@ -68,7 +68,7 @@ controlParams_type controlParams = {
   0.5F,
 
   // max_ref_speed
-  25.0F,
+  8.0F,
 
   // gravity
   9.806F,
