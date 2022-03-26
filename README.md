@@ -72,7 +72,7 @@ make
 
 which generates the pdf file `./doc/latex/refman.pdf`.
 
-Documentation generation has been tested on Linux only, but it should work also in Windows.
+\note Documentation generation has been tested on Linux only, but it should work also in Windows.
 
 ## Code generation
 
@@ -88,7 +88,9 @@ The general usage of this function is
 gencode(modelname,dest_dir)
 ```
 
-where modelname is the name of the Simulink model specified by the user (without the `*.slx` extension included), while dest_dir is the destination directory: generated code is placed in `./dest_dir/modelname/src`. If no modelname is given, the function uses the first `*.slx` file found in the current directory. If no destination directory is given, the functions uses `./lib`.
+where `modelname` is the name of the Simulink model (without the `*.slx` extension included), while `dest_dir` is the destination directory: generated code is placed in `./dest_dir/modelname/src`. If no modelname is given, the function uses the first `*.slx` file found in the current directory. If no destination directory is given, the functions uses `./lib`.
+
+\note Code generation using MATLAB/Simulink has been tested on Windows only, but it should work also on Linux.
 
 ## Building
 
@@ -106,14 +108,14 @@ Compilation is performed using the *arduino-builder*. Shell scripts provide simp
   bash build_linux.sh
   ```
 
-  Tested with Arch-Linux x64. Sometimes it is necessary to delete manually the folders `.build` and `.cache`.
+  \note Tested with Arch-Linux x64. Sometimes it is necessary to delete manually the folders `.build` and `.cache`.
 * Windows:
 
   ```shell
   ./build_win.bat
   ```
 
-  Tested with Windows 10 x64.
+  \note Tested with Windows 10 x64.
 * MacOS: not implemented yet, however it should be similar to Linux.
 
 Alternatively, one can use `ctrl+shift+B` to build the code in *Visual Studio Code* with both Linux and Windows (this makes use of `build_linux.sh` or `build_win.sh` depending on the operative system).
@@ -123,15 +125,13 @@ Alternatively, one can use `ctrl+shift+B` to build the code in *Visual Studio Co
 One may also use *make* for the building, uploading and the documentation generation. This allows several operations using similar syntax:
 
 * `make` or `make all` to build and upload the code.
-* `make build` to build the code only.
-* `make upload` to upload code only.
-* `make remake` to clean, build and upload the code.
-* `make rebuild` to clean and rebuild.
-* `make directories` to make the directories.s
-* `make doc` to build the documentation.
-* `make cleandoc` to clean the documentation.
-* `make clean` to clear the build and cache directories.
-* `make cleanall` to clean the build and cache directories.
+* `make build` to build the code only
+* `make upload` to upload code only
+* `make remake` to clean, build and upload the code
+* `make rebuild` to clean and rebuild
+* `make doc` to build the documentation
+* `make cleandoc` to clean the documentation
+* `make clean` to clear the build and cache directories
 
 Note that the above commands can be also used at the same time, e.g. `make build doc` to build and generate the documentation.
 
