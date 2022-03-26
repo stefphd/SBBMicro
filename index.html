@@ -155,14 +155,15 @@ Documentation</h1>
 <div class="fragment"><div class="line">cd ./docs/latex</div>
 <div class="line">make</div>
 </div><!-- fragment --><p >which generates the pdf file <code>./doc/latex/refman.pdf</code>.</p>
-<p >Documentation generation has been tested on Linux only, but it should work also in Windows.</p>
+<dl class="section note"><dt>Note</dt><dd>Documentation generation has been tested on Linux only, but it should work also in Windows.</dd></dl>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Code generation</h1>
 <p >Code generation of the control algorithm is performed via <em>MATLAB/Simulink</em> with the <em>Embedeed Coder Toolbox</em>. Code generation can be launch with <em>MATLAB</em> using</p>
 <div class="fragment"><div class="line">gencode()</div>
 </div><!-- fragment --><p >The general usage of this function is</p>
 <div class="fragment"><div class="line">gencode(modelname,dest_dir)</div>
-</div><!-- fragment --><p >where modelname is the name of the Simulink model specified by the user (without the <code>*.slx</code> extension included), while dest_dir is the destination directory: generated code is placed in <code>./dest_dir/modelname/src</code>. If no modelname is given, the function uses the first <code>*.slx</code> file found in the current directory. If no destination directory is given, the functions uses <code>./lib</code>.</p>
+</div><!-- fragment --><p >where <code>modelname</code> is the name of the Simulink model (without the <code>*.slx</code> extension included), while <code>dest_dir</code> is the destination directory: generated code is placed in <code>./dest_dir/modelname/src</code>. If no modelname is given, the function uses the first <code>*.slx</code> file found in the current directory. If no destination directory is given, the functions uses <code>./lib</code>.</p>
+<dl class="section note"><dt>Note</dt><dd>Code generation using MATLAB/Simulink has been tested on Windows only, but it should work also on Linux.</dd></dl>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Building</h1>
 <p >Compilation is performed using the <em>arduino-builder</em>. Shell scripts provide simple usage depending on the operative system:</p>
@@ -171,11 +172,11 @@ Building</h1>
 <div class="fragment"><div class="line">./build_linux.sh</div>
 </div><!-- fragment --><p class="startli">or</p>
 <div class="fragment"><div class="line">bash build_linux.sh</div>
-</div><!-- fragment --><p class="startli">Tested with Arch-Linux x64. Sometimes it is necessary to delete manually the folders <code>.build</code> and <code>.cache</code>.</p>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Tested with Arch-Linux x64. Sometimes it is necessary to delete manually the folders <code>.build</code> and <code>.cache</code>.</dd></dl>
 </li>
 <li><p class="startli">Windows:</p>
 <div class="fragment"><div class="line">./build_win.bat</div>
-</div><!-- fragment --><p class="startli">Tested with Windows 10 x64.</p>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Tested with Windows 10 x64.</dd></dl>
 </li>
 <li>MacOS: not implemented yet, however it should be similar to Linux.</li>
 </ul>
@@ -185,15 +186,13 @@ Make tools</h1>
 <p >One may also use <em>make</em> for the building, uploading and the documentation generation. This allows several operations using similar syntax:</p>
 <ul>
 <li><code>make</code> or <code>make all</code> to build and upload the code.</li>
-<li><code>make build</code> to build the code only.</li>
-<li><code>make upload</code> to upload code only.</li>
-<li><code>make remake</code> to clean, build and upload the code.</li>
-<li><code>make rebuild</code> to clean and rebuild.</li>
-<li><code>make directories</code> to make the directories.s</li>
-<li><code>make doc</code> to build the documentation.</li>
-<li><code>make cleandoc</code> to clean the documentation.</li>
-<li><code>make clean</code> to clear the build and cache directories.</li>
-<li><code>make cleanall</code> to clean the build and cache directories.</li>
+<li><code>make build</code> to build the code only</li>
+<li><code>make upload</code> to upload code only</li>
+<li><code>make remake</code> to clean, build and upload the code</li>
+<li><code>make rebuild</code> to clean and rebuild</li>
+<li><code>make doc</code> to build the documentation</li>
+<li><code>make cleandoc</code> to clean the documentation</li>
+<li><code>make clean</code> to clear the build and cache directories</li>
 </ul>
 <p >Note that the above commands can be also used at the same time, e.g. <code>make build doc</code> to build and generate the documentation.</p>
 <h1><a class="anchor" id="autotoc_md7"></a>
