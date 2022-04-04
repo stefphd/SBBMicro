@@ -163,7 +163,7 @@ Code generation</h1>
 <div class="fragment"><div class="line">gencode()</div>
 </div><!-- fragment --><p >The general usage of this function is</p>
 <div class="fragment"><div class="line">gencode(modelname,dest_dir)</div>
-</div><!-- fragment --><p >where <code>modelname</code> is the name of the Simulink model (without the <code>*.slx</code> extension included), while <code>dest_dir</code> is the destination directory: generated code is placed in <code>./dest_dir/modelname/src</code>. If no modelname is given, the function uses the first <code>*.slx</code> file found in the current directory. If no destination directory is given, the functions uses <code>./lib</code>.</p>
+</div><!-- fragment --><p >where <code>modelname</code> is the name of the Simulink model (without the <code>*.slx</code> extension included), while <code>dest_dir</code> is the destination directory: generated code is placed in <code>./dest_dir/modelname/src</code>. If no modelname is given, the function uses the first <code>*.slx</code> file found in the current directory. If no destination directory is given, the functions uses <code>./lib</code>. Code generation may be also performed using <em>make</em>, however this may take some time.</p>
 <dl class="section note"><dt>Note</dt><dd>Code generation using MATLAB/Simulink has been tested on Windows only, but it should work also on Linux.</dd></dl>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Building</h1>
@@ -190,11 +190,15 @@ Make tools</h1>
 <li><code>make</code> or <code>make all</code> to build and upload the code.</li>
 <li><code>make build</code> to build the code only</li>
 <li><code>make upload</code> to upload code only</li>
+<li><code>make clean</code> to clean the build and cache directories</li>
 <li><code>make remake</code> to clean, build and upload the code</li>
 <li><code>make rebuild</code> to clean and rebuild</li>
+<li><code>make gencode</code> to generate the code from the Simulink model <dl class="section note"><dt>Note</dt><dd>This may take some time. </dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>This require MATLAB/Simulink &gt;= 2022a with the Embedeed code installed.</dd></dl>
+</li>
 <li><code>make doc</code> to build the documentation</li>
 <li><code>make cleandoc</code> to clean the documentation</li>
-<li><code>make clean</code> to clear the build and cache directories</li>
+<li><code>make help</code> to print the Makefile help</li>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>The above commands can be also used at the same time, e.g. <code>make build doc</code> to build and generate the documentation.</dd></dl>
 <h1><a class="anchor" id="autotoc_md7"></a>
