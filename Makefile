@@ -119,5 +119,22 @@ endif
 gencode:
 	@matlab -batch "gencode"
 
+#Help
+help:
+	@echo "Description: Makefile for code utilities of the self-balancing bike."
+	@echo "Usage: make [operation]"
+	@echo "Options:"
+	@echo "nothing or 'all'				Build and upload the code to the micro-controller."
+	@echo "'build'						Build the code."
+	@echo "'upload'					Upload the code to the micro-controller."
+	@echo "'clean'						Clean the build and cache directories."
+	@echo "'remake'					Clean, build and upload the code to the micro-controller"
+	@echo "'rebuild'					Clean and rebuild the code."
+	@echo "'gencode'					Generate the code from the Simulink model."
+	@echo "						\note This may take some time."
+	@echo "						\attention This require MATLAB/Simulink >= 2022a with the Embedeed code installed."
+	@echo "doc						Build the documentation."
+	@echo "cleandoc					Clean the documentation."
+
 #Non-File Targets
-.PHONY: all build upload remake clean doc cleandoc directories gencode
+.PHONY: all build upload remake clean doc cleandoc directories gencode help
