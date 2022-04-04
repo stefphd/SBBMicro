@@ -15,3 +15,4 @@ lib/*/.gitignore
 lib/*/*.yml
 lib/*/CMakeLists.txt
 *.png
+*.r20*
