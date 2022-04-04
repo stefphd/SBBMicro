@@ -9,8 +9,14 @@
 #USER SETTINGS
 #---------------------------------------------------------------------------------
 
-#Operative system (Linux/Windows)
+#Operative system (Linux/Windows_NT)
+ifneq ($(OS), Windows_NT)
 OS := $(shell uname)
+endif
+
+ifneq ($(OS),$(filter $(OS),Linux Windows_NT))
+$(error OS not supported)
+endif
 
 #Name
 NAME			:= main.cpp
@@ -23,13 +29,14 @@ BOARD_OPTIONS	:= speed=600,usb=mtpserial,opt=o3std,keys=en-us
 ifeq ($(OS), Linux)
 ARDUINO_FOLDER	:= /usr/share/arduino
 TEENSY_TOOLS	:= ./hardware/tools-linux
-else ifeq ($(OS), Windows) 
-ARDUINO_FOLDER
-TEENSY_TOOLS
+else ifeq ($(OS), Windows_NT) 
+ARDUINO_FOLDER  := C:/Program Files (x86)/Arduino
+TEENSY_TOOLS	:= ./hardware/tools-windows
 endif
 SRC				:= ./src
 BUILD_PATH		:= ./.build
 CACHE_PATH		:= ./.cache
+DOCS_PATH		:= ./docs
 
 #---------------------------------------------------------------------------------
 #USUALLY EDITING BELOW THIS LINE NOT NECESSARY
@@ -42,19 +49,15 @@ REBOOT			:= $(TEENSY_TOOLS)/teensy_reboot
 
 #Builder options (be careful to change this)
 HARDWARE		:= -hardware ./hardware
-TOOLS			:= -tools $(TEENSY_TOOLS) -tools $(ARDUINO_FOLDER)/tools-builder
 FQBN			:= -fqbn=teensy:avr:$(BOARD):$(BOARD_OPTIONS)
 LIBRARIES		:= -libraries ./ -libraries ./include/ -libraries ./lib/
-FLAGS			:= #-verbose
+ifeq ($(OS), Linux)
+TOOLS			:= -tools $(TEENSY_TOOLS) -tools $(ARDUINO_FOLDER)/tools-builder
+else ifeq ($(OS), Windows_NT)
+TOOLS			:= -tools "$(TEENSY_TOOLS)" -tools "$(ARDUINO_FOLDER)/tools-builder"
+endif
 
-#---------------------------------------------------------------------------------
-#CHECKS
-#--------------------------------------------------------------------------------
-ifneq ($(OS), Linux)
-ifneq ($(OS), Windows)
-$(error OS not supported)
-endif
-endif
+FLAGS			:= #-verbose
 
 #---------------------------------------------------------------------------------
 #DO NOT EDIT BELOW THIS LINE
@@ -65,8 +68,8 @@ all: build upload
 
 #Build the code
 build: directories
-	@echo $(UNAME)
 	@$(BUILDER) -compile $(FLAGS) -build-path $(BUILD_PATH) -build-cache $(CACHE_PATH) $(HARDWARE) $(TOOLS) $(LIBRARIES) $(FQBN) $(SRC)/$(NAME)
+
 
 #Dump preferances
 dumpprefs:
@@ -83,8 +86,11 @@ doc: cleandoc
 
 #Clean documentation
 cleandoc:
-	@$(RM) -rf docs
-
+ifeq ($(OS), Linux)
+	@$(RM) -rf $(DOCS_PATH)
+else ifeq ($(OS), Windows_NT)
+	@rmdir /S /Q "$(DOCS_PATH)"
+endif
 #Remake
 remake: clean all
 
@@ -93,16 +99,26 @@ rebuild: clean build
 
 #Clean build
 clean:
+ifeq ($(OS), Linux)
 	@$(RM) -rf $(BUILD_PATH)
 	@$(RM) -rf $(CACHE_PATH)
+else ifeq ($(OS), Windows_NT)
+	@rmdir /S /Q "$(BUILD_PATH)"
+	@rmdir /S /Q "$(CACHE_PATH)"
+endif
 
 #Clean all
 cleanall: clean cleandoc
 
 #Make the Directories
 directories:
+ifeq ($(OS), Linux)
 	@mkdir -p $(BUILD_PATH)
 	@mkdir -p $(CACHE_PATH)
+else ifeq ($(OS), Windows_NT)
+	@if not exist "$(BUILD_PATH)" mkdir "$(BUILD_PATH)"
+	@if not exist "$(CACHE_PATH)" mkdir "$(CACHE_PATH)"
+endif
 
 #Non-File Targets
 .PHONY: all build upload remake clean doc cleandoc directories
