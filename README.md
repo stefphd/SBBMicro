@@ -131,13 +131,16 @@ One may also use *make* for the building, uploading and the documentation genera
 * `make` or `make all` to build and upload the code.
 * `make build` to build the code only
 * `make upload` to upload code only
+* `make clean` to clean the build and cache directories
 * `make remake` to clean, build and upload the code
 * `make rebuild` to clean and rebuild
+* `make gencode` to generate the code from the Simulink model
+  \note This may take some time.
+  \attention This require MATLAB/Simulink >= 2022a with the Embedeed code installed.
+
 * `make doc` to build the documentation
 * `make cleandoc` to clean the documentation
-* `make clean` to clear the build and cache directories
-* `make gencode` to generate the code from the simulink model
-  \note This may take some time.
+* `make help` to print the Makefile help
 
 \note The above commands can be also used at the same time, e.g. `make build doc` to build and generate the documentation.
 
