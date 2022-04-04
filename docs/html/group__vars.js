@@ -1,6 +1,5 @@
 var group__vars =
 [
-    [ "LedMode", "namespaceLedMode.html", null ],
     [ "ImuData", "structImuData.html", [
       [ "accs_mg", "structImuData.html#ab0700e259882be3bec4ae488df4547d0", null ],
       [ "gyros_mdps", "structImuData.html#ac746ebd0eb0a2170dc5f9b8024498a8f", null ],
