@@ -7,20 +7,23 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 1.146
-// Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Wed Mar 23 15:27:07 2022
+// Model version                  : 3.0
+// Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
+// C/C++ source code generated on : Mon Apr  4 21:26:13 2022
 //
 #include "rtwtypes.h"
+#include "rt_atan2f_snf.h"
+
+extern "C" {
+
 #include "rt_nonfinite.h"
+
+}
 #include <cmath>
 #include "rt_defines.h"
-#include "rt_atan2f_snf.h"
 
 real32_T rt_atan2f_snf(real32_T u0, real32_T u1)
 {
-  int32_T u0_0;
-  int32_T u1_0;
   real32_T y;
   if (static_cast<boolean_T>(static_cast<int32_T>((rtIsNaNF(u0) ? (static_cast<
           int32_T>(1)) : (static_cast<int32_T>(0))) | (rtIsNaNF(u1) ? (
@@ -29,6 +32,8 @@ real32_T rt_atan2f_snf(real32_T u0, real32_T u1)
   } else if (static_cast<boolean_T>(static_cast<int32_T>((rtIsInfF(u0) ? (
       static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) & (rtIsInfF(u1) ? (
       static_cast<int32_T>(1)) : (static_cast<int32_T>(0)))))) {
+    int32_T u0_0;
+    int32_T u1_0;
     if (u0 > 0.0F) {
       u0_0 = 1;
     } else {

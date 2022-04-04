@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 1.146
-// Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Wed Mar 23 15:35:44 2022
+// Model version                  : 3.0
+// Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
+// C/C++ source code generated on : Mon Apr  4 21:26:13 2022
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -22,18 +22,20 @@
 //
 #ifndef RTW_HEADER_controlModel_h_
 #define RTW_HEADER_controlModel_h_
-#include <cmath>
 #include "rtwtypes.h"
 #include "controlModel_types.h"
 #include "rt_defines.h"
+
+extern "C" {
+
 #include "rt_nonfinite.h"
 
-// Macros for accessing real-time model data structure
-
+}
 // Type definition for custom storage class: Struct
-struct controlParams_type {
-  real32_T speed_dergain;              // Referenced by: '<Root>/Constant2'
-  real32_T speed_intgain;              // Referenced by: '<Root>/Constant1'
+  struct controlParams_type
+{
+  real32_T derGainSpeed;               // Referenced by: '<Root>/Constant2'
+  real32_T intGainSpeed;               // Referenced by: '<Root>/Constant1'
   real32_T wheelInertia;               // Referenced by:
                                           //  '<S6>/MATLAB Function'
                                           //  '<S7>/MATLAB Function'
@@ -42,12 +44,12 @@ struct controlParams_type {
                                           //  '<S6>/MATLAB Function'
                                           //  '<S7>/MATLAB Function'
 
-  real32_T speed_propgain;             // Referenced by: '<Root>/Constant'
+  real32_T propGainSpeed;              // Referenced by: '<Root>/Constant'
   real32_T Qomx;                       // Referenced by: '<Root>/Q and R'
   real32_T Qphi;                       // Referenced by: '<Root>/Q and R'
   real32_T Romx;                       // Referenced by: '<Root>/Q and R'
   real32_T riderTrqTreshold;           // Referenced by: '<Root>/Dead Zone'
-  real32_T max_ref_speed;              // Referenced by: '<Root>/Gain1'
+  real32_T maxSpeed;                   // Referenced by: '<Root>/Gain1'
   real32_T gravity;                    // Referenced by:
                                           //  '<S6>/MATLAB Function'
                                           //  '<S7>/MATLAB Function'
@@ -73,7 +75,9 @@ struct controlParams_type {
 
   real32_T beltRatio;                  // Referenced by: '<Root>/Belt and gear'
   real32_T gearRatio;                  // Referenced by: '<Root>/Belt and gear'
-};
+}
+
+;
 
 // Exported data declaration
 
@@ -81,12 +85,13 @@ struct controlParams_type {
 extern controlParams_type controlParams;
 
 // Class declaration for model controlModel
-class ControlClass {
+class ControlClass
+{
   // public data and function members
  public:
   // Block signals and states (default storage) for system '<Root>'
   struct DW_controlModel_T {
-    dsp_LowpassFilter_controlMode_T obj;// '<Root>/Lowpass Filter'
+    dsp_simulink_LowpassFilter_co_T obj;// '<Root>/Lowpass Filter'
     real32_T P[4];                     // '<S2>/DataStoreMemory - P'
     real32_T x[2];                     // '<S2>/DataStoreMemory - x'
     real32_T Integrator_DSTATE;        // '<S43>/Integrator'
@@ -131,14 +136,26 @@ class ControlClass {
   // External outputs
   ExtY_controlModel_T controlModel_Y;
 
+  // Root inports set method
+  void setExternalInputs(const ExtU_controlModel_T *pExtU_controlModel_T)
+  {
+    controlModel_U = *pExtU_controlModel_T;
+  }
+
+  // Root outports get method
+  const ExtY_controlModel_T &getExternalOutputs() const
+  {
+    return controlModel_Y;
+  }
+
   // model initialize function
   void begin();
 
-  // model event function
-  void reset();
-
   // model step function
   void update();
+
+  // model event function
+  void reset();
 
   // model terminate function
   void stop();
@@ -149,25 +166,9 @@ class ControlClass {
   // Destructor
   ~ControlClass();
 
-  // Root-level structure-based inputs set method
-
-  // Root inports set method
-  void setExternalInputs(const ExtU_controlModel_T* pExtU_controlModel_T)
-  {
-    controlModel_U = *pExtU_controlModel_T;
-  }
-
-  // Root-level structure-based outputs get method
-
-  // Root outports get method
-  const ControlClass::ExtY_controlModel_T & getExternalOutputs() const
-  {
-    return controlModel_Y;
-  }
-
   // private data and function members
  private:
-  // Block signals and states
+  // Block states
   DW_controlModel_T controlModel_DW;
 
   // private member function(s) for subsystem '<Root>/Simulink Function'

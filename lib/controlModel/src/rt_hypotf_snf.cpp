@@ -7,16 +7,20 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 1.140
-// Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Wed Feb 23 12:14:32 2022
+// Model version                  : 3.0
+// Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
+// C/C++ source code generated on : Mon Apr  4 21:26:13 2022
 //
 #include "rtwtypes.h"
-#include <cmath>
-#include "rt_nonfinite.h"
 #include "rt_hypotf_snf.h"
+#include <cmath>
 
-real32_T rt_hypotf_snf(real32_T u0, real32_T u1)
+extern "C" {
+
+#include "rt_nonfinite.h"
+
+}
+  real32_T rt_hypotf_snf(real32_T u0, real32_T u1)
 {
   real32_T a;
   real32_T y;

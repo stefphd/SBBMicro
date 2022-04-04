@@ -3,7 +3,7 @@
 // course requirements at degree granting institutions only.  Not for
 // government, commercial, or other organizational use.
 //
-// File: rt_hypotf_snf.h
+// File: xrot_kJoGnQw0.cpp
 //
 // Code generated for Simulink model 'controlModel'.
 //
@@ -11,13 +11,23 @@
 // Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
 // C/C++ source code generated on : Mon Apr  4 21:26:13 2022
 //
-#ifndef RTW_HEADER_rt_hypotf_snf_h_
-#define RTW_HEADER_rt_hypotf_snf_h_
 #include "rtwtypes.h"
+#include "xrot_kJoGnQw0.h"
 
-extern real32_T rt_hypotf_snf(real32_T u0, real32_T u1);
-
-#endif                                 // RTW_HEADER_rt_hypotf_snf_h_
+// Function for MATLAB Function: '<S62>/Predict'
+void xrot_kJoGnQw0(real32_T x[4], int32_T ix0, int32_T iy0, real32_T c, real32_T
+                   s)
+{
+  real32_T temp;
+  real32_T temp_tmp;
+  temp = x[iy0 - 1];
+  temp_tmp = x[ix0 - 1];
+  x[iy0 - 1] = (temp * c) - (temp_tmp * s);
+  x[ix0 - 1] = (temp_tmp * c) + (temp * s);
+  temp = (x[ix0] * c) + (x[iy0] * s);
+  x[iy0] = (x[iy0] * c) - (x[ix0] * s);
+  x[ix0] = temp;
+}
 
 //
 // File trailer for generated code.

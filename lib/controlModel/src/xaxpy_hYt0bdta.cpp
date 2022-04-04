@@ -3,7 +3,7 @@
 // course requirements at degree granting institutions only.  Not for
 // government, commercial, or other organizational use.
 //
-// File: rt_hypotf_snf.h
+// File: xaxpy_hYt0bdta.cpp
 //
 // Code generated for Simulink model 'controlModel'.
 //
@@ -11,13 +11,18 @@
 // Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
 // C/C++ source code generated on : Mon Apr  4 21:26:13 2022
 //
-#ifndef RTW_HEADER_rt_hypotf_snf_h_
-#define RTW_HEADER_rt_hypotf_snf_h_
 #include "rtwtypes.h"
+#include "xaxpy_hYt0bdta.h"
 
-extern real32_T rt_hypotf_snf(real32_T u0, real32_T u1);
-
-#endif                                 // RTW_HEADER_rt_hypotf_snf_h_
+// Function for MATLAB Function: '<S62>/Predict'
+void xaxpy_hYt0bdta(real32_T a, real32_T y[4])
+{
+  if (static_cast<boolean_T>(static_cast<int32_T>(((a == 0.0F) ? (static_cast<
+          int32_T>(1)) : (static_cast<int32_T>(0))) ^ 1))) {
+    y[2] += a * y[0];
+    y[3] += a * y[1];
+  }
+}
 
 //
 // File trailer for generated code.

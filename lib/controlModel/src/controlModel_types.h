@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 1.146
-// Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Wed Mar 23 15:35:44 2022
+// Model version                  : 3.0
+// Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
+// C/C++ source code generated on : Mon Apr  4 21:26:13 2022
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -61,10 +61,10 @@ struct cell_wrap_controlModel_T
 
 #endif                                 // struct_cell_wrap_controlModel_T
 
-#ifndef struct_dsp_LowpassFilter_controlMode_T
-#define struct_dsp_LowpassFilter_controlMode_T
+#ifndef struct_dsp_simulink_LowpassFilter_co_T
+#define struct_dsp_simulink_LowpassFilter_co_T
 
-struct dsp_LowpassFilter_controlMode_T
+struct dsp_simulink_LowpassFilter_co_T
 {
   boolean_T matlabCodegenIsDeleted;
   int32_T isInitialized;
@@ -75,7 +75,7 @@ struct dsp_LowpassFilter_controlMode_T
   b_dspcodegen_FIRFilter_contro_T _pobj0;
 };
 
-#endif                                // struct_dsp_LowpassFilter_controlMode_T
+#endif                                // struct_dsp_simulink_LowpassFilter_co_T
 #endif                                 // RTW_HEADER_controlModel_types_h_
 
 //

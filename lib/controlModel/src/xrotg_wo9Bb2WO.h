@@ -3,7 +3,7 @@
 // course requirements at degree granting institutions only.  Not for
 // government, commercial, or other organizational use.
 //
-// File: rt_hypotf_snf.h
+// File: xrotg_wo9Bb2WO.h
 //
 // Code generated for Simulink model 'controlModel'.
 //
@@ -11,13 +11,13 @@
 // Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
 // C/C++ source code generated on : Mon Apr  4 21:26:13 2022
 //
-#ifndef RTW_HEADER_rt_hypotf_snf_h_
-#define RTW_HEADER_rt_hypotf_snf_h_
+#ifndef RTW_HEADER_xrotg_wo9Bb2WO_h_
+#define RTW_HEADER_xrotg_wo9Bb2WO_h_
 #include "rtwtypes.h"
 
-extern real32_T rt_hypotf_snf(real32_T u0, real32_T u1);
+extern void xrotg_wo9Bb2WO(real32_T *a, real32_T *b, real32_T *c, real32_T *s);
 
-#endif                                 // RTW_HEADER_rt_hypotf_snf_h_
+#endif                                 // RTW_HEADER_xrotg_wo9Bb2WO_h_
 
 //
 // File trailer for generated code.

@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 1.146
-// Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Wed Mar 23 15:35:44 2022
+// Model version                  : 3.0
+// Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
+// C/C++ source code generated on : Mon Apr  4 21:26:13 2022
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -20,31 +20,38 @@
 //    4. MISRA C:2012 guidelines
 // Validation result: Not run
 //
-#include "controlModel.h"
-#include "controlModel_private.h"
-
-// Includes for objects with custom storage classes.
-#include "controlModel.h"
-#include "qrFactor_rz4DISpF.h"
-#include "rt_atan2f_snf.h"
-#include "rt_hypotf_snf.h"
+#include "rtwtypes.h"
+#include <cmath>
 #include "rt_powf_snf.h"
-#include "svd_RbbuN3t6.h"
-#include "trisolve_OvFIvCwp.h"
-#include "xgemv_9zu7RVJg.h"
-#include "xgerc_CH56O7Zi.h"
-#include "xnrm2_G7tX9tbl.h"
-#include "xnrm2_PWt4zgS1.h"
+
+extern "C" {
+
+#include "rt_nonfinite.h"
+
+}
+#include "trisolve_qLD0w0V1.h"
+#include "qrFactor_vw3S8N7t.h"
+#include "svd_GjfntRyt.h"
+#include "rt_atan2f_snf.h"
+#include "controlModel_types.h"
+#include "xnrm2_36w0EM2n.h"
+#include "rt_hypotf_snf.h"
+#include "xnrm2_sPi5ZkIa.h"
+#include "xgemv_Umr6G94j.h"
+#include "xgerc_QRNcmuGi.h"
+
+// Includes for objects with custom storage classes
+#include "controlModel.h"
 
 // Exported data definition
 
 // Definition for custom storage class: Struct
 controlParams_type controlParams = {
-  // speed_dergain
+  // derGainSpeed
   0.0F,
 
-  // speed_intgain
-  0.5F,
+  // intGainSpeed
+  0.0F,
 
   // wheelInertia
   0.3F,
@@ -52,7 +59,7 @@ controlParams_type controlParams = {
   // rollInertia
   10.0F,
 
-  // speed_propgain
+  // propGainSpeed
   1.0F,
 
   // Qomx
@@ -67,7 +74,7 @@ controlParams_type controlParams = {
   // riderTrqTreshold
   0.5F,
 
-  // max_ref_speed
+  // maxSpeed
   8.0F,
 
   // gravity
@@ -166,8 +173,8 @@ void ControlClass::rollEKF_stateTransitionModel(const real32_T rtu_x[2],
     controlParams.torusRadius) + controlParams.rollingRadius)) -
                        ((controlModel_U.gyros[2] *
     rtb_TmpSignalConversionAtxOut_0) / a_tmp)) * (controlParams.wheelInertia *
-    controlModel_U.gyros[2]))) + ((((tmp * (controlModel_U.gyros[2] *
-    controlModel_U.gyros[2])) * rtb_TmpSignalConversionAtxOut_0) *
+    controlModel_U.gyros[2]))) + (((((controlModel_U.gyros[2] *
+    controlModel_U.gyros[2]) * tmp) * rtb_TmpSignalConversionAtxOut_0) *
     ((controlParams.COGheight * a_tmp) + controlParams.torusRadius)) / (a_tmp *
     a_tmp))) / ((((controlParams.torusRadius * a_tmp) + controlParams.COGheight)
                  * tmp) + controlParams.rollInertia)) * 0.001F) +
@@ -283,7 +290,9 @@ void ControlClass::rollEKF_measurementJac(const real32_T rtu_x[2], real32_T
 {
   UNUSED_PARAMETER(rtu_x);
 
-  // SignalConversion generated from: '<S9>/xNext'
+  // SignalConversion generated from: '<S9>/xNext' incorporates:
+  //   Constant: '<S9>/Constant'
+
   rty_H[0] = 0.0F;
   rty_H[1] = 1.0F;
 }
@@ -297,12 +306,12 @@ void ControlClass::EKFCorrectorAdditive_getMeasure(real32_T Rs, const real32_T
   int32_T knt;
   real32_T S_0[4];
   real32_T A[3];
-  real32_T Pxy_0;
   real32_T xnorm;
   rollEKF_measurementJac(x, dHdx);
-  rollEKF_measurementModel(x, zEstimated);
   *Rsqrt = Rs;
+  rollEKF_measurementModel(x, zEstimated);
   for (knt = 0; knt < 2; knt++) {
+    real32_T Pxy_0;
     aoffset = (knt << 1ULL);
     S_0[knt] = 0.0F;
     S_0[knt] += S[knt] * S[0];
@@ -318,7 +327,7 @@ void ControlClass::EKFCorrectorAdditive_getMeasure(real32_T Rs, const real32_T
 
   A[2] = Rs;
   *Sy = A[0];
-  xnorm = xnrm2_G7tX9tbl(2, A, 2);
+  xnorm = xnrm2_36w0EM2n(2, A, 2);
   if (xnorm != 0.0F) {
     xnorm = rt_hypotf_snf(A[0], xnorm);
     if (A[0] >= 0.0F) {
@@ -326,7 +335,7 @@ void ControlClass::EKFCorrectorAdditive_getMeasure(real32_T Rs, const real32_T
     }
 
     if (std::abs(xnorm) < 9.86076132E-32F) {
-      knt = -1;
+      knt = 0;
       do {
         knt++;
         for (aoffset = 1; aoffset < 3; aoffset++) {
@@ -335,16 +344,17 @@ void ControlClass::EKFCorrectorAdditive_getMeasure(real32_T Rs, const real32_T
 
         xnorm *= 1.01412048E+31F;
         *Sy *= 1.01412048E+31F;
-      } while (static_cast<boolean_T>(static_cast<int32_T>(((std::abs(xnorm) >=
+      } while (static_cast<boolean_T>(static_cast<int32_T>(((std::abs(xnorm) <
                    9.86076132E-32F) ? (static_cast<int32_T>(1)) :
-                  (static_cast<int32_T>(0))) ^ 1)));
+                  (static_cast<int32_T>(0))) & ((knt < 20) ?
+                  (static_cast<int32_T>(1)) : (static_cast<int32_T>(0))))));
 
-      xnorm = rt_hypotf_snf(*Sy, xnrm2_G7tX9tbl(2, A, 2));
+      xnorm = rt_hypotf_snf(*Sy, xnrm2_36w0EM2n(2, A, 2));
       if ((*Sy) >= 0.0F) {
         xnorm = -xnorm;
       }
 
-      for (aoffset = 0; aoffset <= knt; aoffset++) {
+      for (aoffset = 0; aoffset < knt; aoffset++) {
         xnorm *= 9.86076132E-32F;
       }
 
@@ -361,17 +371,16 @@ void ControlClass::co_EKFPredictorAdditive_predict(const real32_T Qs[4],
 {
   int32_T aoffset;
   int32_T coffset;
-  int32_T exitg1;
   int32_T knt;
   real32_T A[8];
-  real32_T Jacobian[4];
+  real32_T B[4];
   real32_T y[4];
   real32_T work[2];
   real32_T x_0[2];
-  real32_T beta1;
+  real32_T atmp;
   real32_T s;
-  real32_T tau_idx_0;
-  rollEKF_stateTransitionJac(x, Jacobian);
+  real32_T y_tmp;
+  rollEKF_stateTransitionJac(x, B);
   for (knt = 0; knt < 2; knt++) {
     x_0[knt] = x[knt];
   }
@@ -379,75 +388,74 @@ void ControlClass::co_EKFPredictorAdditive_predict(const real32_T Qs[4],
   rollEKF_stateTransitionModel(x_0, x);
   for (knt = 0; knt < 2; knt++) {
     coffset = (knt << 1ULL);
-    s = Jacobian[knt + 2];
-    y[coffset] = (s * S[1]) + (S[0] * Jacobian[knt]);
-    y[coffset + 1] = (s * S[3]) + (S[2] * Jacobian[knt]);
+    y_tmp = B[knt + 2];
+    y[coffset] = (y_tmp * S[1]) + (S[0] * B[knt]);
+    y[coffset + 1] = (y_tmp * S[3]) + (S[2] * B[knt]);
   }
 
   A[0] = y[0];
   A[2] = Qs[0];
   A[1] = y[1];
   A[3] = Qs[2];
+  y_tmp = 0.0F;
   work[0] = 0.0F;
   A[4] = y[2];
   A[6] = Qs[1];
   A[5] = y[3];
   A[7] = Qs[3];
   work[1] = 0.0F;
-  s = y[0];
-  tau_idx_0 = 0.0F;
-  beta1 = xnrm2_PWt4zgS1(3, A, 2);
-  if (beta1 != 0.0F) {
-    beta1 = rt_hypotf_snf(y[0], beta1);
+  atmp = y[0];
+  s = xnrm2_sPi5ZkIa(3, A, 2);
+  if (s != 0.0F) {
+    s = rt_hypotf_snf(y[0], s);
     if (y[0] >= 0.0F) {
-      beta1 = -beta1;
+      s = -s;
     }
 
-    if (std::abs(beta1) < 9.86076132E-32F) {
-      knt = -1;
-      coffset = 0;
+    if (std::abs(s) < 9.86076132E-32F) {
+      knt = 0;
       do {
         knt++;
         for (aoffset = 1; aoffset < 4; aoffset++) {
           A[aoffset] *= 1.01412048E+31F;
         }
 
-        beta1 *= 1.01412048E+31F;
         s *= 1.01412048E+31F;
-      } while (static_cast<boolean_T>(static_cast<int32_T>(((std::abs(beta1) >=
+        atmp *= 1.01412048E+31F;
+      } while (static_cast<boolean_T>(static_cast<int32_T>(((std::abs(s) <
                    9.86076132E-32F) ? (static_cast<int32_T>(1)) :
-                  (static_cast<int32_T>(0))) ^ 1)));
+                  (static_cast<int32_T>(0))) & ((knt < 20) ?
+                  (static_cast<int32_T>(1)) : (static_cast<int32_T>(0))))));
 
-      beta1 = rt_hypotf_snf(s, xnrm2_PWt4zgS1(3, A, 2));
-      if (s >= 0.0F) {
-        beta1 = -beta1;
+      s = rt_hypotf_snf(atmp, xnrm2_sPi5ZkIa(3, A, 2));
+      if (atmp >= 0.0F) {
+        s = -s;
       }
 
-      tau_idx_0 = (beta1 - s) / beta1;
-      s = 1.0F / (s - beta1);
+      y_tmp = (s - atmp) / s;
+      atmp = 1.0F / (atmp - s);
       for (aoffset = 1; aoffset < 4; aoffset++) {
-        A[aoffset] *= s;
+        A[aoffset] *= atmp;
       }
 
-      while (coffset <= knt) {
-        beta1 *= 9.86076132E-32F;
-        coffset++;
+      for (coffset = 0; coffset < knt; coffset++) {
+        s *= 9.86076132E-32F;
       }
 
-      s = beta1;
+      atmp = s;
     } else {
-      tau_idx_0 = (beta1 - y[0]) / beta1;
-      s = 1.0F / (y[0] - beta1);
+      y_tmp = (s - y[0]) / s;
+      atmp = 1.0F / (y[0] - s);
       for (coffset = 1; coffset < 4; coffset++) {
-        A[coffset] *= s;
+        A[coffset] *= atmp;
       }
 
-      s = beta1;
+      atmp = s;
     }
   }
 
   A[0] = 1.0F;
-  if (tau_idx_0 != 0.0F) {
+  if (y_tmp != 0.0F) {
     knt = 4;
     coffset = 3;
     while ((knt > 0) && (A[coffset] == 0.0F)) {
@@ -457,6 +465,7 @@ void ControlClass::co_EKFPredictorAdditive_predict(const real32_T Qs[4],
 
     coffset = 1;
     aoffset = 0;
+    int32_T exitg1;
     do {
       exitg1 = 0;
       if ((aoffset + 5) <= (knt + 4)) {
@@ -476,68 +485,69 @@ void ControlClass::co_EKFPredictorAdditive_predict(const real32_T Qs[4],
   }
 
   if (knt > 0) {
-    xgemv_9zu7RVJg(knt, coffset, A, 5, A, 1, work);
-    xgerc_CH56O7Zi(knt, coffset, -tau_idx_0, 1, work, A, 5);
+    xgemv_Umr6G94j(knt, coffset, A, 5, A, 1, work);
+    xgerc_QRNcmuGi(knt, coffset, -y_tmp, 1, work, A, 5);
   }
 
-  A[0] = s;
-  s = A[5];
-  beta1 = xnrm2_PWt4zgS1(2, A, 7);
-  if (beta1 != 0.0F) {
-    beta1 = rt_hypotf_snf(A[5], beta1);
+  A[0] = atmp;
+  atmp = A[5];
+  s = xnrm2_sPi5ZkIa(2, A, 7);
+  if (s != 0.0F) {
+    s = rt_hypotf_snf(A[5], s);
     if (A[5] >= 0.0F) {
-      beta1 = -beta1;
+      s = -s;
     }
 
-    if (std::abs(beta1) < 9.86076132E-32F) {
-      knt = -1;
+    if (std::abs(s) < 9.86076132E-32F) {
+      knt = 0;
       do {
         knt++;
         for (aoffset = 6; aoffset < 8; aoffset++) {
           A[aoffset] *= 1.01412048E+31F;
         }
 
-        beta1 *= 1.01412048E+31F;
         s *= 1.01412048E+31F;
-      } while (static_cast<boolean_T>(static_cast<int32_T>(((std::abs(beta1) >=
+        atmp *= 1.01412048E+31F;
+      } while (static_cast<boolean_T>(static_cast<int32_T>(((std::abs(s) <
                    9.86076132E-32F) ? (static_cast<int32_T>(1)) :
-                  (static_cast<int32_T>(0))) ^ 1)));
+                  (static_cast<int32_T>(0))) & ((knt < 20) ?
+                  (static_cast<int32_T>(1)) : (static_cast<int32_T>(0))))));
 
-      beta1 = rt_hypotf_snf(s, xnrm2_PWt4zgS1(2, A, 7));
-      if (s >= 0.0F) {
-        beta1 = -beta1;
+      s = rt_hypotf_snf(atmp, xnrm2_sPi5ZkIa(2, A, 7));
+      if (atmp >= 0.0F) {
+        s = -s;
       }
 
-      s = 1.0F / (s - beta1);
+      atmp = 1.0F / (atmp - s);
       for (aoffset = 6; aoffset < 8; aoffset++) {
-        A[aoffset] *= s;
+        A[aoffset] *= atmp;
       }
 
-      for (coffset = 0; coffset <= knt; coffset++) {
-        beta1 *= 9.86076132E-32F;
+      for (coffset = 0; coffset < knt; coffset++) {
+        s *= 9.86076132E-32F;
       }
 
-      s = beta1;
+      atmp = s;
     } else {
-      s = 1.0F / (A[5] - beta1);
+      atmp = 1.0F / (A[5] - s);
       for (coffset = 6; coffset < 8; coffset++) {
-        A[coffset] *= s;
+        A[coffset] *= atmp;
       }
 
-      s = beta1;
+      atmp = s;
     }
   }
 
-  A[5] = s;
-  Jacobian[0] = A[0];
+  A[5] = atmp;
+  B[0] = A[0];
   for (knt = 0; knt < 2; knt++) {
-    Jacobian[knt + 2] = A[knt + 4];
+    B[knt + 2] = A[knt + 4];
   }
 
-  S[0] = Jacobian[0];
-  S[1] = Jacobian[2];
+  S[0] = B[0];
+  S[1] = B[2];
   S[2] = 0.0F;
-  S[3] = Jacobian[3];
+  S[3] = B[3];
 }
 
 // Model step function
@@ -545,22 +555,21 @@ void ControlClass::update()
 {
   b_dsp_FIRFilter_0_controlMode_T *obj_0;
   b_dspcodegen_FIRFilter_contro_T *obj;
-  int32_T A_tmp;
   int32_T n;
   real32_T A[4];
   real32_T Ss[4];
   real32_T rtb_Q[4];
   real32_T C[2];
   real32_T K[2];
-  real32_T s[2];
-  real32_T Rsqrt;
+  real32_T s_0[2];
   real32_T Vf;
-  real32_T b_s;
+  real32_T c_b;
   real32_T rtb_Sum_h;
   real32_T rtb_Tsamp;
+  real32_T s;
   real32_T unusedExpr;
   real32_T zEstimated;
-  boolean_T guard1 = false;
+  boolean_T p;
 
   // MATLABSystem: '<Root>/Lowpass Filter' incorporates:
   //   Inport: '<Root>/torque'
@@ -586,20 +595,20 @@ void ControlClass::update()
   // load input sample
   for (n = 0; n < 20; n++) {
     // shift state
-    b_s = rtb_Sum_h;
+    s = rtb_Sum_h;
     rtb_Sum_h = obj_0->W0_states[n];
-    obj_0->W0_states[n] = b_s;
+    obj_0->W0_states[n] = s;
 
     // compute one tap
-    b_s *= obj_0->P1_Coefficients[n];
-    rtb_Tsamp += b_s;
+    s *= obj_0->P1_Coefficients[n];
+    rtb_Tsamp += s;
   }
 
   // compute last tap
-  b_s = obj->cSFunObject.P1_Coefficients[n] * rtb_Sum_h;
+  s = obj->cSFunObject.P1_Coefficients[n] * rtb_Sum_h;
 
   // store output sample
-  rtb_Sum_h = rtb_Tsamp + b_s;
+  rtb_Sum_h = rtb_Tsamp + s;
 
   // DeadZone: '<Root>/Dead Zone' incorporates:
   //   MATLABSystem: '<Root>/Lowpass Filter'
@@ -618,20 +627,20 @@ void ControlClass::update()
   //   Gain: '<Root>/Belt and gear'
   //   Gain: '<Root>/Gain'
 
-  b_s = ((1.0F / (controlParams.beltRatio * controlParams.gearRatio)) *
-         (controlParams.trqGainControl * rtb_Tsamp)) * (1.0F /
+  s = ((1.0F / (controlParams.beltRatio * controlParams.gearRatio)) *
+       (controlParams.trqGainControl * rtb_Tsamp)) * (1.0F /
     controlParams.trqConstant);
 
   // Saturate: '<Root>/Saturation'
-  if (b_s > controlParams.maxCurrent) {
+  if (s > controlParams.maxCurrent) {
     // Outport: '<Root>/curr_ref'
     controlModel_Y.curr_ref = controlParams.maxCurrent;
-  } else if (b_s < (-controlParams.maxCurrent)) {
+  } else if (s < (-controlParams.maxCurrent)) {
     // Outport: '<Root>/curr_ref'
     controlModel_Y.curr_ref = -controlParams.maxCurrent;
   } else {
     // Outport: '<Root>/curr_ref'
-    controlModel_Y.curr_ref = b_s;
+    controlModel_Y.curr_ref = s;
   }
 
   // End of Saturate: '<Root>/Saturation'
@@ -652,7 +661,7 @@ void ControlClass::update()
   //   Inport: '<Root>/ref_inputs'
   //   Inport: '<Root>/speed'
 
-  rtb_Sum_h = (controlParams.max_ref_speed * controlModel_U.ref_inputs[1]) -
+  rtb_Sum_h = (controlParams.maxSpeed * controlModel_U.ref_inputs[1]) -
     controlModel_U.speed;
 
   // SampleTimeMath: '<S38>/Tsamp' incorporates:
@@ -662,7 +671,7 @@ void ControlClass::update()
   //  About '<S38>/Tsamp':
   //   y = u * K where K = 1 / ( w * Ts )
 
-  rtb_Tsamp = (rtb_Sum_h * controlParams.speed_dergain) * 1000.0F;
+  rtb_Tsamp = (rtb_Sum_h * controlParams.derGainSpeed) * 1000.0F;
 
   // Sum: '<S52>/Sum' incorporates:
   //   Constant: '<Root>/Constant'
@@ -671,20 +680,20 @@ void ControlClass::update()
   //   Product: '<S48>/PProd Out'
   //   Sum: '<S36>/Diff'
 
-  b_s = ((rtb_Sum_h * controlParams.speed_propgain) +
-         controlModel_DW.Integrator_DSTATE) + (rtb_Tsamp -
+  s = ((rtb_Sum_h * controlParams.propGainSpeed) +
+       controlModel_DW.Integrator_DSTATE) + (rtb_Tsamp -
     controlModel_DW.UD_DSTATE);
 
   // Saturate: '<S50>/Saturation'
-  if (b_s > 1.0F) {
+  if (s > 1.0F) {
     // Outport: '<Root>/throttle_ref'
     controlModel_Y.throttle_ref = 1.0F;
-  } else if (b_s < 0.0F) {
+  } else if (s < 0.0F) {
     // Outport: '<Root>/throttle_ref'
     controlModel_Y.throttle_ref = 0.0F;
   } else {
     // Outport: '<Root>/throttle_ref'
-    controlModel_Y.throttle_ref = b_s;
+    controlModel_Y.throttle_ref = s;
   }
 
   // End of Saturate: '<S50>/Saturation'
@@ -711,28 +720,28 @@ void ControlClass::update()
 
   //  ekfCorrect Correction step for EKF
   //
-  //    Copyright 2016-2018 The MathWorks, Inc.
+  //    Copyright 2016-2021 The MathWorks, Inc.
   //  If measurement noise is time-varying then compute square-root
   //  factorization.
   if (static_cast<boolean_T>(static_cast<int32_T>(((static_cast<boolean_T>(
-           static_cast<int32_T>((rtIsInfF(controlParams.Romx) ?
-             (static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) ^ 1))) ? (
-          static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) & ((static_cast<
+           static_cast<int32_T>((rtIsInfF(controlParams.Romx) ? (static_cast<
+              int32_T>(1)) : (static_cast<int32_T>(0))) ^ 1))) ?
+         (static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) & ((static_cast<
           boolean_T>(static_cast<int32_T>((rtIsNaNF(controlParams.Romx) ? (
               static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) ^ 1))) ? (
           static_cast<int32_T>(1)) : (static_cast<int32_T>(0)))))) {
-    b_s = controlParams.Romx;
+    s = controlParams.Romx;
     Vf = 1.0F;
     if (controlParams.Romx != 0.0F) {
-      b_s = std::abs(controlParams.Romx);
+      s = std::abs(controlParams.Romx);
     }
 
-    if (b_s < 0.0F) {
-      b_s = -b_s;
+    if (s < 0.0F) {
+      s = -s;
       Vf = -1.0F;
     }
   } else {
-    b_s = (rtNaNF);
+    s = (rtNaNF);
     Vf = (rtNaNF);
   }
 
@@ -747,31 +756,33 @@ void ControlClass::update()
 
   //  MeasurementJacobianFcn
   rollEKF_measurementJac(controlModel_DW.x, K);
-  EKFCorrectorAdditive_getMeasure(Vf * std::sqrt(b_s), controlModel_DW.x,
-    controlModel_DW.P, &zEstimated, K, &unusedExpr, s, &Rsqrt);
-  b_s = controlModel_U.gyros[0] - zEstimated;
+
+  //  Measurement wrapping
+  EKFCorrectorAdditive_getMeasure(Vf * std::sqrt(s), controlModel_DW.x,
+    controlModel_DW.P, &zEstimated, K, &unusedExpr, s_0, &c_b);
+  s = controlModel_U.gyros[0] - zEstimated;
   C[0] = K[0];
   C[1] = K[1];
-  trisolve_OvFIvCwp(unusedExpr, C);
+  trisolve_qLD0w0V1(unusedExpr, C);
   K[0] = C[0];
   K[1] = C[1];
-  trisolve_OvFIvCwp(unusedExpr, K);
-  A[0] = (-K[0]) * s[0];
-  A[1] = (-K[1]) * s[0];
-  A[2] = (-K[0]) * s[1];
-  A[3] = (-K[1]) * s[1];
-  C[0] = K[0] * Rsqrt;
+  trisolve_qLD0w0V1(unusedExpr, K);
+  A[0] = (-K[0]) * s_0[0];
+  A[1] = (-K[1]) * s_0[0];
+  A[2] = (-K[0]) * s_0[1];
+  A[3] = (-K[1]) * s_0[1];
+  C[0] = K[0] * c_b;
   A[0]++;
-  C[1] = K[1] * Rsqrt;
+  C[1] = K[1] * c_b;
   A[3]++;
-  qrFactor_rz4DISpF(A, controlModel_DW.P, C);
+  qrFactor_vw3S8N7t(A, controlModel_DW.P, C);
 
   // DataStoreWrite: '<S60>/Data Store WriteX' incorporates:
   //   DataStoreRead: '<S60>/Data Store ReadX'
   //   MATLAB Function: '<S60>/Correct'
 
   //  Get back Covariance from Square-root Covariance
-  controlModel_DW.x[0] += K[0] * b_s;
+  controlModel_DW.x[0] += K[0] * s;
 
   // End of Outputs for SubSystem: '<S2>/Correct1'
 
@@ -790,7 +801,7 @@ void ControlClass::update()
   //   DataStoreRead: '<S60>/Data Store ReadX'
   //   MATLAB Function: '<S60>/Correct'
 
-  controlModel_DW.x[1] += K[1] * b_s;
+  controlModel_DW.x[1] += K[1] * s;
 
   // End of Outputs for SubSystem: '<S2>/Correct1'
 
@@ -815,65 +826,62 @@ void ControlClass::update()
 
   //  ekfCorrect Prediction step for EKF
   //
-  //    Copyright 2016-2017 The MathWorks, Inc.
+  //    Copyright 2016-2021 The MathWorks, Inc.
   //  If process noise is time-varying then compute square-root
   //  factorization.
-  guard1 = false;
-  if (static_cast<boolean_T>(static_cast<int32_T>(((static_cast<boolean_T>(
-           static_cast<int32_T>((rtIsInfF(controlParams.Qphi) ?
-             (static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) ^ 1))) ? (
-          static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) & ((static_cast<
-          boolean_T>(static_cast<int32_T>((rtIsNaNF(controlParams.Qphi) ? (
-              static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) ^ 1))) ? (
-          static_cast<int32_T>(1)) : (static_cast<int32_T>(0)))))) {
-    if (static_cast<boolean_T>(static_cast<int32_T>(((static_cast<boolean_T>(
-             static_cast<int32_T>((rtIsInfF(controlParams.Qomx) ? (static_cast<
-                int32_T>(1)) : (static_cast<int32_T>(0))) ^ 1))) ? (static_cast<
-            int32_T>(1)) : (static_cast<int32_T>(0))) & ((static_cast<boolean_T>
-            (static_cast<int32_T>((rtIsNaNF(controlParams.Qomx) ?
-               (static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) ^ 1))) ? (
-            static_cast<int32_T>(1)) : (static_cast<int32_T>(0)))))) {
-      svd_RbbuN3t6(rtb_Q, Ss, s, A);
-    } else {
-      guard1 = true;
-    }
-  } else {
-    guard1 = true;
+  p = true;
+  if (static_cast<boolean_T>(static_cast<int32_T>((rtIsInfF(controlParams.Qphi) ?
+         (static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) | (rtIsNaNF
+         (controlParams.Qphi) ? (static_cast<int32_T>(1)) : (static_cast<int32_T>
+          (0)))))) {
+    p = false;
   }
 
-  if (guard1) {
-    s[0] = (rtNaNF);
-    s[1] = (rtNaNF);
+  if (p) {
+    if (static_cast<boolean_T>(static_cast<int32_T>((rtIsInfF(controlParams.Qomx)
+           ? (static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) | (rtIsNaNF
+           (controlParams.Qomx) ? (static_cast<int32_T>(1)) :
+           (static_cast<int32_T>(0)))))) {
+      p = false;
+    }
+  }
+
+  if (p) {
+    svd_GjfntRyt(rtb_Q, Ss, s_0, A);
+  } else {
+    s_0[0] = (rtNaNF);
+    s_0[1] = (rtNaNF);
     A[0] = (rtNaNF);
     A[1] = (rtNaNF);
     A[2] = (rtNaNF);
     A[3] = (rtNaNF);
   }
 
-  Ss[0] = std::sqrt(s[0]);
+  Ss[0] = std::sqrt(s_0[0]);
   Ss[1] = 0.0F;
   Ss[2] = 0.0F;
-  Ss[3] = std::sqrt(s[1]);
+  Ss[3] = std::sqrt(s_0[1]);
 
   //  Construct fcn handles
   //  Check if dimensions and type of State and Jacobian are correct
   //  Additive noise
   //  StateTransitionFcn
-  rollEKF_stateTransitionModel(controlModel_DW.x, s);
+  rollEKF_stateTransitionModel(controlModel_DW.x, s_0);
 
   //  Jacobian
   rollEKF_stateTransitionJac(controlModel_DW.x, rtb_Q);
 
   //  F needs to be square
   for (n = 0; n < 2; n++) {
+    int32_T A_tmp;
     A_tmp = (n << 1ULL);
     rtb_Q[A_tmp] = 0.0F;
-    b_s = Ss[A_tmp];
-    rtb_Q[A_tmp] += b_s * A[0];
+    s = Ss[A_tmp];
+    rtb_Q[A_tmp] += s * A[0];
     Vf = Ss[A_tmp + 1];
     rtb_Q[A_tmp] += Vf * A[2];
     rtb_Q[A_tmp + 1] = 0.0F;
-    rtb_Q[A_tmp + 1] += b_s * A[1];
+    rtb_Q[A_tmp + 1] += s * A[1];
     rtb_Q[A_tmp + 1] += Vf * A[3];
   }
 
@@ -896,7 +904,9 @@ void ControlClass::update()
 
   // End of Outputs for SubSystem: '<S2>/Predict'
 
-  // Outport: '<Root>/pos_est'
+  // Outport: '<Root>/pos_est' incorporates:
+  //   Constant: '<Root>/Constant3'
+
   controlModel_Y.pos_est[0] = 0.0F;
 
   // Outputs for Atomic SubSystem: '<S2>/Predict'
@@ -907,7 +917,9 @@ void ControlClass::update()
 
   // End of Outputs for SubSystem: '<S2>/Predict'
 
-  // Outport: '<Root>/pos_est'
+  // Outport: '<Root>/pos_est' incorporates:
+  //   Constant: '<Root>/Constant3'
+
   controlModel_Y.pos_est[1] = 0.0F;
 
   // Outport: '<Root>/error_state_out' incorporates:
@@ -919,8 +931,8 @@ void ControlClass::update()
   //   Constant: '<Root>/Constant1'
   //   Product: '<S40>/IProd Out'
 
-  controlModel_DW.Integrator_DSTATE += (rtb_Sum_h * controlParams.speed_intgain)
-    * 0.001F;
+  controlModel_DW.Integrator_DSTATE += (rtb_Sum_h * controlParams.intGainSpeed) *
+    0.001F;
 
   // Update for Delay: '<S36>/UD'
   controlModel_DW.UD_DSTATE = rtb_Tsamp;
@@ -941,7 +953,6 @@ void ControlClass::begin()
 
   {
     b_dspcodegen_FIRFilter_contro_T *iobj_0;
-    int32_T i;
     static const real32_T tmp[21] = { -0.000803169096F, -0.00341077754F,
       -0.00823236164F, -0.0131849619F, -0.0126657868F, 0.00105571444F,
       0.0335894823F, 0.0833384693F, 0.139194697F, 0.183665663F, 0.200662464F,
@@ -968,10 +979,11 @@ void ControlClass::begin()
     controlModel_DW.obj.isInitialized = 1;
     iobj_0 = &controlModel_DW.obj._pobj0;
     iobj_0->isInitialized = 0;
+    iobj_0->isInitialized = 0;
 
     // System object Constructor function: dsp.FIRFilter
     iobj_0->cSFunObject.P0_InitialStates = 0.0F;
-    for (i = 0; i < 21; i++) {
+    for (int32_T i = 0; i < 21; i++) {
       iobj_0->cSFunObject.P1_Coefficients[i] = tmp[i];
     }
 
@@ -986,7 +998,7 @@ void ControlClass::begin()
     iobj_0 = controlModel_DW.obj.FilterObj;
     if (iobj_0->isInitialized == 1) {
       // System object Initialization function: dsp.FIRFilter
-      for (i = 0; i < 20; i++) {
+      for (int32_T i = 0; i < 20; i++) {
         iobj_0->cSFunObject.W0_states[i] = iobj_0->cSFunObject.P0_InitialStates;
       }
     }
@@ -1029,7 +1041,7 @@ void ControlClass::stop()
 }
 
 // Constructor
-ControlClass::ControlClass() :
+ControlClass::ControlClass():
   controlModel_U(),
   controlModel_Y(),
   controlModel_DW()
