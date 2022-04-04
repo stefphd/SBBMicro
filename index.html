@@ -163,7 +163,7 @@ Code generation</h1>
 <div class="fragment"><div class="line">gencode()</div>
 </div><!-- fragment --><p >The general usage of this function is</p>
 <div class="fragment"><div class="line">gencode(modelname,dest_dir)</div>
-</div><!-- fragment --><p >where <code>modelname</code> is the name of the Simulink model (without the <code>*.slx</code> extension included), while <code>dest_dir</code> is the destination directory: generated code is placed in <code>./dest_dir/modelname/src</code>. If no modelname is given, the function uses the first <code>*.slx</code> file found in the current directory. If no destination directory is given, the functions uses <code>./lib</code>.</p>
+</div><!-- fragment --><p >where <code>modelname</code> is the name of the Simulink model (without the <code>*.slx</code> extension included), while <code>dest_dir</code> is the destination directory: generated code is placed in <code>./dest_dir/modelname/src</code>. If no modelname is given, the function uses the first <code>*.slx</code> file found in the current directory. If no destination directory is given, the functions uses <code>./lib</code>. Code generation may be also performed using <em>make</em>.</p>
 <dl class="section note"><dt>Note</dt><dd>Code generation using MATLAB/Simulink has been tested on Windows only, but it should work also on Linux.</dd></dl>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Building</h1>
@@ -195,6 +195,7 @@ Make tools</h1>
 <li><code>make doc</code> to build the documentation</li>
 <li><code>make cleandoc</code> to clean the documentation</li>
 <li><code>make clean</code> to clear the build and cache directories</li>
+<li><code>make codegen</code> to generate the code from the simulink model</li>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>The above commands can be also used at the same time, e.g. <code>make build doc</code> to build and generate the documentation.</dd></dl>
 <h1><a class="anchor" id="autotoc_md7"></a>
