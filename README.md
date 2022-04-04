@@ -72,7 +72,7 @@ make
 
 which generates the pdf file `./doc/latex/refman.pdf`.
 
-\note Documentation generation has been tested on Linux only, but it should work also in Windows.
+\attention Latex documentation requires having both *latex* and *make* installed.
 
 ## Code generation
 
@@ -108,7 +108,8 @@ Compilation is performed using the *arduino-builder*. Shell scripts provide simp
   bash build_linux.sh
   ```
 
-  \note Tested with Arch-Linux x64. Sometimes it is necessary to delete manually the folders `.build` and `.cache`.
+  \note Tested with Arch-Linux x64.
+
 * Windows:
 
   ```shell
@@ -116,13 +117,16 @@ Compilation is performed using the *arduino-builder*. Shell scripts provide simp
   ```
 
   \note Tested with Windows 10 x64.
+
 * MacOS: not implemented yet, however it should be similar to Linux.
 
 Alternatively, one can use `ctrl+shift+B` to build the code in *Visual Studio Code* with both Linux and Windows (this makes use of `build_linux.sh` or `build_win.sh` depending on the operative system).
 
+\note The above shell scripts perform both the building and the uploading: it is not possible to build or upload only.
+
 ## Make tools
 
-One may also use *make* for the building, uploading and the documentation generation. This allows several operations using similar syntax:
+One may also use *make* for the building, uploading and the documentation generation. This allows several operations using similar syntax, so as to perform single operations at a time:
 
 * `make` or `make all` to build and upload the code.
 * `make build` to build the code only
@@ -133,7 +137,7 @@ One may also use *make* for the building, uploading and the documentation genera
 * `make cleandoc` to clean the documentation
 * `make clean` to clear the build and cache directories
 
-Note that the above commands can be also used at the same time, e.g. `make build doc` to build and generate the documentation.
+\note The above commands can be also used at the same time, e.g. `make build doc` to build and generate the documentation.
 
 ## MTP mode
 
@@ -147,6 +151,6 @@ To enter in MTP mode, it is sufficient to keep the on/off button pressed for at 
 
 * Undefined identifiers found by Visual Studio Code, however this is only a C/C++ IntelliSense issue (compilation works fine)
 
-\todo Doc: Documentaton for Simuling and code generation???US
+\todo Doc: Documentaton for Simuling and code generation???
 \todo Make user-defined C functions in Simulink working when compiling
-\todo To implement brake motor.
+\todo To implement brake motor
