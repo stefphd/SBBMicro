@@ -85,6 +85,7 @@ ifeq ($(OS), Linux)
 else ifeq ($(OS), Windows_NT)
 	@rmdir /S /Q "$(DOCS_PATH)"
 endif
+
 #Remake
 remake: clean all
 
@@ -114,5 +115,9 @@ else ifeq ($(OS), Windows_NT)
 	@if not exist "$(CACHE_PATH)" mkdir "$(CACHE_PATH)"
 endif
 
+#Generate the code
+gencode:
+	@matlab -batch "gencode"
+
 #Non-File Targets
-.PHONY: all build upload remake clean doc cleandoc directories
+.PHONY: all build upload remake clean doc cleandoc directories gencode
