@@ -88,7 +88,7 @@ The general usage of this function is
 gencode(modelname,dest_dir)
 ```
 
-where `modelname` is the name of the Simulink model (without the `*.slx` extension included), while `dest_dir` is the destination directory: generated code is placed in `./dest_dir/modelname/src`. If no modelname is given, the function uses the first `*.slx` file found in the current directory. If no destination directory is given, the functions uses `./lib`. Code generation may be also performed using *make*.
+where `modelname` is the name of the Simulink model (without the `*.slx` extension included), while `dest_dir` is the destination directory: generated code is placed in `./dest_dir/modelname/src`. If no modelname is given, the function uses the first `*.slx` file found in the current directory. If no destination directory is given, the functions uses `./lib`. Code generation may be also performed using *make*, however this may take some time.
 
 \note Code generation using MATLAB/Simulink has been tested on Windows only, but it should work also on Linux.
 
@@ -136,7 +136,8 @@ One may also use *make* for the building, uploading and the documentation genera
 * `make doc` to build the documentation
 * `make cleandoc` to clean the documentation
 * `make clean` to clear the build and cache directories
-* `make codegen` to generate the code from the simulink model
+* `make gencode` to generate the code from the simulink model
+  \note This may take some time.
 
 \note The above commands can be also used at the same time, e.g. `make build doc` to build and generate the documentation.
 
