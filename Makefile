@@ -51,12 +51,7 @@ REBOOT			:= $(TEENSY_TOOLS)/teensy_reboot
 HARDWARE		:= -hardware ./hardware
 FQBN			:= -fqbn=teensy:avr:$(BOARD):$(BOARD_OPTIONS)
 LIBRARIES		:= -libraries ./ -libraries ./include/ -libraries ./lib/
-ifeq ($(OS), Linux)
-TOOLS			:= -tools $(TEENSY_TOOLS) -tools $(ARDUINO_FOLDER)/tools-builder
-else ifeq ($(OS), Windows_NT)
 TOOLS			:= -tools "$(TEENSY_TOOLS)" -tools "$(ARDUINO_FOLDER)/tools-builder"
-endif
-
 FLAGS			:= #-verbose
 
 #---------------------------------------------------------------------------------
@@ -69,7 +64,6 @@ all: build upload
 #Build the code
 build: directories
 	@$(BUILDER) -compile $(FLAGS) -build-path $(BUILD_PATH) -build-cache $(CACHE_PATH) $(HARDWARE) $(TOOLS) $(LIBRARIES) $(FQBN) $(SRC)/$(NAME)
-
 
 #Dump preferances
 dumpprefs:
