@@ -9,16 +9,25 @@
 #USER SETTINGS
 #---------------------------------------------------------------------------------
 
-#Name and code
+#Operative system (Linux/Windows)
+OS := $(shell uname)
+
+#Name
 NAME			:= main.cpp
-SRC				:= ./src
 
 #Board
 BOARD			:= teensy41
 BOARD_OPTIONS	:= speed=600,usb=mtpserial,opt=o3std,keys=en-us
 
 #Directories
+ifeq ($(OS), Linux)
 ARDUINO_FOLDER	:= /usr/share/arduino
+TEENSY_TOOLS	:= ./hardware/tools-linux
+else ifeq ($(OS), Windows) 
+ARDUINO_FOLDER
+TEENSY_TOOLS
+endif
+SRC				:= ./src
 BUILD_PATH		:= ./.build
 CACHE_PATH		:= ./.cache
 
@@ -27,7 +36,6 @@ CACHE_PATH		:= ./.cache
 #---------------------------------------------------------------------------------
 
 #Tools (be careful to change this)
-TEENSY_TOOLS	:= ./hardware/tools-linux
 BUILDER			:= arduino-builder
 POSTCOMPILER	:= $(TEENSY_TOOLS)/teensy_post_compile
 REBOOT			:= $(TEENSY_TOOLS)/teensy_reboot
@@ -40,6 +48,15 @@ LIBRARIES		:= -libraries ./ -libraries ./include/ -libraries ./lib/
 FLAGS			:= #-verbose
 
 #---------------------------------------------------------------------------------
+#CHECKS
+#--------------------------------------------------------------------------------
+ifneq ($(OS), Linux)
+ifneq ($(OS), Windows)
+$(error OS not supported)
+endif
+endif
+
+#---------------------------------------------------------------------------------
 #DO NOT EDIT BELOW THIS LINE
 #---------------------------------------------------------------------------------
 
@@ -48,6 +65,7 @@ all: build upload
 
 #Build the code
 build: directories
+	@echo $(UNAME)
 	@$(BUILDER) -compile $(FLAGS) -build-path $(BUILD_PATH) -build-cache $(CACHE_PATH) $(HARDWARE) $(TOOLS) $(LIBRARIES) $(FQBN) $(SRC)/$(NAME)
 
 #Dump preferances
