@@ -40,6 +40,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="sbbmicro-icon.svg"/></td>
   <td id="projectalign">
    <div id="projectname">SBB Micro
    </div>
@@ -155,7 +156,7 @@ Documentation</h1>
 <div class="fragment"><div class="line">cd ./docs/latex</div>
 <div class="line">make</div>
 </div><!-- fragment --><p >which generates the pdf file <code>./doc/latex/refman.pdf</code>.</p>
-<dl class="section note"><dt>Note</dt><dd>Documentation generation has been tested on Linux only, but it should work also in Windows.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>Latex documentation requires having both <em>latex</em> and <em>make</em> installed.</dd></dl>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Code generation</h1>
 <p >Code generation of the control algorithm is performed via <em>MATLAB/Simulink</em> with the <em>Embedeed Coder Toolbox</em>. Code generation can be launch with <em>MATLAB</em> using</p>
@@ -172,7 +173,7 @@ Building</h1>
 <div class="fragment"><div class="line">./build_linux.sh</div>
 </div><!-- fragment --><p class="startli">or</p>
 <div class="fragment"><div class="line">bash build_linux.sh</div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Tested with Arch-Linux x64. Sometimes it is necessary to delete manually the folders <code>.build</code> and <code>.cache</code>.</dd></dl>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Tested with Arch-Linux x64.</dd></dl>
 </li>
 <li><p class="startli">Windows:</p>
 <div class="fragment"><div class="line">./build_win.bat</div>
@@ -181,9 +182,10 @@ Building</h1>
 <li>MacOS: not implemented yet, however it should be similar to Linux.</li>
 </ul>
 <p >Alternatively, one can use <code>ctrl+shift+B</code> to build the code in <em>Visual Studio Code</em> with both Linux and Windows (this makes use of <code>build_linux.sh</code> or <code>build_win.sh</code> depending on the operative system).</p>
+<dl class="section note"><dt>Note</dt><dd>The above shell scripts perform both the building and the uploading: it is not possible to build or upload only.</dd></dl>
 <h1><a class="anchor" id="autotoc_md6"></a>
 Make tools</h1>
-<p >One may also use <em>make</em> for the building, uploading and the documentation generation. This allows several operations using similar syntax:</p>
+<p >One may also use <em>make</em> for the building, uploading and the documentation generation. This allows several operations using similar syntax, so as to perform single operations at a time:</p>
 <ul>
 <li><code>make</code> or <code>make all</code> to build and upload the code.</li>
 <li><code>make build</code> to build the code only</li>
@@ -194,7 +196,7 @@ Make tools</h1>
 <li><code>make cleandoc</code> to clean the documentation</li>
 <li><code>make clean</code> to clear the build and cache directories</li>
 </ul>
-<p >Note that the above commands can be also used at the same time, e.g. <code>make build doc</code> to build and generate the documentation.</p>
+<dl class="section note"><dt>Note</dt><dd>The above commands can be also used at the same time, e.g. <code>make build doc</code> to build and generate the documentation.</dd></dl>
 <h1><a class="anchor" id="autotoc_md7"></a>
 MTP mode</h1>
 <p >MTP mode allows to recognize the microcontroller as an MTP device (see e.g. <a href="https://en.wikipedia.org/wiki/Media_Transfer_Protocol">https://en.wikipedia.org/wiki/Media_Transfer_Protocol</a>), in order to be capable of getting log files (with extension <code>*.sbb</code>) from the internal SD memory. To enter in MTP mode, it is sufficient to keep the on/off button pressed for at least 3s when turning on. To get the MTP mode working in the PC side:</p>
@@ -206,9 +208,9 @@ MTP mode</h1>
 Known issues</h1>
 <ul>
 <li><p class="startli">Undefined identifiers found by Visual Studio Code, however this is only a C/C++ IntelliSense issue (compilation works fine)</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">Doc: Documentaton for Simuling and code generation???US </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">Doc: Documentaton for Simuling and code generation??? </p>
 <p class="interdd">Make user-defined C functions in Simulink working when compiling </p>
-<p class="enddd">To implement brake motor. </p>
+<p class="enddd">To implement brake motor </p>
 </dd></dl>
 </li>
 </ul>
