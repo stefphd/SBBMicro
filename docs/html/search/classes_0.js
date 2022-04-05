@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['actcurr_283',['ActCurr',['../structActCurr.html',1,'']]]
+  ['actcurr_0',['ActCurr',['../structActCurr.html',1,'']]]
 ];

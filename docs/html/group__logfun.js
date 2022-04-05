@@ -1,5 +1,6 @@
 var group__logfun =
 [
+    [ "LedMode", "namespaceLedMode.html", null ],
     [ "DATAPACKET_SIZE", "group__logfun.html#ga6422fc77e66a7c9f359cc0d81b3549d2", null ],
     [ "DOLOG", "group__logfun.html#ga58400b92b57363e09764906d242f3a97", null ],
     [ "FILENAME_ENTRIES", "group__logfun.html#gabb30495a5891704b1de04005b49fdb86", null ],
