@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['voltage_295',['Voltage',['../structVoltage.html',1,'']]]
+  ['voltage_0',['Voltage',['../structVoltage.html',1,'']]]
 ];
