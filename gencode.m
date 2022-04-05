@@ -20,11 +20,9 @@ if modelname == '~' %use default .slx file found
 end
 if nargin<2 %use default .slx file found
     destdir = 'lib';
-    CodeGenFolder = ['lib/' modelname];
-else
-    CodeGenFolder = [destdir '/' modelname];
 end
 
+CodeGenFolder = [destdir '/' modelname];
 
 Simulink.fileGenControl('set', ...
     'CacheFolder', '.cache', ...
@@ -39,7 +37,7 @@ slbuild(modelname) %build
 
 Simulink.fileGenControl('reset') %reset setup
 
-%% make include file for quick include in source code
+%% make src folder to collect all generated files
 dir_main = [CodeGenFolder '/' modelname '_ert_rtw' '/'];
 dir_shared = [CodeGenFolder '/slprj/ert/_sharedutils/'];
 dir_codegen = [CodeGenFolder '/src/'];
@@ -53,6 +51,10 @@ list_c_shared = dir([dir_shared '*.c']);
 list_cpp_shared = dir([dir_shared '*.cpp']);
 fprintf('### Performing post-generation operations...\n');
 fileID = fopen(codegen_file,'w');
+
+if exist(dir_codegen,'dir') 
+    rmdir(dir_codegen,'s')
+end
 
 if ~exist(dir_codegen,'dir') 
     mkdir(dir_codegen);
