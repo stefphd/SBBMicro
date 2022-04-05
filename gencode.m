@@ -36,7 +36,7 @@ set_param(modelname,'GenCodeOnly','on'); %set generate code only to on (do not g
 if ispc %Windows - Automatically locate an installed toolchain not wokring b/c only for C, not C++
     set_param(modelname,'Toolchain','Microsoft Visual C++ 2017 v15.0 | nmake (64-bit Windows'); %Use MV C++
 elseif isunix || ismac %Unix/Linux or Mac - use Automatically locate an installed toolchain
-    set_param(modelname, 'Automatically locate an installed toolchain'); %auto toolchain (should be gcc/g++)
+    set_param(modelname,'Toolchain','Automatically locate an installed toolchain'); %auto toolchain (should be gcc/g++)
 else %something wrong
     error('OS not supported yet.');
 end
