@@ -119,7 +119,7 @@ else ifeq ($(OS), Windows_NT)
 endif
 
 #Generate the code
-gencode: checktoolbox
+gencode:
 	@$(MATLAB) -batch "gencode();"
 
 #Check for MATLAB tooboxes
