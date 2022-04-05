@@ -1,9 +1,9 @@
 
 #---------------------------------------------------------------------------------
-# MAKEFILE FOR COMPILATIONN OF SBBMICRO IN LINUX
+# MAKEFILE FOR COMPILATIONN OF SBBMICRO IN LINUX/WINDOWS
 #---------------------------------------------------------------------------------
 # AUTHOR: STEFANO LOVATO
-# YEAR: 2022
+# CREATION: March 2022
 
 #---------------------------------------------------------------------------------
 #USER SETTINGS
@@ -28,9 +28,11 @@ BOARD_OPTIONS	:= speed=600,usb=mtpserial,opt=o3std,keys=en-us
 #Directories
 ifeq ($(OS), Linux)
 ARDUINO_FOLDER	:= /usr/share/arduino
+MATLAB_FOLDER   := /usr/local/MATLAB/R2022a
 TEENSY_TOOLS	:= ./hardware/tools-linux
 else ifeq ($(OS), Windows_NT) 
 ARDUINO_FOLDER  := C:/Program Files (x86)/Arduino
+MATLAB_FOLDER   := C:/Program Files/MATLAB/R2022a
 TEENSY_TOOLS	:= ./hardware/tools-windows
 endif
 SRC				:= ./src
@@ -43,7 +45,8 @@ DOCS_PATH		:= ./docs
 #---------------------------------------------------------------------------------
 
 #Tools (be careful to change this)
-BUILDER			:= arduino-builder
+BUILDER			:= $(ARDUINO_FOLDER)/arduino-builder
+MATLAB          := $(MATLAB_FOLDER)/bin/matlab
 POSTCOMPILER	:= $(TEENSY_TOOLS)/teensy_post_compile
 REBOOT			:= $(TEENSY_TOOLS)/teensy_reboot
 
@@ -116,8 +119,12 @@ else ifeq ($(OS), Windows_NT)
 endif
 
 #Generate the code
-gencode:
-	@matlab -batch "gencode"
+gencode: checktoolbox
+	@$(MATLAB) -batch "gencode();"
+
+#Check for MATLAB tooboxes
+checktoolbox:
+	@$(MATLAB) -batch "cd ./.aux; check_toolbox('./../');"
 
 #Help
 help:
@@ -132,9 +139,10 @@ help:
 	@echo "'rebuild'					Clean and rebuild the code."
 	@echo "'gencode'					Generate the code from the Simulink model."
 	@echo "						\note This may take some time."
-	@echo "						\attention This require MATLAB/Simulink >= 2022a with the Embedeed code installed."
+	@echo "						\attention This require MATLAB/Simulink >= 2022a."
+	@echo "'checktoolbox'			Check for the MATLAB toolboxes required by the code generation."
 	@echo "doc						Build the documentation."
 	@echo "cleandoc					Clean the documentation."
 
 #Non-File Targets
-.PHONY: all build upload remake clean doc cleandoc directories gencode help
+.PHONY: all build upload remake clean doc cleandoc directories gencode checktoolbox help

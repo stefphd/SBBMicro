@@ -1,0 +1,11 @@
+# Aux files
+
+Last edit: 5th April 2022
+
+This folder contains auxiliary files usefull for code generation and other stuff.
+
+List of file contained in this folder:
+*`check_toolbox`: MATLAB function to check for the toolboxes used by the code generation and inform the user for missing toolboxes. Example usage:
+  ```MATLAB
+  check_toolbox('./../')
+  ```

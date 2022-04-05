@@ -28,6 +28,7 @@ Additional folders:
 * `./docs/html`: contains the documentation in html (generated automatically from source code using *doxygen*)
 * `./.vscode`: contains VS code property file(s)
 * `./.build` and `.cache`: hidden folders created only during compilation
+* `./.aux`: contains auxiliary usefull for code generation and other stuff
 
 ## Prerequisites
 
@@ -76,7 +77,7 @@ which generates the pdf file `./doc/latex/refman.pdf`.
 
 ## Code generation
 
-Code generation of the control algorithm is performed via *MATLAB/Simulink* with the *Embedeed Coder Toolbox*. Code generation can be launch with *MATLAB* using
+Code generation of the control algorithm is performed via *MATLAB/Simulink* with the *Embedeed Coder Toolbox*. Other toolboxes may be required. Code generation can be launch with *MATLAB* using
 
 ```MATLAB
 gencode()
@@ -85,12 +86,17 @@ gencode()
 The general usage of this function is
 
 ```MATLAB
-gencode(modelname,dest_dir)
+gencode(modelname,dest_dir);
 ```
 
 where `modelname` is the name of the Simulink model (without the `*.slx` extension included), while `dest_dir` is the destination directory: generated code is placed in `./dest_dir/modelname/src`. If no modelname is given, the function uses the first `*.slx` file found in the current directory. If no destination directory is given, the functions uses `./lib`. Code generation may be also performed using *make*, however this may take some time.
 
-\note Code generation using MATLAB/Simulink has been tested on Windows only, but it should work also on Linux.
+\note Toolboxes required by the code generation can be shown by running in MATLAB
+  
+  ```MATLAB
+  cd ./aux;
+  check_toolboxes('./..');
+  ```
 
 ## Building
 
@@ -136,8 +142,9 @@ One may also use *make* for the building, uploading and the documentation genera
 * `make rebuild` to clean and rebuild
 * `make gencode` to generate the code from the Simulink model
   \note This may take some time.
-  \attention This require MATLAB/Simulink >= 2022a with the Embedeed code installed.
+  \attention This requires (at least) MATLAB/Simulink >= 2022a with the Embedeed code installed
 
+* `make checktoolboxes` to check the MATLAB toolboxes required by the code generation
 * `make doc` to build the documentation
 * `make cleandoc` to clean the documentation
 * `make help` to print the Makefile help
