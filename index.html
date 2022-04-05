@@ -130,6 +130,7 @@ Files</h1>
 <li><code>./docs/html</code>: contains the documentation in html (generated automatically from source code using <em>doxygen</em>)</li>
 <li><code>./.vscode</code>: contains VS code property file(s)</li>
 <li><code>./.build</code> and <code>.cache</code>: hidden folders created only during compilation</li>
+<li><code>./.aux</code>: contains auxiliary usefull for code generation and other stuff</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Prerequisites</h1>
@@ -159,13 +160,15 @@ Documentation</h1>
 <dl class="section attention"><dt>Attention</dt><dd>Latex documentation requires having both <em>latex</em> and <em>make</em> installed.</dd></dl>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Code generation</h1>
-<p >Code generation of the control algorithm is performed via <em>MATLAB/Simulink</em> with the <em>Embedeed Coder Toolbox</em>. Code generation can be launch with <em>MATLAB</em> using</p>
+<p >Code generation of the control algorithm is performed via <em>MATLAB/Simulink</em> with the <em>Embedeed Coder Toolbox</em>. Other toolboxes may be required. Code generation can be launch with <em>MATLAB</em> using</p>
 <div class="fragment"><div class="line">gencode()</div>
 </div><!-- fragment --><p >The general usage of this function is</p>
-<div class="fragment"><div class="line">gencode(modelname,dest_dir)</div>
+<div class="fragment"><div class="line">gencode(modelname,dest_dir);</div>
 </div><!-- fragment --><p >where <code>modelname</code> is the name of the Simulink model (without the <code>*.slx</code> extension included), while <code>dest_dir</code> is the destination directory: generated code is placed in <code>./dest_dir/modelname/src</code>. If no modelname is given, the function uses the first <code>*.slx</code> file found in the current directory. If no destination directory is given, the functions uses <code>./lib</code>. Code generation may be also performed using <em>make</em>, however this may take some time.</p>
-<dl class="section note"><dt>Note</dt><dd>Code generation using MATLAB/Simulink has been tested on Windows only, but it should work also on Linux.</dd></dl>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<dl class="section note"><dt>Note</dt><dd>Toolboxes required by the code generation can be shown by running in MATLAB</dd></dl>
+<div class="fragment"><div class="line">cd ./aux;</div>
+<div class="line">check_toolboxes(&#39;./..&#39;);</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
 Building</h1>
 <p >Compilation is performed using the <em>arduino-builder</em>. Shell scripts provide simple usage depending on the operative system:</p>
 <ul>
@@ -194,8 +197,9 @@ Make tools</h1>
 <li><code>make remake</code> to clean, build and upload the code</li>
 <li><code>make rebuild</code> to clean and rebuild</li>
 <li><code>make gencode</code> to generate the code from the Simulink model <dl class="section note"><dt>Note</dt><dd>This may take some time. </dd></dl>
-<dl class="section attention"><dt>Attention</dt><dd>This require MATLAB/Simulink &gt;= 2022a with the Embedeed code installed.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>This requires (at least) MATLAB/Simulink &gt;= 2022a with the Embedeed code installed</dd></dl>
 </li>
+<li><code>make checktoolboxes</code> to check the MATLAB toolboxes required by the code generation</li>
 <li><code>make doc</code> to build the documentation</li>
 <li><code>make cleandoc</code> to clean the documentation</li>
 <li><code>make help</code> to print the Makefile help</li>
