@@ -5,6 +5,7 @@
 *.autosave
 *.png
 *.r20*
+*.asv
 docs/latex
 lib/controlModel/controlModel_ert_rtw
 lib/controlModel/slprj
