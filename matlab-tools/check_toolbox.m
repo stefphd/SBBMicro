@@ -23,7 +23,7 @@ fprintf('###################################################\n');
 %% Validate input
 if nargin>0
     if not(iscellstr(input)) && not(ischar(input)) 
-        error('enput must be a string or an array of strings.')
+        error('input must be a string or an array of strings.')
     end
 end
 
