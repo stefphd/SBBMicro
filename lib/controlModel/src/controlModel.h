@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 3.0
+// Model version                  : 3.7
 // Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
-// C/C++ source code generated on : Mon Apr  4 21:26:13 2022
+// C/C++ source code generated on : Wed Apr  6 08:28:55 2022
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -34,8 +34,6 @@ extern "C" {
 // Type definition for custom storage class: Struct
   struct controlParams_type
 {
-  real32_T derGainSpeed;               // Referenced by: '<Root>/Constant2'
-  real32_T intGainSpeed;               // Referenced by: '<Root>/Constant1'
   real32_T wheelInertia;               // Referenced by:
                                           //  '<S6>/MATLAB Function'
                                           //  '<S7>/MATLAB Function'
@@ -44,10 +42,13 @@ extern "C" {
                                           //  '<S6>/MATLAB Function'
                                           //  '<S7>/MATLAB Function'
 
-  real32_T propGainSpeed;              // Referenced by: '<Root>/Constant'
+  real32_T filterSpeed;            // Referenced by: '<S44>/Filter Coefficient'
+  real32_T propGainSpeed;           // Referenced by: '<S39>/Proportional Gain'
   real32_T Qomx;                       // Referenced by: '<Root>/Q and R'
   real32_T Qphi;                       // Referenced by: '<Root>/Q and R'
   real32_T Romx;                       // Referenced by: '<Root>/Q and R'
+  real32_T derTimeSpeed;              // Referenced by: '<S35>/Derivative Gain'
+  real32_T intTimeSpeed;               // Referenced by: '<S38>/Integral Gain'
   real32_T riderTrqTreshold;           // Referenced by: '<Root>/Dead Zone'
   real32_T maxSpeed;                   // Referenced by: '<Root>/Gain1'
   real32_T gravity;                    // Referenced by:
@@ -94,10 +95,10 @@ class ControlClass
     dsp_simulink_LowpassFilter_co_T obj;// '<Root>/Lowpass Filter'
     real32_T P[4];                     // '<S2>/DataStoreMemory - P'
     real32_T x[2];                     // '<S2>/DataStoreMemory - x'
-    real32_T Integrator_DSTATE;        // '<S43>/Integrator'
-    real32_T UD_DSTATE;                // '<S36>/UD'
+    real32_T Integrator_DSTATE;        // '<S41>/Integrator'
+    real32_T Filter_DSTATE;            // '<S36>/Filter'
     uint8_T error_state;               // '<Root>/Unit Delay'
-    boolean_T blockOrdering;           // '<S60>/Correct'
+    boolean_T blockOrdering;           // '<S58>/Correct'
     boolean_T isInitialized;           // '<Root>/Lowpass Filter'
   };
 
@@ -195,9 +196,8 @@ class ControlClass
 //-
 //  These blocks were eliminated from the model due to optimizations:
 //
-//  Block '<S36>/DTDup' : Unused code path elimination
+//  Block '<S58>/RegisterSimulinkFcn' : Unused code path elimination
 //  Block '<S60>/RegisterSimulinkFcn' : Unused code path elimination
-//  Block '<S62>/RegisterSimulinkFcn' : Unused code path elimination
 //  Block '<S2>/checkMeasurementFcn1Signals' : Unused code path elimination
 //  Block '<S2>/checkStateTransitionFcnSignals' : Unused code path elimination
 //  Block '<Root>/Data Type Conversion3' : Eliminate redundant data type conversion
@@ -258,39 +258,37 @@ class ControlClass
 //  '<S32>'  : 'controlModel/Discrete PID Controller/postSat Signal'
 //  '<S33>'  : 'controlModel/Discrete PID Controller/preSat Signal'
 //  '<S34>'  : 'controlModel/Discrete PID Controller/Anti-windup/Passthrough'
-//  '<S35>'  : 'controlModel/Discrete PID Controller/D Gain/External Parameters'
-//  '<S36>'  : 'controlModel/Discrete PID Controller/Filter/Differentiator'
-//  '<S37>'  : 'controlModel/Discrete PID Controller/Filter/Differentiator/Tsamp'
-//  '<S38>'  : 'controlModel/Discrete PID Controller/Filter/Differentiator/Tsamp/Internal Ts'
-//  '<S39>'  : 'controlModel/Discrete PID Controller/Filter ICs/Internal IC - Differentiator'
-//  '<S40>'  : 'controlModel/Discrete PID Controller/I Gain/External Parameters'
-//  '<S41>'  : 'controlModel/Discrete PID Controller/Ideal P Gain/Passthrough'
-//  '<S42>'  : 'controlModel/Discrete PID Controller/Ideal P Gain Fdbk/Disabled'
-//  '<S43>'  : 'controlModel/Discrete PID Controller/Integrator/Discrete'
-//  '<S44>'  : 'controlModel/Discrete PID Controller/Integrator ICs/Internal IC'
-//  '<S45>'  : 'controlModel/Discrete PID Controller/N Copy/Disabled wSignal Specification'
-//  '<S46>'  : 'controlModel/Discrete PID Controller/N Gain/Passthrough'
-//  '<S47>'  : 'controlModel/Discrete PID Controller/P Copy/Disabled'
-//  '<S48>'  : 'controlModel/Discrete PID Controller/Parallel P Gain/External Parameters'
-//  '<S49>'  : 'controlModel/Discrete PID Controller/Reset Signal/Disabled'
-//  '<S50>'  : 'controlModel/Discrete PID Controller/Saturation/Enabled'
-//  '<S51>'  : 'controlModel/Discrete PID Controller/Saturation Fdbk/Disabled'
-//  '<S52>'  : 'controlModel/Discrete PID Controller/Sum/Sum_PID'
-//  '<S53>'  : 'controlModel/Discrete PID Controller/Sum Fdbk/Disabled'
-//  '<S54>'  : 'controlModel/Discrete PID Controller/Tracking Mode/Disabled'
-//  '<S55>'  : 'controlModel/Discrete PID Controller/Tracking Mode Sum/Passthrough'
-//  '<S56>'  : 'controlModel/Discrete PID Controller/Tsamp - Integral/Passthrough'
-//  '<S57>'  : 'controlModel/Discrete PID Controller/Tsamp - Ngain/Passthrough'
-//  '<S58>'  : 'controlModel/Discrete PID Controller/postSat Signal/Forward_Path'
-//  '<S59>'  : 'controlModel/Discrete PID Controller/preSat Signal/Forward_Path'
-//  '<S60>'  : 'controlModel/EKF/Correct1'
-//  '<S61>'  : 'controlModel/EKF/Output'
-//  '<S62>'  : 'controlModel/EKF/Predict'
-//  '<S63>'  : 'controlModel/EKF/Correct1/Correct'
-//  '<S64>'  : 'controlModel/EKF/Output/MATLAB Function'
-//  '<S65>'  : 'controlModel/EKF/Predict/Predict'
-//  '<S66>'  : 'controlModel/Simulink Function/MATLAB Function'
-//  '<S67>'  : 'controlModel/Simulink Function1/MATLAB Function'
+//  '<S35>'  : 'controlModel/Discrete PID Controller/D Gain/Internal Parameters'
+//  '<S36>'  : 'controlModel/Discrete PID Controller/Filter/Disc. Forward Euler Filter'
+//  '<S37>'  : 'controlModel/Discrete PID Controller/Filter ICs/Internal IC - Filter'
+//  '<S38>'  : 'controlModel/Discrete PID Controller/I Gain/Internal Parameters'
+//  '<S39>'  : 'controlModel/Discrete PID Controller/Ideal P Gain/Internal Parameters'
+//  '<S40>'  : 'controlModel/Discrete PID Controller/Ideal P Gain Fdbk/Disabled'
+//  '<S41>'  : 'controlModel/Discrete PID Controller/Integrator/Discrete'
+//  '<S42>'  : 'controlModel/Discrete PID Controller/Integrator ICs/Internal IC'
+//  '<S43>'  : 'controlModel/Discrete PID Controller/N Copy/Disabled'
+//  '<S44>'  : 'controlModel/Discrete PID Controller/N Gain/Internal Parameters'
+//  '<S45>'  : 'controlModel/Discrete PID Controller/P Copy/Disabled'
+//  '<S46>'  : 'controlModel/Discrete PID Controller/Parallel P Gain/Passthrough'
+//  '<S47>'  : 'controlModel/Discrete PID Controller/Reset Signal/Disabled'
+//  '<S48>'  : 'controlModel/Discrete PID Controller/Saturation/Enabled'
+//  '<S49>'  : 'controlModel/Discrete PID Controller/Saturation Fdbk/Disabled'
+//  '<S50>'  : 'controlModel/Discrete PID Controller/Sum/Sum_PID'
+//  '<S51>'  : 'controlModel/Discrete PID Controller/Sum Fdbk/Disabled'
+//  '<S52>'  : 'controlModel/Discrete PID Controller/Tracking Mode/Disabled'
+//  '<S53>'  : 'controlModel/Discrete PID Controller/Tracking Mode Sum/Passthrough'
+//  '<S54>'  : 'controlModel/Discrete PID Controller/Tsamp - Integral/Passthrough'
+//  '<S55>'  : 'controlModel/Discrete PID Controller/Tsamp - Ngain/Passthrough'
+//  '<S56>'  : 'controlModel/Discrete PID Controller/postSat Signal/Forward_Path'
+//  '<S57>'  : 'controlModel/Discrete PID Controller/preSat Signal/Forward_Path'
+//  '<S58>'  : 'controlModel/EKF/Correct1'
+//  '<S59>'  : 'controlModel/EKF/Output'
+//  '<S60>'  : 'controlModel/EKF/Predict'
+//  '<S61>'  : 'controlModel/EKF/Correct1/Correct'
+//  '<S62>'  : 'controlModel/EKF/Output/MATLAB Function'
+//  '<S63>'  : 'controlModel/EKF/Predict/Predict'
+//  '<S64>'  : 'controlModel/Simulink Function/MATLAB Function'
+//  '<S65>'  : 'controlModel/Simulink Function1/MATLAB Function'
 
 #endif                                 // RTW_HEADER_controlModel_h_
 
