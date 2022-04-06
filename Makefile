@@ -39,6 +39,7 @@ SRC				:= ./src
 BUILD_PATH		:= ./.build
 CACHE_PATH		:= ./.cache
 DOCS_PATH		:= ./docs
+MATLAB_TOOLS	:= ./matlab-tools
 
 #---------------------------------------------------------------------------------
 #USUALLY EDITING BELOW THIS LINE NOT NECESSARY
@@ -120,11 +121,11 @@ endif
 
 #Generate the code
 gencode:
-	@$(MATLAB) -batch "gencode();"
+	@$(MATLAB) -batch "addpath('$(MATLAB_TOOLS)'); gencode();"
 
 #Check for MATLAB tooboxes
 checktoolbox:
-	@$(MATLAB) -batch "cd ./.aux; check_toolbox('./../');"
+	@$(MATLAB) -batch "addpath('$(MATLAB_TOOLS)'); check_toolbox();"
 
 #Help
 help:
@@ -140,9 +141,9 @@ help:
 	@echo "'gencode'					Generate the code from the Simulink model."
 	@echo "						\note This may take some time."
 	@echo "						\attention This require MATLAB/Simulink >= 2022a."
-	@echo "'checktoolbox'			Check for the MATLAB toolboxes required by the code generation."
-	@echo "doc						Build the documentation."
-	@echo "cleandoc					Clean the documentation."
+	@echo "'checktoolbox'					Check for the MATLAB toolboxes required by the code generation."
+	@echo "'doc'						Build the documentation."
+	@echo "'cleandoc'					Clean the documentation."
 
 #Non-File Targets
 .PHONY: all build upload remake clean doc cleandoc directories gencode checktoolbox help
