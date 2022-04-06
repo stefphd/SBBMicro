@@ -26,9 +26,9 @@ Additional folders:
 * `./hardware/teensy-windows`: build tools for Windows
 * `./hardware/teensy-linux`: build tools for Linux
 * `./docs/html`: contains the documentation in html (generated automatically from source code using *doxygen*)
+* `./matlab-tools`: contains matlab tools usefull for code generation and other stuff
 * `./.vscode`: contains VS code property file(s)
 * `./.build` and `.cache`: hidden folders created only during compilation
-* `./.aux`: contains auxiliary usefull for code generation and other stuff
 
 ## Prerequisites
 
@@ -80,12 +80,14 @@ which generates the pdf file `./doc/latex/refman.pdf`.
 Code generation of the control algorithm is performed via *MATLAB/Simulink* with the *Embedeed Coder Toolbox*. Other toolboxes may be required. Code generation can be launch with *MATLAB* using
 
 ```MATLAB
+addpath('./matlab-tools');
 gencode()
 ```
 
 The general usage of this function is
 
 ```MATLAB
+addpath('./matlab-tools');
 gencode(modelname,dest_dir);
 ```
 
@@ -94,9 +96,11 @@ where `modelname` is the name of the Simulink model (without the `*.slx` extensi
 \note Toolboxes required by the code generation can be shown by running in MATLAB
   
   ```MATLAB
-  cd ./aux;
-  check_toolboxes('./..');
+  addpath('./matlab-tools');
+  check_toolboxes();
   ```
+
+\attention For a correct usage in this project the above function should be run in the main directory, and not in `./matlab-tools/`.
 
 ## Building
 
