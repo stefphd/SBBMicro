@@ -26,14 +26,15 @@ var NAVTREE =
 [
   [ "SBB Micro", "index.html", [
     [ "General", "index.html", [
-      [ "Files", "index.html#autotoc_md1", null ],
-      [ "Prerequisites", "index.html#autotoc_md2", null ],
-      [ "Documentation", "index.html#autotoc_md3", null ],
-      [ "Code generation", "index.html#autotoc_md4", null ],
-      [ "Building", "index.html#autotoc_md5", null ],
-      [ "Make tools", "index.html#autotoc_md6", null ],
-      [ "MTP mode", "index.html#autotoc_md7", null ],
-      [ "Known issues", "index.html#autotoc_md8", null ]
+      [ "Hardware", "index.html#autotoc_md1", null ],
+      [ "Files", "index.html#autotoc_md2", null ],
+      [ "Prerequisites", "index.html#autotoc_md3", null ],
+      [ "Documentation", "index.html#autotoc_md4", null ],
+      [ "Code generation", "index.html#autotoc_md5", null ],
+      [ "Building", "index.html#autotoc_md6", null ],
+      [ "Make tools", "index.html#autotoc_md7", null ],
+      [ "MTP mode", "index.html#autotoc_md8", null ],
+      [ "Known issues", "index.html#autotoc_md9", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Modules", "modules.html", "modules" ],
