@@ -8,7 +8,7 @@ The following figure shows the hardware scheme of the controller unit.
 
 \todo Describe the hardware in details.
 
-<img src="\resource\hw-scheme.svg" alt="hw-scheme" style="zoom:60%;" />
+![hw-scheme](resource/hw-scheme.svg)
 
 ## Files
 
