@@ -1,6 +1,14 @@
 # General
 
-Source code for the self-balancing-bike microcontroller unit (Teensy 4.1-based). 🚀️
+Source code for the self-balancing-bike micro-controller unit (Teensy 4.1-based). 🚀️
+
+## Hardware
+
+The following figure shows the hardware scheme of the controller unit.
+
+\todo Describe the hardware in details.
+
+<img src="\resource\hw-scheme.svg" alt="hw-scheme" style="zoom:60%;" />
 
 ## Files
 
@@ -94,7 +102,7 @@ gencode(modelname,dest_dir);
 where `modelname` is the name of the Simulink model (without the `*.slx` extension included), while `dest_dir` is the destination directory: generated code is placed in `./dest_dir/modelname/src`. If no modelname is given, the function uses the first `*.slx` file found in the current directory. If no destination directory is given, the functions uses `./lib`. Code generation may be also performed using *make*, however this may take some time.
 
 \note Toolboxes required by the code generation can be shown by running in MATLAB
-  
+
   ```MATLAB
   addpath('./matlab-tools');
   check_toolboxes();
