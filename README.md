@@ -6,9 +6,9 @@ Source code for the self-balancing-bike micro-controller unit (Teensy 4.1-based)
 
 The following figure shows the hardware scheme of the controller unit.
 
-\todo Describe the hardware in details.
+\todo Describe the hardware in details: pins used, buses used etc. Maybe put kicad scheme or sth similar.
 
-![hw-scheme](resource/hw-scheme.svg)
+![Hardware scheme](resource/hw-scheme.svg)
 
 ## Files
 
