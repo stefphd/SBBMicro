@@ -34,7 +34,7 @@ The HV box contains the following hardwares:
 
 ### LV schematics
 
-![Low-voltage schematic](SBBMicro-LV-schematic)
+![Low-voltage schematic](SBBMicro-LV-schematic.svg)
 
 ### HV schematics
 
