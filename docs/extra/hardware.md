@@ -38,5 +38,5 @@ The HV box contains the following hardwares:
 
 ### HV schematics
 
-\todo add high voltage schematic
+![High-voltage schematic](SBBMicro-HV-schematic.svg)
 
