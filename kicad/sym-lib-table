@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name "SBBMicro")(type "KiCad")(uri "${KIPRJMOD}/sbbmicro.kicad_sym")(options "")(descr ""))
+  (lib (name "teensy")(type "KiCad")(uri "${KIPRJMOD}/teensy.kicad_sym")(options "")(descr ""))
 )
