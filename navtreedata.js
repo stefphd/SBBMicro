@@ -25,16 +25,28 @@
 var NAVTREE =
 [
   [ "SBB Micro", "index.html", [
-    [ "General", "index.html", [
-      [ "Hardware", "index.html#autotoc_md1", null ],
-      [ "Files", "index.html#autotoc_md2", null ],
-      [ "Prerequisites", "index.html#autotoc_md3", null ],
-      [ "Documentation", "index.html#autotoc_md4", null ],
-      [ "Code generation", "index.html#autotoc_md5", null ],
-      [ "Building", "index.html#autotoc_md6", null ],
-      [ "Make tools", "index.html#autotoc_md7", null ],
-      [ "MTP mode", "index.html#autotoc_md8", null ],
-      [ "Known issues", "index.html#autotoc_md9", null ]
+    [ "Introduction", "index.html", [
+      [ "Files", "index.html#autotoc_md1", null ],
+      [ "Prerequisites", "index.html#autotoc_md2", null ],
+      [ "Documentation", "index.html#autotoc_md3", null ],
+      [ "Code generation", "index.html#autotoc_md4", null ],
+      [ "Building", "index.html#autotoc_md5", null ],
+      [ "Make tools", "index.html#autotoc_md6", null ],
+      [ "Known issues", "index.html#autotoc_md7", null ]
+    ] ],
+    [ "Hardware", "md_docs_extra_hardware.html", [
+      [ "Low-voltage box", "md_docs_extra_hardware.html#autotoc_md9", null ],
+      [ "High-voltage box", "md_docs_extra_hardware.html#autotoc_md10", null ],
+      [ "Connections", "md_docs_extra_hardware.html#autotoc_md11", [
+        [ "LV schematics", "md_docs_extra_hardware.html#autotoc_md12", null ],
+        [ "HV schematics", "md_docs_extra_hardware.html#autotoc_md13", null ]
+      ] ]
+    ] ],
+    [ "Software", "md_docs_extra_software.html", [
+      [ "Basic code", "md_docs_extra_software.html#autotoc_md15", null ],
+      [ "Data logging", "md_docs_extra_software.html#autotoc_md16", null ],
+      [ "MTP mode", "md_docs_extra_software.html#autotoc_md17", null ],
+      [ "Debugging", "md_docs_extra_software.html#autotoc_md18", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Modules", "modules.html", "modules" ],
@@ -69,7 +81,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "HostPort_8cpp.html",
-"group__vars.html#ga1c6e87d68fa180323cd2c95c911a7eea"
+"group__vars.html#ga15df8c8704f3ce0d17ac1856757d3842"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
