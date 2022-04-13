@@ -29,6 +29,7 @@ Additional folders:
 * `./docs/html`: contains the documentation in html (generated automatically from source code using *doxygen*)
 * `./docs/extra`: contains extra documentation (user-written), which is included using *doxygen*
 * `./matlab-tools`: contains matlab tools usefull for code generation and other stuff
+* `./kicad`: contains the kicad project files
 * `./.vscode`: contains VS code property file(s)
 * `./.build` and `.cache`: hidden folders created only during compilation
 
