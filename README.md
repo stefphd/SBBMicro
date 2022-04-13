@@ -45,6 +45,7 @@ Additional utilities (only recommended):
 * *teensyduino*: not stricktly necessary for compilation b/c core code for teensy MCU is already included in `./hardware/`
 * *Visual Studio Code* with *C/C++ (ms-vscode)* for code completation and simpler code building
 * *make* to build using the `Makefile`
+* *KiCad* to open the schematic files in `./kicad`
 
 ## Documentation
 
@@ -163,5 +164,5 @@ One may also use *make* for the building, uploading and the documentation genera
 * Undefined identifiers found by Visual Studio Code, however this is only a C/C++ IntelliSense issue (compilation works fine)
 
 \todo Doc: Documentaton for Simuling and code generation???
-\todo Make user-defined C functions in Simulink working when compiling
+\todo Make Arduino functions working in Simulink when compiling (maybe declare Arduino functions as external in Simulink, so as the linker links them)
 \todo To implement brake motor
