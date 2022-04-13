@@ -9,39 +9,11 @@
 	\see main.cpp logger.h sbbmtp.h userfun.h debug.h
 */
 
-//prototypes for main.cpp
-
-/* @defgroup mainfun Entry-point functions
-   \brief Entry-point functions of the Arduino environment.
-   \details Definition of the entry-point functions setup() and loop() used in the Arduino environment. 
-   The main function is automatically created during compilation by the Arduino builder.
-   \see main.cpp
-   @{
-*/
-
-/*! \brief Setup function of Arduino environment.
-	\details The setup funtion runs once when the microcontroller turns on. It initializes and sets the buses, 
-    enables the main relay, and performs initial checks.
-*/
-//void setup();
-
-/* \brief Loop function of Arduino environment.
-	\details The loop function runs over and over again forever, untill the microcontroller turns off.
-    A non-blocking timer is used with a sampling time of #SAMPLING_TIME. During the cycle the function reads 
-    the sensors, converts the readings into convenient units, performs a control steps, checks possible errors, 
-    sets the drivers, does debug stuff, and finally logs all the necessary signals.
-    \see SAMPLING_TIME
-*/
-//void loop();
-
-/* @} */
-
-
 // prototypes for functions.h
 /*! @defgroup userfun User functions
    \brief User-defined functions.
-   \details Definition of the user defined functions called in setup() and loop().
-   \see setup() loop() userfun.h
+   \details Definition of the user defined functions called in main().
+   \see main userfun.h
    @{
 */
 
@@ -150,8 +122,8 @@ time_t getTime();
 void do_led();
 
 /*! \brief Flush the UARTs.
-	\details Function to flush the receive buffer of the UARTs before calling loop().
-    \see UART_SPEEDSENS UART_GPS loop()
+	\details Function to flush the receive buffer of the UARTs.
+    \see UART_SPEEDSENS UART_GPS
 */
 void serial_flush();
 

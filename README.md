@@ -1,14 +1,7 @@
-# General
+# Introduction
 
-Source code for the self-balancing-bike micro-controller unit (Teensy 4.1-based). 🚀️
-
-## Hardware
-
-The following figure shows the hardware scheme of the controller unit.
-
-\todo Describe the hardware in details: pins used, buses used etc. Maybe put kicad scheme or sth similar.
-
-![Hardware scheme](resource/hw-scheme.svg)
+This repository contains the source code for the self-balancing-bike micro-controller unit (Teensy 4.1-based 🚀️).
+The introduction shows the files and folders contained in this repository and how they are organized, the prerequisites necessary, and the procedures to be used in order to build and upload the code, to generate the documentation, and to automatically generate the control-algorithm code from the Simulink model (using matlab tools).
 
 ## Files
 
@@ -34,6 +27,7 @@ Additional folders:
 * `./hardware/teensy-windows`: build tools for Windows
 * `./hardware/teensy-linux`: build tools for Linux
 * `./docs/html`: contains the documentation in html (generated automatically from source code using *doxygen*)
+* `./docs/extra`: contains extra documentation (user-written), which is included using *doxygen*
 * `./matlab-tools`: contains matlab tools usefull for code generation and other stuff
 * `./.vscode`: contains VS code property file(s)
 * `./.build` and `.cache`: hidden folders created only during compilation
@@ -108,7 +102,7 @@ where `modelname` is the name of the Simulink model (without the `*.slx` extensi
   check_toolboxes();
   ```
 
-\attention For a correct usage in this project the above function should be run in the main directory, and not in `./matlab-tools/`.
+\attention For a correct usage in this project the above functions should be run in the main directory, and not in `./matlab-tools/`.
 
 ## Building
 
@@ -162,14 +156,6 @@ One may also use *make* for the building, uploading and the documentation genera
 * `make help` to print the Makefile help
 
 \note The above commands can be also used at the same time, e.g. `make build doc` to build and generate the documentation.
-
-## MTP mode
-
-MTP mode allows to recognize the microcontroller as an MTP device (see e.g. [https://en.wikipedia.org/wiki/Media_Transfer_Protocol](https://en.wikipedia.org/wiki/Media_Transfer_Protocol)), in order to be capable of getting log files (with extension `*.sbb`) from the internal SD memory.
-To enter in MTP mode, it is sufficient to keep the on/off button pressed for at least 3s when turning on. To get the MTP mode working in the PC side:
-
-* Windows: no additional operation is usually necessary, the microcontroller should be automatically recognized as an MTP device
-* Linux: install *gMTP* (from [https://gmtp.sourceforge.io/downloads.htmls](https://gmtp.sourceforge.io/downloads.htmls)), which is a MTP client for UNIX and UNIX like systems (this should include the *libmtp* library)
 
 ## Known issues
 

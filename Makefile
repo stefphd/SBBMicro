@@ -85,9 +85,9 @@ doc: cleandoc
 #Clean documentation
 cleandoc:
 ifeq ($(OS), Linux)
-	@$(RM) -rf $(DOCS_PATH)
+	@$(RM) -rf $(DOCS_PATH)/html
 else ifeq ($(OS), Windows_NT)
-	@rmdir /S /Q "$(DOCS_PATH)"
+	@rmdir /S /Q "$(DOCS_PATH)/html"
 endif
 
 #Remake

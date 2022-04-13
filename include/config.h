@@ -131,7 +131,7 @@
 //GAINS & CONVERSION
 #define SPEED_SCALE		1.0e-3F //!< Speed scale. \details cm/s to m/s.
 #define DIST_SCALE		0.25F //!< Distance scale. \details Units of 0.25m to m.
-#define ACC_SCALE		(1.0e-3F*9.806F) //!< Acceleration scale. \details mG to m/s^2.
+#define ACC_SCALE		(1.0e-3F*9.806F) //!< Acceleration scale. \details mg to m/s^2.
 #define GYRO_SCALE		(1.0e-3F*PI/180.0F) //!< Gyrometer scale \details mdps to rad/s.
 #define MAG_SCALE		0.1F //!< Magnetometer scale. \details mG to uT.
 #define GPSSPEED_SCALE	0.5144F //!< GPS speed scale. \details Knots to m/s.

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SBB Micro: General</title>
+<title>SBB Micro: Introduction</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -100,19 +100,11 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">General </div></div>
+  <div class="headertitle"><div class="title">Introduction </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_README"></a> Source code for the self-balancing-bike micro-controller unit (Teensy 4.1-based). 🚀️</p>
+<div class="textblock"><p ><a class="anchor" id="md_README"></a> This repository contains the source code for the self-balancing-bike micro-controller unit (Teensy 4.1-based 🚀️). The introduction shows the files and folders contained in this repository and how they are organized, the prerequisites necessary, and the procedures to be used in order to build and upload the code, to generate the documentation, and to automatically generate the control-algorithm code from the Simulink model (using matlab tools).</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-Hardware</h1>
-<p >The following figure shows the hardware scheme of the controller unit.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Describe the hardware in details: pins used, buses used etc. Maybe put kicad scheme or sth similar.</dd></dl>
-<div class="image">
-<object type="image/svg+xml" data="hw-scheme.svg" style="pointer-events: none;"></object>
-<div class="caption">
-Hardware scheme</div></div>
-   <h1><a class="anchor" id="autotoc_md2"></a>
 Files</h1>
 <p >Files:</p>
 <ul>
@@ -136,11 +128,12 @@ Files</h1>
 <li><code>./hardware/teensy-windows</code>: build tools for Windows</li>
 <li><code>./hardware/teensy-linux</code>: build tools for Linux</li>
 <li><code>./docs/html</code>: contains the documentation in html (generated automatically from source code using <em>doxygen</em>)</li>
+<li><code>./docs/extra</code>: contains extra documentation (user-written), which is included using <em>doxygen</em></li>
 <li><code>./matlab-tools</code>: contains matlab tools usefull for code generation and other stuff</li>
 <li><code>./.vscode</code>: contains VS code property file(s)</li>
 <li><code>./.build</code> and <code>.cache</code>: hidden folders created only during compilation</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Prerequisites</h1>
 <ul>
 <li><em>arduino-builder</em> (&gt;=1.6.1), also provided with Arduino IDE</li>
@@ -153,7 +146,7 @@ Prerequisites</h1>
 <li><em>Visual Studio Code</em> with <em>C/C++ (ms-vscode)</em> for code completation and simpler code building</li>
 <li><em>make</em> to build using the <code>Makefile</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Documentation</h1>
 <p >Documentation for the source code and the user-defined libraries (but not for other third-party libraries) can be generated from the source using (see <a href="https://www.doxygen.nl/download.html">https://www.doxygen.nl/download.html</a> for download) with</p>
 <div class="fragment"><div class="line">doxygen</div>
@@ -166,7 +159,7 @@ Documentation</h1>
 <div class="line">make</div>
 </div><!-- fragment --><p >which generates the pdf file <code>./doc/latex/refman.pdf</code>.</p>
 <dl class="section attention"><dt>Attention</dt><dd>Latex documentation requires having both <em>latex</em> and <em>make</em> installed.</dd></dl>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Code generation</h1>
 <p >Code generation of the control algorithm is performed via <em>MATLAB/Simulink</em> with the <em>Embedeed Coder Toolbox</em>. Other toolboxes may be required. Code generation can be launch with <em>MATLAB</em> using</p>
 <div class="fragment"><div class="line">addpath(&#39;./matlab-tools&#39;);</div>
@@ -178,8 +171,8 @@ Code generation</h1>
 <dl class="section note"><dt>Note</dt><dd>Toolboxes required by the code generation can be shown by running in MATLAB</dd></dl>
 <div class="fragment"><div class="line">addpath(&#39;./matlab-tools&#39;);</div>
 <div class="line">check_toolboxes();</div>
-</div><!-- fragment --><dl class="section attention"><dt>Attention</dt><dd>For a correct usage in this project the above function should be run in the main directory, and not in <code>./matlab-tools/</code>.</dd></dl>
-<h1><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><dl class="section attention"><dt>Attention</dt><dd>For a correct usage in this project the above functions should be run in the main directory, and not in <code>./matlab-tools/</code>.</dd></dl>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Building</h1>
 <p >Compilation is performed using the <em>arduino-builder</em>. Shell scripts provide simple usage depending on the operative system:</p>
 <ul>
@@ -197,7 +190,7 @@ Building</h1>
 </ul>
 <p >Alternatively, one can use <code>ctrl+shift+B</code> to build the code in <em>Visual Studio Code</em> with both Linux and Windows (this makes use of <code>build_linux.sh</code> or <code>build_win.sh</code> depending on the operative system).</p>
 <dl class="section note"><dt>Note</dt><dd>The above shell scripts perform both the building and the uploading: it is not possible to build or upload only.</dd></dl>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md6"></a>
 Make tools</h1>
 <p >One may also use <em>make</em> for the building, uploading and the documentation generation. This allows several operations using similar syntax, so as to perform single operations at a time:</p>
 <ul>
@@ -216,18 +209,11 @@ Make tools</h1>
 <li><code>make help</code> to print the Makefile help</li>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>The above commands can be also used at the same time, e.g. <code>make build doc</code> to build and generate the documentation.</dd></dl>
-<h1><a class="anchor" id="autotoc_md8"></a>
-MTP mode</h1>
-<p >MTP mode allows to recognize the microcontroller as an MTP device (see e.g. <a href="https://en.wikipedia.org/wiki/Media_Transfer_Protocol">https://en.wikipedia.org/wiki/Media_Transfer_Protocol</a>), in order to be capable of getting log files (with extension <code>*.sbb</code>) from the internal SD memory. To enter in MTP mode, it is sufficient to keep the on/off button pressed for at least 3s when turning on. To get the MTP mode working in the PC side:</p>
-<ul>
-<li>Windows: no additional operation is usually necessary, the microcontroller should be automatically recognized as an MTP device</li>
-<li>Linux: install <em>gMTP</em> (from <a href="https://gmtp.sourceforge.io/downloads.htmls">https://gmtp.sourceforge.io/downloads.htmls</a>), which is a MTP client for UNIX and UNIX like systems (this should include the <em>libmtp</em> library)</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Known issues</h1>
 <ul>
 <li><p class="startli">Undefined identifiers found by Visual Studio Code, however this is only a C/C++ IntelliSense issue (compilation works fine)</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd><p class="startdd">Doc: Documentaton for Simuling and code generation??? </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">Doc: Documentaton for Simuling and code generation??? </p>
 <p class="interdd">Make user-defined C functions in Simulink working when compiling </p>
 <p class="enddd">To implement brake motor </p>
 </dd></dl>
