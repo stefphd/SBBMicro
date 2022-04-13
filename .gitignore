@@ -18,4 +18,6 @@ lib/*/*.html
 lib/*/.gitignore
 lib/*/*.yml
 lib/*/CMakeLists.txt
-*/*backups*
+kicad/*backups*
+kicad/*bak*
+kicad/*cache*
