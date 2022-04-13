@@ -18,3 +18,4 @@ lib/*/*.html
 lib/*/.gitignore
 lib/*/*.yml
 lib/*/CMakeLists.txt
+*/*backups*
