@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name "teensy")(type "KiCad")(uri "${KIPRJMOD}/teensy.pretty")(options "")(descr ""))
+  (lib (name "SBBMicro")(type "KiCad")(uri "${KIPRJMOD}/sbbmicro.pretty")(options "")(descr ""))
+  (lib (name "Connector_JST_inches")(type "KiCad")(uri "${KIPRJMOD}/Connector_JST_inches.pretty")(options "")(descr ""))
+)

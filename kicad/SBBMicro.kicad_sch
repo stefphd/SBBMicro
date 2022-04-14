@@ -116,110 +116,116 @@
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/9f233aa7-c301-4566-b68c-0dc545688727"
       (reference "#PWR0123") (unit 1) (value "GND") (footprint "")
     )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/c36ce4a9-6a2c-459a-896d-7f7c140c9aac"
+      (reference "#PWR0124") (unit 1) (value "GND") (footprint "")
+    )
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/12bdb1a8-e7f3-456c-b4bb-d24c2dde342c"
-      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0125") (unit 1) (value "GND") (footprint "")
     )
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/69817eac-bd09-4abf-9c16-a50bf1a184d4"
-      (reference "#PWR?") (unit 1) (value "+BATT") (footprint "")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/c36ce4a9-6a2c-459a-896d-7f7c140c9aac"
-      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0126") (unit 1) (value "+BATT") (footprint "")
     )
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/895b4c1e-afb3-4de5-90cf-f099fdd63ce1"
-      (reference "C") (unit 1) (value "100uC") (footprint "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm")
+      (reference "C1") (unit 1) (value "100uC") (footprint "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/c272c213-d001-43a8-b386-0054ba9b3753"
-      (reference "D1") (unit 1) (value "D") (footprint "")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/495cad83-0521-49f7-9b00-bfbf4ebd9fc7"
-      (reference "J0") (unit 1) (value "Power in") (footprint "TerminalBlock:TerminalBlock_bornier-2_P5.08mm")
+      (reference "D1") (unit 1) (value "D") (footprint "Diode_THT:D_DO-34_SOD68_P7.62mm_Horizontal")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/7c4b7bb4-56d3-48ab-a455-0608af3fcad7"
-      (reference "J1") (unit 1) (value "Brake motor JST") (footprint "")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/9214fc71-90c0-41bf-aabc-c12e6d685306"
-      (reference "J1") (unit 1) (value "Power JST") (footprint "")
+      (reference "J1") (unit 1) (value "Brake mtr JST") (footprint "Connector_JST_inches:JST_1x04_P2.54")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/592d6b77-c9a1-47f2-a795-15dc32118888"
-      (reference "J2") (unit 1) (value "Aux analog JST") (footprint "")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/7fde9b90-2b29-4887-9827-55dae5058c88"
-      (reference "J2") (unit 1) (value "Steer motor JST") (footprint "")
+      (reference "J2") (unit 1) (value "Aux analog JST") (footprint "Connector_JST_inches:JST_1x04_P2.54")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/9a21970e-fc32-4672-b6c4-6d95324c671c"
-      (reference "J3") (unit 1) (value "Steer motor JST") (footprint "")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/ed53d58f-b743-4a2a-b918-3d7498885c4f"
-      (reference "J3") (unit 1) (value "Brake motor JST") (footprint "")
+      (reference "J3") (unit 1) (value "Steer mtr JST") (footprint "Connector_JST_inches:JST_1x06_P2.54")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/a8e48e80-4f8b-4f0f-b69f-2088ab1c262d"
-      (reference "J4") (unit 1) (value "Power JST") (footprint "")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/c424c58b-21e3-4ca9-9b65-084dd00dfaa8"
-      (reference "J4") (unit 1) (value "Steer motor out") (footprint "")
+      (reference "J4") (unit 1) (value "Power JST") (footprint "Connector_JST_inches:JST_1x04_P2.54")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/40e59ebc-3521-4991-86c9-a1ec33d4e8a3"
-      (reference "J5") (unit 1) (value "On/off JST") (footprint "")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/bbdbf9bf-9912-485b-b5c0-a04f654ba323"
-      (reference "J5") (unit 1) (value "Hall sensor") (footprint "")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/25264204-45fc-49fc-a607-d2ffd285a84d"
-      (reference "J6") (unit 1) (value "Brake motor out") (footprint "")
+      (reference "J5") (unit 1) (value "On/off JST") (footprint "Connector_JST_inches:JST_1x03_P2.54")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/8814bda8-c48a-4c0c-bff3-4fa8ca878464"
-      (reference "J6") (unit 1) (value "Throttle JST") (footprint "")
+      (reference "J6") (unit 1) (value "Throttle JST") (footprint "Connector_JST_inches:JST_1x02_P2.54")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/93a4ce05-dcac-4622-8cc0-85dfea873336"
-      (reference "J7") (unit 1) (value "Encoder JST") (footprint "")
+      (reference "J7") (unit 1) (value "Encoder JST") (footprint "Connector_JST_inches:JST_1x05_P2.54")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/23e6472a-486b-4c3c-b324-75ccf6892102"
-      (reference "J8") (unit 1) (value "Steer  trq & ang JST") (footprint "")
+      (reference "J8") (unit 1) (value "Steer  trq & ang JST") (footprint "Connector_JST_inches:JST_1x06_P2.54")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/495cad83-0521-49f7-9b00-bfbf4ebd9fc7"
+      (reference "J9") (unit 1) (value "Bat in") (footprint "TerminalBlock:TerminalBlock_bornier-2_P5.08mm")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/9214fc71-90c0-41bf-aabc-c12e6d685306"
+      (reference "J10") (unit 1) (value "Power JST") (footprint "Connector_JST_inches:JST_1x04_P2.54")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/7fde9b90-2b29-4887-9827-55dae5058c88"
+      (reference "J11") (unit 1) (value "Steer mtr JST") (footprint "")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/ed53d58f-b743-4a2a-b918-3d7498885c4f"
+      (reference "J12") (unit 1) (value "Brake mtr JST") (footprint "Connector_JST_inches:JST_1x04_P2.54")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/c424c58b-21e3-4ca9-9b65-084dd00dfaa8"
+      (reference "J13") (unit 1) (value "Steer mtr out") (footprint "")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/bbdbf9bf-9912-485b-b5c0-a04f654ba323"
+      (reference "J14") (unit 1) (value "Hall sensor") (footprint "")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/25264204-45fc-49fc-a607-d2ffd285a84d"
+      (reference "J15") (unit 1) (value "Brake mtr out") (footprint "Connector_JST_inches:JST_1x04_P2.54")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/e8705031-a0f9-4ec4-894b-491c4edcef66"
+      (reference "J16") (unit 1) (value "Power mtr out") (footprint "TerminalBlock:TerminalBlock_bornier-2_P5.08mm")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/b68694c4-0f20-4ca1-a771-057a3ab0e1fd"
+      (reference "J17") (unit 1) (value "Power mtr in") (footprint "")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/ee584c5c-fc66-460e-9e78-b856ceb31b6e"
-      (reference "R1") (unit 1) (value "R220") (footprint "")
+      (reference "R1") (unit 1) (value "R220") (footprint "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/18c5e990-e77f-491d-87ad-08bf7ba5d648"
-      (reference "SW1") (unit 1) (value "ON/OFF") (footprint "")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/1f2b2f7a-eb33-49fa-b50b-b41db33716ef"
-      (reference "U0") (unit 1) (value "Relay") (footprint "")
+      (reference "SW1") (unit 1) (value "ON/OFF") (footprint "Button_Switch_THT:SW_PUSH_6mm")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/01a811fe-44a5-4a82-b650-8ffa02ba3823"
-      (reference "U1") (unit 1) (value "Mecostrain2038") (footprint "")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/31947472-f48b-462f-9681-3c16eb9128f4"
-      (reference "U1") (unit 1) (value "ESCON_module-50/5") (footprint "")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/68d04881-afeb-4db5-a426-47cf605474e7"
-      (reference "U2") (unit 1) (value "A4988") (footprint "")
+      (reference "U1") (unit 1) (value "Mecostrain2038") (footprint "SBBMicro:Mecostrain-2038")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/cd654034-6eed-4b32-87dc-df08cf93ac1e"
-      (reference "U2") (unit 1) (value "Teensy4.1") (footprint "Teensy:Teensy41")
+      (reference "U2") (unit 1) (value "Teensy4.1") (footprint "teensy:Teensy41")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/5b83e79c-6064-4cdc-9166-ab6b174848db"
-      (reference "U3") (unit 1) (value "Teensy4.0") (footprint "")
+      (reference "U3") (unit 1) (value "Teensy4.0") (footprint "teensy:Teensy40")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/5d89379d-bfca-45f0-9ed0-be95b85009b9"
-      (reference "U4") (unit 1) (value "ISM330DHCX") (footprint "")
+      (reference "U4") (unit 1) (value "ISM330DHCX") (footprint "SBBMicro:ISM330DHCX")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/883507ae-4930-419d-b8ae-3d67de3e5af2"
-      (reference "U5") (unit 1) (value "LIS3MDL") (footprint "")
+      (reference "U5") (unit 1) (value "LIS3MDL") (footprint "SBBMicro:LIS3MDL")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/25e06624-4cc8-4029-9235-ebd5e884e863"
-      (reference "U6") (unit 1) (value "MCP4922-AK") (footprint "")
+      (reference "U6") (unit 1) (value "MCP4922-AK") (footprint "SBBMicro:MCP4922-AK")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/2008142b-a5e5-41f4-83c0-32d6fa999edb"
-      (reference "U7") (unit 1) (value "UltimateGPS") (footprint "")
+      (reference "U7") (unit 1) (value "UltimateGPS") (footprint "SBBMicro:Ultimate-GPS")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/85d73eba-fa08-4e6f-ac13-c388449851b8"
-      (reference "U8") (unit 1) (value "ArcherM+") (footprint "")
+      (reference "U8") (unit 1) (value "ArcherM+") (footprint "Connector_JST_inches:JST_1x04_P2.54")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/1f2b2f7a-eb33-49fa-b50b-b41db33716ef"
+      (reference "U9") (unit 1) (value "Relay") (footprint "SBBMicro:Relay")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/31947472-f48b-462f-9681-3c16eb9128f4"
+      (reference "U10") (unit 1) (value "ESCON_module-50/5") (footprint "SBBMicro:Escon module-50-5")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/68d04881-afeb-4db5-a426-47cf605474e7"
+      (reference "U11") (unit 1) (value "A4988") (footprint "SBBMicro:A4988")
     )
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/faa8124f-747e-4664-ba9c-98ff496f41e2"
-      (reference "VR0") (unit 1) (value "Voltage_regulator_5V") (footprint "")
+      (reference "VR0") (unit 1) (value "Voltage_regulator_5V") (footprint "SBBMicro:Voltage-reg_5V")
     )
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/8a758804-23f1-4a9f-b0af-09fa9ca86065"
-      (reference "VR1") (unit 1) (value "Voltage_regulator_12V") (footprint "")
+      (reference "VR1") (unit 1) (value "Voltage_regulator_12V") (footprint "SBBMicro:Voltage-reg_12V")
     )
   )
 )
