@@ -125,6 +125,18 @@
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/69817eac-bd09-4abf-9c16-a50bf1a184d4"
       (reference "#PWR0126") (unit 1) (value "+BATT") (footprint "")
     )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/2b23a6a9-0f08-4a4a-9fd1-e1b1c503d8d1"
+      (reference "#PWR0127") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/ef2d5129-4bb8-4a68-8715-297f94ef5975"
+      (reference "#PWR0128") (unit 1) (value "+24V") (footprint "")
+    )
+    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/d5b3e153-15bd-40c7-ad23-4638c61075a6"
+      (reference "#PWR0129") (unit 1) (value "+24V") (footprint "")
+    )
+    (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/8c51fd34-4eda-46ff-a992-802c18d0889e"
+      (reference "#PWR0130") (unit 1) (value "+3V3") (footprint "")
+    )
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/895b4c1e-afb3-4de5-90cf-f099fdd63ce1"
       (reference "C1") (unit 1) (value "100uC") (footprint "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm")
     )
@@ -161,26 +173,14 @@
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/9214fc71-90c0-41bf-aabc-c12e6d685306"
       (reference "J10") (unit 1) (value "Power JST") (footprint "Connector_JST_inches:JST_1x04_P2.54")
     )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/7fde9b90-2b29-4887-9827-55dae5058c88"
-      (reference "J11") (unit 1) (value "Steer mtr JST") (footprint "")
-    )
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/ed53d58f-b743-4a2a-b918-3d7498885c4f"
       (reference "J12") (unit 1) (value "Brake mtr JST") (footprint "Connector_JST_inches:JST_1x04_P2.54")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/c424c58b-21e3-4ca9-9b65-084dd00dfaa8"
-      (reference "J13") (unit 1) (value "Steer mtr out") (footprint "")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/bbdbf9bf-9912-485b-b5c0-a04f654ba323"
-      (reference "J14") (unit 1) (value "Hall sensor") (footprint "")
     )
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/25264204-45fc-49fc-a607-d2ffd285a84d"
       (reference "J15") (unit 1) (value "Brake mtr out") (footprint "Connector_JST_inches:JST_1x04_P2.54")
     )
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/e8705031-a0f9-4ec4-894b-491c4edcef66"
       (reference "J16") (unit 1) (value "Power mtr out") (footprint "TerminalBlock:TerminalBlock_bornier-2_P5.08mm")
-    )
-    (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/b68694c4-0f20-4ca1-a771-057a3ab0e1fd"
-      (reference "J17") (unit 1) (value "Power mtr in") (footprint "")
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/ee584c5c-fc66-460e-9e78-b856ceb31b6e"
       (reference "R1") (unit 1) (value "R220") (footprint "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal")
