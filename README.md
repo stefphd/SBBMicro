@@ -20,12 +20,12 @@ Code folders:
 * `./include`: contains `.h` files included in source code
 * `./src`: contains source `.c` or `.cpp` files, including main file `main.cpp`
 * `./lib`: contains a folder for each used library, with file `library.properties` for defining the library properties (mandatory for arduino compiling) and `.h` and `.cpp` files (possibly contained in folder `./src/`)
-* `./build-tools/teensy`: contains the core code for the Teensy microcontroller
+* `./tools/teensy`: contains the core code for the Teensy microcontroller
 
 Additional folders:
 
-* `./build-tools/teensy-windows`: build tools for Windows
-* `./build-tools/teensy-linux`: build tools for Linux
+* `./tools/teensy-windows`: build tools for Windows
+* `./tools/teensy-linux`: build tools for Linux
 * `./docs/html`: contains the documentation in html (generated automatically from source code using *doxygen*)
 * `./docs/extra`: contains extra documentation (user-written), which is included using *doxygen*
 * `./matlab-tools`: contains matlab tools usefull for code generation and other stuff
