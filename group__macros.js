@@ -1,6 +1,9 @@
 var group__macros =
 [
+    [ "BR_ENABLE", "group__macros.html#gaf366d8d718576324e3ee2155b4a5b662", null ],
+    [ "BR_SLEEP_STATE", "group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9", null ],
     [ "CONVERT_ACTCURR_TO_A", "group__macros.html#gaf67ccefc1da687bdf46d6ce1335bfacb", null ],
+    [ "CONVERT_BRLEV_TO_STEPS", "group__macros.html#ga35b117380a5c7d9811459d1e6b0725f9", null ],
     [ "CONVERT_CHANNEL_TO_FLOAT", "group__macros.html#ga28c4f672447b2fc848a05e1a3bac8632", null ],
     [ "CONVERT_CURRENT_TO_DAC", "group__macros.html#gadea2c9eb2ab3208341d72030c5b3fcd6", null ],
     [ "CONVERT_CURRENT_TO_PWM", "group__macros.html#ga19200e08a75508620d67d0c3d10c7ee4", null ],
@@ -9,6 +12,7 @@ var group__macros =
     [ "CONVERT_STEERPOS_TO_RAD", "group__macros.html#ga769b976c4121a7a391256c22ac0b1574", null ],
     [ "CONVERT_STEERVEL_TO_RADPS", "group__macros.html#gaf848cbd1d7243c93a2b24e291c1bc101", null ],
     [ "CONVERT_TRHOTTLE_TO_DAC", "group__macros.html#gaf62c17a8cb56bb6dc7fe868dd9751d3c", null ],
+    [ "CONVERT_TRHOTTLE_TO_STEPS", "group__macros.html#ga812ba81959d791424056586f958b6196", null ],
     [ "CONVERT_VOLTAGE_TO_V", "group__macros.html#ga1fd4f8dbf5dd807476adc369963a4ab5", null ],
     [ "LEDOFF", "group__macros.html#gab5af97f90bb65204696431f93005c060", null ],
     [ "LEDON", "group__macros.html#ga93b988914e9a59230d1ace60329816c0", null ],

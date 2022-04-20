@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hostport_0',['HostPort',['../classHostPort.html#a36302ceddb4fb5dffe036b43bacc0722',1,'HostPort::HostPort(Stream *serial, uint32_t header, uint32_t terminator)'],['../classHostPort.html#aae7f2e81b6b63632bec1475e389b5cdc',1,'HostPort::HostPort(Stream *serial, uint32_t header)'],['../classHostPort.html#a6c214ea1413c65ceda48ea772fc70359',1,'HostPort::HostPort(Stream *serial)']]]
+  ['get_5fsensors_0',['get_sensors',['../group__userfun.html#gaadef8420a246721121dfcb8e722d4a66',1,'get_sensors(void):&#160;userfun.h'],['../group__userfun.html#gaadef8420a246721121dfcb8e722d4a66',1,'get_sensors(void):&#160;userfun.h']]],
+  ['gettime_1',['getTime',['../group__userfun.html#ga32315808bd93c14f43ad88f6129f4f35',1,'getTime():&#160;userfun.h'],['../group__userfun.html#ga32315808bd93c14f43ad88f6129f4f35',1,'getTime():&#160;userfun.h']]]
 ];

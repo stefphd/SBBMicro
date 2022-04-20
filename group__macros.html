@@ -129,7 +129,7 @@ Macros</h2></td></tr>
 <tr class="memitem:gadea2c9eb2ab3208341d72030c5b3fcd6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gadea2c9eb2ab3208341d72030c5b3fcd6">CONVERT_CURRENT_TO_DAC</a>(X)&#160;&#160;&#160;abs(X / <a class="el" href="group__constants.html#ga0e54cc12bd9c8f03814eb80cad6d31a7">MAX_REFCUR</a> * (powf(2, <a class="el" href="group__bus.html#gab8856ead374d98f2adf805caecb5a670">DAC_RES</a>) - 1))</td></tr>
 <tr class="memdesc:gadea2c9eb2ab3208341d72030c5b3fcd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert reference current to DAC value.  <a href="group__macros.html#gadea2c9eb2ab3208341d72030c5b3fcd6">More...</a><br /></td></tr>
 <tr class="separator:gadea2c9eb2ab3208341d72030c5b3fcd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf62c17a8cb56bb6dc7fe868dd9751d3c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gaf62c17a8cb56bb6dc7fe868dd9751d3c">CONVERT_TRHOTTLE_TO_DAC</a>(X)&#160;&#160;&#160;abs(X / <a class="el" href="group__constants.html#ga1418d6ad5d86af50ca218dc7fdcef881">MAX_REFTHROTTLE</a> * (powf(2, <a class="el" href="group__bus.html#gab8856ead374d98f2adf805caecb5a670">DAC_RES</a>) - 1))</td></tr>
+<tr class="memitem:gaf62c17a8cb56bb6dc7fe868dd9751d3c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gaf62c17a8cb56bb6dc7fe868dd9751d3c">CONVERT_TRHOTTLE_TO_DAC</a>(X)&#160;&#160;&#160;(X / <a class="el" href="group__constants.html#ga1418d6ad5d86af50ca218dc7fdcef881">MAX_REFTHROTTLE</a> * (powf(2, <a class="el" href="group__bus.html#gab8856ead374d98f2adf805caecb5a670">DAC_RES</a>) - 1))</td></tr>
 <tr class="memdesc:gaf62c17a8cb56bb6dc7fe868dd9751d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert reference throttle to DAC value.  <a href="group__macros.html#gaf62c17a8cb56bb6dc7fe868dd9751d3c">More...</a><br /></td></tr>
 <tr class="separator:gaf62c17a8cb56bb6dc7fe868dd9751d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1fd4f8dbf5dd807476adc369963a4ab5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga1fd4f8dbf5dd807476adc369963a4ab5">CONVERT_VOLTAGE_TO_V</a>(X)&#160;&#160;&#160;(<a class="el" href="group__constants.html#gacdd2b306af532dcb678ba88e79b5d9f2">GAIN_VOLTAGE</a> * X / (powf(2, <a class="el" href="group__bus.html#gab298faea909e0aa62203195aa3d6ca80">ADC_RES</a>) - 1) + <a class="el" href="group__constants.html#gaccefc1afeec894f8231db862e3fb8172">OFFSET_VOLTAGE</a>)</td></tr>
@@ -141,18 +141,30 @@ Macros</h2></td></tr>
 <tr class="memitem:ga28c4f672447b2fc848a05e1a3bac8632"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga28c4f672447b2fc848a05e1a3bac8632">CONVERT_CHANNEL_TO_FLOAT</a>(X,  XMIN,  XMAX)&#160;&#160;&#160;(float(X)-<a class="el" href="group__constants.html#ga576da65404ec571af0c8ce3858421de3">MIN_SBUS</a>)/(<a class="el" href="group__constants.html#ga10adcf123bdcbb94941f0a7660d2ed9a">MAX_SBUS</a>-<a class="el" href="group__constants.html#ga576da65404ec571af0c8ce3858421de3">MIN_SBUS</a>)*(XMAX-XMIN) + XMIN</td></tr>
 <tr class="memdesc:ga28c4f672447b2fc848a05e1a3bac8632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert SBUS channel to float.  <a href="group__macros.html#ga28c4f672447b2fc848a05e1a3bac8632">More...</a><br /></td></tr>
 <tr class="separator:ga28c4f672447b2fc848a05e1a3bac8632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35b117380a5c7d9811459d1e6b0725f9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga35b117380a5c7d9811459d1e6b0725f9">CONVERT_BRLEV_TO_STEPS</a>(X)&#160;&#160;&#160;((X*<a class="el" href="group__constants.html#ga9bb45d33bbefa9850bbf7d42bc1c3490">BR_STEPS</a>)/<a class="el" href="group__constants.html#ga677c5829cb02d8a8f32af93e6be63aca">BR_SPEED_RATIO</a>)</td></tr>
+<tr class="memdesc:ga35b117380a5c7d9811459d1e6b0725f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert brake lever position to motor steps.  <a href="group__macros.html#ga35b117380a5c7d9811459d1e6b0725f9">More...</a><br /></td></tr>
+<tr class="separator:ga35b117380a5c7d9811459d1e6b0725f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga812ba81959d791424056586f958b6196"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga812ba81959d791424056586f958b6196">CONVERT_TRHOTTLE_TO_STEPS</a>(X)&#160;&#160;&#160;<a class="el" href="group__macros.html#ga35b117380a5c7d9811459d1e6b0725f9">CONVERT_BRLEV_TO_STEPS</a>(X / <a class="el" href="group__constants.html#ga1418d6ad5d86af50ca218dc7fdcef881">MAX_REFTHROTTLE</a> * <a class="el" href="group__constants.html#ga9fb4bfb8c427d90bde3d9c51a33830b6">MAX_BR_DISP</a>)</td></tr>
+<tr class="memdesc:ga812ba81959d791424056586f958b6196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert throttle to motor steps.  <a href="group__macros.html#ga812ba81959d791424056586f958b6196">More...</a><br /></td></tr>
+<tr class="separator:ga812ba81959d791424056586f958b6196"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6f33722d82d0c0c925fa286cf9dfd29e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga6f33722d82d0c0c925fa286cf9dfd29e">MTR_EN_STATE</a>&#160;&#160;&#160;HIGH</td></tr>
-<tr class="memdesc:ga6f33722d82d0c0c925fa286cf9dfd29e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable state for motor.  <a href="group__macros.html#ga6f33722d82d0c0c925fa286cf9dfd29e">More...</a><br /></td></tr>
+<tr class="memdesc:ga6f33722d82d0c0c925fa286cf9dfd29e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable state for steer motor.  <a href="group__macros.html#ga6f33722d82d0c0c925fa286cf9dfd29e">More...</a><br /></td></tr>
 <tr class="separator:ga6f33722d82d0c0c925fa286cf9dfd29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7522f7e19118b196c8e8c167fcf21e04"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga7522f7e19118b196c8e8c167fcf21e04">RELAY_EN_STATE</a>&#160;&#160;&#160;HIGH</td></tr>
 <tr class="memdesc:ga7522f7e19118b196c8e8c167fcf21e04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable state for relay.  <a href="group__macros.html#ga7522f7e19118b196c8e8c167fcf21e04">More...</a><br /></td></tr>
 <tr class="separator:ga7522f7e19118b196c8e8c167fcf21e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab55460665bed38a17a3bf4e3f6c7bde9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">BR_SLEEP_STATE</a>&#160;&#160;&#160;LOW</td></tr>
+<tr class="memdesc:gab55460665bed38a17a3bf4e3f6c7bde9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable state for brake motor.  <a href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">More...</a><br /></td></tr>
+<tr class="separator:gab55460665bed38a17a3bf4e3f6c7bde9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga800de20d77a39e8a2a62555ce28c71a5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga800de20d77a39e8a2a62555ce28c71a5">MTR_ENABLE</a>&#160;&#160;&#160;digitalWriteFast(<a class="el" href="group__pin.html#gae06560422f3f0cc3c1943535ceee06d3">MTR_EN_PIN</a>, <a class="el" href="group__macros.html#ga6f33722d82d0c0c925fa286cf9dfd29e">MTR_EN_STATE</a>), delay(100)</td></tr>
 <tr class="memdesc:ga800de20d77a39e8a2a62555ce28c71a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for motor enable.  <a href="group__macros.html#ga800de20d77a39e8a2a62555ce28c71a5">More...</a><br /></td></tr>
 <tr class="separator:ga800de20d77a39e8a2a62555ce28c71a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac79e5ea1f6f7d9954561e6ed22fbb168"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gac79e5ea1f6f7d9954561e6ed22fbb168">RELAY_ENABLE</a>&#160;&#160;&#160;digitalWriteFast(<a class="el" href="group__pin.html#gaed8e55358b7a10a3843ed8402143fc28">RELAY_EN_PIN</a>, <a class="el" href="group__macros.html#ga7522f7e19118b196c8e8c167fcf21e04">RELAY_EN_STATE</a>), delay(500)</td></tr>
 <tr class="memdesc:gac79e5ea1f6f7d9954561e6ed22fbb168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for relay enable.  <a href="group__macros.html#gac79e5ea1f6f7d9954561e6ed22fbb168">More...</a><br /></td></tr>
 <tr class="separator:gac79e5ea1f6f7d9954561e6ed22fbb168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf366d8d718576324e3ee2155b4a5b662"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gaf366d8d718576324e3ee2155b4a5b662">BR_ENABLE</a>&#160;&#160;&#160;digitalWriteFast(<a class="el" href="group__pin.html#ga50d9d31ac11e325ba3d41320d2c7d675">BR_SLEEP_PIN</a>, <a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">BR_SLEEP_STATE</a>), delay(100)</td></tr>
+<tr class="memdesc:gaf366d8d718576324e3ee2155b4a5b662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for brake motor enable.  <a href="group__macros.html#gaf366d8d718576324e3ee2155b4a5b662">More...</a><br /></td></tr>
+<tr class="separator:gaf366d8d718576324e3ee2155b4a5b662"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga93b988914e9a59230d1ace60329816c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga93b988914e9a59230d1ace60329816c0">LEDON</a>&#160;&#160;&#160;digitalWriteFast(LED_BUILTIN, HIGH)</td></tr>
 <tr class="memdesc:ga93b988914e9a59230d1ace60329816c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for LED on.  <a href="group__macros.html#ga93b988914e9a59230d1ace60329816c0">More...</a><br /></td></tr>
 <tr class="separator:ga93b988914e9a59230d1ace60329816c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,6 +179,39 @@ Macros</h2></td></tr>
 <p >Macro definitions. </p>
 <p >Definition of the macros for conversions and utilities. This includes definitions of macros for unit conversions and utilities, such such enable macros. </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="gaf366d8d718576324e3ee2155b4a5b662" name="gaf366d8d718576324e3ee2155b4a5b662"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf366d8d718576324e3ee2155b4a5b662">&#9670;&nbsp;</a></span>BR_ENABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BR_ENABLE&#160;&#160;&#160;digitalWriteFast(<a class="el" href="group__pin.html#ga50d9d31ac11e325ba3d41320d2c7d675">BR_SLEEP_PIN</a>, <a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">BR_SLEEP_STATE</a>), delay(100)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for brake motor enable. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__pin.html#ga50d9d31ac11e325ba3d41320d2c7d675" title="Digital out for brake motor sleep.">BR_SLEEP_PIN</a> <a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9" title="Enable state for brake motor.">BR_SLEEP_STATE</a> </dd></dl>
+
+</div>
+</div>
+<a id="gab55460665bed38a17a3bf4e3f6c7bde9" name="gab55460665bed38a17a3bf4e3f6c7bde9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab55460665bed38a17a3bf4e3f6c7bde9">&#9670;&nbsp;</a></span>BR_SLEEP_STATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BR_SLEEP_STATE&#160;&#160;&#160;LOW</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable state for brake motor. </p>
+
+</div>
+</div>
 <a id="gaf67ccefc1da687bdf46d6ce1335bfacb" name="gaf67ccefc1da687bdf46d6ce1335bfacb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaf67ccefc1da687bdf46d6ce1335bfacb">&#9670;&nbsp;</a></span>CONVERT_ACTCURR_TO_A</h2>
 
@@ -192,6 +237,34 @@ Macros</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value in rad. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__bus.html#gab298faea909e0aa62203195aa3d6ca80" title="ADC resolution (in bits).">ADC_RES</a> <a class="el" href="group__constants.html#ga80746903d4e2b2a10bbcb0b87ba0e7a4" title="Gain of steer velocity.">GAIN_STEERVEL</a> <a class="el" href="group__constants.html#ga210b074bb7b10e7b910ac99f84fc390f" title="Offset of steer velocity.">OFFSET_STEERVEL</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga35b117380a5c7d9811459d1e6b0725f9" name="ga35b117380a5c7d9811459d1e6b0725f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga35b117380a5c7d9811459d1e6b0725f9">&#9670;&nbsp;</a></span>CONVERT_BRLEV_TO_STEPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CONVERT_BRLEV_TO_STEPS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X</td><td>)</td>
+          <td>&#160;&#160;&#160;((X*<a class="el" href="group__constants.html#ga9bb45d33bbefa9850bbf7d42bc1c3490">BR_STEPS</a>)/<a class="el" href="group__constants.html#ga677c5829cb02d8a8f32af93e6be63aca">BR_SPEED_RATIO</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert brake lever position to motor steps. </p>
+<p >Macro for the conversion of the brake lever position (mm) to the number of steps of the steeper motor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td>The brake lever position (mm). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of steps of the steeper motor. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__constants.html#ga9bb45d33bbefa9850bbf7d42bc1c3490" title="Number of steps of the brake motor.">BR_STEPS</a> <a class="el" href="group__constants.html#ga677c5829cb02d8a8f32af93e6be63aca" title="Speed ratio of the brake motor to brake lever (mm/revolution).">BR_SPEED_RATIO</a> </dd></dl>
 
 </div>
 </div>
@@ -420,7 +493,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">X</td><td>)</td>
-          <td>&#160;&#160;&#160;abs(X / <a class="el" href="group__constants.html#ga1418d6ad5d86af50ca218dc7fdcef881">MAX_REFTHROTTLE</a> * (powf(2, <a class="el" href="group__bus.html#gab8856ead374d98f2adf805caecb5a670">DAC_RES</a>) - 1))</td>
+          <td>&#160;&#160;&#160;(X / <a class="el" href="group__constants.html#ga1418d6ad5d86af50ca218dc7fdcef881">MAX_REFTHROTTLE</a> * (powf(2, <a class="el" href="group__bus.html#gab8856ead374d98f2adf805caecb5a670">DAC_RES</a>) - 1))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -434,6 +507,34 @@ Macros</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The DAC value. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__constants.html#ga1418d6ad5d86af50ca218dc7fdcef881" title="Maximum throttle value.">MAX_REFTHROTTLE</a> <a class="el" href="group__bus.html#gab8856ead374d98f2adf805caecb5a670" title="DAC resolution (in bits).">DAC_RES</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga812ba81959d791424056586f958b6196" name="ga812ba81959d791424056586f958b6196"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga812ba81959d791424056586f958b6196">&#9670;&nbsp;</a></span>CONVERT_TRHOTTLE_TO_STEPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CONVERT_TRHOTTLE_TO_STEPS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="group__macros.html#ga35b117380a5c7d9811459d1e6b0725f9">CONVERT_BRLEV_TO_STEPS</a>(X / <a class="el" href="group__constants.html#ga1418d6ad5d86af50ca218dc7fdcef881">MAX_REFTHROTTLE</a> * <a class="el" href="group__constants.html#ga9fb4bfb8c427d90bde3d9c51a33830b6">MAX_BR_DISP</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert throttle to motor steps. </p>
+<p >Macro for the conversion of the throttle to the number of steps of the steeper motor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td>The reference throttle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of steps of the steeper motor. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__macros.html#ga35b117380a5c7d9811459d1e6b0725f9" title="Convert brake lever position to motor steps.">CONVERT_BRLEV_TO_STEPS</a> </dd></dl>
 
 </div>
 </div>
@@ -511,7 +612,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Enable state for motor. </p>
+<p>Enable state for steer motor. </p>
 
 </div>
 </div>
@@ -528,7 +629,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Macro for motor enable. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__pin.html#gae06560422f3f0cc3c1943535ceee06d3" title="Digital out for motor enable.">MTR_EN_PIN</a> <a class="el" href="group__macros.html#ga6f33722d82d0c0c925fa286cf9dfd29e" title="Enable state for motor.">MTR_EN_STATE</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__pin.html#gae06560422f3f0cc3c1943535ceee06d3" title="Digital out for motor enable.">MTR_EN_PIN</a> <a class="el" href="group__macros.html#ga6f33722d82d0c0c925fa286cf9dfd29e" title="Enable state for steer motor.">MTR_EN_STATE</a> </dd></dl>
 
 </div>
 </div>
@@ -578,7 +679,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Macro for relay enable. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__pin.html#gaed8e55358b7a10a3843ed8402143fc28" title="Digital out for relay enable pin.">RELAY_EN_PIN</a> <a class="el" href="group__macros.html#ga7522f7e19118b196c8e8c167fcf21e04" title="Enable state for relay.">RELAY_EN_STATE</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__pin.html#gaed8e55358b7a10a3843ed8402143fc28" title="Digital out for relay enable.">RELAY_EN_PIN</a> <a class="el" href="group__macros.html#ga7522f7e19118b196c8e8c167fcf21e04" title="Enable state for relay.">RELAY_EN_STATE</a> </dd></dl>
 
 </div>
 </div>

@@ -2,6 +2,8 @@ var group__constants =
 [
     [ "ACC_ODR", "group__constants.html#ga8f70d036e0fc3127bbd1ac81e241d110", null ],
     [ "ACC_SCALE", "group__constants.html#ga12c7b17bb03dc66dac226cdfe74f3c2d", null ],
+    [ "BR_SPEED_RATIO", "group__constants.html#ga677c5829cb02d8a8f32af93e6be63aca", null ],
+    [ "BR_STEPS", "group__constants.html#ga9bb45d33bbefa9850bbf7d42bc1c3490", null ],
     [ "DEF_LED", "group__constants.html#gac75a3ec39d543ae303e8edef00c3dca1", null ],
     [ "DIST_SCALE", "group__constants.html#ga7769876a0046c44037b4c76478f304de", null ],
     [ "ERR_LED", "group__constants.html#ga29c80150517b1375edea1474971f4b39", null ],
@@ -22,6 +24,9 @@ var group__constants =
     [ "MAG_ODR", "group__constants.html#gaa42914727c0f5c56229dc8eb631194c0", null ],
     [ "MAG_SAMPLING_FAC", "group__constants.html#gaf19c6364be453c53d924c78bdb8e8262", null ],
     [ "MAG_SCALE", "group__constants.html#gaf91ea782523c15cb13ede694b43d1510", null ],
+    [ "MAX_BR_ACC", "group__constants.html#gacfeaf91cea237d198d808bd413576e3f", null ],
+    [ "MAX_BR_DISP", "group__constants.html#ga9fb4bfb8c427d90bde3d9c51a33830b6", null ],
+    [ "MAX_BR_SPEED", "group__constants.html#gada1c7a6c9a82eba0c5300b7575e27207", null ],
     [ "MAX_MISSING_SBUS", "group__constants.html#gaf5a17b8732d19efff3d79dffc1d88806", null ],
     [ "MAX_REF_INPUT", "group__constants.html#ga2b9ba535f6fd8011efa1fd895f2cb984", null ],
     [ "MAX_REFCUR", "group__constants.html#ga0e54cc12bd9c8f03814eb80cad6d31a7", null ],

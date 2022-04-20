@@ -1,6 +1,9 @@
 var group__pin =
 [
     [ "ACT_CURR", "group__pin.html#ga2b4b8f9fd72533da4240bc35a55204bd", null ],
+    [ "BR_DIR_PIN", "group__pin.html#ga9fa3f98f097385c15ea3cead24013949", null ],
+    [ "BR_SLEEP_PIN", "group__pin.html#ga50d9d31ac11e325ba3d41320d2c7d675", null ],
+    [ "BR_STEP_PIN", "group__pin.html#gaa55cd11c4863ad8c50d7abae3220dc31", null ],
     [ "CS_DAC", "group__pin.html#ga2ddc36d42271305a713cba8e377a26cc", null ],
     [ "CS_IMU", "group__pin.html#ga88aa54aa214da6fe8a39d56cc05804b5", null ],
     [ "CS_MAG", "group__pin.html#gacbf9b6821e3a24a4dd9278411957191d", null ],

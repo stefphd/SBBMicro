@@ -18,6 +18,7 @@ var prototypes_8h =
     [ "set_driver", "group__userfun.html#ga1a08bc0bd2c8a9b6ef864ba625912ded", null ],
     [ "set_GPIO", "group__userfun.html#gad1e1b8795efa14dd2266841d7f382929", null ],
     [ "set_IObus", "group__userfun.html#gaa66ec55cf92209baa360d04b1b83c93c", null ],
+    [ "start_brake_stepper", "group__userfun.html#gaa61d07250d641e83402b0942b92b4d03", null ],
     [ "start_debug", "group__debfun.html#ga57d2979f57e5290ac95da762136fd960", null ],
     [ "start_IObus", "group__userfun.html#gae8a720b1a7a4a44aee590fadc28466cd", null ],
     [ "start_logger", "group__logfun.html#ga47360902f2cb2cbf01d6b98524f7dbc1", null ],

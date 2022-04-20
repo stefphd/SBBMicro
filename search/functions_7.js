@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../group__mainfun.html#gae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]]
+  ['log_5fcloser_0',['log_closer',['../group__logfun.html#ga3d7a8cc89ba27623d0e3981acc70bf86',1,'log_closer(void):&#160;logger.h'],['../group__logfun.html#ga3d7a8cc89ba27623d0e3981acc70bf86',1,'log_closer(void):&#160;logger.h']]]
 ];
