@@ -12,11 +12,11 @@ SRC="./src"
 BOARD="teensy:avr:teensy41"
 BOARD_OPTIONS="speed=600,usb=mtpserial,opt=o3std,keys=en-us"
 
-BUILD_TOOLS="./tools/tools-linux"
+TEENSY_TOOLS="./build-tools/tools-linux"
 ARDUINO_FOLDER="/usr/share/arduino"
 
-HARDWARE="-hardware ./tools"
-TOOLS="-tools $BUILD_TOOLS -tools $ARDUINO_FOLDER/tools-builder"
+HARDWARE="-hardware ./build-tools"
+TOOLS="-tools $TEENSY_TOOLS -tools $ARDUINO_FOLDER/tools-builder"
 BUILD_PATH=".build"
 CACHE_PATH=".cache"
 FQBN=-fqbn=$BOARD:$BOARD_OPTIONS
@@ -24,8 +24,8 @@ LIBRARIES="-libraries ./ -libraries ./include/ -libraries ./lib/"
 FLAGS="-verbose"
 
 BUILDER="arduino-builder" 
-POSTCOMPILER="$BUILD_TOOLS/teensy_post_compile"
-REBOOT="$BUILD_TOOLS/teensy_reboot"
+POSTCOMPILER="$TEENSY_TOOLS/teensy_post_compile"
+REBOOT="$TEENSY_TOOLS/teensy_reboot"
 
 TARGET_HEX=$BUILD_PATH/$NAME.hex
 
@@ -56,6 +56,6 @@ echo
 ###################################################
 
 echo Uploading target hex $TARGET_HEX for board $BOARD
-$POSTCOMPILER -file=$NAME -path=$BUILD_PATH -tools=$BUILD_TOOLS -board $BOARD
+$POSTCOMPILER -file=$NAME -path=$BUILD_PATH -tools=$TEENSY_TOOLS -board $BOARD
 $REBOOT 
 echo

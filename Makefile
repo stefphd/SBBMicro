@@ -102,8 +102,8 @@ ifeq ($(OS), Linux)
 	@$(RM) -rf $(BUILD_PATH)
 	@$(RM) -rf $(CACHE_PATH)
 else ifeq ($(OS), Windows_NT)
-	@if exist "$(BUILD_PATH)" rmdir /S /Q "$(BUILD_PATH)"
-	@if exist "$(CACHE_PATH)" rmdir /S /Q "$(CACHE_PATH)"
+	@rmdir /S /Q "$(BUILD_PATH)"
+	@rmdir /S /Q "$(CACHE_PATH)"
 endif
 
 #Clean all
