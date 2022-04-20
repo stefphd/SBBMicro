@@ -5,7 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/src",
-                "${workspaceFolder}/build-tools/teensy/avr/cores/teensy4/**",
+                "${workspaceFolder}/tools/teensy/avr/cores/teensy4/**",
                 "${workspaceFolder}/lib/**"
             ]
         }
