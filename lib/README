@@ -11,12 +11,13 @@ For example, see a structure of the following two libraries `Foo` and `Bar`:
 |  |--Bar
 |  |  |--docs
 |  |  |--examples
-|  |  |--library.properties (mandatory to make arduino-builde working)
+|  |  |- library.properties (mandatory to make arduino-builder working)
 |  |  |--src
 |  |     |- Bar.c
 |  |     |- Bar.h
 |  |
 |  |--Foo
+|  |  |- library.properties (mandatory to make arduino-builder working)
 |  |  |- Foo.c
 |  |  |- Foo.h
 |  |
