@@ -94,7 +94,10 @@
 //DIGITAL OUT
 #define MTR_EN_PIN		16 //!< Digital out for motor enable.
 #define MTR_DIR_PIN		17 //!< Digital out for motor direction.
-#define RELAY_EN_PIN	33 //!< Digital out for relay enable pin.
+#define RELAY_EN_PIN	33 //!< Digital out for relay enable.
+#define BR_DIR_PIN		21 //!< Digital out for brake motor direction.
+#define BR_STEP_PIN		22 //!< Digital out for brake motor step.
+#define BR_SLEEP_PIN	23 //!< Digital out for brake motor sleep.
 
 //DIGITAL IN 
 #define ONOFF_STATE_PIN	36 //!< Digital in for on/off buttun state (diode between onoff and this).
@@ -170,7 +173,14 @@
 #define MIN_VOLTAGE		18 //!< Minimum battery voltage (undervoltage) (V).
 #define MAX_VOLTAGE		35 //!< Maximum battery voltage (overvoltage) (V).
 #define MAX_STEER_ANGLE 0.3 //!< Maximum steering angle. \details Maximum steering angle above which motor drivers are disabled and the system stops. \todo Implement check steering angle.
-//TODO define for MAX_STEER_ANGLE, like 0.3 or 0.4
+//TODO define for MAX_STEER_ANGLE, like 0.3 or 0.4.
+
+//BRAKE MOTOR
+#define MAX_BR_SPEED	15 //!< Maximum brake motor speed (mm/s).
+#define MAX_BR_ACC		50 //!< Maximum brake motor acceleration (mm/s2).
+#define BR_STEPS		200 //!< Number of steps of the brake motor.
+#define BR_SPEED_RATIO 	1 //!< Speed ratio of the brake motor to brake lever (mm/revolution).
+#define MAX_BR_DISP 	25.0F //!< Maximum brake lever displacement (mm).
 
 /*! @} */
 
@@ -245,7 +255,7 @@
 	\return The DAC value.
 	\see MAX_REFTHROTTLE DAC_RES
 */
-#define CONVERT_TRHOTTLE_TO_DAC(X)  	abs(X / MAX_REFTHROTTLE * (powf(2, DAC_RES) - 1)) //convert the throttle to DAC value
+#define CONVERT_TRHOTTLE_TO_DAC(X)  	(X / MAX_REFTHROTTLE * (powf(2, DAC_RES) - 1)) //convert the throttle to DAC value
 
 /*! \brief Convert battery voltage to volts.
 	\details Macro for the conversion of the battery voltage from raw value (in bits from the ADC) to volts.
@@ -275,11 +285,29 @@
 */
 #define CONVERT_CHANNEL_TO_FLOAT(X, XMIN, XMAX)	(float(X)-MIN_SBUS)/(MAX_SBUS-MIN_SBUS)*(XMAX-XMIN) + XMIN //macro for conversion of SBUS channels to floats
 
+/*! \brief Convert brake lever position to motor steps.
+	\details Macro for the conversion of the brake lever position (mm) to the number of steps of the steeper motor.
+	\param X The brake lever position (mm).
+	\return The number of steps of the steeper motor.
+	\see BR_STEPS BR_SPEED_RATIO
+*/
+#define CONVERT_BRLEV_TO_STEPS(X) ((X*BR_STEPS)/BR_SPEED_RATIO)
+
+/*! \brief Convert throttle to motor steps.
+	\details Macro for the conversion of the throttle to the number of steps of the steeper motor.
+	\param X The reference throttle.
+	\return The number of steps of the steeper motor.
+	\see CONVERT_BRLEV_TO_STEPS
+*/
+#define CONVERT_TRHOTTLE_TO_STEPS(X) CONVERT_BRLEV_TO_STEPS(X / MAX_REFTHROTTLE * MAX_BR_DISP)
+
 //ENABLES
-#define MTR_EN_STATE	HIGH //!< Enable state for motor.
+#define MTR_EN_STATE	HIGH //!< Enable state for steer motor.
 #define RELAY_EN_STATE	HIGH //!< Enable state for relay.
+#define BR_SLEEP_STATE  LOW //!< Enable state for brake motor.
 #define MTR_ENABLE		digitalWriteFast(MTR_EN_PIN, MTR_EN_STATE), delay(100) //!< Macro for motor enable. \see MTR_EN_PIN MTR_EN_STATE
 #define RELAY_ENABLE	digitalWriteFast(RELAY_EN_PIN, RELAY_EN_STATE), delay(500) //!< Macro for relay enable. \see RELAY_EN_PIN RELAY_EN_STATE
+#define BR_ENABLE 		digitalWriteFast(BR_SLEEP_PIN, BR_SLEEP_STATE), delay(100) //!< Macro for brake motor enable. \see BR_SLEEP_PIN BR_SLEEP_STATE
 #define LEDON			digitalWriteFast(LED_BUILTIN, HIGH) //!< Macro for LED on. \details Standard value for LED_BUILTIN is 13 in the Arduino environment.
 #define LEDOFF			digitalWriteFast(LED_BUILTIN, LOW) //!< Macro for LED off. \details Standard value for LED_BUILTIN is 13 in the Arduino environment.
 

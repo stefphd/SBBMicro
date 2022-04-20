@@ -69,6 +69,9 @@ int main() {
 	//set input-output (sensors etc)
 	set_IObus();
 
+	//start 
+	start_brake_stepper();
+	
 	//enable relay
 	RELAY_ENABLE;
 
@@ -133,7 +136,7 @@ int main() {
 
 	}
 
-	yield(); //maybe not necessary
+	//yield(); //maybe not necessary
 
 	}
 

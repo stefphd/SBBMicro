@@ -40,8 +40,8 @@ extern "C" uint32_t set_arm_clock(uint32_t frequency);
 */
 void start_IObus(void);
 
-/*! \brief Set the IO buses.
-	\details Function to set the IO buses for the sensors and drivers after initialization. 
+/*! \brief Start the IO buses.
+	\details Function to start the IO buses for the sensors and drivers after initialization. 
     This incluses the setting of sensors (IMU, magnetometer, GPS, ADC, PWM and DAC).
 */
 void set_IObus(void);
@@ -59,6 +59,11 @@ void do_zeros(void);
     This also includes the assignment of a default (initial) state for the digital output pins.
 */
 void set_GPIO(void);
+
+/*! \brief Start the brake stepper motor.
+	\details Function to start and set the stepper motor acting on the brake lever.
+*/
+void start_brake_stepper(void);
 
 /*! \brief Get sensor readings.
 	\details Function to get the sensor readings (raw values only). Sensors are read with the specified sampling factor.

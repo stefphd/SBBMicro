@@ -119,9 +119,21 @@ void set_GPIO(void) {
 	pinMode(RELAY_EN_PIN, OUTPUT);
 	pinMode(LED_BUILTIN, OUTPUT);
 	pinMode(ONOFF_STATE_PIN, INPUT_PULLUP);
+	pinMode(BR_SLEEP_PIN, OUTPUT);
 	digitalWriteFast(MTR_EN_PIN, !MTR_EN_STATE);
 	digitalWriteFast(MTR_DIR_PIN, CW);
 	digitalWriteFast(RELAY_EN_PIN, !RELAY_EN_STATE);
+	digitalWriteFast(BR_SLEEP_PIN, !BR_SLEEP_STATE);
+}
+
+/*
+void start_brake_stepper(void) starts the stepper motor
+*/
+void start_brake_stepper(void) {
+	TS4::begin(); //begin the teensy stepper library
+	brakeMotor.setMaxSpeed(CONVERT_BRLEV_TO_STEPS(MAX_BR_SPEED));
+	brakeMotor.setMaxSpeed(CONVERT_BRLEV_TO_STEPS(MAX_BR_ACC));
+	BR_ENABLE;
 }
 
 /*
@@ -280,8 +292,13 @@ void set_driver(void) {
 	digitalWriteFast(MTR_EN_PIN, (enable) ? MTR_EN_STATE : !MTR_EN_STATE);
 
 	//set throttle signal
-	dac.analogWrite(DAC_THROTTLE_CH, enable*constrain(CONVERT_TRHOTTLE_TO_DAC(ctrl.controlModel_Y.throttle_ref), 0, pow(2, DAC_RES) - 1)); 
-  
+	dac.analogWrite(DAC_THROTTLE_CH, (ctrl.controlModel_Y.curr_ref >= 0) ? 
+									 enable*constrain(CONVERT_TRHOTTLE_TO_DAC(ctrl.controlModel_Y.throttle_ref), 0, pow(2, DAC_RES) - 1) :
+									 CONVERT_TRHOTTLE_TO_DAC(0)); 
+	brakeMotor.moveAbsAsync((ctrl.controlModel_Y.curr_ref <= 0) ? 
+									 enable*constrain(CONVERT_TRHOTTLE_TO_STEPS(-ctrl.controlModel_Y.throttle_ref),0,MAX_BR_DISP) :
+									 CONVERT_TRHOTTLE_TO_STEPS(0));
+
 	//set other stuff below
 }
 

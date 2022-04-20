@@ -224,6 +224,7 @@ MCP492X dac(&USED_SPI, SPISPEED_DAC, CS_DAC); //!< DAC object.
 ControlClass ctrl; //!< Control object.
 SerialTransfer speedSensor; //!< SerialTransfer object for speed sensor.
 SbusRx sbus(&UART_SBUS); //!< SBUS object for remote controller.
+TS4::Stepper brakeMotor(BR_STEP_PIN, BR_DIR_PIN); //!< Stepper object for the brake motor.
 
 /*! @} */
 
