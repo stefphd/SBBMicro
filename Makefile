@@ -29,11 +29,11 @@ BOARD_OPTIONS	:= speed=600,usb=mtpserial,opt=o3std,keys=en-us
 ifeq ($(OS), Linux)
 ARDUINO_FOLDER	:= /usr/share/arduino
 MATLAB_FOLDER   := /usr/local/MATLAB/R2022a
-TEENSY_TOOLS	:= ./hardware/tools-linux
+BUILD_TOOLS		:= ./build-tools/tools-linux
 else ifeq ($(OS), Windows_NT) 
 ARDUINO_FOLDER  := C:/Program Files (x86)/Arduino
 MATLAB_FOLDER   := C:/Program Files/MATLAB/R2022a
-TEENSY_TOOLS	:= ./hardware/tools-windows
+BUILD_TOOLS		:= ./build-tools/tools-windows
 endif
 SRC				:= ./src
 BUILD_PATH		:= ./.build
@@ -48,14 +48,14 @@ MATLAB_TOOLS	:= ./matlab-tools
 #Tools (be careful to change this)
 BUILDER			:= $(ARDUINO_FOLDER)/arduino-builder
 MATLAB          := $(MATLAB_FOLDER)/bin/matlab
-POSTCOMPILER	:= $(TEENSY_TOOLS)/teensy_post_compile
-REBOOT			:= $(TEENSY_TOOLS)/teensy_reboot
+POSTCOMPILER	:= $(BUILD_TOOLS)/teensy_post_compile
+REBOOT			:= $(BUILD_TOOLS)/teensy_reboot
 
 #Builder options (be careful to change this)
-HARDWARE		:= -hardware ./hardware
+HARDWARE		:= -hardware ./build-tools
 FQBN			:= -fqbn=teensy:avr:$(BOARD):$(BOARD_OPTIONS)
 LIBRARIES		:= -libraries ./ -libraries ./include/ -libraries ./lib/
-TOOLS			:= -tools "$(TEENSY_TOOLS)" -tools "$(ARDUINO_FOLDER)/tools-builder"
+TOOLS			:= -tools "$(BUILD_TOOLS)" -tools "$(ARDUINO_FOLDER)/tools-builder"
 FLAGS			:= #-verbose
 
 #---------------------------------------------------------------------------------
@@ -75,7 +75,7 @@ dumpprefs:
 
 #Upload the code
 upload:
-	$(POSTCOMPILER) -file=$(NAME) -path=$(BUILD_PATH) -tools=$(TEENSY_TOOLS) -board teensy:avr:$(BOARD)
+	$(POSTCOMPILER) -file=$(NAME) -path=$(BUILD_PATH) -tools=$(BUILD_TOOLS) -board teensy:avr:$(BOARD)
 	$(REBOOT)
 
 #Make documentation

@@ -11,7 +11,7 @@ Files:
 * `gencode.m`: MATLAB function for code generation from Simulink model
 * `params.sldd`: Simulink parameters used in `controlModel.slx`
 * `build_linux.sh`: build shell script for Linux
-* `build_win.bat`: build shell script for Windows
+* `build_win.bat`: build shmell script for Windows
 * `Doxyfile`: configuration file for documentation generation from source code using *doxygen*
 * `Makefile`: makefile for building, uploading and documentation generation using *make*
 
@@ -20,16 +20,16 @@ Code folders:
 * `./include`: contains `.h` files included in source code
 * `./src`: contains source `.c` or `.cpp` files, including main file `main.cpp`
 * `./lib`: contains a folder for each used library, with file `library.properties` for defining the library properties (mandatory for arduino compiling) and `.h` and `.cpp` files (possibly contained in folder `./src/`)
-* `./hardware/teensy/avr/cores`: contains the core code for the Teensy microcontroller
+* `./build-tools/teensy`: contains the core code for the Teensy microcontroller
 
 Additional folders:
 
-* `./hardware/teensy-windows`: build tools for Windows
-* `./hardware/teensy-linux`: build tools for Linux
+* `./build-tools/teensy-windows`: build tools for Windows
+* `./build-tools/teensy-linux`: build tools for Linux
 * `./docs/html`: contains the documentation in html (generated automatically from source code using *doxygen*)
 * `./docs/extra`: contains extra documentation (user-written), which is included using *doxygen*
 * `./matlab-tools`: contains matlab tools usefull for code generation and other stuff
-* `./kicad`: contains the kicad project files
+* `./hardware`: contains the kicad project files
 * `./.vscode`: contains VS code property file(s)
 * `./.build` and `.cache`: hidden folders created only during compilation
 
