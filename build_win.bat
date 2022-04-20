@@ -35,8 +35,8 @@ set TARGET_HEX=%BUILD_PATH%\%NAME%.hex
 :::::::::::::::::::::::::::::::::::::::::::::::::::
 
 echo Creating necessary directories if not existing...
-mkdir %BUILD_PATH%
-mkdir %CACHE_PATH%
+if not exist %BUILD_PATH% mkdir %BUILD_PATH%
+if not exist %CACHE_PATH% mkdir %CACHE_PATH%
 echo 
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::
