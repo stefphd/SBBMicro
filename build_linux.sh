@@ -12,10 +12,10 @@ SRC="./src"
 BOARD="teensy:avr:teensy41"
 BOARD_OPTIONS="speed=600,usb=mtpserial,opt=o3std,keys=en-us"
 
-TEENSY_TOOLS="./hardware/tools-linux"
+TEENSY_TOOLS="./build-tools/tools-linux"
 ARDUINO_FOLDER="/usr/share/arduino"
 
-HARDWARE="-hardware ./hardware"
+HARDWARE="-hardware ./build-tools"
 TOOLS="-tools $TEENSY_TOOLS -tools $ARDUINO_FOLDER/tools-builder"
 BUILD_PATH=".build"
 CACHE_PATH=".cache"

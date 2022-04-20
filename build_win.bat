@@ -12,11 +12,11 @@ set BOARD=teensy:avr:teensy41
 set BOARD_OPTIONS=speed=600,usb=mtpserial,opt=o3std,keys=en-us
 
 set ARDUINO_FOLDER=C:\Program Files (x86)\Arduino
-set TEENSY_TOOLS=.\hardware\tools-windows
+set TEENSY_TOOLS=.\build-tools\tools-windows
 
 set PATH="%ARDUINO_FOLDER%";%PATH%
 
-set HARDWARE=-hardware .\hardware
+set HARDWARE=-hardware .\build-tools
 set TOOLS=-tools %TEENSY_TOOLS% -tools "%ARDUINO_FOLDER%\tools-builder" 
 set BUILD_PATH=.build
 set CACHE_PATH=.cache
