@@ -12,12 +12,12 @@ set BOARD=teensy:avr:teensy41
 set BOARD_OPTIONS=speed=600,usb=mtpserial,opt=o3std,keys=en-us
 
 set ARDUINO_FOLDER=C:\Program Files (x86)\Arduino
-set TEENSY_TOOLS=.\build-tools\tools-windows
+set BUILD_TOOLS=.\tools\tools-windows
 
 set PATH="%ARDUINO_FOLDER%";%PATH%
 
-set HARDWARE=-hardware .\build-tools
-set TOOLS=-tools %TEENSY_TOOLS% -tools "%ARDUINO_FOLDER%\tools-builder" 
+set HARDWARE=-hardware .\tools
+set TOOLS=-tools %BUILD_TOOLS% -tools "%ARDUINO_FOLDER%\tools-builder" 
 set BUILD_PATH=.build
 set CACHE_PATH=.cache
 set FQBN=-fqbn=%BOARD%:%BOARD_OPTIONS%
@@ -25,8 +25,8 @@ set LIBRARIES=-libraries .\ -libraries .\include\ -libraries .\lib\
 set FLAGS=-verbose
 
 set BUILDER=arduino-builder
-set POSTCOMPILER=%TEENSY_TOOLS%\teensy_post_compile
-set REBOOT=%TEENSY_TOOLS%\teensy_reboot
+set POSTCOMPILER=%BUILD_TOOLS%\teensy_post_compile
+set REBOOT=%BUILD_TOOLS%\teensy_reboot
 
 set TARGET_HEX=%BUILD_PATH%\%NAME%.hex
 
@@ -47,7 +47,7 @@ echo Compiling %NAME% for %BOARD% with options %BOARD_OPTIONS%
 echo Build path is %BUILD_PATH%
 echo Cache path is %CACHE_PATH%
 echo Library paths are %LIBRARIES%
-%BUILDER% -dump-prefs -build-path %BUILD_PATH% -build-cache %CACHE_PATH% %HARDWARE% %TOOLS% %LIBRARIES% %FQBN% %SRC%\%NAME%
+::%BUILDER% -dump-prefs -build-path %BUILD_PATH% -build-cache %CACHE_PATH% %HARDWARE% %TOOLS% %LIBRARIES% %FQBN% %SRC%\%NAME%
 %BUILDER% -compile %FLAGS% -build-path %BUILD_PATH% -build-cache %CACHE_PATH% %HARDWARE% %TOOLS% %LIBRARIES% %FQBN% %SRC%\%NAME%
 echo Target hex file %TARGET_HEX% generated
 echo
@@ -57,6 +57,6 @@ echo
 :::::::::::::::::::::::::::::::::::::::::::::::::::
 
 echo Uploading target hex %TARGET_HEX% for board %BOARD%
-%POSTCOMPILER% -file=%NAME% -path=%BUILD_PATH% -tools=%TEENSY_TOOLS% -board %BOARD%
+%POSTCOMPILER% -file=%NAME% -path=%BUILD_PATH% -tools=%BUILD_TOOLS% -board %BOARD%
 %REBOOT%
 echo
