@@ -6,7 +6,7 @@
 # CREATION: March 2022
 
 #---------------------------------------------------------------------------------
-#USER SETTINGS
+# USER SETTINGS
 #---------------------------------------------------------------------------------
 
 #Operative system (Linux/Windows_NT)
@@ -18,7 +18,7 @@ ifneq ($(OS),$(filter $(OS),Linux Windows_NT))
 $(error OS not supported)
 endif
 
-#Name
+#Name of main file
 NAME			:= main.cpp
 
 #Board
@@ -42,7 +42,7 @@ DOCS_PATH		:= ./docs
 MATLAB_TOOLS	:= ./matlab-tools
 
 #---------------------------------------------------------------------------------
-#USUALLY EDITING BELOW THIS LINE NOT NECESSARY
+# USUALLY EDITING BELOW THIS LINE NOT NECESSARY
 #---------------------------------------------------------------------------------
 
 #Tools (be careful to change this)
@@ -59,7 +59,7 @@ TOOLS			:= -tools "$(BUILD_TOOLS)" -tools "$(ARDUINO_FOLDER)/tools-builder"
 FLAGS			:= #-verbose
 
 #---------------------------------------------------------------------------------
-#DO NOT EDIT BELOW THIS LINE
+# DO NOT EDIT BELOW THIS LINE
 #---------------------------------------------------------------------------------
 
 #Default Make
