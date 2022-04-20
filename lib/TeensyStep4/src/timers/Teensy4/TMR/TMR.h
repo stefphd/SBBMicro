@@ -1,7 +1,11 @@
 #pragma once
 
 #include "../../interfaces.h"
+<<<<<<< HEAD
 #include "Arduino.h"
+=======
+#include "arduino.h"
+>>>>>>> parent of 047d561 (Fix bug)
 #include "imxrt.h"
 
 namespace TS4

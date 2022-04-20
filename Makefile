@@ -29,11 +29,11 @@ BOARD_OPTIONS	:= speed=600,usb=mtpserial,opt=o3std,keys=en-us
 ifeq ($(OS), Linux)
 ARDUINO_FOLDER	:= /usr/share/arduino
 MATLAB_FOLDER   := /usr/local/MATLAB/R2022a
-BUILD_TOOLS		:= ./build-tools/tools-linux
+BUILD_TOOLS		:= ./tools/tools-linux
 else ifeq ($(OS), Windows_NT) 
 ARDUINO_FOLDER  := C:/Program Files (x86)/Arduino
 MATLAB_FOLDER   := C:/Program Files/MATLAB/R2022a
-BUILD_TOOLS		:= ./build-tools/tools-windows
+BUILD_TOOLS		:= ./tools/tools-windows
 endif
 SRC				:= ./src
 BUILD_PATH		:= ./.build
@@ -52,7 +52,7 @@ POSTCOMPILER	:= $(BUILD_TOOLS)/teensy_post_compile
 REBOOT			:= $(BUILD_TOOLS)/teensy_reboot
 
 #Builder options (be careful to change this)
-HARDWARE		:= -hardware ./build-tools
+HARDWARE		:= -hardware ./tools
 FQBN			:= -fqbn=teensy:avr:$(BOARD):$(BOARD_OPTIONS)
 LIBRARIES		:= -libraries ./ -libraries ./include/ -libraries ./lib/
 TOOLS			:= -tools "$(BUILD_TOOLS)" -tools "$(ARDUINO_FOLDER)/tools-builder"
