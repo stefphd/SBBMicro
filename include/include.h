@@ -9,6 +9,11 @@
 */
 
 /*
+include Arduino.h
+*/
+#include <Arduino.h>    //Arduino functions (this actually includes the teensy core)
+
+/*
 include function prototypes - here all functions used in logger.h, sbbmtp.h, functions.h, and debug.h
 */
 #include <prototypes.h> 
@@ -16,7 +21,6 @@ include function prototypes - here all functions used in logger.h, sbbmtp.h, fun
 /*
 include libraries used, configurations (define etc), and variables, datatypes and objects
 */
-#include <Arduino.h>    //Arduino functions (this actually includes the teensy core)
 #include <libs.h>       //include libraries for buses, sensors, etc.
 #include <config.h>     //configuration file
 #include <objects.h>    //data types, variables, and objects

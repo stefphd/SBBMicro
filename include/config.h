@@ -166,6 +166,7 @@
 #define SBUS_THROTTLE_CH 1 //!< Throttle channel in SBUS. \details Channel of SBUS for throttle reference. \warning Channel number is one-based.
 #define SBUS_ROLL_CH	2 //!< Roll channel in SBUS. \details Channel of SBUS for roll reference. \warning Channel number is one-based.
 #define SBUS_EN_CH		5 //!< Enable channel in SBUS. \details Channel of SBUS for enable signal. \warning Channel number is one-based.
+#define SBUS_BR_CH		6 //!< brake channel in SBUS. \details Channel of SBUS for brake signal. \warning Channel number is one-based.
 
 //LIMITS
 #define MAX_REFCUR		controlParams.maxCurrent //!< Maximum reference current. \warning Must be consistent with that in ESCON studio and Simulink. 
@@ -176,11 +177,11 @@
 //TODO define for MAX_STEER_ANGLE, like 0.3 or 0.4.
 
 //BRAKE MOTOR
-#define MAX_BR_SPEED	15 //!< Maximum brake motor speed (mm/s).
-#define MAX_BR_ACC		50 //!< Maximum brake motor acceleration (mm/s2).
+#define MAX_BR_SPEED	10 //!< Maximum brake motor speed (mm/s).
+#define MAX_BR_ACC		25 //!< Maximum brake motor acceleration (mm/s2).
 #define BR_STEPS		200 //!< Number of steps of the brake motor.
 #define BR_SPEED_RATIO 	1 //!< Speed ratio of the brake motor to brake lever (mm/revolution).
-#define MAX_BR_DISP 	25.0F //!< Maximum brake lever displacement (mm).
+#define MAX_BR_DISP 	10.0F //!< Maximum brake lever displacement (mm).
 
 /*! @} */
 
@@ -304,10 +305,11 @@
 //ENABLES
 #define MTR_EN_STATE	HIGH //!< Enable state for steer motor.
 #define RELAY_EN_STATE	HIGH //!< Enable state for relay.
-#define BR_SLEEP_STATE  LOW //!< Enable state for brake motor.
+#define BR_SLEEP_STATE  HIGH //!< Enable state for brake motor.
 #define MTR_ENABLE		digitalWriteFast(MTR_EN_PIN, MTR_EN_STATE), delay(100) //!< Macro for motor enable. \see MTR_EN_PIN MTR_EN_STATE
 #define RELAY_ENABLE	digitalWriteFast(RELAY_EN_PIN, RELAY_EN_STATE), delay(500) //!< Macro for relay enable. \see RELAY_EN_PIN RELAY_EN_STATE
-#define BR_ENABLE 		digitalWriteFast(BR_SLEEP_PIN, BR_SLEEP_STATE), delay(100) //!< Macro for brake motor enable. \see BR_SLEEP_PIN BR_SLEEP_STATE
+#define BR_ENABLE 		digitalWriteFast(BR_SLEEP_PIN, BR_SLEEP_STATE) //!< Macro for brake motor enable. \see BR_SLEEP_PIN BR_SLEEP_STATE
+#define BR_DISABLE 		digitalWriteFast(BR_SLEEP_PIN, !BR_SLEEP_STATE) //!< Macro for brake motor enable. \see BR_SLEEP_PIN BR_SLEEP_STATE
 #define LEDON			digitalWriteFast(LED_BUILTIN, HIGH) //!< Macro for LED on. \details Standard value for LED_BUILTIN is 13 in the Arduino environment.
 #define LEDOFF			digitalWriteFast(LED_BUILTIN, LOW) //!< Macro for LED off. \details Standard value for LED_BUILTIN is 13 in the Arduino environment.
 

@@ -132,8 +132,7 @@ void start_brake_stepper(void) starts the stepper motor
 void start_brake_stepper(void) {
 	TS4::begin(); //begin the teensy stepper library
 	brakeMotor.setMaxSpeed(CONVERT_BRLEV_TO_STEPS(MAX_BR_SPEED));
-	brakeMotor.setMaxSpeed(CONVERT_BRLEV_TO_STEPS(MAX_BR_ACC));
-	BR_ENABLE;
+	brakeMotor.setAcceleration(CONVERT_BRLEV_TO_STEPS(MAX_BR_ACC));
 }
 
 /*
@@ -292,12 +291,22 @@ void set_driver(void) {
 	digitalWriteFast(MTR_EN_PIN, (enable) ? MTR_EN_STATE : !MTR_EN_STATE);
 
 	//set throttle signal
-	dac.analogWrite(DAC_THROTTLE_CH, (ctrl.controlModel_Y.curr_ref >= 0) ? 
-									 enable*constrain(CONVERT_TRHOTTLE_TO_DAC(ctrl.controlModel_Y.throttle_ref), 0, pow(2, DAC_RES) - 1) :
+	dac.analogWrite(DAC_THROTTLE_CH, (ctrl.controlModel_Y.throttle_ref >= 0 && enable) ? 
+									 constrain(CONVERT_TRHOTTLE_TO_DAC(ctrl.controlModel_U.ref_inputs[1]), 0, pow(2, DAC_RES) - 1) :
 									 CONVERT_TRHOTTLE_TO_DAC(0)); 
-	brakeMotor.moveAbsAsync((ctrl.controlModel_Y.curr_ref <= 0) ? 
-									 enable*constrain(CONVERT_TRHOTTLE_TO_STEPS(-ctrl.controlModel_Y.throttle_ref),0,MAX_BR_DISP) :
-									 CONVERT_TRHOTTLE_TO_STEPS(0));
+	
+	//set brake stepper motor
+	int32_t brake_motor_position = (ctrl.controlModel_Y.throttle_ref <= 0 && enable) ? 
+									 constrain(CONVERT_TRHOTTLE_TO_STEPS(-ctrl.controlModel_Y.throttle_ref),0,CONVERT_BRLEV_TO_STEPS(MAX_BR_DISP)) :
+									 CONVERT_TRHOTTLE_TO_STEPS(0);
+	if (remote_raw.ch[SBUS_BR_CH-1] >= TRESHOLD_LOGIC_SBUS) brake_motor_position = CONVERT_BRLEV_TO_STEPS(MAX_BR_DISP);
+	bool is_brake_motor_arrived = brakeMotor.getPosition() == brake_motor_position;
+	if (is_brake_motor_arrived) BR_DISABLE;
+	if (!brakeMotor.isMoving && !is_brake_motor_arrived){ 
+		BR_ENABLE;
+		brakeMotor.moveAbsAsync(brake_motor_position);							 
+	}
+	
 
 	//set other stuff below
 }
