@@ -1,5 +1,6 @@
 var group__macros =
 [
+    [ "BR_DISABLE", "group__macros.html#ga1a973e5702e6655afb898a47539b85e6", null ],
     [ "BR_ENABLE", "group__macros.html#gaf366d8d718576324e3ee2155b4a5b662", null ],
     [ "BR_SLEEP_STATE", "group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9", null ],
     [ "CONVERT_ACTCURR_TO_A", "group__macros.html#gaf67ccefc1da687bdf46d6ce1335bfacb", null ],

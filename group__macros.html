@@ -153,7 +153,7 @@ Macros</h2></td></tr>
 <tr class="memitem:ga7522f7e19118b196c8e8c167fcf21e04"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga7522f7e19118b196c8e8c167fcf21e04">RELAY_EN_STATE</a>&#160;&#160;&#160;HIGH</td></tr>
 <tr class="memdesc:ga7522f7e19118b196c8e8c167fcf21e04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable state for relay.  <a href="group__macros.html#ga7522f7e19118b196c8e8c167fcf21e04">More...</a><br /></td></tr>
 <tr class="separator:ga7522f7e19118b196c8e8c167fcf21e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab55460665bed38a17a3bf4e3f6c7bde9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">BR_SLEEP_STATE</a>&#160;&#160;&#160;LOW</td></tr>
+<tr class="memitem:gab55460665bed38a17a3bf4e3f6c7bde9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">BR_SLEEP_STATE</a>&#160;&#160;&#160;HIGH</td></tr>
 <tr class="memdesc:gab55460665bed38a17a3bf4e3f6c7bde9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable state for brake motor.  <a href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">More...</a><br /></td></tr>
 <tr class="separator:gab55460665bed38a17a3bf4e3f6c7bde9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga800de20d77a39e8a2a62555ce28c71a5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga800de20d77a39e8a2a62555ce28c71a5">MTR_ENABLE</a>&#160;&#160;&#160;digitalWriteFast(<a class="el" href="group__pin.html#gae06560422f3f0cc3c1943535ceee06d3">MTR_EN_PIN</a>, <a class="el" href="group__macros.html#ga6f33722d82d0c0c925fa286cf9dfd29e">MTR_EN_STATE</a>), delay(100)</td></tr>
@@ -162,9 +162,12 @@ Macros</h2></td></tr>
 <tr class="memitem:gac79e5ea1f6f7d9954561e6ed22fbb168"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gac79e5ea1f6f7d9954561e6ed22fbb168">RELAY_ENABLE</a>&#160;&#160;&#160;digitalWriteFast(<a class="el" href="group__pin.html#gaed8e55358b7a10a3843ed8402143fc28">RELAY_EN_PIN</a>, <a class="el" href="group__macros.html#ga7522f7e19118b196c8e8c167fcf21e04">RELAY_EN_STATE</a>), delay(500)</td></tr>
 <tr class="memdesc:gac79e5ea1f6f7d9954561e6ed22fbb168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for relay enable.  <a href="group__macros.html#gac79e5ea1f6f7d9954561e6ed22fbb168">More...</a><br /></td></tr>
 <tr class="separator:gac79e5ea1f6f7d9954561e6ed22fbb168"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf366d8d718576324e3ee2155b4a5b662"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gaf366d8d718576324e3ee2155b4a5b662">BR_ENABLE</a>&#160;&#160;&#160;digitalWriteFast(<a class="el" href="group__pin.html#ga50d9d31ac11e325ba3d41320d2c7d675">BR_SLEEP_PIN</a>, <a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">BR_SLEEP_STATE</a>), delay(100)</td></tr>
+<tr class="memitem:gaf366d8d718576324e3ee2155b4a5b662"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gaf366d8d718576324e3ee2155b4a5b662">BR_ENABLE</a>&#160;&#160;&#160;digitalWriteFast(<a class="el" href="group__pin.html#ga50d9d31ac11e325ba3d41320d2c7d675">BR_SLEEP_PIN</a>, <a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">BR_SLEEP_STATE</a>)</td></tr>
 <tr class="memdesc:gaf366d8d718576324e3ee2155b4a5b662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for brake motor enable.  <a href="group__macros.html#gaf366d8d718576324e3ee2155b4a5b662">More...</a><br /></td></tr>
 <tr class="separator:gaf366d8d718576324e3ee2155b4a5b662"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a973e5702e6655afb898a47539b85e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga1a973e5702e6655afb898a47539b85e6">BR_DISABLE</a>&#160;&#160;&#160;digitalWriteFast(<a class="el" href="group__pin.html#ga50d9d31ac11e325ba3d41320d2c7d675">BR_SLEEP_PIN</a>, !<a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">BR_SLEEP_STATE</a>)</td></tr>
+<tr class="memdesc:ga1a973e5702e6655afb898a47539b85e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for brake motor enable.  <a href="group__macros.html#ga1a973e5702e6655afb898a47539b85e6">More...</a><br /></td></tr>
+<tr class="separator:ga1a973e5702e6655afb898a47539b85e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga93b988914e9a59230d1ace60329816c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga93b988914e9a59230d1ace60329816c0">LEDON</a>&#160;&#160;&#160;digitalWriteFast(LED_BUILTIN, HIGH)</td></tr>
 <tr class="memdesc:ga93b988914e9a59230d1ace60329816c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for LED on.  <a href="group__macros.html#ga93b988914e9a59230d1ace60329816c0">More...</a><br /></td></tr>
 <tr class="separator:ga93b988914e9a59230d1ace60329816c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,6 +182,23 @@ Macros</h2></td></tr>
 <p >Macro definitions. </p>
 <p >Definition of the macros for conversions and utilities. This includes definitions of macros for unit conversions and utilities, such such enable macros. </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga1a973e5702e6655afb898a47539b85e6" name="ga1a973e5702e6655afb898a47539b85e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1a973e5702e6655afb898a47539b85e6">&#9670;&nbsp;</a></span>BR_DISABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BR_DISABLE&#160;&#160;&#160;digitalWriteFast(<a class="el" href="group__pin.html#ga50d9d31ac11e325ba3d41320d2c7d675">BR_SLEEP_PIN</a>, !<a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">BR_SLEEP_STATE</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for brake motor enable. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__pin.html#ga50d9d31ac11e325ba3d41320d2c7d675" title="Digital out for brake motor sleep.">BR_SLEEP_PIN</a> <a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9" title="Enable state for brake motor.">BR_SLEEP_STATE</a> </dd></dl>
+
+</div>
+</div>
 <a id="gaf366d8d718576324e3ee2155b4a5b662" name="gaf366d8d718576324e3ee2155b4a5b662"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaf366d8d718576324e3ee2155b4a5b662">&#9670;&nbsp;</a></span>BR_ENABLE</h2>
 
@@ -186,7 +206,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BR_ENABLE&#160;&#160;&#160;digitalWriteFast(<a class="el" href="group__pin.html#ga50d9d31ac11e325ba3d41320d2c7d675">BR_SLEEP_PIN</a>, <a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">BR_SLEEP_STATE</a>), delay(100)</td>
+          <td class="memname">#define BR_ENABLE&#160;&#160;&#160;digitalWriteFast(<a class="el" href="group__pin.html#ga50d9d31ac11e325ba3d41320d2c7d675">BR_SLEEP_PIN</a>, <a class="el" href="group__macros.html#gab55460665bed38a17a3bf4e3f6c7bde9">BR_SLEEP_STATE</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -203,7 +223,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BR_SLEEP_STATE&#160;&#160;&#160;LOW</td>
+          <td class="memname">#define BR_SLEEP_STATE&#160;&#160;&#160;HIGH</td>
         </tr>
       </table>
 </div><div class="memdoc">

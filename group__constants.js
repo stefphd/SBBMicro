@@ -46,6 +46,7 @@ var group__constants =
     [ "OFFSET_STEERVEL", "group__constants.html#ga210b074bb7b10e7b910ac99f84fc390f", null ],
     [ "OFFSET_VOLTAGE", "group__constants.html#gaccefc1afeec894f8231db862e3fb8172", null ],
     [ "SAMPLING_TIME", "group__constants.html#gafe4be61d10dd9068bae19c0b74dac665", null ],
+    [ "SBUS_BR_CH", "group__constants.html#ga3ed565fdd22dd4a38ea337a300af50b9", null ],
     [ "SBUS_EN_CH", "group__constants.html#gac700cd5d072e344ecf114ab9d64a4af3", null ],
     [ "SBUS_ROLL_CH", "group__constants.html#gaa643024a0768044263862ecd1776993a", null ],
     [ "SBUS_SAMPLING_FAC", "group__constants.html#ga9d331b17a3a336d8357f81206617511c", null ],
