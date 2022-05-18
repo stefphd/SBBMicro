@@ -57,8 +57,14 @@ void do_debug(void) {
     
     //this is done in the main loop
     if (missing_reads<MAX_MISSING_READS) { //set the last receive packet until missing_reads<MAX_MISSING_READS and if not NaN
-      if (*((uint32_t*)&rx_packet.curr_ref) != nanVal) ctrl.controlModel_Y.curr_ref = rx_packet.curr_ref;
-      if (*((uint32_t*)&rx_packet.throttle_ref) != nanVal) ctrl.controlModel_Y.throttle_ref = rx_packet.throttle_ref;
+      if (*((uint32_t*)&rx_packet.curr_ref) != nanVal) {
+        ctrl.controlModel_Y.curr_ref = rx_packet.curr_ref;
+        remote_raw.ch[SBUS_EN_CH-1] = TRESHOLD_LOGIC_SBUS;
+      }
+      if (*((uint32_t*)&rx_packet.throttle_ref) != nanVal) {
+        ctrl.controlModel_Y.throttle_ref = rx_packet.throttle_ref;
+        remote_raw.ch[SBUS_EN_CH-1] = TRESHOLD_LOGIC_SBUS;
+      } 
     }
     
 		if (counters.debug == 0) {
