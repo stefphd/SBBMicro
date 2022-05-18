@@ -292,7 +292,7 @@ void set_driver(void) {
 
 	//set throttle signal
 	dac.analogWrite(DAC_THROTTLE_CH, (ctrl.controlModel_Y.throttle_ref >= 0 && enable) ? 
-									 constrain(CONVERT_TRHOTTLE_TO_DAC(ctrl.controlModel_U.ref_inputs[1]), 0, pow(2, DAC_RES) - 1) :
+									 constrain(CONVERT_TRHOTTLE_TO_DAC(ctrl.controlModel_Y.throttle_ref), 0, pow(2, DAC_RES) - 1) :
 									 CONVERT_TRHOTTLE_TO_DAC(0)); 
 	
 	//set brake stepper motor
