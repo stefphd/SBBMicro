@@ -101,7 +101,7 @@ where `modelname` is the name of the Simulink model (without the `*.slx` extensi
 
   ```MATLAB
   addpath('./matlab-tools');
-  check_toolboxes();
+  check_toolbox();
   ```
 
 \attention For a correct usage in this project the above functions should be run in the main directory, and not in `./matlab-tools/`.
