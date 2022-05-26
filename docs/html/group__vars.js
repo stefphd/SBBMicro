@@ -56,6 +56,7 @@ var group__vars =
       [ "ch", "structRemoteCtrl.html#acfb92d7e7a042a0f5572c5ddcc4b52b2", null ],
       [ "missing_frame", "structRemoteCtrl.html#ae905d3f0c62fda7d64825d01493acbb1", null ]
     ] ],
+    [ "brakeMotor", "group__vars.html#ga32451db8d0937ba0186c4ca99f08f11c", null ],
     [ "actCurr_raw", "group__vars.html#ga7f04357dbb401497348ace3778920270", null ],
     [ "adc", "group__vars.html#gadfc4cf75de73dc229c45303c75fc1178", null ],
     [ "counters", "group__vars.html#gab538ffe8e48428a2dc0ec54fcb7dd01f", null ],

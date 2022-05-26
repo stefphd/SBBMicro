@@ -13,6 +13,7 @@ var group__userfun =
     [ "set_driver", "group__userfun.html#ga1a08bc0bd2c8a9b6ef864ba625912ded", null ],
     [ "set_GPIO", "group__userfun.html#gad1e1b8795efa14dd2266841d7f382929", null ],
     [ "set_IObus", "group__userfun.html#gaa66ec55cf92209baa360d04b1b83c93c", null ],
+    [ "start_brake_stepper", "group__userfun.html#gaa61d07250d641e83402b0942b92b4d03", null ],
     [ "start_IObus", "group__userfun.html#gae8a720b1a7a4a44aee590fadc28466cd", null ],
     [ "tempmonGetTemp", "group__userfun.html#gacc2107cfceecd2abf098064b3c406291", null ],
     [ "turnoff_callback", "group__userfun.html#ga5bc8a74efc36d9fc5cc2ab4e293e8755", null ]

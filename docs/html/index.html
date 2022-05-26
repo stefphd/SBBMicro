@@ -172,7 +172,7 @@ Code generation</h1>
 </div><!-- fragment --><p >where <code>modelname</code> is the name of the Simulink model (without the <code>*.slx</code> extension included), while <code>dest_dir</code> is the destination directory: generated code is placed in <code>./dest_dir/modelname/src</code>. If no modelname is given, the function uses the first <code>*.slx</code> file found in the current directory. If no destination directory is given, the functions uses <code>./lib</code>. Code generation may be also performed using <em>make</em>, however this may take some time.</p>
 <dl class="section note"><dt>Note</dt><dd>Toolboxes required by the code generation can be shown by running in MATLAB</dd></dl>
 <div class="fragment"><div class="line">addpath(&#39;./matlab-tools&#39;);</div>
-<div class="line">check_toolboxes();</div>
+<div class="line">check_toolbox();</div>
 </div><!-- fragment --><dl class="section attention"><dt>Attention</dt><dd>For a correct usage in this project the above functions should be run in the main directory, and not in <code>./matlab-tools/</code>.</dd></dl>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Building</h1>

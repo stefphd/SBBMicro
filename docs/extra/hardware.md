@@ -30,6 +30,9 @@ The HV box contains the following hardwares:
 
 ## Connections
 
+The following table shows the connections between the components.
+
+
 \todo Describe the hardware in details: pins used and type (pull-up/pull-down), buses used
 
 ### LV schematics
