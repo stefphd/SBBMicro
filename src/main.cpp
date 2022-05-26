@@ -96,8 +96,13 @@ int main() {
 	//led off
 	LEDOFF;
 
+	//set custom control params
+	set_ctrl_param();
+
 	//begin control loop - to be called just before starting loop
 	ctrl.begin();
+	
+
 	sampling_timer = micros() - SAMPLING_TIME; //to be sure that the control loop starts immediately at the first loop
 
 	//flush serials

@@ -132,6 +132,13 @@ void do_led();
 */
 void serial_flush();
 
+/*! \brief Set custom control parameters.
+	\details Function to set custom control parameters in controlParams, e.g. controlParams.propGainSpeed = 0.
+    \attention Be sure that modified variables exist.
+*/
+void set_ctrl_param();
+
+
 /*! @} */
 
 

@@ -281,6 +281,9 @@ void check_error(void) {
 void set_driver(void) {
 	bool enable = remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS; //enable from remote control.
 
+	// override control throttle_ref
+	//ctrl.controlModel_Y.throttle_ref =  CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_THR_OR-1], MIN_REF_INPUT, MAX_REF_INPUT);
+
 	//set motor driver
 #if MTR_CTRL_MODE==0
 	analogWrite(PWM_PIN, constrain(CONVERT_CURRENT_TO_PWM(ctrl.controlModel_Y.curr_ref), PWM_MIN*(powf(2, PWM_RES) - 1), PWM_MAX*(powf(2, PWM_RES) - 1))); 
@@ -368,6 +371,12 @@ void serial_flush(void) {
 	UART_SPEEDSENS.flush(); //speed sensor
 	UART_GPS.flush(); //gps
 	//UART_SBUS.flush(); //TODO sbus
+}
+
+void set_ctrl_param(void) {
+	controlParams.propGainSpeed = .2;
+	controlParams.intTimeSpeed = 0.5;
+	controlParams.derTimeSpeed = 0.1;
 }
 
 #endif
