@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 3.7
+// Model version                  : 3.8
 // Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
-// C/C++ source code generated on : Wed Apr  6 08:28:55 2022
+// C/C++ source code generated on : Wed Jun  1 08:18:25 2022
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -53,12 +53,6 @@ controlParams_type controlParams = {
   // rollInertia
   10.0F,
 
-  // filterSpeed
-  100.0F,
-
-  // propGainSpeed
-  1.0F,
-
   // Qomx
   0.001F,
 
@@ -68,18 +62,6 @@ controlParams_type controlParams = {
   // Romx
   0.001F,
 
-  // derTimeSpeed
-  0.0F,
-
-  // intTimeSpeed
-  0.0F,
-
-  // riderTrqTreshold
-  0.5F,
-
-  // maxSpeed
-  8.0F,
-
   // gravity
   9.806F,
 
@@ -87,13 +69,7 @@ controlParams_type controlParams = {
   1.0F,
 
   // maxCurrent
-  5.0F,
-
-  // trqGainControl
-  0.5F,
-
-  // trqConstant
-  0.0404F,
+  10.0F,
 
   // bikeMass
   100.0F,
@@ -102,20 +78,14 @@ controlParams_type controlParams = {
   0.06F,
 
   // rollingRadius
-  0.3F,
-
-  // beltRatio
-  1.25F,
-
-  // gearRatio
-  36.0F
+  0.3F
 };
 
 void ControlClass::reset()
 {
   // Outputs for Atomic SubSystem: '<Root>/Reset Function'
-  // StateWriter: '<S5>/State Writer' incorporates:
-  //   Constant: '<S5>/Constant'
+  // StateWriter: '<S4>/State Writer' incorporates:
+  //   Constant: '<S4>/Constant'
 
   controlModel_DW.blockOrdering = false;
 
@@ -131,12 +101,12 @@ void ControlClass::rollEKF_stateTransitionModel(const real32_T rtu_x[2],
   real32_T rtb_TmpSignalConversionAtxOut_1;
   real32_T tmp;
 
-  // SignalConversion generated from: '<S6>/x'
+  // SignalConversion generated from: '<S5>/x'
   rtb_TmpSignalConversionAtxOut_0 = rtu_x[0];
   rtb_TmpSignalConversionAtxOut_1 = rtu_x[1];
 
-  // MATLAB Function: '<S6>/MATLAB Function' incorporates:
-  //   SignalConversion generated from: '<S6>/x'
+  // MATLAB Function: '<S5>/MATLAB Function' incorporates:
+  //   SignalConversion generated from: '<S5>/x'
 
   // states
   // inputs
@@ -145,25 +115,25 @@ void ControlClass::rollEKF_stateTransitionModel(const real32_T rtu_x[2],
   // ssmodel xdot=f(x,u) -> x(k+1) = x(k) + Ts*f(x(k),u(k))
   a_tmp = std::cos(rtb_TmpSignalConversionAtxOut_0);
 
-  // SignalConversion generated from: '<S6>/xNext' incorporates:
-  //   MATLAB Function: '<S6>/MATLAB Function'
-  //   SignalConversion generated from: '<S6>/x'
+  // SignalConversion generated from: '<S5>/xNext' incorporates:
+  //   MATLAB Function: '<S5>/MATLAB Function'
+  //   SignalConversion generated from: '<S5>/x'
 
   rty_xNext[0] = (rtb_TmpSignalConversionAtxOut_1 * 0.001F) +
     rtb_TmpSignalConversionAtxOut_0;
 
-  // MATLAB Function: '<S6>/MATLAB Function' incorporates:
-  //   SignalConversion generated from: '<S6>/x'
+  // MATLAB Function: '<S5>/MATLAB Function' incorporates:
+  //   SignalConversion generated from: '<S5>/x'
 
   rtb_TmpSignalConversionAtxOut_0 = std::sin(rtb_TmpSignalConversionAtxOut_0);
   tmp = controlParams.COGheight * controlParams.bikeMass;
 
-  // SignalConversion generated from: '<S6>/xNext' incorporates:
+  // SignalConversion generated from: '<S5>/xNext' incorporates:
   //   Inport: '<Root>/gyros'
   //   Inport: '<Root>/speed'
-  //   MATLAB Function: '<S6>/MATLAB Function'
-  //   SignalConversion generated from: '<S6>/omz'
-  //   SignalConversion generated from: '<S6>/x'
+  //   MATLAB Function: '<S5>/MATLAB Function'
+  //   SignalConversion generated from: '<S5>/omz'
+  //   SignalConversion generated from: '<S5>/x'
 
   rty_xNext[1] = (((((((((((controlParams.torusRadius *
     rtb_TmpSignalConversionAtxOut_0) * (rtb_TmpSignalConversionAtxOut_1 *
@@ -201,8 +171,8 @@ void ControlClass::rollEKF_stateTransitionJac(const real32_T rtu_x[2], real32_T
   real32_T tmp_5;
   real32_T tmp_6;
 
-  // MATLAB Function: '<S7>/MATLAB Function' incorporates:
-  //   SignalConversion generated from: '<S7>/x'
+  // MATLAB Function: '<S6>/MATLAB Function' incorporates:
+  //   SignalConversion generated from: '<S6>/x'
 
   // states
   // inputs
@@ -217,16 +187,16 @@ void ControlClass::rollEKF_stateTransitionJac(const real32_T rtu_x[2], real32_T
          (controlParams.COGheight * controlParams.bikeMass)) +
     controlParams.rollInertia;
 
-  // SignalConversion generated from: '<S7>/F' incorporates:
-  //   MATLAB Function: '<S7>/MATLAB Function'
+  // SignalConversion generated from: '<S6>/F' incorporates:
+  //   MATLAB Function: '<S6>/MATLAB Function'
 
   rty_F[0] = 1.0F;
 
-  // MATLAB Function: '<S7>/MATLAB Function' incorporates:
+  // MATLAB Function: '<S6>/MATLAB Function' incorporates:
   //   Inport: '<Root>/gyros'
   //   Inport: '<Root>/speed'
-  //   SignalConversion generated from: '<S7>/omz'
-  //   SignalConversion generated from: '<S7>/x'
+  //   SignalConversion generated from: '<S6>/omz'
+  //   SignalConversion generated from: '<S6>/x'
 
   tmp = a_tmp_tmp * a_tmp_tmp;
   tmp_0 = controlModel_U.gyros[2] * controlModel_U.gyros[2];
@@ -238,12 +208,12 @@ void ControlClass::rollEKF_stateTransitionJac(const real32_T rtu_x[2], real32_T
   tmp_5 = (controlParams.COGheight * controlParams.bikeMass) * tmp_0;
   tmp_6 = (controlParams.COGheight * a_tmp_tmp) + controlParams.torusRadius;
 
-  // SignalConversion generated from: '<S7>/F' incorporates:
+  // SignalConversion generated from: '<S6>/F' incorporates:
   //   Inport: '<Root>/gyros'
   //   Inport: '<Root>/speed'
-  //   MATLAB Function: '<S7>/MATLAB Function'
-  //   SignalConversion generated from: '<S7>/omz'
-  //   SignalConversion generated from: '<S7>/x'
+  //   MATLAB Function: '<S6>/MATLAB Function'
+  //   SignalConversion generated from: '<S6>/omz'
+  //   SignalConversion generated from: '<S6>/x'
 
   rty_F[1] = ((((((((((((controlParams.torusRadius * std::cos(rtu_x[0])) * tmp_2)
                        + (controlParams.gravity * a_tmp_tmp)) *
@@ -281,8 +251,8 @@ void ControlClass::rollEKF_stateTransitionJac(const real32_T rtu_x[2], real32_T
 void ControlClass::rollEKF_measurementModel(const real32_T rtu_x[2], real32_T
   *rty_y)
 {
-  // SignalConversion generated from: '<S8>/xNext' incorporates:
-  //   SignalConversion generated from: '<S8>/x'
+  // SignalConversion generated from: '<S7>/xNext' incorporates:
+  //   SignalConversion generated from: '<S7>/x'
 
   *rty_y = rtu_x[1];
 }
@@ -293,14 +263,14 @@ void ControlClass::rollEKF_measurementJac(const real32_T rtu_x[2], real32_T
 {
   UNUSED_PARAMETER(rtu_x);
 
-  // SignalConversion generated from: '<S9>/xNext' incorporates:
-  //   Constant: '<S9>/Constant'
+  // SignalConversion generated from: '<S8>/xNext' incorporates:
+  //   Constant: '<S8>/Constant'
 
   rty_H[0] = 0.0F;
   rty_H[1] = 1.0F;
 }
 
-// Function for MATLAB Function: '<S58>/Correct'
+// Function for MATLAB Function: '<S9>/Correct'
 void ControlClass::EKFCorrectorAdditive_getMeasure(real32_T Rs, const real32_T
   x[2], const real32_T S[4], real32_T *zEstimated, real32_T Pxy[2], real32_T *Sy,
   real32_T dHdx[2], real32_T *Rsqrt)
@@ -368,7 +338,7 @@ void ControlClass::EKFCorrectorAdditive_getMeasure(real32_T Rs, const real32_T
   }
 }
 
-// Function for MATLAB Function: '<S60>/Predict'
+// Function for MATLAB Function: '<S11>/Predict'
 void ControlClass::co_EKFPredictorAdditive_predict(const real32_T Qs[4],
   real32_T x[2], real32_T S[4])
 {
@@ -567,134 +537,22 @@ void ControlClass::update()
   real32_T s_0[2];
   real32_T Vf;
   real32_T c_b;
-  real32_T rtb_FilterCoefficient;
-  real32_T rtb_Sum_h;
   real32_T s;
   real32_T unusedExpr;
   real32_T zEstimated;
   boolean_T p;
 
-  // MATLABSystem: '<Root>/Lowpass Filter' incorporates:
-  //   Inport: '<Root>/torque'
-
-  obj = controlModel_DW.obj.FilterObj;
-  if (obj->isInitialized != 1) {
-    obj->isSetupComplete = false;
-    obj->isInitialized = 1;
-    obj->isSetupComplete = true;
-
-    // System object Initialization function: dsp.FIRFilter
-    for (n = 0; n < 20; n++) {
-      obj->cSFunObject.W0_states[n] = obj->cSFunObject.P0_InitialStates;
-    }
-  }
-
-  obj_0 = &obj->cSFunObject;
-
-  // System object Outputs function: dsp.FIRFilter
-  rtb_Sum_h = controlModel_U.torque;
-  rtb_FilterCoefficient = 0.0F;
-
-  // load input sample
-  for (n = 0; n < 20; n++) {
-    // shift state
-    s = rtb_Sum_h;
-    rtb_Sum_h = obj_0->W0_states[n];
-    obj_0->W0_states[n] = s;
-
-    // compute one tap
-    s *= obj_0->P1_Coefficients[n];
-    rtb_FilterCoefficient += s;
-  }
-
-  // compute last tap
-  s = obj->cSFunObject.P1_Coefficients[n] * rtb_Sum_h;
-
-  // store output sample
-  rtb_Sum_h = rtb_FilterCoefficient + s;
-
-  // DeadZone: '<Root>/Dead Zone' incorporates:
-  //   MATLABSystem: '<Root>/Lowpass Filter'
-
-  if (rtb_Sum_h > controlParams.riderTrqTreshold) {
-    rtb_FilterCoefficient = rtb_Sum_h - controlParams.riderTrqTreshold;
-  } else if (rtb_Sum_h >= (-controlParams.riderTrqTreshold)) {
-    rtb_FilterCoefficient = 0.0F;
-  } else {
-    rtb_FilterCoefficient = rtb_Sum_h - (-controlParams.riderTrqTreshold);
-  }
-
-  // End of DeadZone: '<Root>/Dead Zone'
-
-  // Gain: '<Root>/Trq const' incorporates:
-  //   Gain: '<Root>/Belt and gear'
+  // Outport: '<Root>/curr_ref' incorporates:
   //   Gain: '<Root>/Gain'
-
-  s = ((1.0F / (controlParams.beltRatio * controlParams.gearRatio)) *
-       (controlParams.trqGainControl * rtb_FilterCoefficient)) * (1.0F /
-    controlParams.trqConstant);
-
-  // Saturate: '<Root>/Saturation'
-  if (s > controlParams.maxCurrent) {
-    // Outport: '<Root>/curr_ref'
-    controlModel_Y.curr_ref = controlParams.maxCurrent;
-  } else if (s < (-controlParams.maxCurrent)) {
-    // Outport: '<Root>/curr_ref'
-    controlModel_Y.curr_ref = -controlParams.maxCurrent;
-  } else {
-    // Outport: '<Root>/curr_ref'
-    controlModel_Y.curr_ref = s;
-  }
-
-  // End of Saturate: '<Root>/Saturation'
-
-  // Outport: '<Root>/user_data' incorporates:
-  //   Constant: '<Root>/Constant4'
-  //   Constant: '<Root>/Constant5'
-  //   Constant: '<Root>/Constant6'
-  //   MATLABSystem: '<Root>/Lowpass Filter'
-
-  controlModel_Y.user_data[0] = rtb_Sum_h;
-  controlModel_Y.user_data[1] = 0.0F;
-  controlModel_Y.user_data[2] = 0.0F;
-  controlModel_Y.user_data[3] = 0.0F;
-
-  // Sum: '<Root>/Sum' incorporates:
-  //   Gain: '<Root>/Gain1'
   //   Inport: '<Root>/ref_inputs'
-  //   Inport: '<Root>/speed'
 
-  rtb_Sum_h = (controlParams.maxSpeed * controlModel_U.ref_inputs[1]) -
-    controlModel_U.speed;
+  controlModel_Y.curr_ref = controlParams.maxCurrent *
+    controlModel_U.ref_inputs[1];
 
-  // Gain: '<S44>/Filter Coefficient' incorporates:
-  //   DiscreteIntegrator: '<S36>/Filter'
-  //   Gain: '<S35>/Derivative Gain'
-  //   Sum: '<S36>/SumD'
+  // Outport: '<Root>/throttle_ref' incorporates:
+  //   Inport: '<Root>/ref_inputs'
 
-  rtb_FilterCoefficient = ((controlParams.derTimeSpeed * rtb_Sum_h) -
-    controlModel_DW.Filter_DSTATE) * controlParams.filterSpeed;
-
-  // Gain: '<S39>/Proportional Gain' incorporates:
-  //   DiscreteIntegrator: '<S41>/Integrator'
-  //   Sum: '<S50>/Sum'
-
-  s = ((rtb_Sum_h + controlModel_DW.Integrator_DSTATE) + rtb_FilterCoefficient) *
-    controlParams.propGainSpeed;
-
-  // Saturate: '<S48>/Saturation'
-  if (s > 1.0F) {
-    // Outport: '<Root>/throttle_ref'
-    controlModel_Y.throttle_ref = 1.0F;
-  } else if (s < 0.0F) {
-    // Outport: '<Root>/throttle_ref'
-    controlModel_Y.throttle_ref = 0.0F;
-  } else {
-    // Outport: '<Root>/throttle_ref'
-    controlModel_Y.throttle_ref = s;
-  }
-
-  // End of Saturate: '<S48>/Saturation'
+  controlModel_Y.throttle_ref = controlModel_U.ref_inputs[0];
 
   // MATLAB Function: '<Root>/Q and R'
   K[0] = controlParams.Qphi;
@@ -704,13 +562,13 @@ void ControlClass::update()
   rtb_Q[0] = controlParams.Qphi;
   rtb_Q[3] = controlParams.Qomx;
 
-  // Outputs for Enabled SubSystem: '<S2>/Correct1' incorporates:
-  //   EnablePort: '<S58>/Enable'
+  // Outputs for Enabled SubSystem: '<S1>/Correct1' incorporates:
+  //   EnablePort: '<S9>/Enable'
 
-  // MATLAB Function: '<S58>/Correct' incorporates:
-  //   Constant: '<S2>/BlockOrdering'
-  //   DataStoreRead: '<S58>/Data Store ReadX'
-  //   DataStoreWrite: '<S58>/Data Store WriteP'
+  // MATLAB Function: '<S9>/Correct' incorporates:
+  //   Constant: '<S1>/BlockOrdering'
+  //   DataStoreRead: '<S9>/Data Store ReadX'
+  //   DataStoreWrite: '<S9>/Data Store WriteP'
   //   Inport: '<Root>/gyros'
   //   MATLAB Function: '<Root>/Q and R'
 
@@ -775,51 +633,51 @@ void ControlClass::update()
   A[3]++;
   qrFactor_vw3S8N7t(A, controlModel_DW.P, C);
 
-  // DataStoreWrite: '<S58>/Data Store WriteX' incorporates:
-  //   DataStoreRead: '<S58>/Data Store ReadX'
-  //   MATLAB Function: '<S58>/Correct'
+  // DataStoreWrite: '<S9>/Data Store WriteX' incorporates:
+  //   DataStoreRead: '<S9>/Data Store ReadX'
+  //   MATLAB Function: '<S9>/Correct'
 
   //  Get back Covariance from Square-root Covariance
   controlModel_DW.x[0] += K[0] * s;
 
-  // End of Outputs for SubSystem: '<S2>/Correct1'
+  // End of Outputs for SubSystem: '<S1>/Correct1'
 
-  // Outputs for Atomic SubSystem: '<S2>/Predict'
-  // MATLAB Function: '<S60>/Predict' incorporates:
-  //   DataStoreRead: '<S60>/Data Store ReadX'
+  // Outputs for Atomic SubSystem: '<S1>/Predict'
+  // MATLAB Function: '<S11>/Predict' incorporates:
+  //   DataStoreRead: '<S11>/Data Store ReadX'
 
   K[0] = controlModel_DW.x[0];
 
-  // End of Outputs for SubSystem: '<S2>/Predict'
+  // End of Outputs for SubSystem: '<S1>/Predict'
 
-  // Outputs for Enabled SubSystem: '<S2>/Correct1' incorporates:
-  //   EnablePort: '<S58>/Enable'
+  // Outputs for Enabled SubSystem: '<S1>/Correct1' incorporates:
+  //   EnablePort: '<S9>/Enable'
 
-  // DataStoreWrite: '<S58>/Data Store WriteX' incorporates:
-  //   DataStoreRead: '<S58>/Data Store ReadX'
-  //   MATLAB Function: '<S58>/Correct'
+  // DataStoreWrite: '<S9>/Data Store WriteX' incorporates:
+  //   DataStoreRead: '<S9>/Data Store ReadX'
+  //   MATLAB Function: '<S9>/Correct'
 
   controlModel_DW.x[1] += K[1] * s;
 
-  // End of Outputs for SubSystem: '<S2>/Correct1'
+  // End of Outputs for SubSystem: '<S1>/Correct1'
 
-  // Outputs for Atomic SubSystem: '<S2>/Predict'
-  // MATLAB Function: '<S60>/Predict' incorporates:
-  //   DataStoreRead: '<S60>/Data Store ReadX'
+  // Outputs for Atomic SubSystem: '<S1>/Predict'
+  // MATLAB Function: '<S11>/Predict' incorporates:
+  //   DataStoreRead: '<S11>/Data Store ReadX'
 
   K[1] = controlModel_DW.x[1];
 
-  // End of Outputs for SubSystem: '<S2>/Predict'
+  // End of Outputs for SubSystem: '<S1>/Predict'
 
   // Outport: '<Root>/roll_est' incorporates:
-  //   DataStoreRead: '<S59>/Data Store Read'
+  //   DataStoreRead: '<S10>/Data Store Read'
 
   controlModel_Y.roll_est = controlModel_DW.x[0];
 
-  // Outputs for Atomic SubSystem: '<S2>/Predict'
-  // MATLAB Function: '<S60>/Predict' incorporates:
-  //   DataStoreRead: '<S60>/Data Store ReadX'
-  //   DataStoreWrite: '<S60>/Data Store WriteP'
+  // Outputs for Atomic SubSystem: '<S1>/Predict'
+  // MATLAB Function: '<S11>/Predict' incorporates:
+  //   DataStoreRead: '<S11>/Data Store ReadX'
+  //   DataStoreWrite: '<S11>/Data Store WriteP'
   //   MATLAB Function: '<Root>/Q and R'
 
   //  ekfCorrect Prediction step for EKF
@@ -885,7 +743,7 @@ void ControlClass::update()
 
   co_EKFPredictorAdditive_predict(rtb_Q, K, controlModel_DW.P);
 
-  // End of Outputs for SubSystem: '<S2>/Predict'
+  // End of Outputs for SubSystem: '<S1>/Predict'
 
   // Outport: '<Root>/yaw_est' incorporates:
   //   Inport: '<Root>/mags'
@@ -894,26 +752,26 @@ void ControlClass::update()
   controlModel_Y.yaw_est = rt_atan2f_snf(controlModel_U.mags[1],
     controlModel_U.mags[0]);
 
-  // Outputs for Atomic SubSystem: '<S2>/Predict'
-  // DataStoreWrite: '<S60>/Data Store WriteX' incorporates:
-  //   MATLAB Function: '<S60>/Predict'
+  // Outputs for Atomic SubSystem: '<S1>/Predict'
+  // DataStoreWrite: '<S11>/Data Store WriteX' incorporates:
+  //   MATLAB Function: '<S11>/Predict'
 
   controlModel_DW.x[0] = K[0];
 
-  // End of Outputs for SubSystem: '<S2>/Predict'
+  // End of Outputs for SubSystem: '<S1>/Predict'
 
   // Outport: '<Root>/pos_est' incorporates:
   //   Constant: '<Root>/Constant3'
 
   controlModel_Y.pos_est[0] = 0.0F;
 
-  // Outputs for Atomic SubSystem: '<S2>/Predict'
-  // DataStoreWrite: '<S60>/Data Store WriteX' incorporates:
-  //   MATLAB Function: '<S60>/Predict'
+  // Outputs for Atomic SubSystem: '<S1>/Predict'
+  // DataStoreWrite: '<S11>/Data Store WriteX' incorporates:
+  //   MATLAB Function: '<S11>/Predict'
 
   controlModel_DW.x[1] = K[1];
 
-  // End of Outputs for SubSystem: '<S2>/Predict'
+  // End of Outputs for SubSystem: '<S1>/Predict'
 
   // Outport: '<Root>/pos_est' incorporates:
   //   Constant: '<Root>/Constant3'
@@ -925,14 +783,53 @@ void ControlClass::update()
 
   controlModel_Y.error_state_out = controlModel_DW.error_state;
 
-  // Update for DiscreteIntegrator: '<S41>/Integrator' incorporates:
-  //   Gain: '<S38>/Integral Gain'
+  // MATLABSystem: '<Root>/Lowpass Filter' incorporates:
+  //   Inport: '<Root>/torque'
 
-  controlModel_DW.Integrator_DSTATE += (controlParams.intTimeSpeed * rtb_Sum_h) *
-    0.001F;
+  obj = controlModel_DW.obj.FilterObj;
+  if (obj->isInitialized != 1) {
+    obj->isSetupComplete = false;
+    obj->isInitialized = 1;
+    obj->isSetupComplete = true;
 
-  // Update for DiscreteIntegrator: '<S36>/Filter'
-  controlModel_DW.Filter_DSTATE += 0.001F * rtb_FilterCoefficient;
+    // System object Initialization function: dsp.FIRFilter
+    for (n = 0; n < 20; n++) {
+      obj->cSFunObject.W0_states[n] = obj->cSFunObject.P0_InitialStates;
+    }
+  }
+
+  obj_0 = &obj->cSFunObject;
+
+  // System object Outputs function: dsp.FIRFilter
+  s = controlModel_U.torque;
+  Vf = 0.0F;
+
+  // load input sample
+  for (n = 0; n < 20; n++) {
+    // shift state
+    unusedExpr = s;
+    s = obj_0->W0_states[n];
+    obj_0->W0_states[n] = unusedExpr;
+
+    // compute one tap
+    unusedExpr *= obj_0->P1_Coefficients[n];
+    Vf += unusedExpr;
+  }
+
+  // compute last tap
+  unusedExpr = obj->cSFunObject.P1_Coefficients[n] * s;
+
+  // Outport: '<Root>/user_data' incorporates:
+  //   Constant: '<Root>/Constant4'
+  //   Constant: '<Root>/Constant5'
+  //   Constant: '<Root>/Constant6'
+  //   MATLABSystem: '<Root>/Lowpass Filter'
+
+  // store output sample
+  controlModel_Y.user_data[0] = Vf + unusedExpr;
+  controlModel_Y.user_data[1] = 0.0F;
+  controlModel_Y.user_data[2] = 0.0F;
+  controlModel_Y.user_data[3] = 0.0F;
 
   // Update for UnitDelay: '<Root>/Unit Delay' incorporates:
   //   Inport: '<Root>/error_state_in'
@@ -957,7 +854,7 @@ void ControlClass::begin()
       -0.0126657868F, -0.0131849619F, -0.00823236164F, -0.00341077754F,
       -0.000803169096F };
 
-    // Start for DataStoreMemory: '<S2>/DataStoreMemory - P'
+    // Start for DataStoreMemory: '<S1>/DataStoreMemory - P'
     controlModel_DW.P[0] = 0.0316227786F;
     controlModel_DW.P[1] = 0.0F;
     controlModel_DW.P[2] = 0.0F;
