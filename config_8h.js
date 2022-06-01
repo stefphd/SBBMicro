@@ -105,6 +105,7 @@ var config_8h =
     [ "SBUS_EN_CH", "group__constants.html#gac700cd5d072e344ecf114ab9d64a4af3", null ],
     [ "SBUS_ROLL_CH", "group__constants.html#gaa643024a0768044263862ecd1776993a", null ],
     [ "SBUS_SAMPLING_FAC", "group__constants.html#ga9d331b17a3a336d8357f81206617511c", null ],
+    [ "SBUS_THR_OR", "group__constants.html#ga0db705d23493157da18e80027a7acf24", null ],
     [ "SBUS_THROTTLE_CH", "group__constants.html#ga25880e9e7d55fb92e6e112142889dd69", null ],
     [ "SPEED_SAMPLING_FAC", "group__constants.html#gacbe0dceee8d11058fe047d4738fb845e", null ],
     [ "SPEED_SCALE", "group__constants.html#gaf0048c7001abe7c261bb3f45d64dd281", null ],

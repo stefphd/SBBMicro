@@ -9,6 +9,7 @@ var userfun_8h =
     [ "get_sensors", "group__userfun.html#gaadef8420a246721121dfcb8e722d4a66", null ],
     [ "getTime", "group__userfun.html#ga32315808bd93c14f43ad88f6129f4f35", null ],
     [ "serial_flush", "group__userfun.html#ga94547a891c369354cec16547930de449", null ],
+    [ "set_ctrl_param", "group__userfun.html#gab58a49c09d14894de25f92ff2bf33f78", null ],
     [ "set_driver", "group__userfun.html#ga1a08bc0bd2c8a9b6ef864ba625912ded", null ],
     [ "set_GPIO", "group__userfun.html#gad1e1b8795efa14dd2266841d7f382929", null ],
     [ "set_IObus", "group__userfun.html#gaa66ec55cf92209baa360d04b1b83c93c", null ],

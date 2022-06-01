@@ -15,6 +15,7 @@ var prototypes_8h =
     [ "log_closer", "group__logfun.html#ga3d7a8cc89ba27623d0e3981acc70bf86", null ],
     [ "serial_flush", "group__userfun.html#ga94547a891c369354cec16547930de449", null ],
     [ "set_arm_clock", "group__userfun.html#ga01f554db1c07c31f60f5167060279699", null ],
+    [ "set_ctrl_param", "group__userfun.html#gab58a49c09d14894de25f92ff2bf33f78", null ],
     [ "set_driver", "group__userfun.html#ga1a08bc0bd2c8a9b6ef864ba625912ded", null ],
     [ "set_GPIO", "group__userfun.html#gad1e1b8795efa14dd2266841d7f382929", null ],
     [ "set_IObus", "group__userfun.html#gaa66ec55cf92209baa360d04b1b83c93c", null ],

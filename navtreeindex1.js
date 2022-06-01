@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"group__userfun.html#gad1e1b8795efa14dd2266841d7f382929":[4,3,12],
+"group__userfun.html#gae8a720b1a7a4a44aee590fadc28466cd":[4,3,15],
 "group__userparams.html":[4,1,4],
 "group__userparams.html#ga1ada7fd1f94ea9dae26b2767bf35d3ee":[4,1,4,4],
 "group__userparams.html#ga2635709fc71b4c669dce3234d4d378ff":[4,1,4,2],
