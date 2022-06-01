@@ -119,11 +119,11 @@ int main() {
 		//do control loop
 		do_control();
 
-		//do debug stuff if necessary (otherwise do nothing)
-		do_debug();
-
 		//check if errors 
 		check_error();
+
+		//do debug stuff if necessary (otherwise do nothing)
+		do_debug();
 
 		//set drivers
 		set_driver();

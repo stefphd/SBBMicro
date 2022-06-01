@@ -141,9 +141,9 @@
 #define GAIN_RIDERTRQ	0.141F //!< Gain of rider torque (Nm/(mV/V), with 5V supply). \details Value from torsiometer calibration.
 #define OFFSET_RIDERTRQ -(324.11*GAIN_RIDERTRQ) //!< Offset of rider torque (mV/V). \details Value from torsiometer calibration. Actually this is not strickly necessary, since a zero procedure is performed in do_zeros(). 
 #define GAIN_STEERPOS	50.9F/180.0F*PI //!< Fain of steer position. \details Value from steer-angle sensor calibration.
-#define OFFSET_STEERPOS -29.7F/180.0F*PI //!< Offset of steer position. \details Value from steer-angle sensor calibration.
-#define GAIN_STEERVEL	(2.0F*8000.0F/60.0F*2.0F*PI) //!< Gain of steer velocity. \details Value from ESCON Studio.
-#define OFFSET_STEERVEL (-8000.0F/60.0F*2.0F*PI) //!< Offset of steer velocity. \details Value from ESCON Studio.
+#define OFFSET_STEERPOS -30.7F/180.0F*PI //!< Offset of steer position. \details Value from steer-angle sensor calibration.
+#define GAIN_STEERVEL	(2.0F*1000.0F/60.0F*2.0F*PI) //!< Gain of steer velocity. \details Value from ESCON Studio.
+#define OFFSET_STEERVEL (-1000.0F/60.0F*2.0F*PI) //!< Offset of steer velocity. \details Value from ESCON Studio.
 #define GAIN_ACTCURR	2*MAX_REFCUR //!< Gain of actual motor current. \details Value from ESCON Studio.
 #define OFFSET_ACTCURR	-MAX_REFCUR //!< Offset of actual motor current. \details Value from ESCON Studio.
 #define GAIN_VOLTAGE	3.3F*1.027F*160.0F/10.0F //!< Gain of voltage. \details Value from voltage divider resistors (10k and 150k) and a correction factor from a calibartion.
@@ -167,21 +167,21 @@
 #define SBUS_ROLL_CH	2 //!< Roll channel in SBUS. \details Channel of SBUS for roll reference. \warning Channel number is one-based.
 #define SBUS_EN_CH		5 //!< Enable channel in SBUS. \details Channel of SBUS for enable signal. \warning Channel number is one-based.
 #define SBUS_BR_CH		6 //!< brake channel in SBUS. \details Channel of SBUS for brake signal. \warning Channel number is one-based.
+#define SBUS_THR_OR		3 //!< Direct throttle channel in SBUS. \details Channel of SBUS for overrideing the throttle channel. \warning Channel number is one-based.
 
 //LIMITS
 #define MAX_REFCUR		controlParams.maxCurrent //!< Maximum reference current. \warning Must be consistent with that in ESCON studio and Simulink. 
 #define MAX_REFTHROTTLE 1.0F //!< Maximum throttle value. \warning Must be consistent with that in Simulink. 
 #define MIN_VOLTAGE		18 //!< Minimum battery voltage (undervoltage) (V).
 #define MAX_VOLTAGE		35 //!< Maximum battery voltage (overvoltage) (V).
-#define MAX_STEER_ANGLE 0.3 //!< Maximum steering angle. \details Maximum steering angle above which motor drivers are disabled and the system stops. \todo Implement check steering angle.
-//TODO define for MAX_STEER_ANGLE, like 0.3 or 0.4.
+#define MAX_STEER_ANGLE 0.3 //!< Maximum steering angle. \details Maximum steering angle above which motor drivers are disabled and the system stops.
 
 //BRAKE MOTOR
 #define MAX_BR_SPEED	10 //!< Maximum brake motor speed (mm/s).
 #define MAX_BR_ACC		25 //!< Maximum brake motor acceleration (mm/s2).
 #define BR_STEPS		200 //!< Number of steps of the brake motor.
 #define BR_SPEED_RATIO 	1 //!< Speed ratio of the brake motor to brake lever (mm/revolution).
-#define MAX_BR_DISP 	10.0F //!< Maximum brake lever displacement (mm).
+#define MAX_BR_DISP 	12.0F //!< Maximum brake lever displacement (mm).
 
 /*! @} */
 

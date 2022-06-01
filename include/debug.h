@@ -82,8 +82,8 @@ void do_debug(void) {
       }*/
 
       ctrl.controlModel_Y.user_data[1] = timing.dt_cycle;
-      ctrl.controlModel_Y.user_data[2] = timing.dt_debug;
-      ctrl.controlModel_Y.user_data[3] = remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS;;
+      ctrl.controlModel_Y.user_data[2] = controlParams.maxSpeed * ctrl.controlModel_U.ref_inputs[1];
+      ctrl.controlModel_Y.user_data[3] = ctrl.controlModel_Y.error_state_out;
 
 			//write and read
 			uint32_t streamStartTime = micros();

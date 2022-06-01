@@ -236,9 +236,6 @@ void do_control(void) {
 	ctrl.controlModel_U.gps[0] = gpsData_raw.lat;
 	ctrl.controlModel_U.gps[1] = gpsData_raw.lon;
 	ctrl.controlModel_U.gps[2] = gpsData_raw.speed;
-	//set steer position and speed
-	ctrl.controlModel_U.steer[0] = 0;
-	ctrl.controlModel_U.steer[1] = 0;
 	//set front fork displacement
 	ctrl.controlModel_U.forkdisp = CONVERT_FORKDISP_TO_MM(float(forkDisp_raw.forkDisp)) - forkDisp_raw.forkDisp_offset;
 	//set rider torque
@@ -264,23 +261,18 @@ void check_error(void) {
 	//check error is also performed in the control loop, so only low-level checks are performed in the code, such as....
 	//Instead, steering limits etc. are checked in the control loop (see simulink model)
 	//save error state in ctrl.controlModel_U to change error state inside the control loop
-	/*
-	Legenda:
-	1: running mode (all ok and doing task)
-	0: stopping mode (task finisched)
-	-1: ...
-	-2: ...
-	errors of etc....
-	Idea in Simulink model: if ctrl.controlModel_U.error_state_in is different from 1 and error_state in Simuink is 1, then error_state = ctrl.controlModel_U.error_state_out
-	otherwise either ctrl.controlModel_U.error_state_in=1 and error_state=1 (all is ok), or ctrl.controlModel_U.error_state_in=1 but error_state!=0 (error occured)
-	*/
-  
-}
+	if ( ctrl.controlModel_Y.error_state_out < 1) {
+		if ((ctrl.controlModel_U.steer[0] > MAX_STEER_ANGLE) || (ctrl.controlModel_U.steer[0] < -MAX_STEER_ANGLE)) {
+			ctrl.controlModel_Y.error_state_out = 1;
+			ctrl.controlModel_U.error_state_in = 1;
+		} //check steer angle
+	}
+
+	}
 
 //set drivers
 void set_driver(void) {
-	bool enable = remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS; //enable from remote control.
-
+	bool enable = (remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS) && (ctrl.controlModel_Y.error_state_out < 1) && (ctrl.controlModel_U.error_state_in < 1); //enable from remote control and check errors
 	// override control throttle_ref
 	//ctrl.controlModel_Y.throttle_ref =  CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_THR_OR-1], MIN_REF_INPUT, MAX_REF_INPUT);
 
@@ -299,7 +291,7 @@ void set_driver(void) {
 									 CONVERT_TRHOTTLE_TO_DAC(0)); 
 	
 	//set brake stepper motor
-	int32_t brake_motor_position = (ctrl.controlModel_Y.throttle_ref <= 0 && enable) ? 
+	int32_t brake_motor_position = (ctrl.controlModel_Y.throttle_ref <= 0) ? 
 									 constrain(CONVERT_TRHOTTLE_TO_STEPS(-ctrl.controlModel_Y.throttle_ref),0,CONVERT_BRLEV_TO_STEPS(MAX_BR_DISP)) :
 									 CONVERT_TRHOTTLE_TO_STEPS(0);
 	if (remote_raw.ch[SBUS_BR_CH-1] >= TRESHOLD_LOGIC_SBUS) brake_motor_position = CONVERT_BRLEV_TO_STEPS(MAX_BR_DISP);
@@ -377,6 +369,7 @@ void set_ctrl_param(void) {
 	controlParams.propGainSpeed = .2;
 	controlParams.intTimeSpeed = 0.5;
 	controlParams.derTimeSpeed = 0.1;
+	controlParams.maxCurrent = 15;
 }
 
 #endif
