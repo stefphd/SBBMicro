@@ -82,8 +82,7 @@ void do_debug(void) {
       }*/
 
       ctrl.controlModel_Y.user_data[1] = timing.dt_cycle;
-      ctrl.controlModel_Y.user_data[2] = controlParams.maxSpeed * ctrl.controlModel_U.ref_inputs[1];
-      ctrl.controlModel_Y.user_data[3] = ctrl.controlModel_Y.error_state_out;
+      ctrl.controlModel_Y.user_data[3] = analogRead(RIDER_TRQ);
 
 			//write and read
 			uint32_t streamStartTime = micros();

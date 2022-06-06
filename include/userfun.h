@@ -366,10 +366,10 @@ void serial_flush(void) {
 }
 
 void set_ctrl_param(void) {
-	controlParams.propGainSpeed = .2;
-	controlParams.intTimeSpeed = 0.5;
-	controlParams.derTimeSpeed = 0.1;
-	controlParams.maxCurrent = 15;
+	//controlParams.propGainSpeed = .2;
+	//controlParams.intTimeSpeed = 0.5;
+	//controlParams.derTimeSpeed = 0.1;
+	controlParams.maxCurrent = 10;
 }
 
 #endif

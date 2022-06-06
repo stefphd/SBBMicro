@@ -163,8 +163,8 @@
 #define MAX_MISSING_SBUS	10*SBUS_SAMPLING_FAC //!< Maximum missing packets for SBUS. \details Maximum missing packets for the SBUS communication. \note Check for missing packet is performed avery #SAMPLING_TIME milliseconds. \see SAMPLING_TIME
 #define MAX_REF_INPUT	1 //!< Maximum value for input reference. \details Maximum value for the input reference in the control model. Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
 #define MIN_REF_INPUT	-1 //!< Minimum value for input reference. \details Minimum value for the input reference in the control model.  Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
-#define SBUS_THROTTLE_CH 1 //!< Throttle channel in SBUS. \details Channel of SBUS for throttle reference. \warning Channel number is one-based.
-#define SBUS_ROLL_CH	2 //!< Roll channel in SBUS. \details Channel of SBUS for roll reference. \warning Channel number is one-based.
+#define SBUS_THROTTLE_CH 2 //!< Throttle channel in SBUS. \details Channel of SBUS for throttle reference. \warning Channel number is one-based.
+#define SBUS_ROLL_CH	1 //!< Roll channel in SBUS. \details Channel of SBUS for roll reference. \warning Channel number is one-based.
 #define SBUS_EN_CH		5 //!< Enable channel in SBUS. \details Channel of SBUS for enable signal. \warning Channel number is one-based.
 #define SBUS_BR_CH		6 //!< brake channel in SBUS. \details Channel of SBUS for brake signal. \warning Channel number is one-based.
 #define SBUS_THR_OR		3 //!< Direct throttle channel in SBUS. \details Channel of SBUS for overrideing the throttle channel. \warning Channel number is one-based.
@@ -330,7 +330,7 @@
 #define MTR_CTRL_MODE		1 //!< Control mode of steer motor (0=PWM or 1=DAC). \warning This setting must be consistent with ESCON Studio.
 #define CW					LOW //!< Digital pin state for clockwise torque.
 #define NUM_ZERO_SAMPLES	500 //!< Samples used to perform the zero of sensors.
-#define STEERVEL_RATIO		(controlParams.beltRatio*controlParams.gearRatio) //!< Speed ratio of steer velocity. \details Values from Simulink model.
+#define STEERVEL_RATIO		(36*1.25) //!< Speed ratio of steer velocity. \details Values from Simulink model.
 #define FULLEXT_FORKDISP	0 //!< Fork displacement at full extended suspension (in mm).
 #define NAN_VAL				0xFFC00000 //!< NaN value used for invalid data.
 #define YINCL_MCUBOX		1.3426 //!< Pitch iinclination of MCU box (in rad). \details Value of 76.928deg, found from a static calibration with the IMU.
