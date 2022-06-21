@@ -214,9 +214,9 @@ bool check_sbus(void)  {
 }
 
 /*
-void do_control(void) sets the control input structure for next step and perform control update cycle
+void set_ctrl_input(void) sets the control input structure
 */
-void do_control(void) {
+void set_ctrl_input(void) {
 	//set speed
 	ctrl.controlModel_U.speed = SPEED_SCALE*float(speed_raw.speed);
 	ctrl.controlModel_U.dist = DIST_SCALE * float(speed_raw.dist);
@@ -252,9 +252,61 @@ void do_control(void) {
 	//set remote control (2 channels) sbus TODO
 	ctrl.controlModel_U.ref_inputs[0] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_ROLL_CH-1], MIN_REF_INPUT, MAX_REF_INPUT);
 	ctrl.controlModel_U.ref_inputs[1] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_THROTTLE_CH-1], MIN_REF_INPUT, MAX_REF_INPUT);
+}
+
+/*
+void do_control(void) performs control update cycle
+*/
+void do_control(void) {
+	
+	//tests
+	#ifdef IMP_TEST
+	enable_new = get_selector();
+	if (enable_old != enable_new) {
+		if (enable_new) test_start = millis();
+	}
+	enable_old = enable_new;
+	test_timer = millis() - test_start;
+	ctrl.controlModel_Y.curr_ref = 0;
+	if (enable_new != 0 && (test_timer <= IMP_DUR)) {
+		ctrl.controlModel_Y.curr_ref = 0.5F*IMP_AMP*(1.0F - cosf(2*PI*float(test_timer)/float(IMP_DUR)))*float(enable_new);
+	} 
+	#endif
+
+	#ifdef SWEEP_TEST
+	enable_new = get_enable();
+	if (enable_old != enable_new) {
+		if (enable_new) test_start = millis();
+	}
+	enable_old = enable_new;
+	test_timer = millis() - test_start;
+	if (enable_new) {
+		if (test_timer <= TEST_DURATION) {
+			float freq = 0.0F + float(test_timer)/float(TEST_DURATION) * (10.0F-0.0F);
+			float ampl = 2.0F;
+			ctrl.controlModel_Y.curr_ref = ampl*sinf(2.0F*PI*freq*float(test_timer)/1000.0F/2.0F);
+		} else ctrl.controlModel_Y.curr_ref = 0, remote_raw.ch[SBUS_EN_CH-1] = TRESHOLD_LOGIC_SBUS/2;
+	} else ctrl.controlModel_Y.curr_ref = 0, remote_raw.ch[SBUS_EN_CH-1] = TRESHOLD_LOGIC_SBUS/2;
+	return;
+	#endif
+
+	#ifdef SIN_TEST
+	enable_new = get_enable();
+	if (enable_old != enable_new) {
+		if (enable_new) test_start = millis();
+	}
+	enable_old = enable_new;
+	test_timer = millis() - test_start;
+	if (enable_new) {
+		const float freq = 0.5F;
+		if (test_timer <= (2*SIN_WAVE*freq*1000.0F)) ctrl.controlModel_Y.curr_ref = 4.0F*sinf(2.0F*PI*freq*float(test_timer)/1000.0F);
+	} else ctrl.controlModel_Y.curr_ref = 0;
+	return;
+	#endif
 
 	//update control
 	ctrl.update(); //this performs the control loop
+
 }
 
 void check_error(void) {
@@ -268,11 +320,28 @@ void check_error(void) {
 		} //check steer angle
 	}
 
+}
+
+//get selector
+int8_t get_selector(void) {
+	if (remote_raw.ch[SBUS_SEL_CH-1] >= TRESHOLD_POS_SBUS) {
+		return +1;
 	}
+	if (remote_raw.ch[SBUS_SEL_CH-1] <= TRESHOLD_NEG_SBUS) {
+		return -1;
+	}
+	return 0;
+}
+
+//get enable status
+bool get_enable(void) {
+	return ((remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS) && (ctrl.controlModel_Y.error_state_out < 1) && (ctrl.controlModel_U.error_state_in < 1)); //enable from remote control and check errors
+}
 
 //set drivers
 void set_driver(void) {
-	bool enable = (remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS) && (ctrl.controlModel_Y.error_state_out < 1) && (ctrl.controlModel_U.error_state_in < 1); //enable from remote control and check errors
+	bool enable = get_enable();
+
 	// override control throttle_ref
 	//ctrl.controlModel_Y.throttle_ref =  CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_THR_OR-1], MIN_REF_INPUT, MAX_REF_INPUT);
 

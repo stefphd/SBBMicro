@@ -155,11 +155,13 @@
 #define GYROZ_OFFSET    -0.0080F/GYRO_SCALE //!< Offset of gyro z. \details Value from offset calibration of the IMU.
 
 //SBUS
-#define NUM_CH_SBUS		6 //!< Number channels from SBUS. \details Number of the stored channel from the SBUS. \see RemoteCtrl
+#define NUM_CH_SBUS		7 //!< Number channels from SBUS. \details Number of the stored channel from the SBUS. \see RemoteCtrl
 #define MAX_SBUS		1811 //!< Maximum value from SBUS. \details Maximum value received by the SBUS.
 #define MIN_SBUS		172 //!< Minimum value from SBUS. \details Minimum value received by the SBUS.
 #define ZERO_SBUS		992 //!< Zero-value for SBUS. \details Value corresponding to zero for the SBUS. This is hust the average of #MAX_SBUS and #MIN_SBUS. \see MAX_SBUS MIN_SBUS
 #define TRESHOLD_LOGIC_SBUS	1400 //!< Treshold for SBUS logic channels. \details Treshold value for logic state received by the SBUS. If greaten than this value, it is a high state. \attention This value should be larger than #ZERO_SBUS, in order to recognize it as a low state. \see ZERO_SBUS
+#define TRESHOLD_POS_SBUS	1400 //!< Treshold for positive value. \details Treshold value for positive state received by the SBUS. If greaten than this value, it is a +1.
+#define TRESHOLD_NEG_SBUS	600 //!< Treshold for negative value. \details Treshold value for positive state received by the SBUS. If lower than this value, it is a -1.
 #define MAX_MISSING_SBUS	10*SBUS_SAMPLING_FAC //!< Maximum missing packets for SBUS. \details Maximum missing packets for the SBUS communication. \note Check for missing packet is performed avery #SAMPLING_TIME milliseconds. \see SAMPLING_TIME
 #define MAX_REF_INPUT	1 //!< Maximum value for input reference. \details Maximum value for the input reference in the control model. Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
 #define MIN_REF_INPUT	-1 //!< Minimum value for input reference. \details Minimum value for the input reference in the control model.  Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
@@ -168,13 +170,14 @@
 #define SBUS_EN_CH		5 //!< Enable channel in SBUS. \details Channel of SBUS for enable signal. \warning Channel number is one-based.
 #define SBUS_BR_CH		6 //!< brake channel in SBUS. \details Channel of SBUS for brake signal. \warning Channel number is one-based.
 #define SBUS_THR_OR		3 //!< Direct throttle channel in SBUS. \details Channel of SBUS for overrideing the throttle channel. \warning Channel number is one-based.
+#define SBUS_SEL_CH		7 //!< 3 selector channel in SBUS. \warning Channel number is one-based.
 
 //LIMITS
 #define MAX_REFCUR		controlParams.maxCurrent //!< Maximum reference current. \warning Must be consistent with that in ESCON studio and Simulink. 
 #define MAX_REFTHROTTLE 1.0F //!< Maximum throttle value. \warning Must be consistent with that in Simulink. 
-#define MIN_VOLTAGE		18 //!< Minimum battery voltage (undervoltage) (V).
-#define MAX_VOLTAGE		35 //!< Maximum battery voltage (overvoltage) (V).
-#define MAX_STEER_ANGLE 0.3 //!< Maximum steering angle. \details Maximum steering angle above which motor drivers are disabled and the system stops.
+#define MIN_VOLTAGE		15 //!< Minimum battery voltage (undervoltage) (V).
+#define MAX_VOLTAGE		40 //!< Maximum battery voltage (overvoltage) (V).
+#define MAX_STEER_ANGLE 0.35 //!< Maximum steering angle. \details Maximum steering angle above which motor drivers are disabled and the system stops.
 
 //BRAKE MOTOR
 #define MAX_BR_SPEED	10 //!< Maximum brake motor speed (mm/s).
@@ -340,6 +343,15 @@ const float imu_rotMat[3][3] = { {0, cosf(YINCL_MCUBOX), sinf(YINCL_MCUBOX)},
 const float mag_rotMat[3][3] = { {cosf(YINCL_MCUBOX), 0, sinf(YINCL_MCUBOX)},
 								  {0, -1, 0}, 
 								  {sinf(YINCL_MCUBOX), 0, -cosf(YINCL_MCUBOX)} }; //!< Rotation matrix from MAG frame to SAE body-fixed frame. \details This is the result of Rx(180deg)*Ry(#YINCL_MCUBOX). \see YINCL_MCUBOX
+//#define SWEEP_TEST
+//#define SIN_TEST
+//#define TEST_DURATION 10e3
+//#define SIN_WAVE 4
+#define IMP_TEST					//!< Flag for impulse test. \details Impulse test consists of a cosine-shaped impulse with amplitude #IMP_AMP and duration #IMP_DUR. 
+#define IMP_DUR				100 	//!< Impulse duration (ms). \see IMP_TEST
+#define IMP_AMP				-10.0 	//!< Impulse amplitude (A). \see IMP_TEST
+
+
 
 /*! @} */
 

@@ -76,7 +76,7 @@ int main() {
 	RELAY_ENABLE;
 
 	//check battery voltage
-	check_voltage();
+	//check_voltage();
 
 	//do zero of sensors
 	do_zeros();

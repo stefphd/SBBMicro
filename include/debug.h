@@ -82,7 +82,7 @@ void do_debug(void) {
       }*/
 
       ctrl.controlModel_Y.user_data[1] = timing.dt_cycle;
-      ctrl.controlModel_Y.user_data[3] = analogRead(RIDER_TRQ);
+      ctrl.controlModel_Y.user_data[3] = get_selector();
 
 			//write and read
 			uint32_t streamStartTime = micros();

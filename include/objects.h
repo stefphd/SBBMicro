@@ -226,6 +226,12 @@ SerialTransfer speedSensor; //!< SerialTransfer object for speed sensor.
 SbusRx sbus(&UART_SBUS); //!< SBUS object for remote controller.
 TS4::Stepper brakeMotor(BR_STEP_PIN, BR_DIR_PIN); //!< Stepper object for the brake motor.
 
+//other user vars
+int8_t enable_old = 0;
+int8_t enable_new = 0;
+uint32_t test_timer = 0, test_start = 0;
+
+
 /*! @} */
 
 #endif

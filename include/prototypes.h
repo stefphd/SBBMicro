@@ -71,8 +71,13 @@ void start_brake_stepper(void);
 */
 void get_sensors(void);
 
+/*! \brief Set the control inputs.
+    \details Function to convert sensor readings to convenient units.
+*/
+void set_ctrl_input(void);
+
 /*! \brief Update the control loop.
-	\details Function to convert sensor readings to convenient units and update the control loop with the new sensor readings.
+	\details Function to update the control loop with the new sensor readings or create the ouput in the case of tests.
     \see macros
 */
 void do_control(void);
@@ -96,6 +101,16 @@ bool check_sbus(void);
     \see macros
 */
 void set_driver(void);
+
+/*! \brief Get the selector.
+	\details Function to get the selector status. Selector is +/-1/0 depending on the switch on the remote controller.
+*/
+int8_t get_selector(void);
+
+/*! \brief Get the enable.
+	\details Function to get the enable status. Enable is 0 if errors found or remote enable is off.
+*/
+bool get_enable(void);
 
 /*! \brief Callback for tuning off.
 	\details Callback function called when the microcontroller turns of, in order to end stuff before (e.g. close the log file).
