@@ -50,10 +50,13 @@ var group__constants =
     [ "SBUS_EN_CH", "group__constants.html#gac700cd5d072e344ecf114ab9d64a4af3", null ],
     [ "SBUS_ROLL_CH", "group__constants.html#gaa643024a0768044263862ecd1776993a", null ],
     [ "SBUS_SAMPLING_FAC", "group__constants.html#ga9d331b17a3a336d8357f81206617511c", null ],
+    [ "SBUS_SEL_CH", "group__constants.html#ga804f5f9b6a72c28f4f4ce530192343df", null ],
     [ "SBUS_THR_OR", "group__constants.html#ga0db705d23493157da18e80027a7acf24", null ],
     [ "SBUS_THROTTLE_CH", "group__constants.html#ga25880e9e7d55fb92e6e112142889dd69", null ],
     [ "SPEED_SAMPLING_FAC", "group__constants.html#gacbe0dceee8d11058fe047d4738fb845e", null ],
     [ "SPEED_SCALE", "group__constants.html#gaf0048c7001abe7c261bb3f45d64dd281", null ],
     [ "TRESHOLD_LOGIC_SBUS", "group__constants.html#ga26ac23ae708d5f1598d41bfdbc411880", null ],
+    [ "TRESHOLD_NEG_SBUS", "group__constants.html#gaaade20d839773a652b5f279c3adc13bf", null ],
+    [ "TRESHOLD_POS_SBUS", "group__constants.html#gac8e87bce147f19267b8ba68f2dcc6770", null ],
     [ "ZERO_SBUS", "group__constants.html#gaf4d14a11e52496d405c18f9a409366ac", null ]
 ];
