@@ -120,12 +120,12 @@ else ifeq ($(OS), Windows_NT)
 endif
 
 #Generate the code
-gencode:
-	@$(MATLAB) -batch "addpath('$(MATLAB_TOOLS)'); gencode();"
+#gencode:
+#	@$(MATLAB) -batch "addpath('$(MATLAB_TOOLS)'); gencode();"
 
 #Check for MATLAB tooboxes
-checktoolbox:
-	@$(MATLAB) -batch "addpath('$(MATLAB_TOOLS)'); check_toolbox();"
+#checktoolbox:
+#	@$(MATLAB) -batch "addpath('$(MATLAB_TOOLS)'); check_toolbox();"
 
 #Help
 help:
@@ -138,12 +138,12 @@ help:
 	@echo "'clean'						Clean the build and cache directories."
 	@echo "'remake'					Clean, build and upload the code to the micro-controller"
 	@echo "'rebuild'					Clean and rebuild the code."
-	@echo "'gencode'					Generate the code from the Simulink model."
-	@echo "						\note This may take some time."
-	@echo "						\attention This require MATLAB/Simulink >= 2022a."
-	@echo "'checktoolbox'					Check for the MATLAB toolboxes required by the code generation."
+#	@echo "'gencode'					Generate the code from the Simulink model."
+#	@echo "						\note This may take some time."
+#	@echo "						\attention This require MATLAB/Simulink >= 2022a."
+#	@echo "'checktoolbox'					Check for the MATLAB toolboxes required by the code generation."
 	@echo "'doc'						Build the documentation."
 	@echo "'cleandoc'					Clean the documentation."
 
 #Non-File Targets
-.PHONY: all build upload remake clean doc cleandoc directories gencode checktoolbox help
+.PHONY: all build upload remake clean doc cleandoc directories help # gencode checktoolbox
