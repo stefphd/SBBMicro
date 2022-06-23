@@ -14,6 +14,9 @@ Files:
 * `build_win.bat`: build shmell script for Windows
 * `Doxyfile`: configuration file for documentation generation from source code using *doxygen*
 * `Makefile`: makefile for building, uploading and documentation generation using *make*
+* `startup.m`: startup file for MATLAB (just to add necessary path)
+* `INSTALL_PREREQ.md`: guide for the installation of the pre-requisites
+* `README.md`: readme file
 
 Code folders:
 
@@ -33,10 +36,10 @@ Additional folders:
 * `./.vscode`: contains VS code property file(s)
 * `./.build` and `.cache`: hidden folders created only during compilation
 
-## Prerequisites
+## Pre-requisites
 
 * *arduino-builder* (>=1.6.1), also provided with Arduino IDE
-* *MATLAB/Simulink* with the *Embedeed Coder Toolbox* installed (>=2021a), for control algorithm code generation only
+* *MATLAB/Simulink* with the *Embedded Coder Toolbox* installed (>=2021a), for control algorithm code generation only
 
 No other dependecies are necessary: all used libraries are already included in `./lib/`.
 
@@ -46,18 +49,21 @@ Additional utilities (only recommended):
 * *Visual Studio Code* with *C/C++ (ms-vscode)* for code completation and simpler code building
 * *make* to build using the `Makefile`
 * *KiCad* to open the schematic files in `./kicad`
+* *Doxygen* to generate the documentation
+
+See the installation guide for the pre-requisites for details.
 
 ## Documentation
 
-Documentation for the source code and the user-defined libraries (but not for other third-party libraries) can be generated from the source using (see [https://www.doxygen.nl/download.html](https://www.doxygen.nl/download.html) for download) with
+Documentation for the source code and the user-defined libraries (but not for other third-party libraries) can be generated from the source using *Doxygen* with
 
-```shell
+```bash
 doxygen
 ```
 
 or using *make*
 
-```shell
+```bash
 make doc
 ```
 
@@ -70,7 +76,7 @@ GENERATE_LATEX  = YES
 
 in `Doxyfile`. The latex version will be in `./docs/latex`, and can be compiled using latex with
 
-```shell
+```bash
 cd ./docs/latex
 make
 ```
@@ -81,17 +87,17 @@ which generates the pdf file `./doc/latex/refman.pdf`.
 
 ## Code generation
 
-Code generation of the control algorithm is performed via *MATLAB/Simulink* with the *Embedeed Coder Toolbox*. Other toolboxes may be required. Code generation can be launch with *MATLAB* using
+Code generation of the control algorithm is performed via *MATLAB/Simulink* with the *Embedded Coder Toolbox*. Other toolboxes may be required. Code generation can be launch with *MATLAB* using
 
 ```MATLAB
-addpath('./matlab-tools');
+startup;
 gencode()
 ```
 
 The general usage of this function is
 
 ```MATLAB
-addpath('./matlab-tools');
+startup;
 gencode(modelname,dest_dir);
 ```
 
@@ -100,7 +106,7 @@ where `modelname` is the name of the Simulink model (without the `*.slx` extensi
 \note Toolboxes required by the code generation can be shown by running in MATLAB
 
   ```MATLAB
-  addpath('./matlab-tools');
+  startup;
   check_toolbox();
   ```
 
@@ -108,17 +114,17 @@ where `modelname` is the name of the Simulink model (without the `*.slx` extensi
 
 ## Building
 
-Compilation is performed using the *arduino-builder*. Shell scripts provide simple usage depending on the operative system:
+Compilation is performed using the *arduino-builder*. Bash scripts provide simple usage depending on the operative system:
 
 * Linux:
 
-  ```shell
+  ```bash
   ./build_linux.sh
   ```
 
   or
 
-  ```shell
+  ```bash
   bash build_linux.sh
   ```
 
@@ -126,7 +132,7 @@ Compilation is performed using the *arduino-builder*. Shell scripts provide simp
 
 * Windows:
 
-  ```shell
+  ```bash
   ./build_win.bat
   ```
 
@@ -134,7 +140,7 @@ Compilation is performed using the *arduino-builder*. Shell scripts provide simp
 
 * MacOS: not implemented yet, however it should be similar to Linux.
 
-Alternatively, one can use `ctrl+shift+B` to build the code in *Visual Studio Code* with both Linux and Windows (this makes use of `build_linux.sh` or `build_win.sh` depending on the operative system).
+Alternatively, one can use `ctrl+shift+B` to build the code in *Visual Studio Code* with both Linux and Windows (this makes use of `build_linux.sh` or `build_win.sh` depending on the operative system). One may also use *make* the building and uploading.
 
 \note The above shell scripts perform both the building and the uploading: it is not possible to build or upload only.
 
@@ -148,11 +154,6 @@ One may also use *make* for the building, uploading and the documentation genera
 * `make clean` to clean the build and cache directories
 * `make remake` to clean, build and upload the code
 * `make rebuild` to clean and rebuild
-* `make gencode` to generate the code from the Simulink model
-  \note This may take some time.
-  \attention This requires (at least) MATLAB/Simulink >= 2022a with the Embedeed code installed
-
-* `make checktoolboxes` to check the MATLAB toolboxes required by the code generation
 * `make doc` to build the documentation
 * `make cleandoc` to clean the documentation
 * `make help` to print the Makefile help
