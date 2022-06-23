@@ -37,25 +37,28 @@ var NAVTREE =
     [ "Installation of the pre-requisites", "md_INSTALL_PREREQ.html", [
       [ "Windows", "md_INSTALL_PREREQ.html#autotoc_md9", [
         [ "Arduino builder", "md_INSTALL_PREREQ.html#autotoc_md10", null ],
-        [ "Make and Doxygen", "md_INSTALL_PREREQ.html#autotoc_md11", null ]
+        [ "Visual Studio Code", "md_INSTALL_PREREQ.html#autotoc_md11", null ],
+        [ "Make and Doxygen", "md_INSTALL_PREREQ.html#autotoc_md12", null ],
+        [ "Teensyduino", "md_INSTALL_PREREQ.html#autotoc_md13", null ],
+        [ "KiCAD", "md_INSTALL_PREREQ.html#autotoc_md14", null ]
       ] ],
-      [ "Linux", "md_INSTALL_PREREQ.html#autotoc_md12", null ],
-      [ "MacOS", "md_INSTALL_PREREQ.html#autotoc_md13", null ],
-      [ "Embedded Coder Toolbox (MATLAB)", "md_INSTALL_PREREQ.html#autotoc_md14", null ]
+      [ "Linux", "md_INSTALL_PREREQ.html#autotoc_md15", null ],
+      [ "MacOS", "md_INSTALL_PREREQ.html#autotoc_md16", null ],
+      [ "Embedded Coder Toolbox (MATLAB)", "md_INSTALL_PREREQ.html#autotoc_md17", null ]
     ] ],
     [ "Hardware", "md_docs_extra_hardware.html", [
-      [ "Low-voltage box", "md_docs_extra_hardware.html#autotoc_md16", null ],
-      [ "High-voltage box", "md_docs_extra_hardware.html#autotoc_md17", null ],
-      [ "Connections", "md_docs_extra_hardware.html#autotoc_md18", [
-        [ "LV schematics", "md_docs_extra_hardware.html#autotoc_md19", null ],
-        [ "HV schematics", "md_docs_extra_hardware.html#autotoc_md20", null ]
+      [ "Low-voltage box", "md_docs_extra_hardware.html#autotoc_md19", null ],
+      [ "High-voltage box", "md_docs_extra_hardware.html#autotoc_md20", null ],
+      [ "Connections", "md_docs_extra_hardware.html#autotoc_md21", [
+        [ "LV schematics", "md_docs_extra_hardware.html#autotoc_md22", null ],
+        [ "HV schematics", "md_docs_extra_hardware.html#autotoc_md23", null ]
       ] ]
     ] ],
     [ "Software", "md_docs_extra_software.html", [
-      [ "Basic code", "md_docs_extra_software.html#autotoc_md22", null ],
-      [ "Data logging", "md_docs_extra_software.html#autotoc_md23", null ],
-      [ "MTP mode", "md_docs_extra_software.html#autotoc_md24", null ],
-      [ "Debugging", "md_docs_extra_software.html#autotoc_md25", null ]
+      [ "Basic code", "md_docs_extra_software.html#autotoc_md25", null ],
+      [ "Data logging", "md_docs_extra_software.html#autotoc_md26", null ],
+      [ "MTP mode", "md_docs_extra_software.html#autotoc_md27", null ],
+      [ "Debugging", "md_docs_extra_software.html#autotoc_md28", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Modules", "modules.html", "modules" ],
