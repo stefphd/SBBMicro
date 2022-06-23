@@ -115,6 +115,9 @@ Files</h1>
 <li><code>build_win.bat</code>: build shmell script for Windows</li>
 <li><code>Doxyfile</code>: configuration file for documentation generation from source code using <em>doxygen</em></li>
 <li><code>Makefile</code>: makefile for building, uploading and documentation generation using <em>make</em></li>
+<li><code>startup.m</code>: startup file for MATLAB (just to add necessary path)</li>
+<li><code><a class="el" href="INSTALL__PREREQ_8md.html">INSTALL_PREREQ.md</a></code>: guide for the installation of the pre-requisites</li>
+<li><code><a class="el" href="README_8md.html">README.md</a></code>: readme file</li>
 </ul>
 <p >Code folders:</p>
 <ul>
@@ -135,10 +138,10 @@ Files</h1>
 <li><code>./.build</code> and <code>.cache</code>: hidden folders created only during compilation</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
-Prerequisites</h1>
+Pre-requisites</h1>
 <ul>
 <li><em>arduino-builder</em> (&gt;=1.6.1), also provided with Arduino IDE</li>
-<li><em>MATLAB/Simulink</em> with the <em>Embedeed Coder Toolbox</em> installed (&gt;=2021a), for control algorithm code generation only</li>
+<li><em>MATLAB/Simulink</em> with the <em>Embedded Coder Toolbox</em> installed (&gt;=2021a), for control algorithm code generation only</li>
 </ul>
 <p >No other dependecies are necessary: all used libraries are already included in <code>./lib/</code>.</p>
 <p >Additional utilities (only recommended):</p>
@@ -147,10 +150,12 @@ Prerequisites</h1>
 <li><em>Visual Studio Code</em> with <em>C/C++ (ms-vscode)</em> for code completation and simpler code building</li>
 <li><em>make</em> to build using the <code>Makefile</code></li>
 <li><em>KiCad</em> to open the schematic files in <code>./kicad</code></li>
+<li><em>Doxygen</em> to generate the documentation</li>
 </ul>
+<p >See the installation guide for the pre-requisites for details.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Documentation</h1>
-<p >Documentation for the source code and the user-defined libraries (but not for other third-party libraries) can be generated from the source using (see <a href="https://www.doxygen.nl/download.html">https://www.doxygen.nl/download.html</a> for download) with</p>
+<p >Documentation for the source code and the user-defined libraries (but not for other third-party libraries) can be generated from the source using <em>Doxygen</em> with</p>
 <div class="fragment"><div class="line">doxygen</div>
 </div><!-- fragment --><p >or using <em>make</em></p>
 <div class="fragment"><div class="line">make doc</div>
@@ -163,20 +168,20 @@ Documentation</h1>
 <dl class="section attention"><dt>Attention</dt><dd>Latex documentation requires having both <em>latex</em> and <em>make</em> installed.</dd></dl>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Code generation</h1>
-<p >Code generation of the control algorithm is performed via <em>MATLAB/Simulink</em> with the <em>Embedeed Coder Toolbox</em>. Other toolboxes may be required. Code generation can be launch with <em>MATLAB</em> using</p>
-<div class="fragment"><div class="line">addpath(&#39;./matlab-tools&#39;);</div>
+<p >Code generation of the control algorithm is performed via <em>MATLAB/Simulink</em> with the <em>Embedded Coder Toolbox</em>. Other toolboxes may be required. Code generation can be launch with <em>MATLAB</em> using</p>
+<div class="fragment"><div class="line">startup;</div>
 <div class="line">gencode()</div>
 </div><!-- fragment --><p >The general usage of this function is</p>
-<div class="fragment"><div class="line">addpath(&#39;./matlab-tools&#39;);</div>
+<div class="fragment"><div class="line">startup;</div>
 <div class="line">gencode(modelname,dest_dir);</div>
 </div><!-- fragment --><p >where <code>modelname</code> is the name of the Simulink model (without the <code>*.slx</code> extension included), while <code>dest_dir</code> is the destination directory: generated code is placed in <code>./dest_dir/modelname/src</code>. If no modelname is given, the function uses the first <code>*.slx</code> file found in the current directory. If no destination directory is given, the functions uses <code>./lib</code>. Code generation may be also performed using <em>make</em>, however this may take some time.</p>
 <dl class="section note"><dt>Note</dt><dd>Toolboxes required by the code generation can be shown by running in MATLAB</dd></dl>
-<div class="fragment"><div class="line">addpath(&#39;./matlab-tools&#39;);</div>
+<div class="fragment"><div class="line">startup;</div>
 <div class="line">check_toolbox();</div>
 </div><!-- fragment --><dl class="section attention"><dt>Attention</dt><dd>For a correct usage in this project the above functions should be run in the main directory, and not in <code>./matlab-tools/</code>.</dd></dl>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Building</h1>
-<p >Compilation is performed using the <em>arduino-builder</em>. Shell scripts provide simple usage depending on the operative system:</p>
+<p >Compilation is performed using the <em>arduino-builder</em>. Bash scripts provide simple usage depending on the operative system:</p>
 <ul>
 <li><p class="startli">Linux:</p>
 <div class="fragment"><div class="line">./build_linux.sh</div>
@@ -190,7 +195,7 @@ Building</h1>
 </li>
 <li>MacOS: not implemented yet, however it should be similar to Linux.</li>
 </ul>
-<p >Alternatively, one can use <code>ctrl+shift+B</code> to build the code in <em>Visual Studio Code</em> with both Linux and Windows (this makes use of <code>build_linux.sh</code> or <code>build_win.sh</code> depending on the operative system).</p>
+<p >Alternatively, one can use <code>ctrl+shift+B</code> to build the code in <em>Visual Studio Code</em> with both Linux and Windows (this makes use of <code>build_linux.sh</code> or <code>build_win.sh</code> depending on the operative system). One may also use <em>make</em> the building and uploading.</p>
 <dl class="section note"><dt>Note</dt><dd>The above shell scripts perform both the building and the uploading: it is not possible to build or upload only.</dd></dl>
 <h1><a class="anchor" id="autotoc_md6"></a>
 Make tools</h1>
@@ -202,10 +207,6 @@ Make tools</h1>
 <li><code>make clean</code> to clean the build and cache directories</li>
 <li><code>make remake</code> to clean, build and upload the code</li>
 <li><code>make rebuild</code> to clean and rebuild</li>
-<li><code>make gencode</code> to generate the code from the Simulink model <dl class="section note"><dt>Note</dt><dd>This may take some time. </dd></dl>
-<dl class="section attention"><dt>Attention</dt><dd>This requires (at least) MATLAB/Simulink &gt;= 2022a with the Embedeed code installed</dd></dl>
-</li>
-<li><code>make checktoolboxes</code> to check the MATLAB toolboxes required by the code generation</li>
 <li><code>make doc</code> to build the documentation</li>
 <li><code>make cleandoc</code> to clean the documentation</li>
 <li><code>make help</code> to print the Makefile help</li>

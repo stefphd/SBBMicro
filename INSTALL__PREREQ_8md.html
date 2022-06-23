@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SBB Micro: Software</title>
+<title>SBB Micro: INSTALL_PREREQ.md File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -81,7 +81,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('md_docs_extra_software.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('INSTALL__PREREQ_8md.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -99,53 +99,16 @@ $(document).ready(function(){initNavTree('md_docs_extra_software.html',''); init
 </iframe>
 </div>
 
-<div><div class="header">
-  <div class="headertitle"><div class="title">Software </div></div>
+<div class="header">
+  <div class="headertitle"><div class="title">INSTALL_PREREQ.md File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p >The software documentation is divided in modules, in particular:</p>
-<ul>
-<li>Entry-point function: describes the documentation for the entry-point function, i.e. <a class="el" href="group__mainfun.html#gae66f6b31b5ad750f1fe042a706a4e3d4" title="Entry-point function.">main()</a></li>
-<li>Configurations: contains general configurations, mainly using the*Define* directive. This module is in turn divided in sub-modules:<ul>
-<li>Bus settings: configuration parameters for buses (e.g. SPI, UART, etc.)</li>
-<li>Pin settings: configuration parameters for pin used</li>
-<li>Constants: factors and constants</li>
-<li>Macro: definition of macros used</li>
-<li>User parametets: general user-defined parameters</li>
-</ul>
-</li>
-<li>Variables: declaration of the variables and objects</li>
-<li>User functions: general user functions used in <a class="el" href="group__mainfun.html#gae66f6b31b5ad750f1fe042a706a4e3d4" title="Entry-point function.">main()</a>. These deals with sensor reading, control loop execution, driver setting, and error checking</li>
-<li>Data logging: functions for data logging</li>
-<li>MTP: functions for the MTP mode</li>
-<li>Debugging: functions for debugging and signal straming to and from PC</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md22"></a>
-Basic code</h1>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Basic code description (i.e. the user functions)</dd></dl>
-<h1><a class="anchor" id="autotoc_md23"></a>
-Data logging</h1>
-<p >By default the microcontroller logs the input and output signal of the control loop. THe log file has extension <code>*.sbb</code> and is saved in the internal SD memory, which can be read using the MTP mode. The log file is a binary file, containing a number of data chunk consisting of 64-floats, each of them having 4 bytes. For example, the data may be read from MATLAB using</p>
-<div class="fragment"><div class="line">fid = fopen(logfilename); %id of the log file (extension *.sbb)</div>
-<div class="line">data_vector = fread(fid,&#39;single&#39;); %vectorized data (single, i.e. float)</div>
-<div class="line">N = numel(data_vector)/64; %number of samples logged</div>
-<div class="line">data_matrix = reshape(data_vector, [64, N])&#39;; %reshape to have N x 64 matrix data, i.e. each column is a signal</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md24"></a>
-MTP mode</h1>
-<p >MTP mode allows to recognize the microcontroller as an MTP device (see e.g. <a href="https://en.wikipedia.org/wiki/Media_Transfer_Protocol">https://en.wikipedia.org/wiki/Media_Transfer_Protocol</a>), in order to be capable of getting log files (with extension <code>*.sbb</code>) from the internal SD memory. To enter in MTP mode, it is sufficient to keep the on/off button pressed for at least 3s when turning on. To get the MTP mode working in the PC side:</p>
-<ul>
-<li>Windows: no additional operation is usually necessary, the microcontroller should be automatically recognized as an MTP device</li>
-<li>Linux: install*gMTP* (from<a href="https://gmtp.sourceforge.io/downloads.htmls">https://gmtp.sourceforge.io/downloads.htmls</a>), which is a MTP client for UNIX and UNIX like systems (this should include the*libmtp* library)</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md25"></a>
-Debugging</h1>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Describe signal streaming and debugging to and from PC </dd></dl>
-</div></div><!-- contents -->
-</div><!-- PageDoc -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="INSTALL__PREREQ_8md.html">INSTALL_PREREQ.md</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>

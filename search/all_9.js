@@ -10,5 +10,7 @@ var searchData=
   ['imudata_5fraw_7',['imuData_raw',['../group__vars.html#ga1c6e87d68fa180323cd2c95c911a7eea',1,'objects.h']]],
   ['include_2eh_8',['include.h',['../include_8h.html',1,'']]],
   ['init_9',['init',['../classHostPort.html#acd74fb8ff2616807297d7a36be270f30',1,'HostPort']]],
-  ['introduction_10',['Introduction',['../index.html',1,'']]]
+  ['install_5fprereq_2emd_10',['INSTALL_PREREQ.md',['../INSTALL__PREREQ_8md.html',1,'']]],
+  ['installation_20of_20the_20pre_2drequisites_11',['Installation of the pre-requisites',['../md_INSTALL_PREREQ.html',1,'']]],
+  ['introduction_12',['Introduction',['../index.html',1,'']]]
 ];
