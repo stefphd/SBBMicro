@@ -21,4 +21,4 @@ lib/*/CMakeLists.txt
 hardware/*backups*
 hardware/*bak*
 hardware/*cache*
-doc/html
+docs/html
