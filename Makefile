@@ -87,7 +87,7 @@ cleandoc:
 ifeq ($(OS), Linux)
 	@$(RM) -rf $(DOCS_PATH)/html
 else ifeq ($(OS), Windows_NT)
-	@rmdir /S /Q "$(DOCS_PATH)/html"
+	@if exist "$(DOCS_PATH)/html" @rmdir /S /Q "$(DOCS_PATH)/html"
 endif
 
 #Remake
@@ -102,8 +102,8 @@ ifeq ($(OS), Linux)
 	@$(RM) -rf $(BUILD_PATH)
 	@$(RM) -rf $(CACHE_PATH)
 else ifeq ($(OS), Windows_NT)
-	@rmdir /S /Q "$(BUILD_PATH)"
-	@rmdir /S /Q "$(CACHE_PATH)"
+	@if exist "$(BUILD_PATH)" @rmdir /S /Q "$(BUILD_PATH)"
+	@if exist "$(CACHE_PATH)" @rmdir /S /Q "$(CACHE_PATH)"
 endif
 
 #Clean all
