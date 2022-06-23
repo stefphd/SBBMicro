@@ -110,34 +110,34 @@ int main() {
 
 	while(1) {
 		if ((micros() - sampling_timer) >= SAMPLING_TIME) {
-		timing.dt_cycle = micros() - sampling_timer; //cycle time (should be equal to SAMPLING_TIME)
-		sampling_timer = micros(); //update timer
-		
-		//get sensor readings
-		get_sensors();
+			timing.dt_cycle = micros() - sampling_timer; //cycle time (should be equal to SAMPLING_TIME)
+			sampling_timer = micros(); //update timer
+			
+			//get sensor readings
+			get_sensors();
 
-		//do control loop
-		do_control();
+			//do control loop
+			do_control();
 
-		//check if errors 
-		check_error();
+			//check if errors 
+			check_error();
 
-		//do debug stuff if necessary (otherwise do nothing)
-		do_debug();
+			//do debug stuff if necessary (otherwise do nothing)
+			do_debug();
 
-		//set drivers
-		set_driver();
+			//set drivers
+			set_driver();
 
-		//update duty cycle
-		timing.duty_cycle = micros() - sampling_timer; //duty cycle (i.e. time to do stuff), should be < SAMPLING_TIME, better < SAMPLING_TIME/2 to avoid large delay
+			//update duty cycle
+			timing.duty_cycle = micros() - sampling_timer; //duty cycle (i.e. time to do stuff), should be < SAMPLING_TIME, better < SAMPLING_TIME/2 to avoid large delay
 
-		//other secondary stuff below
+			//other secondary stuff below
 
-		//do logging stuff if necessary (otherwise do nothing)
-		do_logger();
-		
-		//do led stuff
-		do_led();
+			//do logging stuff if necessary (otherwise do nothing)
+			do_logger();
+			
+			//do led stuff
+			do_led();
 
 	}
 
