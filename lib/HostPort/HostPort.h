@@ -119,6 +119,8 @@ public:
 	//static constexpr
 	static constexpr uint32_t NULL_HEADER = 0x00000000; //!< Null header. \details The value used for no header.
 	static constexpr uint32_t NULL_TERMINATOR = 0x00000000; //!< Null terminator. \details The value used for no terminator.
+	static constexpr uint32_t DEF_HEADER = 0xFF812345; //!< 4-bytes default header of data packet. \details This value is an ovf in float, and thus it is safe.
+	static constexpr uint32_t DEF_TERMINATOR = 0xFF8CABDE; //!< 4-bytes terminator of data packet. \details This value is an ovf in float.
 
 private:
 
