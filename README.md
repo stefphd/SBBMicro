@@ -45,11 +45,11 @@ No other dependecies are necessary: all used libraries are already included in `
 
 Additional utilities (only recommended):
 
-* *teensyduino*: not stricktly necessary for compilation b/c core code for teensy MCU is already included in `./hardware/`
+* *teensyduino*: not stricktly necessary for compilation b/c core code for teensy MCU is already included in `./tools/`
 * *Visual Studio Code* with *C/C++* extension for code completation
 * *make* to build using the `Makefile`
 * *Doxygen* to generate the documentation
-* *KiCad* to open the schematic files in `./kicad`
+* *KiCad* to open the schematic files in `./hardware`
 
 See the installation guide for the pre-requisites for details.
 
@@ -105,10 +105,10 @@ where `modelname` is the name of the Simulink model (without the `*.slx` extensi
 
 \note Toolboxes required by the code generation can be shown by running in MATLAB
 
-  ```MATLAB
-  startup;
-  check_toolbox();
-  ```
+```MATLAB
+startup;
+check_toolbox();
+```
 
 \attention For a correct usage in this project the above functions should be run in the main directory, and not in `./matlab-tools/`.
 
@@ -117,25 +117,25 @@ where `modelname` is the name of the Simulink model (without the `*.slx` extensi
 Compilation is performed using the *arduino-builder*. Bash scripts provide simple usage depending on the operative system:
 
 * Linux:
-
+  
   ```bash
   ./build_linux.sh
   ```
-
+  
   or
-
+  
   ```bash
   bash build_linux.sh
   ```
-
+  
   \note Tested with Arch-Linux x64.
 
 * Windows:
-
+  
   ```bash
   ./build_win.bat
   ```
-
+  
   \note Tested with Windows 10 x64.
 
 * MacOS: not implemented yet, however it should be similar to Linux.
