@@ -23,6 +23,8 @@ var classHostPort =
     [ "_totSize_tx", "classHostPort.html#a089f66a2fc7c5b04df980721b8c57786", null ],
     [ "_tx_buf", "classHostPort.html#aed251db569905f1619c400e941c5c7c3", null ],
     [ "BUF_SIZE", "classHostPort.html#ab3ff3ba9f29807dcc630125c65709344", null ],
+    [ "DEF_HEADER", "classHostPort.html#a451ef44000a38527e4191ca7648fca2c", null ],
+    [ "DEF_TERMINATOR", "classHostPort.html#affacaa942ef29b89125afa1fea958af1", null ],
     [ "MASK", "classHostPort.html#a3a545c3efc1b521afd498f04adcbe713", null ],
     [ "MAX_OBJS", "classHostPort.html#a33e81a1842131529ddaa4d0d4b1c9c7d", null ],
     [ "NULL_HEADER", "classHostPort.html#ac97a5f2a1cf61386a88cc0f0e50085bb", null ],

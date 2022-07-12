@@ -148,6 +148,12 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a7794e15dbe6032516f44f4099aaa499e"><td class="memItemLeft" align="right" valign="top">static constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHostPort.html#a7794e15dbe6032516f44f4099aaa499e">NULL_TERMINATOR</a> = 0x00000000</td></tr>
 <tr class="memdesc:a7794e15dbe6032516f44f4099aaa499e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Null terminator.  <a href="classHostPort.html#a7794e15dbe6032516f44f4099aaa499e">More...</a><br /></td></tr>
 <tr class="separator:a7794e15dbe6032516f44f4099aaa499e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a451ef44000a38527e4191ca7648fca2c"><td class="memItemLeft" align="right" valign="top">static constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHostPort.html#a451ef44000a38527e4191ca7648fca2c">DEF_HEADER</a> = 0xFF812345</td></tr>
+<tr class="memdesc:a451ef44000a38527e4191ca7648fca2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">4-bytes default header of data packet.  <a href="classHostPort.html#a451ef44000a38527e4191ca7648fca2c">More...</a><br /></td></tr>
+<tr class="separator:a451ef44000a38527e4191ca7648fca2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affacaa942ef29b89125afa1fea958af1"><td class="memItemLeft" align="right" valign="top">static constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHostPort.html#affacaa942ef29b89125afa1fea958af1">DEF_TERMINATOR</a> = 0xFF8CABDE</td></tr>
+<tr class="memdesc:affacaa942ef29b89125afa1fea958af1"><td class="mdescLeft">&#160;</td><td class="mdescRight">4-bytes terminator of data packet.  <a href="classHostPort.html#affacaa942ef29b89125afa1fea958af1">More...</a><br /></td></tr>
+<tr class="separator:affacaa942ef29b89125afa1fea958af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -883,6 +889,56 @@ Static Private Attributes</h2></td></tr>
 
 <p>Buffer size. </p>
 <p >The size of the transmit and receive buffers. </p>
+
+</div>
+</div>
+<a id="a451ef44000a38527e4191ca7648fca2c" name="a451ef44000a38527e4191ca7648fca2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a451ef44000a38527e4191ca7648fca2c">&#9670;&nbsp;</a></span>DEF_HEADER</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t HostPort::DEF_HEADER = 0xFF812345</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>4-bytes default header of data packet. </p>
+<p >This value is an ovf in float, and thus it is safe. </p>
+
+</div>
+</div>
+<a id="affacaa942ef29b89125afa1fea958af1" name="affacaa942ef29b89125afa1fea958af1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affacaa942ef29b89125afa1fea958af1">&#9670;&nbsp;</a></span>DEF_TERMINATOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t HostPort::DEF_TERMINATOR = 0xFF8CABDE</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>4-bytes terminator of data packet. </p>
+<p >This value is an ovf in float. </p>
 
 </div>
 </div>
