@@ -347,7 +347,7 @@ const float mag_rotMat[3][3] = { {cosf(YINCL_MCUBOX), 0, sinf(YINCL_MCUBOX)},
 //#define SIN_TEST
 //#define TEST_DURATION 10e3
 //#define SIN_WAVE 4
-#define IMP_TEST					//!< Flag for impulse test. \details Impulse test consists of a cosine-shaped impulse with amplitude #IMP_AMP and duration #IMP_DUR. 
+//#define IMP_TEST					//!< Flag for impulse test. \details Impulse test consists of a cosine-shaped impulse with amplitude #IMP_AMP and duration #IMP_DUR. 
 #define IMP_DUR				100 	//!< Impulse duration (ms). \see IMP_TEST
 #define IMP_AMP				-10.0 	//!< Impulse amplitude (A). \see IMP_TEST
 
