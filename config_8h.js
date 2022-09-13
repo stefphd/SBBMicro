@@ -56,7 +56,6 @@ var config_8h =
     [ "GYROZ_OFFSET", "group__constants.html#ga2676a196647e348b0c882a47a0176868", null ],
     [ "IMP_AMP", "group__userparams.html#gaaf9e5d5232e5a152ef8917998538b43e", null ],
     [ "IMP_DUR", "group__userparams.html#ga71bbdfefc586dcb12cf9649ffefb2b32", null ],
-    [ "IMP_TEST", "group__userparams.html#ga687a24139978d54891dc37c6d30e903b", null ],
     [ "IMU_SAMPLING_FAC", "group__constants.html#ga3b0911f48b2f93535655fc0eb773ea9d", null ],
     [ "LEDOFF", "group__macros.html#gab5af97f90bb65204696431f93005c060", null ],
     [ "LEDON", "group__macros.html#ga93b988914e9a59230d1ace60329816c0", null ],

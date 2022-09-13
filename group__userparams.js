@@ -5,7 +5,6 @@ var group__userparams =
     [ "FULLEXT_FORKDISP", "group__userparams.html#ga2635709fc71b4c669dce3234d4d378ff", null ],
     [ "IMP_AMP", "group__userparams.html#gaaf9e5d5232e5a152ef8917998538b43e", null ],
     [ "IMP_DUR", "group__userparams.html#ga71bbdfefc586dcb12cf9649ffefb2b32", null ],
-    [ "IMP_TEST", "group__userparams.html#ga687a24139978d54891dc37c6d30e903b", null ],
     [ "MTR_CTRL_MODE", "group__userparams.html#gaab127c827040328f9b72d0e28500bf4a", null ],
     [ "NAN_VAL", "group__userparams.html#ga1ada7fd1f94ea9dae26b2767bf35d3ee", null ],
     [ "NUM_ZERO_SAMPLES", "group__userparams.html#gaf1343cba3fa95d5715b27fa9404da2bd", null ],
