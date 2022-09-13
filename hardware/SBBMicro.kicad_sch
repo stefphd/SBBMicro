@@ -50,12 +50,6 @@
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/ca624f6d-116d-4837-a337-333727cbbe92"
       (reference "#PWR0101") (unit 1) (value "GND") (footprint "")
     )
-    (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/0994775c-2b63-429e-9c12-798c84765ae3"
-      (reference "#PWR0102") (unit 1) (value "+3V3") (footprint "")
-    )
-    (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/94cbf322-9e84-43e5-99b3-7bc19298acc2"
-      (reference "#PWR0103") (unit 1) (value "+3V3") (footprint "")
-    )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/87fe38e1-f28d-4b20-8d55-141d2b301caa"
       (reference "#PWR0104") (unit 1) (value "GND") (footprint "")
     )
@@ -136,6 +130,9 @@
     )
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/8c51fd34-4eda-46ff-a992-802c18d0889e"
       (reference "#PWR0130") (unit 1) (value "+3V3") (footprint "")
+    )
+    (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/a5d42194-44b0-4b1f-88a5-d8f53f63dd0c"
+      (reference "#PWR?") (unit 1) (value "+5V") (footprint "")
     )
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/895b4c1e-afb3-4de5-90cf-f099fdd63ce1"
       (reference "C1") (unit 1) (value "100uC") (footprint "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm")
