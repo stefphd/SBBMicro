@@ -271,6 +271,7 @@ void do_control(void) {
 	if (enable_new != 0 && (test_timer <= IMP_DUR)) {
 		ctrl.controlModel_Y.curr_ref = 0.5F*IMP_AMP*(1.0F - cosf(2*PI*float(test_timer)/float(IMP_DUR)))*float(enable_new);
 	} 
+	return;
 	#endif
 
 	#ifdef SWEEP_TEST
