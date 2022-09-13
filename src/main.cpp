@@ -115,7 +115,10 @@ int main() {
 			
 			//get sensor readings
 			get_sensors();
-
+			
+			//set ctrl input-output
+			set_ctrl_input();
+			
 			//do control loop
 			do_control();
 
