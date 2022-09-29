@@ -91,7 +91,7 @@ Code generation of the control algorithm is performed via *MATLAB/Simulink* with
 
 ```MATLAB
 startup;
-gencode()
+gencode
 ```
 
 The general usage of this function is
@@ -157,6 +157,34 @@ One may also use *make* for the building, uploading and the documentation genera
 * `make doc` to build the documentation
 * `make cleandoc` to clean the documentation
 * `make help` to print the Makefile help
+
+\note The above commands can be also used at the same time, e.g. `make build doc` to build and generate the documentation.
+
+## MATLAB make
+
+As an alternative to `make` and `gencode`, the code generation, buiding and uploading may be also performed at the same time from within the MATLAB command window. This employs a MATLAB function name `make` in `./matlab-tool/`. The function must be used inside MATLAB with the following syntax:
+
+- `make all` or just `make` to generate code from the Simulink model, build and upload
+
+- `make gencode` to generate the code only from the Simulink model. Note that this corresponds to call `gencode` with no input arguments, i.e. the first `*.slx` file found is used
+
+- `make build` to build the code
+
+- `make upload` to upload the code
+
+- `make clean` to clean the build and cache directories
+
+- `make remake` to clean, build and upload the code
+
+- `make rebuild` to clean and rebuild
+
+- `make doc` to build the documentation
+
+- `make cleandoc` to clean the documentation
+
+- `make help` to print the help.
+
+\note Note that this function is in pratice a wrapper around the function `gencode` and the standard `make` commands. Therefore, the function usage is similar to that of `make`.
 
 \note The above commands can be also used at the same time, e.g. `make build doc` to build and generate the documentation.
 
