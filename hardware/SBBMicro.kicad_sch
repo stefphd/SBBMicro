@@ -134,6 +134,9 @@
     (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/a5d42194-44b0-4b1f-88a5-d8f53f63dd0c"
       (reference "#PWR?") (unit 1) (value "+5V") (footprint "")
     )
+    (path "/7406a0ae-5ed6-4102-affb-dc80211b3149/d684b765-f5c2-4f33-ae67-80a66e1e6291"
+      (reference "#PWR?") (unit 1) (value "+5V") (footprint "")
+    )
     (path "/a368370e-7d23-427d-bebc-1d7a69cf7258/895b4c1e-afb3-4de5-90cf-f099fdd63ce1"
       (reference "C1") (unit 1) (value "100uC") (footprint "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm")
     )
