@@ -162,7 +162,7 @@ One may also use *make* for the building, uploading and the documentation genera
 
 ## MATLAB make
 
-As an alternative to `make` and `gencode`, the code generation, buiding and uploading may be also performed at the same time from within the MATLAB command window. This employs a MATLAB function name `make` in `./matlab-tool/`. The function must be used inside MATLAB with the following syntax:
+As an alternative to `make` and `gencode`, the code generation, buiding, uploading and documentation generation may be also performed at the same time from within the MATLAB command window. This employs a MATLAB function name `make` in `./matlab-tool/`. The function must be used inside MATLAB with the following syntax:
 
 - `make all` or just `make` to generate code from the Simulink model, build and upload
 
@@ -184,7 +184,7 @@ As an alternative to `make` and `gencode`, the code generation, buiding and uplo
 
 - `make help` to print the help.
 
-\note Note that this function is in pratice a wrapper around the function `gencode` and the standard `make` commands. Therefore, the function usage is similar to that of `make`.
+\note Note that this function emulates the function `gencode` and the standard `make` commands. However, it does not require having `make` installed but only `docygen` for the generation of the documentation.
 
 \note The above commands can be also used at the same time, e.g. `make build doc` to build and generate the documentation.
 
