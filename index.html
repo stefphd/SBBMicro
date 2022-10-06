@@ -221,7 +221,7 @@ Make tools</h1>
 <dl class="section note"><dt>Note</dt><dd>The above commands can be also used at the same time, e.g. <code>make build doc</code> to build and generate the documentation.</dd></dl>
 <h1><a class="anchor" id="autotoc_md7"></a>
 MATLAB make</h1>
-<p >As an alternative to <code>make</code> and <code>gencode</code>, the code generation, buiding and uploading may be also performed at the same time from within the MATLAB command window. This employs a MATLAB function name <code>make</code> in <code>./matlab-tool/</code>. The function must be used inside MATLAB with the following syntax:</p>
+<p >As an alternative to <code>make</code> and <code>gencode</code>, the code generation, buiding, uploading and documentation generation may be also performed at the same time from within the MATLAB command window. This employs a MATLAB function name <code>make</code> in <code>./matlab-tool/</code>. The function must be used inside MATLAB with the following syntax:</p>
 <ul>
 <li><code>make all</code> or just <code>make</code> to generate code from the Simulink model, build and upload</li>
 <li><code>make gencode</code> to generate the code only from the Simulink model. Note that this corresponds to call <code>gencode</code> with no input arguments, i.e. the first <code>*.slx</code> file found is used</li>
@@ -234,7 +234,7 @@ MATLAB make</h1>
 <li><code>make cleandoc</code> to clean the documentation</li>
 <li><code>make help</code> to print the help.</li>
 </ul>
-<dl class="section note"><dt>Note</dt><dd>Note that this function is in pratice a wrapper around the function <code>gencode</code> and the standard <code>make</code> commands. Therefore, the function usage is similar to that of <code>make</code>.</dd>
+<dl class="section note"><dt>Note</dt><dd>Note that this function emulates the function <code>gencode</code> and the standard <code>make</code> commands. However, it does not require having <code>make</code> installed but only <code>docygen</code> for the generation of the documentation.</dd>
 <dd>
 The above commands can be also used at the same time, e.g. <code>make build doc</code> to build and generate the documentation.</dd></dl>
 <h1><a class="anchor" id="autotoc_md8"></a>
