@@ -12,7 +12,7 @@
 	\details The class manages the communication between a microcontroller and 
 	a host PC via USB/serial. The trasmitted or received data packets consists of:
 	- A possible 4-bytes header (disabled with HostPort::NULL_HEADER).
-	- The data bytes, for a maximum of BUF_SIZE bytes with MAX_OBJS objects.
+	- The data bytes, for a maximum of HostPort::BUF_SIZE bytes with HostPort::MAX_OBJS objects.
 	- A possible 4-bytes terminator (disabled with HostPort::NULL_TERMINATOR).
 
 	The HostPort object is created using
@@ -26,14 +26,14 @@
 	HostPort hostPort(&Serial, header, terminator); //with header and terminator
 	```
 
-	Objects can be attached to the trasmit buffer using (for a maximum of MAX_OBJS objects)
+	Objects can be attached to the trasmit buffer using (for a maximum of HostPort::MAX_OBJS objects)
 	
 	```c++
 	hostPort.attachTx((uint8_t*) &object1, sizeof(object1));
 	hostPort.attachTx((uint8_t*) &object2, sizeof(object2));
 	```
 
-	Objects can be attached to the receive buffer using (for a maximum of MAX_OBJS objects)
+	Objects can be attached to the receive buffer using (for a maximum of HostPort::MAX_OBJS objects)
 	
 	```c++
 	hostPort.attachRx((uint8_t*) &object3, sizeof(object3));
