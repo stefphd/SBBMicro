@@ -355,6 +355,7 @@ void set_driver(void) {
 	digitalWriteFast(MTR_DIR_PIN, (ctrl.controlModel_Y.curr_ref >= 0) ? CW : !CW);
 	digitalWriteFast(MTR_EN_PIN, (enable) ? MTR_EN_STATE : !MTR_EN_STATE);
 
+#if EN_LONG_CTRL==1
 	//set throttle signal
 	dac.analogWrite(DAC_THROTTLE_CH, (ctrl.controlModel_Y.throttle_ref >= 0 && enable) ? 
 									 constrain(CONVERT_TRHOTTLE_TO_DAC(ctrl.controlModel_Y.throttle_ref), 0, pow(2, DAC_RES) - 1) :
@@ -371,6 +372,7 @@ void set_driver(void) {
 		BR_ENABLE;
 		brakeMotor.moveAbsAsync(brake_motor_position);							 
 	}
+#endif
 	
 
 	//set other stuff below

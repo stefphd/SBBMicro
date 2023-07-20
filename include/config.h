@@ -331,6 +331,7 @@
 
 #define CPU_FREQ			600e6 //!< CPU clock speed (Hz). /warning Maximum value is 816e6 without cooling. \see https://www.pjrc.com/store/teensy40.html
 #define MTR_CTRL_MODE		1 //!< Control mode of steer motor (0=PWM or 1=DAC). \warning This setting must be consistent with ESCON Studio.
+#define EN_LONG_CTRL		0 //!< Enable the longitudinal control.
 #define CW					LOW //!< Digital pin state for clockwise torque.
 #define NUM_ZERO_SAMPLES	500 //!< Samples used to perform the zero of sensors.
 #define STEERVEL_RATIO		(36*1.25) //!< Speed ratio of steer velocity. \details Values from Simulink model.
