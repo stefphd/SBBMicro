@@ -56,7 +56,7 @@ HARDWARE		:= -hardware ./tools
 FQBN			:= -fqbn=teensy:avr:$(BOARD):$(BOARD_OPTIONS)
 LIBRARIES		:= -libraries ./ -libraries ./include/ -libraries ./lib/
 TOOLS			:= -tools "$(BUILD_TOOLS)" -tools "$(ARDUINO_FOLDER)/tools-builder"
-FLAGS			:= #-verbose
+FLAGS			:= -warnings none #-verbose
 
 #---------------------------------------------------------------------------------
 # DO NOT EDIT BELOW THIS LINE
