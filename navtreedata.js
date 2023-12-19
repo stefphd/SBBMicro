@@ -26,34 +26,34 @@ var NAVTREE =
 [
   [ "SBB Micro", "index.html", [
     [ "Introduction", "index.html", "index" ],
-    [ "Installation of the pre-requisites", "md_INSTALL_PREREQ.html", [
-      [ "Windows", "md_INSTALL_PREREQ.html#autotoc_md10", [
-        [ "Arduino builder", "md_INSTALL_PREREQ.html#autotoc_md11", null ],
-        [ "Visual Studio Code", "md_INSTALL_PREREQ.html#autotoc_md12", null ],
-        [ "Make and Doxygen", "md_INSTALL_PREREQ.html#autotoc_md13", null ],
-        [ "Teensyduino", "md_INSTALL_PREREQ.html#autotoc_md14", null ],
-        [ "KiCAD", "md_INSTALL_PREREQ.html#autotoc_md15", null ]
+    [ "Installation of the pre-requisites", "md_INSTALL__PREREQ.html", [
+      [ "Windows", "md_INSTALL__PREREQ.html#autotoc_md10", [
+        [ "Arduino builder", "md_INSTALL__PREREQ.html#autotoc_md11", null ],
+        [ "Visual Studio Code", "md_INSTALL__PREREQ.html#autotoc_md12", null ],
+        [ "Make and Doxygen", "md_INSTALL__PREREQ.html#autotoc_md13", null ],
+        [ "Teensyduino", "md_INSTALL__PREREQ.html#autotoc_md14", null ],
+        [ "KiCAD", "md_INSTALL__PREREQ.html#autotoc_md15", null ]
       ] ],
-      [ "Linux", "md_INSTALL_PREREQ.html#autotoc_md16", null ],
-      [ "MacOS", "md_INSTALL_PREREQ.html#autotoc_md17", null ],
-      [ "Embedded Coder Toolbox (MATLAB)", "md_INSTALL_PREREQ.html#autotoc_md18", null ]
+      [ "Linux", "md_INSTALL__PREREQ.html#autotoc_md16", null ],
+      [ "MacOS", "md_INSTALL__PREREQ.html#autotoc_md17", null ],
+      [ "Embedded Coder Toolbox (MATLAB)", "md_INSTALL__PREREQ.html#autotoc_md18", null ]
     ] ],
-    [ "Hardware", "md_docs_extra_hardware.html", [
-      [ "Low-voltage box", "md_docs_extra_hardware.html#autotoc_md20", null ],
-      [ "High-voltage box", "md_docs_extra_hardware.html#autotoc_md21", null ],
-      [ "Connections", "md_docs_extra_hardware.html#autotoc_md22", [
-        [ "LV schematics", "md_docs_extra_hardware.html#autotoc_md23", null ],
-        [ "HV schematics", "md_docs_extra_hardware.html#autotoc_md24", null ]
+    [ "Hardware", "md_docs_2extra_2hardware.html", [
+      [ "Low-voltage box", "md_docs_2extra_2hardware.html#autotoc_md20", null ],
+      [ "High-voltage box", "md_docs_2extra_2hardware.html#autotoc_md21", null ],
+      [ "Connections", "md_docs_2extra_2hardware.html#autotoc_md22", [
+        [ "LV schematics", "md_docs_2extra_2hardware.html#autotoc_md23", null ],
+        [ "HV schematics", "md_docs_2extra_2hardware.html#autotoc_md24", null ]
       ] ]
     ] ],
-    [ "Software", "md_docs_extra_software.html", [
-      [ "Basic code", "md_docs_extra_software.html#autotoc_md26", null ],
-      [ "Data logging", "md_docs_extra_software.html#autotoc_md27", null ],
-      [ "MTP mode", "md_docs_extra_software.html#autotoc_md28", null ],
-      [ "Debugging", "md_docs_extra_software.html#autotoc_md29", null ]
+    [ "Software", "md_docs_2extra_2software.html", [
+      [ "Basic code", "md_docs_2extra_2software.html#autotoc_md26", null ],
+      [ "Data logging", "md_docs_2extra_2software.html#autotoc_md27", null ],
+      [ "MTP mode", "md_docs_2extra_2software.html#autotoc_md28", null ],
+      [ "Debugging", "md_docs_2extra_2software.html#autotoc_md29", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
-    [ "Modules", "modules.html", "modules" ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [

@@ -10,6 +10,7 @@ var searchData=
   ['include_2eh_7',['include.h',['../include_8h.html',1,'']]],
   ['init_8',['init',['../classHostPort.html#acd74fb8ff2616807297d7a36be270f30',1,'HostPort']]],
   ['install_5fprereq_2emd_9',['INSTALL_PREREQ.md',['../INSTALL__PREREQ_8md.html',1,'']]],
-  ['installation_20of_20the_20pre_2drequisites_10',['Installation of the pre-requisites',['../md_INSTALL_PREREQ.html',1,'']]],
-  ['introduction_11',['Introduction',['../index.html',1,'']]]
+  ['installation_20of_20the_20pre_20requisites_10',['Installation of the pre-requisites',['../md_INSTALL__PREREQ.html',1,'']]],
+  ['introduction_11',['Introduction',['../index.html',1,'']]],
+  ['issues_12',['issues',['../index.html#autotoc_md8',1,'Known issues'],['../todo.html#_todo000001',1,'Known issues']]]
 ];

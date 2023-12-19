@@ -19,5 +19,5 @@ var group__bus =
     [ "UART_GPS", "group__bus.html#ga5c879f0ea6a82691cde0c7bc6acb114c", null ],
     [ "UART_SBUS", "group__bus.html#ga2c97f67718d63af8c0c12d1da0db6e06", null ],
     [ "UART_SPEEDSENS", "group__bus.html#ga02867a687d1d1e1e993c7302e5b33da4", null ],
-    [ "USED_SPI", "group__bus.html#ga175e9f39223b6eedc734418340c87c13", null ]
+    [ "USED_SPI", "group__bus.html#ga3dcd0bd18ed783c9d782b0be430ad165", null ]
 ];

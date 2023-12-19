@@ -1,17 +1,15 @@
 var searchData=
 [
-  ['read_0',['read',['../classHostPort.html#a91186034efa57e109445765314f6b64f',1,'HostPort']]],
-  ['readme_2emd_1',['README.md',['../README_8md.html',1,'']]],
-  ['relay_5fen_5fpin_2',['RELAY_EN_PIN',['../group__pin.html#gaed8e55358b7a10a3843ed8402143fc28',1,'config.h']]],
-  ['relay_5fen_5fstate_3',['RELAY_EN_STATE',['../group__macros.html#ga7522f7e19118b196c8e8c167fcf21e04',1,'config.h']]],
-  ['relay_5fenable_4',['RELAY_ENABLE',['../group__macros.html#gac79e5ea1f6f7d9954561e6ed22fbb168',1,'config.h']]],
-  ['remote_5fraw_5',['remote_raw',['../group__vars.html#ga1bfad5bd762f1797f73ee58a1e78c888',1,'objects.h']]],
-  ['remotectrl_6',['RemoteCtrl',['../structRemoteCtrl.html',1,'']]],
-  ['rider_5ftrq_7',['RIDER_TRQ',['../group__pin.html#ga1972e102d147b0783e4ce14aaa8b2066',1,'config.h']]],
-  ['ridertorque_8',['RiderTorque',['../structRiderTorque.html',1,'']]],
-  ['ridertorque_9',['riderTorque',['../structRiderTorque.html#ae04e1cc9e40f59adebd3c66ca389d27b',1,'RiderTorque']]],
-  ['ridertorque_5foffset_10',['riderTorque_offset',['../structRiderTorque.html#a7b45fe5bf3d719533608a4ea62849565',1,'RiderTorque']]],
-  ['ridertorque_5fraw_11',['riderTorque_raw',['../group__vars.html#gab160016dad586229de1321833886d5f1',1,'objects.h']]],
-  ['ring_5fbuf_5fsize_12',['RING_BUF_SIZE',['../group__logfun.html#ga3f905678aa4ffbb3eb713cb039dd9053',1,'logger.h']]],
-  ['rx_5fpacket_13',['rx_packet',['../group__debfun.html#gaac48454b9a24d0e09c188069fa91ce80',1,'debug.h']]]
+  ['paramters_0',['User paramters',['../group__userparams.html',1,'']]],
+  ['pin_20settings_1',['Pin settings',['../group__pin.html',1,'']]],
+  ['point_20function_2',['Entry-point function',['../group__mainfun.html',1,'']]],
+  ['power_5foff_3',['POWER_OFF',['../group__macros.html#gae8131694b06a62416e7b799b129de381',1,'config.h']]],
+  ['pre_20requisites_4',['pre requisites',['../md_INSTALL__PREREQ.html',1,'Installation of the pre-requisites'],['../index.html#autotoc_md2',1,'Pre-requisites']]],
+  ['prealloc_5',['PREALLOC',['../group__logfun.html#ga9dadacd5ee41d21ea8974d66757983dd',1,'logger.h']]],
+  ['prototypes_2eh_6',['prototypes.h',['../prototypes_8h.html',1,'']]],
+  ['pwm_5ffreq_7',['PWM_FREQ',['../group__bus.html#ga76fe84d83b8d236bd4f0d20d7e2ed06f',1,'config.h']]],
+  ['pwm_5fmax_8',['PWM_MAX',['../group__bus.html#ga391fa1e490bd712720989b58fa0d9904',1,'config.h']]],
+  ['pwm_5fmin_9',['PWM_MIN',['../group__bus.html#ga6a06d5e0af804c23442d316bd0b873d6',1,'config.h']]],
+  ['pwm_5fpin_10',['PWM_PIN',['../group__pin.html#gaf5a48adc9d939102a42f2829b7a1b8ac',1,'config.h']]],
+  ['pwm_5fres_11',['PWM_RES',['../group__bus.html#ga4ff4dc1e0eb4081e51c557b1233c3e63',1,'config.h']]]
 ];

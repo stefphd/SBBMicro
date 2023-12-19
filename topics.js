@@ -1,4 +1,4 @@
-var modules =
+var topics =
 [
     [ "Entry-point function", "group__mainfun.html", "group__mainfun" ],
     [ "Configurations", "group__config.html", "group__config" ],

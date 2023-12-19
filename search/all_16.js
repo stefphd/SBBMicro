@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zero_5fsbus_0',['ZERO_SBUS',['../group__constants.html#gaf4d14a11e52496d405c18f9a409366ac',1,'config.h']]]
+  ['yincl_5fmcubox_0',['YINCL_MCUBOX',['../group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4',1,'config.h']]]
 ];
