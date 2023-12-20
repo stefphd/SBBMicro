@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: SBBMicro
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Stefano
+    family-names: Lovato
+    affiliation: University of Padova
+    orcid: 'https://orcid.org/0000-0003-3892-7816'
+repository-code: 'https://github.com/stefphd/SBBMicro'
+url: 'https://stefphd.github.io/SBBMicro/index.html'
+keywords:
+  - SBBMicro
+  - ActiSA
+  - Active steering
+license: MIT
