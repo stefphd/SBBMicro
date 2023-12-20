@@ -38,6 +38,7 @@ var group__constants =
     [ "MIN_SBUS", "group__constants.html#ga576da65404ec571af0c8ce3858421de3", null ],
     [ "MIN_VOLTAGE", "group__constants.html#ga34badbf9acae6cc5c2eed2ab51b32d30", null ],
     [ "MTP_LED", "group__constants.html#ga78e83fa846657dc71872e35d38cd431a", null ],
+    [ "MTPWAIT_LED", "group__constants.html#ga6d4fcc1ed94d0e040cae2ad8712c149d", null ],
     [ "NUM_CH_SBUS", "group__constants.html#gac5e68d0d1856c33a59fb9e7b7a84530c", null ],
     [ "OFFSET_ACTCURR", "group__constants.html#ga5479339e5cd312b2d432e81b111c9da5", null ],
     [ "OFFSET_FORKDISP", "group__constants.html#gaba90314ffb6a5ae22fddf18beabf82ed", null ],

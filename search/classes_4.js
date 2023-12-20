@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gpsdata_0',['GPSData',['../structGPSData.html',1,'']]]
+  ['hostport_0',['HostPort',['../classHostPort.html',1,'']]]
 ];

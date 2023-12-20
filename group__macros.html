@@ -127,7 +127,7 @@ Macros</h2></td></tr>
 <tr class="memitem:gaf848cbd1d7243c93a2b24e291c1bc101" id="r_gaf848cbd1d7243c93a2b24e291c1bc101"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gaf848cbd1d7243c93a2b24e291c1bc101">CONVERT_STEERVEL_TO_RADPS</a>(X)&#160;&#160;&#160;((<a class="el" href="group__constants.html#ga80746903d4e2b2a10bbcb0b87ba0e7a4">GAIN_STEERVEL</a> * X / (powf(2, <a class="el" href="group__bus.html#gab298faea909e0aa62203195aa3d6ca80">ADC_RES</a>) - 1) + <a class="el" href="group__constants.html#ga210b074bb7b10e7b910ac99f84fc390f">OFFSET_STEERVEL</a>)/<a class="el" href="group__userparams.html#ga8395bd4f9136d83d19f90e0a1790f619">STEERVEL_RATIO</a>)</td></tr>
 <tr class="memdesc:gaf848cbd1d7243c93a2b24e291c1bc101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert steer rate to rad/s.  <br /></td></tr>
 <tr class="separator:gaf848cbd1d7243c93a2b24e291c1bc101"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf67ccefc1da687bdf46d6ce1335bfacb" id="r_gaf67ccefc1da687bdf46d6ce1335bfacb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gaf67ccefc1da687bdf46d6ce1335bfacb">CONVERT_ACTCURR_TO_A</a>(X)&#160;&#160;&#160;(<a class="el" href="group__constants.html#gabf3f052504d8533b0251e73755e741b2">GAIN_ACTCURR</a> * X / (powf(2, <a class="el" href="group__bus.html#gab298faea909e0aa62203195aa3d6ca80">ADC_RES</a>) - 1) + <a class="el" href="group__constants.html#ga5479339e5cd312b2d432e81b111c9da5">OFFSET_ACTCURR</a>)</td></tr>
+<tr class="memitem:gaf67ccefc1da687bdf46d6ce1335bfacb" id="r_gaf67ccefc1da687bdf46d6ce1335bfacb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#gaf67ccefc1da687bdf46d6ce1335bfacb">CONVERT_ACTCURR_TO_A</a>(X)&#160;&#160;&#160;(-(<a class="el" href="group__constants.html#gabf3f052504d8533b0251e73755e741b2">GAIN_ACTCURR</a> * X / (powf(2, <a class="el" href="group__bus.html#gab298faea909e0aa62203195aa3d6ca80">ADC_RES</a>) - 1) + <a class="el" href="group__constants.html#ga5479339e5cd312b2d432e81b111c9da5">OFFSET_ACTCURR</a>))</td></tr>
 <tr class="memdesc:gaf67ccefc1da687bdf46d6ce1335bfacb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert steer rate to rad/s.  <br /></td></tr>
 <tr class="separator:gaf67ccefc1da687bdf46d6ce1335bfacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga19200e08a75508620d67d0c3d10c7ee4" id="r_ga19200e08a75508620d67d0c3d10c7ee4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga19200e08a75508620d67d0c3d10c7ee4">CONVERT_CURRENT_TO_PWM</a>(X)&#160;&#160;&#160;(<a class="el" href="group__bus.html#ga6a06d5e0af804c23442d316bd0b873d6">PWM_MIN</a> * (powf(2, <a class="el" href="group__bus.html#ga4ff4dc1e0eb4081e51c557b1233c3e63">PWM_RES</a>) - 1) + abs((<a class="el" href="group__bus.html#ga391fa1e490bd712720989b58fa0d9904">PWM_MAX</a> - <a class="el" href="group__bus.html#ga6a06d5e0af804c23442d316bd0b873d6">PWM_MIN</a>) * X / <a class="el" href="group__constants.html#ga0e54cc12bd9c8f03814eb80cad6d31a7">MAX_REFCUR</a> * (powf(2, <a class="el" href="group__bus.html#ga4ff4dc1e0eb4081e51c557b1233c3e63">PWM_RES</a>) - 1)))</td></tr>
@@ -154,6 +154,9 @@ Macros</h2></td></tr>
 <tr class="memitem:ga812ba81959d791424056586f958b6196" id="r_ga812ba81959d791424056586f958b6196"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga812ba81959d791424056586f958b6196">CONVERT_TRHOTTLE_TO_STEPS</a>(X)&#160;&#160;&#160;<a class="el" href="group__macros.html#ga35b117380a5c7d9811459d1e6b0725f9">CONVERT_BRLEV_TO_STEPS</a>(X / <a class="el" href="group__constants.html#ga1418d6ad5d86af50ca218dc7fdcef881">MAX_REFTHROTTLE</a> * <a class="el" href="group__constants.html#ga9fb4bfb8c427d90bde3d9c51a33830b6">MAX_BR_DISP</a>)</td></tr>
 <tr class="memdesc:ga812ba81959d791424056586f958b6196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert throttle to motor steps.  <br /></td></tr>
 <tr class="separator:ga812ba81959d791424056586f958b6196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga789e9c55e455710ab67e9c4cb1d59880" id="r_ga789e9c55e455710ab67e9c4cb1d59880"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga789e9c55e455710ab67e9c4cb1d59880">USB_CONNECTED</a>&#160;&#160;&#160;(!bitRead(USB1_PORTSC1,7))</td></tr>
+<tr class="memdesc:ga789e9c55e455710ab67e9c4cb1d59880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for checking the USB connection status-.  <br /></td></tr>
+<tr class="separator:ga789e9c55e455710ab67e9c4cb1d59880"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6f33722d82d0c0c925fa286cf9dfd29e" id="r_ga6f33722d82d0c0c925fa286cf9dfd29e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__macros.html#ga6f33722d82d0c0c925fa286cf9dfd29e">MTR_EN_STATE</a>&#160;&#160;&#160;HIGH</td></tr>
 <tr class="memdesc:ga6f33722d82d0c0c925fa286cf9dfd29e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable state for steer motor.  <br /></td></tr>
 <tr class="separator:ga6f33722d82d0c0c925fa286cf9dfd29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -250,7 +253,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">X</td><td>)</td>
-          <td>&#160;&#160;&#160;(<a class="el" href="group__constants.html#gabf3f052504d8533b0251e73755e741b2">GAIN_ACTCURR</a> * X / (powf(2, <a class="el" href="group__bus.html#gab298faea909e0aa62203195aa3d6ca80">ADC_RES</a>) - 1) + <a class="el" href="group__constants.html#ga5479339e5cd312b2d432e81b111c9da5">OFFSET_ACTCURR</a>)</td>
+          <td>&#160;&#160;&#160;(-(<a class="el" href="group__constants.html#gabf3f052504d8533b0251e73755e741b2">GAIN_ACTCURR</a> * X / (powf(2, <a class="el" href="group__bus.html#gab298faea909e0aa62203195aa3d6ca80">ADC_RES</a>) - 1) + <a class="el" href="group__constants.html#ga5479339e5cd312b2d432e81b111c9da5">OFFSET_ACTCURR</a>))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -707,6 +710,23 @@ Macros</h2></td></tr>
 
 <p>Macro for relay enable. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__pin.html#gaed8e55358b7a10a3843ed8402143fc28" title="Digital out for relay enable.">RELAY_EN_PIN</a> <a class="el" href="group__macros.html#ga7522f7e19118b196c8e8c167fcf21e04" title="Enable state for relay.">RELAY_EN_STATE</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga789e9c55e455710ab67e9c4cb1d59880" name="ga789e9c55e455710ab67e9c4cb1d59880"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga789e9c55e455710ab67e9c4cb1d59880">&#9670;&#160;</a></span>USB_CONNECTED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USB_CONNECTED&#160;&#160;&#160;(!bitRead(USB1_PORTSC1,7))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for checking the USB connection status-. </p>
+<p>See <a href="https://forum.pjrc.com/threads/70721-detecting-usb-connection-on-a-teensy-4-0">https://forum.pjrc.com/threads/70721-detecting-usb-connection-on-a-teensy-4-0</a> </p>
 
 </div>
 </div>

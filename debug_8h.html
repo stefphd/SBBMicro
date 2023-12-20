@@ -110,6 +110,7 @@ $(document).ready(function(){initNavTree('debug_8h.html',''); initResizable(); }
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">debug.h File Reference</div></div>
@@ -123,8 +124,7 @@ $(document).ready(function(){initNavTree('debug_8h.html',''); initResizable(); }
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDebug__rx.html">Debug_rx</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive struct for debug.  <a href="structDebug__rx.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTxData.html">TxData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -138,12 +138,20 @@ Macros</h2></td></tr>
 <tr class="memitem:ga9957e6bff526d6cefef9b0b4eb1c6501" id="r_ga9957e6bff526d6cefef9b0b4eb1c6501"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debfun.html#ga9957e6bff526d6cefef9b0b4eb1c6501">TERMINATOR</a>&#160;&#160;&#160;0xFF8CABDE</td></tr>
 <tr class="memdesc:ga9957e6bff526d6cefef9b0b4eb1c6501"><td class="mdescLeft">&#160;</td><td class="mdescRight">4-bytes terminator of data packet.  <br /></td></tr>
 <tr class="separator:ga9957e6bff526d6cefef9b0b4eb1c6501"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga11829a1f3a55e1d61f5ad5b886800209" id="r_ga11829a1f3a55e1d61f5ad5b886800209"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debfun.html#ga11829a1f3a55e1d61f5ad5b886800209">DEBUG_SAMPLING_FAC</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memitem:ga11829a1f3a55e1d61f5ad5b886800209" id="r_ga11829a1f3a55e1d61f5ad5b886800209"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debfun.html#ga11829a1f3a55e1d61f5ad5b886800209">DEBUG_SAMPLING_FAC</a>&#160;&#160;&#160;10</td></tr>
 <tr class="memdesc:ga11829a1f3a55e1d61f5ad5b886800209"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sampling factor of data streaming (expressed in units of <a class="el" href="group__constants.html#gafe4be61d10dd9068bae19c0b74dac665" title="Sampling time of the control loop (us).">SAMPLING_TIME</a>).  <br /></td></tr>
 <tr class="separator:ga11829a1f3a55e1d61f5ad5b886800209"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga500dfb43922edb8ed31db903d2ea8b13" id="r_ga500dfb43922edb8ed31db903d2ea8b13"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debfun.html#ga500dfb43922edb8ed31db903d2ea8b13">MAX_MISSING_READS</a>&#160;&#160;&#160;50</td></tr>
 <tr class="memdesc:ga500dfb43922edb8ed31db903d2ea8b13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum consecutive missing readings.  <br /></td></tr>
 <tr class="separator:ga500dfb43922edb8ed31db903d2ea8b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ac174a966dd7e579988d99507d073b2db" id="r_ac174a966dd7e579988d99507d073b2db"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug_8h.html#ac174a966dd7e579988d99507d073b2db">serialAction</a> { <a class="el" href="debug_8h.html#ac174a966dd7e579988d99507d073b2dba8d76e3a0585a9b86c4df3f85bfda7621">TX_DATA</a> = 0x01
+, <a class="el" href="debug_8h.html#ac174a966dd7e579988d99507d073b2dbabec8fff99978692c5be11835eed39e5e">TX_TIME</a> = 0x02
+, <a class="el" href="debug_8h.html#ac174a966dd7e579988d99507d073b2dbab323d32a861ba87a23c3c9c698b610e9">TX_SIGNAMES</a> = 0x03
+ }</td></tr>
+<tr class="separator:ac174a966dd7e579988d99507d073b2db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -156,20 +164,129 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga4b0961cf153997326c2fa09269c78c45" id="r_ga4b0961cf153997326c2fa09269c78c45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHostPort.html">HostPort</a> hostPort &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debfun.html#ga4b0961cf153997326c2fa09269c78c45">Serial</a></td></tr>
-<tr class="memdesc:ga4b0961cf153997326c2fa09269c78c45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object for the host communication with PC vis USB/serial.  <br /></td></tr>
-<tr class="separator:ga4b0961cf153997326c2fa09269c78c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaac48454b9a24d0e09c188069fa91ce80" id="r_gaac48454b9a24d0e09c188069fa91ce80"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structDebug__rx.html">Debug_rx</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debfun.html#gaac48454b9a24d0e09c188069fa91ce80">rx_packet</a></td></tr>
-<tr class="memdesc:gaac48454b9a24d0e09c188069fa91ce80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct with received signals.  <br /></td></tr>
-<tr class="separator:gaac48454b9a24d0e09c188069fa91ce80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga465ca36ebcc434772ed63e7dbfb24442" id="r_ga465ca36ebcc434772ed63e7dbfb24442"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debfun.html#ga465ca36ebcc434772ed63e7dbfb24442">missing_reads</a> = <a class="el" href="group__debfun.html#ga500dfb43922edb8ed31db903d2ea8b13">MAX_MISSING_READS</a></td></tr>
-<tr class="memdesc:ga465ca36ebcc434772ed63e7dbfb24442"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structCounter.html" title="Counters for lower sampling rate.">Counter</a> for missing readings.  <br /></td></tr>
-<tr class="separator:ga465ca36ebcc434772ed63e7dbfb24442"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ffe51e21f26b0a171fea320a59ed5f6" id="r_a6ffe51e21f26b0a171fea320a59ed5f6"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structTxData.html">TxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug_8h.html#a6ffe51e21f26b0a171fea320a59ed5f6">txdata</a></td></tr>
+<tr class="memdesc:a6ffe51e21f26b0a171fea320a59ed5f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data to transmit via Serial.  <br /></td></tr>
+<tr class="separator:a6ffe51e21f26b0a171fea320a59ed5f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60edb495e01dc4f1183e9f0971ebc7cd" id="r_a60edb495e01dc4f1183e9f0971ebc7cd"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug_8h.html#a60edb495e01dc4f1183e9f0971ebc7cd">NUMSIGS</a> = 39</td></tr>
+<tr class="memdesc:a60edb495e01dc4f1183e9f0971ebc7cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of signals.  <br /></td></tr>
+<tr class="separator:a60edb495e01dc4f1183e9f0971ebc7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfc4524c221328bf4e82acce4df13be6" id="r_abfc4524c221328bf4e82acce4df13be6"><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug_8h.html#abfc4524c221328bf4e82acce4df13be6">SPLIT_CHAR</a> = '\0'</td></tr>
+<tr class="memdesc:abfc4524c221328bf4e82acce4df13be6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Char to split strings.  <br /></td></tr>
+<tr class="separator:abfc4524c221328bf4e82acce4df13be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fc20c78b3d862a609fb0bf1c647fd70" id="r_a4fc20c78b3d862a609fb0bf1c647fd70"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug_8h.html#a4fc20c78b3d862a609fb0bf1c647fd70">signames</a> [<a class="el" href="debug_8h.html#a60edb495e01dc4f1183e9f0971ebc7cd">NUMSIGS</a>]</td></tr>
+<tr class="memdesc:a4fc20c78b3d862a609fb0bf1c647fd70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Names of the signals.  <br /></td></tr>
+<tr class="separator:a4fc20c78b3d862a609fb0bf1c647fd70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Definitions of debug functions and variables. </p>
 <p>File to defined the debug functions and variables. Function prototypes are in <a class="el" href="prototypes_8h.html" title="Declaration of prototypes.">prototypes.h</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__debfun.html" title="Functions and definitions for debugging.">Debugging</a> <a class="el" href="prototypes_8h.html" title="Declaration of prototypes.">prototypes.h</a> </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ac174a966dd7e579988d99507d073b2db" name="ac174a966dd7e579988d99507d073b2db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac174a966dd7e579988d99507d073b2db">&#9670;&#160;</a></span>serialAction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="debug_8h.html#ac174a966dd7e579988d99507d073b2db">serialAction</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac174a966dd7e579988d99507d073b2dba8d76e3a0585a9b86c4df3f85bfda7621" name="ac174a966dd7e579988d99507d073b2dba8d76e3a0585a9b86c4df3f85bfda7621"></a>TX_DATA&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac174a966dd7e579988d99507d073b2dbabec8fff99978692c5be11835eed39e5e" name="ac174a966dd7e579988d99507d073b2dbabec8fff99978692c5be11835eed39e5e"></a>TX_TIME&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac174a966dd7e579988d99507d073b2dbab323d32a861ba87a23c3c9c698b610e9" name="ac174a966dd7e579988d99507d073b2dbab323d32a861ba87a23c3c9c698b610e9"></a>TX_SIGNAMES&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a60edb495e01dc4f1183e9f0971ebc7cd" name="a60edb495e01dc4f1183e9f0971ebc7cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60edb495e01dc4f1183e9f0971ebc7cd">&#9670;&#160;</a></span>NUMSIGS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int NUMSIGS = 39</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of signals. </p>
+
+</div>
+</div>
+<a id="a4fc20c78b3d862a609fb0bf1c647fd70" name="a4fc20c78b3d862a609fb0bf1c647fd70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc20c78b3d862a609fb0bf1c647fd70">&#9670;&#160;</a></span>signames</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String signames[<a class="el" href="debug_8h.html#a60edb495e01dc4f1183e9f0971ebc7cd">NUMSIGS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    <span class="stringliteral">&quot;Speed&quot;</span>, <span class="stringliteral">&quot;Distance&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;Acc x&quot;</span>, <span class="stringliteral">&quot;Acc y&quot;</span>, <span class="stringliteral">&quot;Acc z&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;Gyro x&quot;</span>, <span class="stringliteral">&quot;Gyro y&quot;</span>, <span class="stringliteral">&quot;Gyro z&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;Mag x&quot;</span>, <span class="stringliteral">&quot;Mag y&quot;</span>, <span class="stringliteral">&quot;Mag z&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;Latitude&quot;</span>, <span class="stringliteral">&quot;Longitude&quot;</span>, <span class="stringliteral">&quot;GPS Speed&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;Steer angle&quot;</span>, <span class="stringliteral">&quot;Steer rate&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;Fork disp&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;Curr act&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;Steer torque&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;CPU temp&quot;</span>, <span class="stringliteral">&quot;Voltage&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;Ref input 1&quot;</span>, <span class="stringliteral">&quot;Ref input 2&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;Err state in&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;Curr ref&quot;</span>, <span class="stringliteral">&quot;Throttle&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;Roll est&quot;</span>, <span class="stringliteral">&quot;Yaw est&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;Pos est x&quot;</span>, <span class="stringliteral">&quot;Pos est y&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;Dist est&quot;</span>, <span class="stringliteral">&quot;Speed est&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;Steer angle est&quot;</span>, <span class="stringliteral">&quot;Steer rate est&quot;</span>,  </div>
+<div class="line">    <span class="stringliteral">&quot;Err state out&quot;</span>, </div>
+<div class="line">    <span class="stringliteral">&quot;User data 1&quot;</span>, <span class="stringliteral">&quot;User data 2&quot;</span>, <span class="stringliteral">&quot;User data 3&quot;</span>, <span class="stringliteral">&quot;User data 4&quot;</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Names of the signals. </p>
+
+</div>
+</div>
+<a id="abfc4524c221328bf4e82acce4df13be6" name="abfc4524c221328bf4e82acce4df13be6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfc4524c221328bf4e82acce4df13be6">&#9670;&#160;</a></span>SPLIT_CHAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char SPLIT_CHAR = '\0'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Char to split strings. </p>
+
+</div>
+</div>
+<a id="a6ffe51e21f26b0a171fea320a59ed5f6" name="a6ffe51e21f26b0a171fea320a59ed5f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ffe51e21f26b0a171fea320a59ed5f6">&#9670;&#160;</a></span>txdata</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structTxData.html">TxData</a> txdata</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Data to transmit via Serial. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

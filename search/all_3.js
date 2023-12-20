@@ -32,6 +32,5 @@ var searchData=
   ['cs_5fimu_29',['CS_IMU',['../group__pin.html#ga88aa54aa214da6fe8a39d56cc05804b5',1,'config.h']]],
   ['cs_5fmag_30',['CS_MAG',['../group__pin.html#gacbf9b6821e3a24a4dd9278411957191d',1,'config.h']]],
   ['ctrl_31',['ctrl',['../group__vars.html#ga58f9c3e5780701bb0ee57259043eaf09',1,'objects.h']]],
-  ['curr_5fref_32',['curr_ref',['../structDebug__rx.html#ac2f81630c0b476b4f7e5c416657aa9ab',1,'Debug_rx']]],
-  ['cw_33',['CW',['../group__userparams.html#gabe61b07c31c2a3e90576eb4c5d95b024',1,'config.h']]]
+  ['cw_32',['CW',['../group__userparams.html#gabe61b07c31c2a3e90576eb4c5d95b024',1,'config.h']]]
 ];

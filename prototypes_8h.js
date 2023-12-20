@@ -15,6 +15,7 @@ var prototypes_8h =
     [ "get_sensors", "group__userfun.html#gaadef8420a246721121dfcb8e722d4a66", null ],
     [ "getTime", "group__userfun.html#ga32315808bd93c14f43ad88f6129f4f35", null ],
     [ "log_closer", "group__logfun.html#ga3d7a8cc89ba27623d0e3981acc70bf86", null ],
+    [ "print_report", "group__logfun.html#ga88d59c6aaf35bca68c6048eb5aeb00ff", null ],
     [ "serial_flush", "group__userfun.html#ga94547a891c369354cec16547930de449", null ],
     [ "set_arm_clock", "group__userfun.html#ga01f554db1c07c31f60f5167060279699", null ],
     [ "set_ctrl_input", "group__userfun.html#gad1b4ccf99c59344ecd89346bcae5a22a", null ],
@@ -27,5 +28,6 @@ var prototypes_8h =
     [ "start_IObus", "group__userfun.html#gae8a720b1a7a4a44aee590fadc28466cd", null ],
     [ "start_logger", "group__logfun.html#ga47360902f2cb2cbf01d6b98524f7dbc1", null ],
     [ "tempmonGetTemp", "group__userfun.html#gacc2107cfceecd2abf098064b3c406291", null ],
-    [ "turnoff_callback", "group__userfun.html#ga5bc8a74efc36d9fc5cc2ab4e293e8755", null ]
+    [ "turnoff_callback", "group__userfun.html#ga5bc8a74efc36d9fc5cc2ab4e293e8755", null ],
+    [ "update_tet", "group__userfun.html#ga4ec72dc9ab06f53309360def9a1d308a", null ]
 ];

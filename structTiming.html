@@ -124,15 +124,21 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:adf2db4bc7bbd86c89b5d0c0c65032e39" id="r_adf2db4bc7bbd86c89b5d0c0c65032e39"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTiming.html#adf2db4bc7bbd86c89b5d0c0c65032e39">dt_cycle</a></td></tr>
 <tr class="memdesc:adf2db4bc7bbd86c89b5d0c0c65032e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cycle time.  <br /></td></tr>
 <tr class="separator:adf2db4bc7bbd86c89b5d0c0c65032e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa41b52269f634638f74255be23eb9fd8" id="r_aa41b52269f634638f74255be23eb9fd8"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTiming.html#aa41b52269f634638f74255be23eb9fd8">duty_cycle</a></td></tr>
-<tr class="memdesc:aa41b52269f634638f74255be23eb9fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duty cycle.  <br /></td></tr>
-<tr class="separator:aa41b52269f634638f74255be23eb9fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a576565890b2aefa238069788fb7038e5" id="r_a576565890b2aefa238069788fb7038e5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTiming.html#a576565890b2aefa238069788fb7038e5">tet</a></td></tr>
+<tr class="memdesc:a576565890b2aefa238069788fb7038e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task execution time.  <br /></td></tr>
+<tr class="separator:a576565890b2aefa238069788fb7038e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cc06eb039ab1b495959919341313531" id="r_a6cc06eb039ab1b495959919341313531"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTiming.html#a6cc06eb039ab1b495959919341313531">dt_debug</a></td></tr>
 <tr class="memdesc:a6cc06eb039ab1b495959919341313531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug time.  <br /></td></tr>
 <tr class="separator:a6cc06eb039ab1b495959919341313531"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a535a9c17c3c2e069ccdf967f79293fd2" id="r_a535a9c17c3c2e069ccdf967f79293fd2"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTiming.html#a535a9c17c3c2e069ccdf967f79293fd2">dt_logger</a></td></tr>
 <tr class="memdesc:a535a9c17c3c2e069ccdf967f79293fd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger time.  <br /></td></tr>
 <tr class="separator:a535a9c17c3c2e069ccdf967f79293fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7d9662da034b4097e4720fb8e37799" id="r_a4b7d9662da034b4097e4720fb8e37799"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTiming.html#a4b7d9662da034b4097e4720fb8e37799">max_tet</a> = 0</td></tr>
+<tr class="memdesc:a4b7d9662da034b4097e4720fb8e37799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum TET.  <br /></td></tr>
+<tr class="separator:a4b7d9662da034b4097e4720fb8e37799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad44ef713a545a42539c5056a7b75c077" id="r_ad44ef713a545a42539c5056a7b75c077"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTiming.html#ad44ef713a545a42539c5056a7b75c077">min_tet</a> = -1</td></tr>
+<tr class="memdesc:ad44ef713a545a42539c5056a7b75c077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum TET.  <br /></td></tr>
+<tr class="separator:ad44ef713a545a42539c5056a7b75c077"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Time taken by functions. </p>
@@ -189,19 +195,51 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa41b52269f634638f74255be23eb9fd8" name="aa41b52269f634638f74255be23eb9fd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa41b52269f634638f74255be23eb9fd8">&#9670;&#160;</a></span>duty_cycle</h2>
+<a id="a4b7d9662da034b4097e4720fb8e37799" name="a4b7d9662da034b4097e4720fb8e37799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7d9662da034b4097e4720fb8e37799">&#9670;&#160;</a></span>max_tet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Timing::duty_cycle</td>
+          <td class="memname">uint32_t Timing::max_tet = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Duty cycle. </p>
+<p>Maximum TET. </p>
+
+</div>
+</div>
+<a id="ad44ef713a545a42539c5056a7b75c077" name="ad44ef713a545a42539c5056a7b75c077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad44ef713a545a42539c5056a7b75c077">&#9670;&#160;</a></span>min_tet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Timing::min_tet = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Minimum TET. </p>
+
+</div>
+</div>
+<a id="a576565890b2aefa238069788fb7038e5" name="a576565890b2aefa238069788fb7038e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a576565890b2aefa238069788fb7038e5">&#9670;&#160;</a></span>tet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Timing::tet</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Task execution time. </p>
 <p>The Time taken by the whole cycle. The value is lower than <a class="el" href="group__constants.html#gafe4be61d10dd9068bae19c0b74dac665" title="Sampling time of the control loop (us).">SAMPLING_TIME</a>, except for possible overrunning. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__constants.html#gafe4be61d10dd9068bae19c0b74dac665" title="Sampling time of the control loop (us).">SAMPLING_TIME</a> </dd></dl>
 
 </div>

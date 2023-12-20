@@ -21,5 +21,6 @@ var group__macros =
     [ "MTR_ENABLE", "group__macros.html#ga800de20d77a39e8a2a62555ce28c71a5", null ],
     [ "POWER_OFF", "group__macros.html#gae8131694b06a62416e7b799b129de381", null ],
     [ "RELAY_EN_STATE", "group__macros.html#ga7522f7e19118b196c8e8c167fcf21e04", null ],
-    [ "RELAY_ENABLE", "group__macros.html#gac79e5ea1f6f7d9954561e6ed22fbb168", null ]
+    [ "RELAY_ENABLE", "group__macros.html#gac79e5ea1f6f7d9954561e6ed22fbb168", null ],
+    [ "USB_CONNECTED", "group__macros.html#ga789e9c55e455710ab67e9c4cb1d59880", null ]
 ];

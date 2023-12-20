@@ -50,11 +50,24 @@ var group__vars =
       [ "dt_cycle", "structTiming.html#adf2db4bc7bbd86c89b5d0c0c65032e39", null ],
       [ "dt_debug", "structTiming.html#a6cc06eb039ab1b495959919341313531", null ],
       [ "dt_logger", "structTiming.html#a535a9c17c3c2e069ccdf967f79293fd2", null ],
-      [ "duty_cycle", "structTiming.html#aa41b52269f634638f74255be23eb9fd8", null ]
+      [ "max_tet", "structTiming.html#a4b7d9662da034b4097e4720fb8e37799", null ],
+      [ "min_tet", "structTiming.html#ad44ef713a545a42539c5056a7b75c077", null ],
+      [ "tet", "structTiming.html#a576565890b2aefa238069788fb7038e5", null ]
     ] ],
     [ "RemoteCtrl", "structRemoteCtrl.html", [
       [ "ch", "structRemoteCtrl.html#acfb92d7e7a042a0f5572c5ddcc4b52b2", null ],
       [ "missing_frame", "structRemoteCtrl.html#ae905d3f0c62fda7d64825d01493acbb1", null ]
+    ] ],
+    [ "IOstatus", "structIOstatus.html", [
+      [ "accen", "structIOstatus.html#adf8cc854185cbe867aaf9b755bfe6377", null ],
+      [ "dac", "structIOstatus.html#ae34a5d64ab1b3269650f3d52d6863788", null ],
+      [ "gps", "structIOstatus.html#a60777815c8e8e239aaa5fd04b4c66045", null ],
+      [ "gyroen", "structIOstatus.html#aa3c326854f9dbcb7d2ad3a45d53fb28d", null ],
+      [ "imu", "structIOstatus.html#a504d79165066f1db54d7fee766e37be6", null ],
+      [ "mag", "structIOstatus.html#acea068d33a2d06a94cee276a506c29c4", null ],
+      [ "magen", "structIOstatus.html#a7a55805d3dba1696a120bac1ee1cd479", null ],
+      [ "sbus", "structIOstatus.html#a968ed0e44eb3a54c997d4ef7fa11ba35", null ],
+      [ "speedsens", "structIOstatus.html#aee2878d5eba433cf626990e2a6060dae", null ]
     ] ],
     [ "brakeMotor", "group__vars.html#ga32451db8d0937ba0186c4ca99f08f11c", null ],
     [ "actCurr_raw", "group__vars.html#ga7f04357dbb401497348ace3778920270", null ],
@@ -67,6 +80,7 @@ var group__vars =
     [ "gpsData_raw", "group__vars.html#ga31b0adada390319fa1257302d3cc20b0", null ],
     [ "GPSserial_extra_buffer", "group__vars.html#ga6332761f36c150aad654537194944a47", null ],
     [ "imuData_raw", "group__vars.html#ga1c6e87d68fa180323cd2c95c911a7eea", null ],
+    [ "iostatus", "group__vars.html#ga6e78f9351356226867da7a1c38d67d01", null ],
     [ "LEDmode", "group__vars.html#ga59f41a56d1c6cb26b0f80f25c585dcd1", null ],
     [ "LEDstate", "group__vars.html#gad6f185f81ec4b9377864c863c8fc4732", null ],
     [ "nanVal", "group__vars.html#gadde7ee3f220935bf43496147c6f2a2f4", null ],

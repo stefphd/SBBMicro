@@ -125,13 +125,16 @@ Macros</h2></td></tr>
 <tr class="memitem:gaab127c827040328f9b72d0e28500bf4a" id="r_gaab127c827040328f9b72d0e28500bf4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userparams.html#gaab127c827040328f9b72d0e28500bf4a">MTR_CTRL_MODE</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:gaab127c827040328f9b72d0e28500bf4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control mode of steer motor (0=PWM or 1=DAC).  <br /></td></tr>
 <tr class="separator:gaab127c827040328f9b72d0e28500bf4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a51d002b1e9dfa98388248e5af855cd" id="r_ga9a51d002b1e9dfa98388248e5af855cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userparams.html#ga9a51d002b1e9dfa98388248e5af855cd">EN_LONG_CTRL</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ga9a51d002b1e9dfa98388248e5af855cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the longitudinal control.  <br /></td></tr>
+<tr class="separator:ga9a51d002b1e9dfa98388248e5af855cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabe61b07c31c2a3e90576eb4c5d95b024" id="r_gabe61b07c31c2a3e90576eb4c5d95b024"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userparams.html#gabe61b07c31c2a3e90576eb4c5d95b024">CW</a>&#160;&#160;&#160;LOW</td></tr>
 <tr class="memdesc:gabe61b07c31c2a3e90576eb4c5d95b024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digital pin state for clockwise torque.  <br /></td></tr>
 <tr class="separator:gabe61b07c31c2a3e90576eb4c5d95b024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf1343cba3fa95d5715b27fa9404da2bd" id="r_gaf1343cba3fa95d5715b27fa9404da2bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userparams.html#gaf1343cba3fa95d5715b27fa9404da2bd">NUM_ZERO_SAMPLES</a>&#160;&#160;&#160;500</td></tr>
 <tr class="memdesc:gaf1343cba3fa95d5715b27fa9404da2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Samples used to perform the zero of sensors.  <br /></td></tr>
 <tr class="separator:gaf1343cba3fa95d5715b27fa9404da2bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8395bd4f9136d83d19f90e0a1790f619" id="r_ga8395bd4f9136d83d19f90e0a1790f619"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userparams.html#ga8395bd4f9136d83d19f90e0a1790f619">STEERVEL_RATIO</a>&#160;&#160;&#160;(36*1.25)</td></tr>
+<tr class="memitem:ga8395bd4f9136d83d19f90e0a1790f619" id="r_ga8395bd4f9136d83d19f90e0a1790f619"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userparams.html#ga8395bd4f9136d83d19f90e0a1790f619">STEERVEL_RATIO</a>&#160;&#160;&#160;(-36.0*1.25)</td></tr>
 <tr class="memdesc:ga8395bd4f9136d83d19f90e0a1790f619"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structSpeed.html" title="Speed raw data.">Speed</a> ratio of steer velocity.  <br /></td></tr>
 <tr class="separator:ga8395bd4f9136d83d19f90e0a1790f619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2635709fc71b4c669dce3234d4d378ff" id="r_ga2635709fc71b4c669dce3234d4d378ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__userparams.html#ga2635709fc71b4c669dce3234d4d378ff">FULLEXT_FORKDISP</a>&#160;&#160;&#160;0</td></tr>
@@ -193,6 +196,22 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Digital pin state for clockwise torque. </p>
+
+</div>
+</div>
+<a id="ga9a51d002b1e9dfa98388248e5af855cd" name="ga9a51d002b1e9dfa98388248e5af855cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9a51d002b1e9dfa98388248e5af855cd">&#9670;&#160;</a></span>EN_LONG_CTRL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EN_LONG_CTRL&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable the longitudinal control. </p>
 
 </div>
 </div>
@@ -302,7 +321,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define STEERVEL_RATIO&#160;&#160;&#160;(36*1.25)</td>
+          <td class="memname">#define STEERVEL_RATIO&#160;&#160;&#160;(-36.0*1.25)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -341,10 +360,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= { {0, cosf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>), sinf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>)}, </div>
-<div class="line">                                  {1, 0, 0},  </div>
+<b>Initial value:</b><div class="fragment"><div class="line">= { {0, -cosf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>), -sinf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>)}, </div>
+<div class="line">                                  {-1, 0, 0},  </div>
 <div class="line">                                  {0, sinf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>), -cosf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>)} }</div>
-<div class="ttc" id="agroup__userparams_html_gaec13acb5dce7cb97bcff20113fac24b4"><div class="ttname"><a href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a></div><div class="ttdeci">#define YINCL_MCUBOX</div><div class="ttdoc">Pitch iinclination of MCU box (in rad).</div><div class="ttdef"><b>Definition</b> config.h:339</div></div>
+<div class="ttc" id="agroup__userparams_html_gaec13acb5dce7cb97bcff20113fac24b4"><div class="ttname"><a href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a></div><div class="ttdeci">#define YINCL_MCUBOX</div><div class="ttdoc">Pitch iinclination of MCU box (in rad).</div><div class="ttdef"><b>Definition</b> config.h:343</div></div>
 </div><!-- fragment -->
 <p>Rotation matrix from IMU frame to SAE body-fixed frame. </p>
 <p>This is the result of Rz(90deg)*Rx(180deg)*Ry(<a class="el" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4" title="Pitch iinclination of MCU box (in rad).">YINCL_MCUBOX</a>). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4" title="Pitch iinclination of MCU box (in rad).">YINCL_MCUBOX</a> </dd></dl>
@@ -364,10 +383,10 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= { {cosf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>), 0, sinf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>)},</div>
 <div class="line">                                  {0, -1, 0}, </div>
-<div class="line">                                  {sinf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>), 0, -cosf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>)} }</div>
+<div class="line">                                  {-sinf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>), 0, cosf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>)} }</div>
 </div><!-- fragment -->
 <p>Rotation matrix from MAG frame to SAE body-fixed frame. </p>
-<p>This is the result of Rx(180deg)*Ry(<a class="el" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4" title="Pitch iinclination of MCU box (in rad).">YINCL_MCUBOX</a>). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4" title="Pitch iinclination of MCU box (in rad).">YINCL_MCUBOX</a> </dd></dl>
+<p>This is the result of Ry(180deg)*Ry(<a class="el" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4" title="Pitch iinclination of MCU box (in rad).">YINCL_MCUBOX</a>). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4" title="Pitch iinclination of MCU box (in rad).">YINCL_MCUBOX</a> </dd></dl>
 
 </div>
 </div>

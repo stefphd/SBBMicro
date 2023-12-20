@@ -130,6 +130,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a35c7502591d8ac1ae2456b00a780a5f4" id="r_a35c7502591d8ac1ae2456b00a780a5f4"><td class="memItemLeft" align="right" valign="top">constexpr int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceLedMode.html#a35c7502591d8ac1ae2456b00a780a5f4">ERR</a> = 3</td></tr>
 <tr class="memdesc:a35c7502591d8ac1ae2456b00a780a5f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error mode.  <br /></td></tr>
 <tr class="separator:a35c7502591d8ac1ae2456b00a780a5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20dd4705b0f0e1a852193c5d9dca1676" id="r_a20dd4705b0f0e1a852193c5d9dca1676"><td class="memItemLeft" align="right" valign="top">constexpr int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceLedMode.html#a20dd4705b0f0e1a852193c5d9dca1676">MTPWAIT</a> = 4</td></tr>
+<tr class="memdesc:a20dd4705b0f0e1a852193c5d9dca1676"><td class="mdescLeft">&#160;</td><td class="mdescRight">MTP wait for USB connected.  <br /></td></tr>
+<tr class="separator:a20dd4705b0f0e1a852193c5d9dca1676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Led mode constants. </p>
@@ -137,7 +140,8 @@ Variables</h2></td></tr>
 <li>Default mode without signal-logging: LEDmode is <a class="el" href="namespaceLedMode.html#a10e122ec322ab40e9743109b999d2d17" title="Default mode without signal-logging.">LedMode::DEF</a>, LED blinks depending on <a class="el" href="group__constants.html#gac75a3ec39d543ae303e8edef00c3dca1" title="Sampling factor of led in default mode (expressed in units of SAMPLING_TIME).">DEF_LED</a>.</li>
 <li>Default mode with signal-logging: LEDmode is <a class="el" href="namespaceLedMode.html#a8d6f6d02626a516c46ee703722a7f956" title="Default mode with signal-logging.">LedMode::LOG</a>, LED blinks depending on <a class="el" href="group__constants.html#gaabdccb3d58b5328e2597d57a0bfcfa36" title="Sampling factor of led in log mode (expressed in units of SAMPLING_TIME).">LOG_LED</a>.</li>
 <li>MTP mode: LEDmode is <a class="el" href="namespaceLedMode.html#a29705e031e56f6a3030dc158c68f8ab9" title="MTP mode.">LedMode::MTP</a>, LED blinks depending on <a class="el" href="group__constants.html#ga78e83fa846657dc71872e35d38cd431a" title="Sampling factor of led in mtp mode (expressed in units of SAMPLING_TIME).">MTP_LED</a>.</li>
-<li>Error mode: LEDmode is <a class="el" href="namespaceLedMode.html#a35c7502591d8ac1ae2456b00a780a5f4" title="Error mode.">LedMode::ERR</a>, LED blinks depending on <a class="el" href="group__constants.html#ga29c80150517b1375edea1474971f4b39" title="Sampling factor of led in error mode (expressed in units of SAMPLING_TIME).">ERR_LED</a>. </li>
+<li>Error mode: LEDmode is <a class="el" href="namespaceLedMode.html#a35c7502591d8ac1ae2456b00a780a5f4" title="Error mode.">LedMode::ERR</a>, LED blinks depending on <a class="el" href="group__constants.html#ga29c80150517b1375edea1474971f4b39" title="Sampling factor of led in error mode (expressed in units of SAMPLING_TIME).">ERR_LED</a>.</li>
+<li>MTP wait for USB connected: LEDmode is <a class="el" href="namespaceLedMode.html#a20dd4705b0f0e1a852193c5d9dca1676" title="MTP wait for USB connected.">LedMode::MTPWAIT</a>, LED blicks depending on <a class="el" href="group__constants.html#ga6d4fcc1ed94d0e040cae2ad8712c149d" title="Sampling factor of led in mtp wait mode (expressed in units of SAMPLING_TIME).">MTPWAIT_LED</a> </li>
 </ul>
 </div><h2 class="groupheader">Variable Documentation</h2>
 <a id="a10e122ec322ab40e9743109b999d2d17" name="a10e122ec322ab40e9743109b999d2d17"></a>
@@ -233,6 +237,30 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>MTP mode. </p>
+
+</div>
+</div>
+<a id="a20dd4705b0f0e1a852193c5d9dca1676" name="a20dd4705b0f0e1a852193c5d9dca1676"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20dd4705b0f0e1a852193c5d9dca1676">&#9670;&#160;</a></span>MTPWAIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int8_t LedMode::MTPWAIT = 4</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>MTP wait for USB connected. </p>
 
 </div>
 </div>

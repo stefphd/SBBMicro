@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timing_0',['Timing',['../structTiming.html',1,'']]]
+  ['voltage_0',['Voltage',['../structVoltage.html',1,'']]]
 ];

@@ -18,5 +18,6 @@ var userfun_8h =
     [ "set_IObus", "group__userfun.html#gaa66ec55cf92209baa360d04b1b83c93c", null ],
     [ "start_brake_stepper", "group__userfun.html#gaa61d07250d641e83402b0942b92b4d03", null ],
     [ "start_IObus", "group__userfun.html#gae8a720b1a7a4a44aee590fadc28466cd", null ],
-    [ "turnoff_callback", "group__userfun.html#ga5bc8a74efc36d9fc5cc2ab4e293e8755", null ]
+    [ "turnoff_callback", "group__userfun.html#ga5bc8a74efc36d9fc5cc2ab4e293e8755", null ],
+    [ "update_tet", "group__userfun.html#ga4ec72dc9ab06f53309360def9a1d308a", null ]
 ];

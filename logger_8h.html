@@ -155,9 +155,15 @@ Macros</h2></td></tr>
 <tr class="memitem:gabb30495a5891704b1de04005b49fdb86" id="r_gabb30495a5891704b1de04005b49fdb86"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#gabb30495a5891704b1de04005b49fdb86">FILENAME_ENTRIES</a>&#160;&#160;&#160;year(), month(), day(), hour(), minute(), second()</td></tr>
 <tr class="memdesc:gabb30495a5891704b1de04005b49fdb86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entries of the log filename format.  <br /></td></tr>
 <tr class="separator:gabb30495a5891704b1de04005b49fdb86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74aba1a44da3b71ecc04c5004d8436b6" id="r_a74aba1a44da3b71ecc04c5004d8436b6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#a74aba1a44da3b71ecc04c5004d8436b6">FILENAME_REPORT</a>&#160;&#160;&#160;&quot;report.log&quot;</td></tr>
+<tr class="memdesc:a74aba1a44da3b71ecc04c5004d8436b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filename for report log.  <br /></td></tr>
+<tr class="separator:a74aba1a44da3b71ecc04c5004d8436b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ga88d59c6aaf35bca68c6048eb5aeb00ff" id="r_ga88d59c6aaf35bca68c6048eb5aeb00ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga88d59c6aaf35bca68c6048eb5aeb00ff">print_report</a> (int mode)</td></tr>
+<tr class="memdesc:ga88d59c6aaf35bca68c6048eb5aeb00ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the report.  <br /></td></tr>
+<tr class="separator:ga88d59c6aaf35bca68c6048eb5aeb00ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga47360902f2cb2cbf01d6b98524f7dbc1" id="r_ga47360902f2cb2cbf01d6b98524f7dbc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga47360902f2cb2cbf01d6b98524f7dbc1">start_logger</a> (void)</td></tr>
 <tr class="memdesc:ga47360902f2cb2cbf01d6b98524f7dbc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the logger.  <br /></td></tr>
 <tr class="separator:ga47360902f2cb2cbf01d6b98524f7dbc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,7 +176,7 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga0b0b75e00435dedf8d92084babdf94c9" id="r_ga0b0b75e00435dedf8d92084babdf94c9"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga0b0b75e00435dedf8d92084babdf94c9">doLog</a> = true</td></tr>
+<tr class="memitem:ga0b0b75e00435dedf8d92084babdf94c9" id="r_ga0b0b75e00435dedf8d92084babdf94c9"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga0b0b75e00435dedf8d92084babdf94c9">doLog</a> = false</td></tr>
 <tr class="memdesc:ga0b0b75e00435dedf8d92084babdf94c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when logging.  <br /></td></tr>
 <tr class="separator:ga0b0b75e00435dedf8d92084babdf94c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2d17ea4a81e1bd719a97ae7ff1fd0555" id="r_ga2d17ea4a81e1bd719a97ae7ff1fd0555"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga2d17ea4a81e1bd719a97ae7ff1fd0555">filename</a> [<a class="el" href="group__logfun.html#gacf1986d9291d2530b2bb7629d39c4655">FILENAME_MAXSIZE</a>] = { 0 }</td></tr>
@@ -185,6 +191,9 @@ Variables</h2></td></tr>
 <tr class="memitem:ga9863b3d596e46e9f4e19d4981b3e7518" id="r_ga9863b3d596e46e9f4e19d4981b3e7518"><td class="memItemLeft" align="right" valign="top">FsFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga9863b3d596e46e9f4e19d4981b3e7518">logFile</a></td></tr>
 <tr class="memdesc:ga9863b3d596e46e9f4e19d4981b3e7518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log file object.  <br /></td></tr>
 <tr class="separator:ga9863b3d596e46e9f4e19d4981b3e7518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a36107af026ca3baf7bd212b4376d45" id="r_ga7a36107af026ca3baf7bd212b4376d45"><td class="memItemLeft" align="right" valign="top">FsFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga7a36107af026ca3baf7bd212b4376d45">reportFile</a></td></tr>
+<tr class="memdesc:ga7a36107af026ca3baf7bd212b4376d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">File for report log.  <br /></td></tr>
+<tr class="separator:ga7a36107af026ca3baf7bd212b4376d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga295dd2331c0a157a483b4711cf346ebe" id="r_ga295dd2331c0a157a483b4711cf346ebe"><td class="memItemLeft" align="right" valign="top">RingBuf&lt; FsFile, <a class="el" href="group__logfun.html#ga3f905678aa4ffbb3eb713cb039dd9053">RING_BUF_SIZE</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__logfun.html#ga295dd2331c0a157a483b4711cf346ebe">log_buf</a></td></tr>
 <tr class="memdesc:ga295dd2331c0a157a483b4711cf346ebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ring buffer object.  <br /></td></tr>
 <tr class="separator:ga295dd2331c0a157a483b4711cf346ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,7 +201,24 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Definitions of logger functions and variables. </p>
 <p>File to defined the logger functions and variables. Function prototypes are in <a class="el" href="prototypes_8h.html" title="Declaration of prototypes.">prototypes.h</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="group__logfun.html" title="Functions and definitions for signal logging.">Data logging</a> <a class="el" href="prototypes_8h.html" title="Declaration of prototypes.">prototypes.h</a> </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a74aba1a44da3b71ecc04c5004d8436b6" name="a74aba1a44da3b71ecc04c5004d8436b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74aba1a44da3b71ecc04c5004d8436b6">&#9670;&#160;</a></span>FILENAME_REPORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FILENAME_REPORT&#160;&#160;&#160;&quot;report.log&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Filename for report log. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

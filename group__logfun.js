@@ -14,11 +14,13 @@ var group__logfun =
     [ "SDSECTOR_SIZE", "group__logfun.html#gaf53c96323082b86c5740ee588a0aa1d7", null ],
     [ "do_logger", "group__logfun.html#gad77b04379297001a7daf5d2764430ac3", null ],
     [ "log_closer", "group__logfun.html#ga3d7a8cc89ba27623d0e3981acc70bf86", null ],
+    [ "print_report", "group__logfun.html#ga88d59c6aaf35bca68c6048eb5aeb00ff", null ],
     [ "start_logger", "group__logfun.html#ga47360902f2cb2cbf01d6b98524f7dbc1", null ],
     [ "doLog", "group__logfun.html#ga0b0b75e00435dedf8d92084babdf94c9", null ],
     [ "filename", "group__logfun.html#ga2d17ea4a81e1bd719a97ae7ff1fd0555", null ],
     [ "fill_packet", "group__logfun.html#gaa9d37fe5166494490b4a77d530a09b27", null ],
     [ "log_buf", "group__logfun.html#ga295dd2331c0a157a483b4711cf346ebe", null ],
     [ "logFile", "group__logfun.html#ga9863b3d596e46e9f4e19d4981b3e7518", null ],
-    [ "logSampleWritten", "group__logfun.html#ga474323a96b6ba97b2ca5a724186562ea", null ]
+    [ "logSampleWritten", "group__logfun.html#ga474323a96b6ba97b2ca5a724186562ea", null ],
+    [ "reportFile", "group__logfun.html#ga7a36107af026ca3baf7bd212b4376d45", null ]
 ];
