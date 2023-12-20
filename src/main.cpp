@@ -100,15 +100,14 @@ int main() {
 	set_ctrl_param();
 
 	//begin control loop - to be called just before starting loop
-	ctrl.begin();
-	
+	ctrl.begin();	
 
 	sampling_timer = micros() - SAMPLING_TIME; //to be sure that the control loop starts immediately at the first loop
 
 	//flush serials
 	serial_flush();
 
-	while(1) {
+	while(true) {
 		if ((micros() - sampling_timer) >= SAMPLING_TIME) {
 			timing.dt_cycle = micros() - sampling_timer; //cycle time (should be equal to SAMPLING_TIME)
 			sampling_timer = micros(); //update timer
@@ -125,16 +124,16 @@ int main() {
 			//check if errors 
 			check_error();
 
-			//do debug stuff if necessary (otherwise do nothing)
-			do_debug();
-
 			//set drivers
 			set_driver();
 
 			//update duty cycle
-			timing.duty_cycle = micros() - sampling_timer; //duty cycle (i.e. time to do stuff), should be < SAMPLING_TIME, better < SAMPLING_TIME/2 to avoid large delay
+			update_tet(sampling_timer);			
 
 			//other secondary stuff below
+
+			//do debug stuff if necessary (otherwise do nothing)
+			do_debug();
 
 			//do logging stuff if necessary (otherwise do nothing)
 			do_logger();

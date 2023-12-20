@@ -121,10 +121,11 @@
 #define IMU_SAMPLING_FAC	1 //!< Sampling factor of IMU (expressed in units of #SAMPLING_TIME). \note This is the rate at which the sensor is read, not its output data rate (i.e. #ACC_ODR or #GYRO_ODR). \see SAMPLING_TIME ACC_ODR GYRO_ODR
 #define MAG_SAMPLING_FAC	5 //!< Sampling factor of magnetometer (expressed in units of #SAMPLING_TIME). \note This is the rate at which the sensor is read, not its output data rate (i.e. #MAG_ODR). \see SAMPLING_TIME MAG_ODR
 #define SBUS_SAMPLING_FAC	14 //!< Sampling factor of the SBUSr receiver. \note This is the rate at which the sensor is read, not its output data rate. \warning Not used now. SBUS is read as fast as possible. \see SAMPLING_TIME
-#define DEF_LED 			1000 //!< Sampling factor of led in default mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::DEF
+#define DEF_LED 			500 //!< Sampling factor of led in default mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::DEF
 #define LOG_LED 			500 //!< Sampling factor of led in log mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::LOG
 #define MTP_LED 			250 //!< Sampling factor of led in mtp mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::MTP
 #define ERR_LED 			10000 //!< Sampling factor of led in error mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::ERR
+#define MTPWAIT_LED			100 //!< Sampling factor of led in mtp wait mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::MTPWAIT
 
 //OUTPUT DATA RATE
 #define ACC_ODR			3333 //!< Output data rate of accelerometer (sps). \note This is not the rate at which the sensor is read (i.e. #IMU_SAMPLING_FAC). \see IMU_SAMPLING_FAC
@@ -134,7 +135,7 @@
 //GAINS & CONVERSION
 #define SPEED_SCALE		1.0e-3F //!< Speed scale. \details cm/s to m/s.
 #define DIST_SCALE		0.25F //!< Distance scale. \details Units of 0.25m to m.
-#define ACC_SCALE		(1.0e-3F*9.806F) //!< Acceleration scale. \details mg to m/s^2.
+#define ACC_SCALE		(-1.0e-3F*9.806F) //!< Acceleration scale. \details mg to m/s^2. -1 is to have actual accelerations (no the inertial ones).
 #define GYRO_SCALE		(1.0e-3F*PI/180.0F) //!< Gyrometer scale \details mdps to rad/s.
 #define MAG_SCALE		0.1F //!< Magnetometer scale. \details mG to uT.
 #define GPSSPEED_SCALE	0.5144F //!< GPS speed scale. \details Knots to m/s.
@@ -173,7 +174,7 @@
 #define SBUS_SEL_CH		7 //!< 3 selector channel in SBUS. \warning Channel number is one-based.
 
 //LIMITS
-#define MAX_REFCUR		controlParams.maxCurrent //!< Maximum reference current. \warning Must be consistent with that in ESCON studio and Simulink. 
+#define MAX_REFCUR		10 //!< Maximum reference current. \warning Must be consistent with that in ESCON studio and Simulink. 
 #define MAX_REFTHROTTLE 1.0F //!< Maximum throttle value. \warning Must be consistent with that in Simulink. 
 #define MIN_VOLTAGE		15 //!< Minimum battery voltage (undervoltage) (V).
 #define MAX_VOLTAGE		40 //!< Maximum battery voltage (overvoltage) (V).
@@ -232,7 +233,7 @@
 	\return The value in rad.
 	\see ADC_RES GAIN_STEERVEL OFFSET_STEERVEL
 */
-#define CONVERT_ACTCURR_TO_A(X)			(GAIN_ACTCURR * X / (powf(2, ADC_RES) - 1) + OFFSET_ACTCURR) //macro for conversion of actual motor current to A
+#define CONVERT_ACTCURR_TO_A(X)			(-(GAIN_ACTCURR * X / (powf(2, ADC_RES) - 1) + OFFSET_ACTCURR)) //macro for conversion of actual motor current to A
 
 /*! \brief Convert reference current to PWM value.
 	\details Macro for the conversion of the reference current to a PWM value.
@@ -305,6 +306,8 @@
 */
 #define CONVERT_TRHOTTLE_TO_STEPS(X) CONVERT_BRLEV_TO_STEPS(X / MAX_REFTHROTTLE * MAX_BR_DISP)
 
+#define USB_CONNECTED		(!bitRead(USB1_PORTSC1,7)) //!< Macro for checking the USB connection status- \details See https://forum.pjrc.com/threads/70721-detecting-usb-connection-on-a-teensy-4-0
+
 //ENABLES
 #define MTR_EN_STATE	HIGH //!< Enable state for steer motor.
 #define RELAY_EN_STATE	HIGH //!< Enable state for relay.
@@ -334,16 +337,16 @@
 #define EN_LONG_CTRL		0 //!< Enable the longitudinal control.
 #define CW					LOW //!< Digital pin state for clockwise torque.
 #define NUM_ZERO_SAMPLES	500 //!< Samples used to perform the zero of sensors.
-#define STEERVEL_RATIO		(36*1.25) //!< Speed ratio of steer velocity. \details Values from Simulink model.
+#define STEERVEL_RATIO		(-36.0*1.25) //!< Speed ratio of steer velocity. \details Values from Simulink model.
 #define FULLEXT_FORKDISP	0 //!< Fork displacement at full extended suspension (in mm).
 #define NAN_VAL				0xFFC00000 //!< NaN value used for invalid data.
 #define YINCL_MCUBOX		1.3426 //!< Pitch iinclination of MCU box (in rad). \details Value of 76.928deg, found from a static calibration with the IMU.
-const float imu_rotMat[3][3] = { {0, cosf(YINCL_MCUBOX), sinf(YINCL_MCUBOX)}, 
-								  {1, 0, 0},  
+const float imu_rotMat[3][3] = { {0, -cosf(YINCL_MCUBOX), -sinf(YINCL_MCUBOX)}, 
+								  {-1, 0, 0},  
 								  {0, sinf(YINCL_MCUBOX), -cosf(YINCL_MCUBOX)} }; //!< Rotation matrix from IMU frame to SAE body-fixed frame. \details This is the result of Rz(90deg)*Rx(180deg)*Ry(#YINCL_MCUBOX). \see YINCL_MCUBOX
 const float mag_rotMat[3][3] = { {cosf(YINCL_MCUBOX), 0, sinf(YINCL_MCUBOX)},
 								  {0, -1, 0}, 
-								  {sinf(YINCL_MCUBOX), 0, -cosf(YINCL_MCUBOX)} }; //!< Rotation matrix from MAG frame to SAE body-fixed frame. \details This is the result of Rx(180deg)*Ry(#YINCL_MCUBOX). \see YINCL_MCUBOX
+								  {-sinf(YINCL_MCUBOX), 0, cosf(YINCL_MCUBOX)} }; //!< Rotation matrix from MAG frame to SAE body-fixed frame. \details This is the result of Ry(180deg)*Ry(#YINCL_MCUBOX). \see YINCL_MCUBOX
 //#define SWEEP_TEST
 //#define SIN_TEST
 //#define TEST_DURATION 10e3

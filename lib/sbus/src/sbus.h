@@ -85,9 +85,9 @@ class SbusRx {
  public:
   explicit SbusRx(HardwareSerial *bus) : uart_(bus) {}
   #if defined(ESP32)
-  void Begin(const int8_t rxpin, const int8_t txpin);
+  bool Begin(const int8_t rxpin, const int8_t txpin);
   #else
-  void Begin();
+  bool Begin();
   #endif
   bool Read();
   static constexpr int8_t NUM_CH() {return NUM_SBUS_CH_;}

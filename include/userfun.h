@@ -15,22 +15,23 @@ void set_buses(void) starts the IO buses
 void start_IObus(void) {
 	USED_SPI.begin(); //start sensor SPI
 	//start imu, mag, and dac
-	imu.begin();
-	mag.begin();
-	dac.begin();
+	iostatus.imu = imu.begin() == ISM330DHCX_OK;
+	iostatus.mag = mag.begin() == LIS3MDL_STATUS_OK;
+	dac.begin(); iostatus.dac = true;
+	
 	//start speed-sensor UART
-	UART_SPEEDSENS.begin(BAUD_SPEEDSENS);
+	UART_SPEEDSENS.begin(BAUD_SPEEDSENS); iostatus.speedsens = (bool) UART_SPEEDSENS;
 	speedSensor.begin(UART_SPEEDSENS);
 	//CCM_CSCDR1 = 105450240; //UART_CLK_SEL bit set to 0 - to use baudrate of serial above 6e6 Mbit/s, see https://forum.pjrc.com/threads/67150-Teensy4-1-MAX-baud-rate
 	//start gps UART
-	UART_GPS.begin(BAUD_GPS_DEF);
+	UART_GPS.begin(BAUD_GPS_DEF); iostatus.gps = (bool) UART_GPS;
 	UART_GPS.addMemoryForRead(GPSserial_extra_buffer, sizeof(GPSserial_extra_buffer));
 	/*delay(66);
 	gps.sendCommand(PMTK_SET_BAUD_57600), delay(66);
 	UART_GPS.end(), delay(66);
 	UART_GPS.begin(BAUD_GPS);*/
 	//start sbus
-	sbus.Begin(); //This inclues begin of the #UART_SBUS
+	iostatus.sbus = sbus.Begin(); //This inclues begin of the #UART_SBUS
 }
 
 /*
@@ -38,9 +39,9 @@ void set_IObus(void) sets the IO (sensors, ADC, DAC, etc.)
 */
 void set_IObus(void) {
 	//enable sensors
-	imu.ACC_Enable();
-	imu.GYRO_Enable();
-	mag.Enable();
+	iostatus.accen = imu.ACC_Enable() == ISM330DHCX_OK;
+	iostatus.gyroen = imu.GYRO_Enable() == ISM330DHCX_OK;
+	iostatus.magen = mag.Enable() == LIS3MDL_STATUS_OK;
 	gps.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCONLY);
 
 	//set sensor rates
@@ -48,7 +49,7 @@ void set_IObus(void) {
 	imu.ACC_SetOutputDataRate(ACC_ODR);
 	mag.SetODR(MAG_ODR);
 	gps.sendCommand(PMTK_SET_NMEA_UPDATE_10HZ); 
-
+	
 	//set adc
 	adc->adc0->setAveraging(ADC_AVERAGE); // set number of averages
 	adc->adc0->setResolution(ADC_RES); // set bits of resolution
@@ -174,9 +175,9 @@ void get_sensors(void) {
 			if (gps.lon == 'W') gpsData_raw.lon *= -1;
 		}
 		else {
-			gps.lat = NAN;
-			gps.lon = NAN;
-			gps.speed = NAN;
+			gps.lat = 0;
+			gps.lon = 0;
+			gps.speed = 0;
 		}
 	}
 
@@ -310,17 +311,16 @@ void do_control(void) {
 
 }
 
+void update_tet(uint32_t t0) {
+	timing.tet = micros() - t0; //duty cycle (i.e. time to do stuff), should be < SAMPLING_TIME, better < SAMPLING_TIME/2 to avoid large delay
+	if (timing.tet > timing.max_tet) timing.max_tet = timing.tet;
+	if (timing.tet < timing.min_tet) timing.min_tet = timing.tet;
+}
+
 void check_error(void) {
 	//check error is also performed in the control loop, so only low-level checks are performed in the code, such as....
 	//Instead, steering limits etc. are checked in the control loop (see simulink model)
 	//save error state in ctrl.controlModel_U to change error state inside the control loop
-	if ( ctrl.controlModel_Y.error_state_out < 1) {
-		if ((ctrl.controlModel_U.steer[0] > MAX_STEER_ANGLE) || (ctrl.controlModel_U.steer[0] < -MAX_STEER_ANGLE)) {
-			ctrl.controlModel_Y.error_state_out = 1;
-			ctrl.controlModel_U.error_state_in = 1;
-		} //check steer angle
-	}
-
 }
 
 //get selector
@@ -409,18 +409,21 @@ void do_led() {
 	if (counters.LED == 0) {
 		uint16_t ledfac = DEF_LED;
       	switch (LEDmode) {
-      	case LedMode::LOG:
-        	ledfac = LOG_LED;
-        	break;
-      	case LedMode::MTP:
-        	ledfac = MTP_LED;
-        	break;
-      	case LedMode::ERR:
-        	ledfac = ERR_LED;
-        	break;
-      	default:
-        	ledfac = DEF_LED;
-        	break;    
+			case LedMode::LOG:
+				ledfac = LOG_LED;
+				break;
+			case LedMode::MTP:
+				ledfac = MTP_LED;
+				break;
+			case LedMode::ERR:
+				ledfac = ERR_LED;
+				break;
+			case LedMode::MTPWAIT:
+				ledfac = MTPWAIT_LED;
+				break;
+			default:
+				ledfac = DEF_LED;
+				break;    
 		}                    
 		LEDstate = !LEDstate;
 		if (LEDstate) LEDON;
@@ -441,7 +444,6 @@ void set_ctrl_param(void) {
 	//controlParams.propGainSpeed = .2;
 	//controlParams.intTimeSpeed = 0.5;
 	//controlParams.derTimeSpeed = 0.1;
-	controlParams.maxCurrent = 10;
 }
 
 #endif

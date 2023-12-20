@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 3.8
-// Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
-// C/C++ source code generated on : Wed Jun  1 08:18:25 2022
+// Model version                  : 4.92
+// Simulink Coder version         : 9.8 (R2022b) 13-May-2022
+// C/C++ source code generated on : Thu Sep  7 10:30:43 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -23,8 +23,6 @@
 #ifndef RTW_HEADER_controlModel_types_h_
 #define RTW_HEADER_controlModel_types_h_
 #include "rtwtypes.h"
-
-// Model Code Variants
 #ifndef struct_b_dsp_FIRFilter_0_controlMode_T
 #define struct_b_dsp_FIRFilter_0_controlMode_T
 

@@ -31,7 +31,7 @@ ARDUINO_FOLDER	:= /usr/share/arduino
 MATLAB_FOLDER   := /usr/local/MATLAB/R2022a
 BUILD_TOOLS		:= ./tools/tools-linux
 else ifeq ($(OS), Windows_NT) 
-ARDUINO_FOLDER  := C:/Program Files (x86)/Arduino
+ARDUINO_FOLDER  := ./tools
 MATLAB_FOLDER   := C:/Program Files/MATLAB/R2022a
 BUILD_TOOLS		:= ./tools/tools-windows
 endif

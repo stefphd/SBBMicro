@@ -153,6 +153,11 @@ void serial_flush();
 */
 void set_ctrl_param();
 
+/*! \brief Update task execution time.
+    \details Function to update the TET.
+    \param t0 The initial task time.
+*/
+void update_tet(uint32_t t0);
 
 /*! @} */
 
@@ -174,6 +179,13 @@ void set_ctrl_param();
    \see logger.h NAN_VAL LedMode LOG_LED mtpfun
    @{
 */
+
+/*! \brief Print the report.
+    \details Function to print the report to the SD card (if available) at the startup in a log file.
+    \param mode Operation to perform (0=print startup info, 1=print turnoff info)
+    \see FILENAME_REPORT
+*/
+void print_report(int mode);
 
 /*! \brief Initialize the logger.
 	\details Function to initialize the logger. It initializes the SD card and create a log file with 

@@ -1,9 +1,8 @@
 function make(varargin)
-%MAKE This is a wrapper around the make command being used from the
+%MAKE This is an implementation of the make command being used from the
 %terminal. This implements also make gencode for code generation and make
 %all for gencode, build, and upload. Default make is 'make all'.
-%It requires having 'make' installed and added to the PATH of your
-%computer.
+%Not that this function does not require having 'make' installed.
 %Use 'make help' to print the help.
 %Created by Stefano Lovato
 %Creation date: 29th September 2022

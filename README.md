@@ -184,7 +184,7 @@ As an alternative to `make` and `gencode`, the code generation, buiding, uploadi
 
 - `make help` to print the help.
 
-\note Note that this function emulates the function `gencode` and the standard `make` commands. However, it does not require having `make` installed but only `docygen` for the generation of the documentation.
+\note Note that this function emulates the function `gencode` and the standard `make` commands. However, it does not require having `make` installed but only `doxygen` for the generation of the documentation.
 
 \note The above commands can be also used at the same time, e.g. `make build doc` to build and generate the documentation.
 

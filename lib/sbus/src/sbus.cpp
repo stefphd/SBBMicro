@@ -44,9 +44,9 @@ namespace bfs {
 #endif
 
 #if defined(ESP32)
-void SbusRx::Begin(const int8_t rxpin, const int8_t txpin) {
+bool SbusRx::Begin(const int8_t rxpin, const int8_t txpin) {
 #else
-void SbusRx::Begin() {
+bool SbusRx::Begin() {
 #endif
   /* Start the bus */
   /* Teensy 3.0 || Teensy 3.1/3.2 */
@@ -78,6 +78,7 @@ void SbusRx::Begin() {
   #endif
   /* flush the bus */
   uart_->flush();
+  return (bool) *uart_;
 }
 bool SbusRx::Read() {
   /* Read through all available packets to get the newest */

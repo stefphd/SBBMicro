@@ -24,7 +24,7 @@
     - Default mode with signal-logging: LEDmode is LedMode::LOG, LED blinks depending on #LOG_LED.
     - MTP mode: LEDmode is LedMode::MTP, LED blinks depending on #MTP_LED.
     - Error mode: LEDmode is LedMode::ERR, LED blinks depending on #ERR_LED.
-
+	- MTP wait for USB connected: LEDmode is LedMode::MTPWAIT, LED blicks depending on #MTPWAIT_LED
     \ingroup do_led logfun mtpfun
 */
 namespace LedMode {
@@ -32,6 +32,7 @@ namespace LedMode {
 	constexpr int8_t LOG = 1; //!< Default mode with signal-logging.
 	constexpr int8_t MTP = 2; //!< MTP mode.
 	constexpr int8_t ERR = 3; //!< Error mode.
+	constexpr int8_t MTPWAIT = 4; //!< MTP wait for USB connected.
 }
 
 //strcut def
@@ -167,9 +168,11 @@ struct Counter {
 */
 struct Timing {
 	uint32_t dt_cycle; //!< Cycle time. \details The time at which the main cycle is called. The value is equal to #SAMPLING_TIME, except for possible overrunning. \see SAMPLING_TIME
-	uint32_t duty_cycle; //!< Duty cycle. \details The Time taken by the whole cycle. The value is lower than #SAMPLING_TIME, except for possible overrunning. \see SAMPLING_TIME
+	uint32_t tet; //!< Task execution time. \details The Time taken by the whole cycle. The value is lower than #SAMPLING_TIME, except for possible overrunning. \see SAMPLING_TIME
 	uint32_t dt_debug; //!< Debug time. \details The time taken by the debugging. The value is much lower than #SAMPLING_TIME, except for possible overrunning. \see debfun SAMPLING_TIME
 	uint32_t dt_logger; //!< Logger time. \details The time taken by the data logging. The value is much lower than #SAMPLING_TIME, except for possible overrunning. \see logfun SAMPLING_TIME
+	uint32_t max_tet = 0; //!< Maximum TET.
+	uint32_t min_tet = -1; //!< Minimum TET.
 };
 
 /*! \brief Signals from remote controller.
@@ -197,6 +200,19 @@ struct RemoteCtrl { //controller channels
 	uint32_t missing_frame = 0; //!< Number of missing frame. \details The counter increment when failing to read SBUS or frame is lost. The counter is reset when reading success. When #MAX_MISSING_SBUS is reached, an error is thrown. \see MAX_MISSING_SBUS
 };
 
+/*! \brief Save the IO startu status.
+	\details The struct contains flags which identify if the corresponding IO is started successfully.
+    \ingroup vars
+*/
+struct IOstatus {
+	bool imu, accen, gyroen;
+	bool mag, magen;
+	bool dac;
+	bool speedsens;
+	bool gps;
+	bool sbus;
+};
+
 //global variables
 uint32_t sampling_timer = 0; //!< Timer for the main cycle. \details The timer is used to run the main cycle at a sampling time of #SAMPLING_TIME. \see SAMPLING_TIME
 uint8_t GPSserial_extra_buffer[GPS_EXTBUFSIZE];
@@ -214,7 +230,8 @@ Steer steer_raw; //!< Raw data from the steering sensors.
 ForkDisp forkDisp_raw; //!< Raw data from the fork-displacement sensor.
 Voltage voltage_raw; //!< Raw data from the battery voltage sensor.
 RemoteCtrl remote_raw; //!< Channels from the remote controller.
-                             
+IOstatus iostatus; //!< IO status flags.
+
 //global objects
 ISM330DHCXSensor imu(&USED_SPI, CS_IMU, SPISPEED_IMU); //!< IMU object (accelerometer and gryometer).
 LIS3MDLSensor mag(&USED_SPI, CS_MAG, SPISPEED_MAG); //!< Magnetometer object.

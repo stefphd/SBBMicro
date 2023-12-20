@@ -2,13 +2,13 @@ function gencode(modelname,destdir)
 %GENCODE(input) generates the C/C++ code a Simulink model using the Embedeed Coder.
 %Created by Stefano Lovato
 %Creation data: 6th April 2022
-%Last edit: 6th Aprile 2022
+%Last edit: 7th September 2023
 %Created with MATLAB R2022a
 %Usages:
 %   - gencode()                         Generate code in the directory './lib/modelname' for the first *.slx file found in the current directory (if any).
 %   - gencode(modelname)                Generate code in the directory './lib/modelname' for the Simulink model 'modelname'.
-%   - check_toolbox('~', destdir)       Generate code in the directory './destdir/modelname' for the first *.slx file found in the current directory (if any).
-%   - check_toolbox(modelname,destdir)  Generate code in the directory './destdir/modelname' for the Simulink model 'modelname'.
+%   - gencode('~', destdir)       Generate code in the directory './destdir/modelname' for the first *.slx file found in the current directory (if any).
+%   - gencode(modelname,destdir)  Generate code in the directory './destdir/modelname' for the Simulink model 'modelname'.
 
 fprintf('###################################################\n');
 fprintf('# Generate code\n');
@@ -52,7 +52,7 @@ end
 if (nargin<1)
     modelname = '~';
 end
-if modelname == '~' %use default .slx file found
+if strcmp(modelname,'~') %use default .slx file found
     %find first .slx file found
     files = dir('*.slx');
     if isempty(files)
@@ -61,8 +61,11 @@ if modelname == '~' %use default .slx file found
     modelname = files(1).name(1:end-4);
 end
 if nargin<2
-    destdir = 'lib';
+    destdir = '~';
 end
+if strcmp(destdir,'~')
+    destdir = 'lib';
+end    
 
 if not(exist([modelname '.slx'], 'file'))
     error(['file ' modelname '.slx not found']);

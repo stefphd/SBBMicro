@@ -23,25 +23,25 @@ bool check_mtp(void) {
     delay(100); //wait 100ms for the next check
   }
   if (!sd.begin(SD_CONFIG)) { return false; }    
-  LEDmode = LedMode::MTP;
+  LEDmode = LedMode::MTPWAIT; //set LEDmode to MTPWAIT by default
   return true;
 }
 
 //do mtp
 void do_mtp(void) {
-  //wait for serial activation
-  while (!usb_configuration) {}; //wait untill usb connected
-
   //create mtp objects (local object to not leak RAM in 'normal' mode)
   MTPStorage_SD storage;  //storate obj for mtp
   MTPD    mtpd(&storage); //mtp obj
-
   //add SD to storage
   storage.addFilesystem(SD, STORAGENAME);
-
-  //mtp loop
+  //wait for USB connected
   while (true) {
-    if (usb_configuration) mtpd.loop(); //do mtp if usb connected
+    if (USB_CONNECTED) {
+      LEDmode = LedMode::MTP;
+      mtpd.loop();
+    }
+    else
+      LEDmode = LedMode::MTPWAIT;
     if ((micros() - sampling_timer) >= SAMPLING_TIME) {
 	  	sampling_timer = micros(); //update timer
       do_led();
