@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['basic_20code_0',['basic code',['../todo.html#_todo000003',1,'Basic code'],['../md_docs_2extra_2software.html#autotoc_md26',1,'Basic code']]],
+  ['basic_20code_0',['Basic code',['../md_docs_2extra_2software.html#autotoc_md26',1,'Basic code'],['../todo.html#_todo000003',1,'Basic code']]],
   ['batvolt_1',['batVolt',['../structVoltage.html#ab278938118eb1621f72d797220d0f321',1,'Voltage']]],
   ['batvolt_5foffset_2',['batVolt_offset',['../structVoltage.html#af8a868d668c6820240e6fbb68efc1c74',1,'Voltage']]],
   ['baud_5fgps_3',['BAUD_GPS',['../group__bus.html#gad8cebcbdfefe7b55ff74616dbd258ad2',1,'config.h']]],
   ['baud_5fgps_5fdef_4',['BAUD_GPS_DEF',['../group__bus.html#gaabd9c6425be53d81ac771a5cb7906ba4',1,'config.h']]],
   ['baud_5fspeedsens_5',['BAUD_SPEEDSENS',['../group__bus.html#ga24e9c4844ac97005cfb355f9f894132c',1,'config.h']]],
-  ['box_6',['box',['../md_docs_2extra_2hardware.html#autotoc_md21',1,'High-voltage box'],['../md_docs_2extra_2hardware.html#autotoc_md20',1,'Low-voltage box']]],
+  ['box_6',['Box',['../md_docs_2extra_2hardware.html#autotoc_md21',1,'High-voltage box'],['../md_docs_2extra_2hardware.html#autotoc_md20',1,'Low-voltage box']]],
   ['br_5fdir_5fpin_7',['BR_DIR_PIN',['../group__pin.html#ga9fa3f98f097385c15ea3cead24013949',1,'config.h']]],
   ['br_5fdisable_8',['BR_DISABLE',['../group__macros.html#ga1a973e5702e6655afb898a47539b85e6',1,'config.h']]],
   ['br_5fenable_9',['BR_ENABLE',['../group__macros.html#gaf366d8d718576324e3ee2155b4a5b662',1,'config.h']]],

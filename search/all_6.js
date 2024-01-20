@@ -9,10 +9,11 @@ var searchData=
   ['fill_5fpacket_6',['fill_packet',['../group__logfun.html#gaa9d37fe5166494490b4a77d530a09b27',1,'logger.h']]],
   ['fix_7',['fix',['../structGPSData.html#a4010d11139f257dc15fc29eee5c9ed3b',1,'GPSData']]],
   ['fork_5fdisp_8',['FORK_DISP',['../group__pin.html#ga43b52247e3fe06a477e44548566b315d',1,'config.h']]],
-  ['forkdisp_9',['forkdisp',['../structForkDisp.html',1,'ForkDisp'],['../structForkDisp.html#a9f72a2b9c375aca21065c44490c3c188',1,'ForkDisp::forkDisp']]],
-  ['forkdisp_5foffset_10',['forkDisp_offset',['../structForkDisp.html#a3c20535904f08574654556cf23f94e4a',1,'ForkDisp']]],
-  ['forkdisp_5fraw_11',['forkDisp_raw',['../group__vars.html#gaaece0394fec3ae372466a495656b04df',1,'objects.h']]],
-  ['fullext_5fforkdisp_12',['FULLEXT_FORKDISP',['../group__userparams.html#ga2635709fc71b4c669dce3234d4d378ff',1,'config.h']]],
-  ['function_13',['Entry-point function',['../group__mainfun.html',1,'']]],
-  ['functions_14',['User functions',['../group__userfun.html',1,'']]]
+  ['forkdisp_9',['ForkDisp',['../structForkDisp.html',1,'']]],
+  ['forkdisp_10',['forkDisp',['../structForkDisp.html#a9f72a2b9c375aca21065c44490c3c188',1,'ForkDisp']]],
+  ['forkdisp_5foffset_11',['forkDisp_offset',['../structForkDisp.html#a3c20535904f08574654556cf23f94e4a',1,'ForkDisp']]],
+  ['forkdisp_5fraw_12',['forkDisp_raw',['../group__vars.html#gaaece0394fec3ae372466a495656b04df',1,'objects.h']]],
+  ['fullext_5fforkdisp_13',['FULLEXT_FORKDISP',['../group__userparams.html#ga2635709fc71b4c669dce3234d4d378ff',1,'config.h']]],
+  ['function_14',['Entry-point function',['../group__mainfun.html',1,'']]],
+  ['functions_15',['User functions',['../group__userfun.html',1,'']]]
 ];

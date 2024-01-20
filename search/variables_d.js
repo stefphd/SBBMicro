@@ -6,7 +6,7 @@ var searchData=
   ['speed_3',['speed',['../structSpeed.html#a6a64fff13e9fd626f6c4b7c28c3397d1',1,'Speed::speed'],['../structGPSData.html#a4f21a8a72b90ee7267b3ed3900a42d3f',1,'GPSData::speed']]],
   ['speed_5fraw_4',['speed_raw',['../group__vars.html#gaadda3755d69a6015938e992342800dc1',1,'objects.h']]],
   ['speedsens_5',['speedsens',['../structIOstatus.html#aee2878d5eba433cf626990e2a6060dae',1,'IOstatus']]],
-  ['speedsensor_6',['speedsensor',['../structCounter.html#a3c1cd8d5ba4558e56d02288d4c624473',1,'Counter::speedSensor'],['../group__vars.html#ga15df8c8704f3ce0d17ac1856757d3842',1,'speedSensor:&#160;objects.h']]],
+  ['speedsensor_6',['speedSensor',['../structCounter.html#a3c1cd8d5ba4558e56d02288d4c624473',1,'Counter::speedSensor'],['../group__vars.html#ga15df8c8704f3ce0d17ac1856757d3842',1,'speedSensor:&#160;objects.h']]],
   ['split_5fchar_7',['SPLIT_CHAR',['../debug_8h.html#abfc4524c221328bf4e82acce4df13be6',1,'debug.h']]],
   ['steer_5fraw_8',['steer_raw',['../group__vars.html#ga0ff945cd7a42504782083972557313b0',1,'objects.h']]],
   ['steerpos_9',['steerPos',['../structSteer.html#a673ca48c07e5086322d005917c2063a4',1,'Steer']]],

@@ -36,7 +36,7 @@ var searchData=
   ['min_5fvoltage_33',['MIN_VOLTAGE',['../group__constants.html#ga34badbf9acae6cc5c2eed2ab51b32d30',1,'config.h']]],
   ['missing_5fframe_34',['missing_frame',['../structRemoteCtrl.html#ae905d3f0c62fda7d64825d01493acbb1',1,'RemoteCtrl']]],
   ['mode_35',['MTP mode',['../md_docs_2extra_2software.html#autotoc_md28',1,'']]],
-  ['mtp_36',['mtp',['../group__mtpfun.html',1,'MTP'],['../namespaceLedMode.html#a29705e031e56f6a3030dc158c68f8ab9',1,'LedMode::MTP']]],
+  ['mtp_36',['MTP',['../namespaceLedMode.html#a29705e031e56f6a3030dc158c68f8ab9',1,'LedMode::MTP'],['../group__mtpfun.html',1,'MTP']]],
   ['mtp_20mode_37',['MTP mode',['../md_docs_2extra_2software.html#autotoc_md28',1,'']]],
   ['mtp_5fenable_5ftimeout_38',['MTP_ENABLE_TIMEOUT',['../group__mtpfun.html#gaf445ce0f5e2ca9ea7ece908baf75640e',1,'sbbmtp.h']]],
   ['mtp_5fled_39',['MTP_LED',['../group__constants.html#ga78e83fa846657dc71872e35d38cd431a',1,'config.h']]],

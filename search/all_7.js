@@ -10,7 +10,7 @@ var searchData=
   ['get_5fenable_7',['get_enable',['../group__userfun.html#ga10a641d6bb7088b74e35fd751a422cf4',1,'get_enable(void):&#160;userfun.h'],['../group__userfun.html#ga10a641d6bb7088b74e35fd751a422cf4',1,'get_enable(void):&#160;userfun.h']]],
   ['get_5fselector_8',['get_selector',['../group__userfun.html#ga7c68aacddf311ab62f6daa08f8b42c6e',1,'get_selector(void):&#160;userfun.h'],['../group__userfun.html#ga7c68aacddf311ab62f6daa08f8b42c6e',1,'get_selector(void):&#160;userfun.h']]],
   ['get_5fsensors_9',['get_sensors',['../group__userfun.html#gaadef8420a246721121dfcb8e722d4a66',1,'get_sensors(void):&#160;userfun.h'],['../group__userfun.html#gaadef8420a246721121dfcb8e722d4a66',1,'get_sensors(void):&#160;userfun.h']]],
-  ['gettime_10',['gettime',['../group__userfun.html#ga32315808bd93c14f43ad88f6129f4f35',1,'getTime():&#160;userfun.h'],['../group__userfun.html#ga32315808bd93c14f43ad88f6129f4f35',1,'getTime():&#160;userfun.h']]],
+  ['gettime_10',['getTime',['../group__userfun.html#ga32315808bd93c14f43ad88f6129f4f35',1,'getTime():&#160;userfun.h'],['../group__userfun.html#ga32315808bd93c14f43ad88f6129f4f35',1,'getTime():&#160;userfun.h']]],
   ['gps_11',['gps',['../structIOstatus.html#a60777815c8e8e239aaa5fd04b4c66045',1,'IOstatus']]],
   ['gps_5fextbufsize_12',['GPS_EXTBUFSIZE',['../group__bus.html#gaacd0e9d1ca1bad59d205f7c12cd57616',1,'config.h']]],
   ['gpsdata_13',['GPSData',['../structGPSData.html',1,'']]],

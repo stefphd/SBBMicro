@@ -8,10 +8,12 @@ var searchData=
   ['remote_5fraw_5',['remote_raw',['../group__vars.html#ga1bfad5bd762f1797f73ee58a1e78c888',1,'objects.h']]],
   ['remotectrl_6',['RemoteCtrl',['../structRemoteCtrl.html',1,'']]],
   ['reportfile_7',['reportFile',['../group__logfun.html#ga7a36107af026ca3baf7bd212b4376d45',1,'logger.h']]],
-  ['requisites_8',['requisites',['../md_INSTALL__PREREQ.html',1,'Installation of the pre-requisites'],['../index.html#autotoc_md2',1,'Pre-requisites']]],
-  ['rider_5ftrq_9',['RIDER_TRQ',['../group__pin.html#ga1972e102d147b0783e4ce14aaa8b2066',1,'config.h']]],
-  ['ridertorque_10',['ridertorque',['../structRiderTorque.html',1,'RiderTorque'],['../structRiderTorque.html#ae04e1cc9e40f59adebd3c66ca389d27b',1,'RiderTorque::riderTorque']]],
-  ['ridertorque_5foffset_11',['riderTorque_offset',['../structRiderTorque.html#a7b45fe5bf3d719533608a4ea62849565',1,'RiderTorque']]],
-  ['ridertorque_5fraw_12',['riderTorque_raw',['../group__vars.html#gab160016dad586229de1321833886d5f1',1,'objects.h']]],
-  ['ring_5fbuf_5fsize_13',['RING_BUF_SIZE',['../group__logfun.html#ga3f905678aa4ffbb3eb713cb039dd9053',1,'logger.h']]]
+  ['requisites_8',['Installation of the pre-requisites',['../md_INSTALL__PREREQ.html',1,'']]],
+  ['requisites_9',['Pre-requisites',['../index.html#autotoc_md2',1,'']]],
+  ['rider_5ftrq_10',['RIDER_TRQ',['../group__pin.html#ga1972e102d147b0783e4ce14aaa8b2066',1,'config.h']]],
+  ['ridertorque_11',['RiderTorque',['../structRiderTorque.html',1,'']]],
+  ['ridertorque_12',['riderTorque',['../structRiderTorque.html#ae04e1cc9e40f59adebd3c66ca389d27b',1,'RiderTorque']]],
+  ['ridertorque_5foffset_13',['riderTorque_offset',['../structRiderTorque.html#a7b45fe5bf3d719533608a4ea62849565',1,'RiderTorque']]],
+  ['ridertorque_5fraw_14',['riderTorque_raw',['../group__vars.html#gab160016dad586229de1321833886d5f1',1,'objects.h']]],
+  ['ring_5fbuf_5fsize_15',['RING_BUF_SIZE',['../group__logfun.html#ga3f905678aa4ffbb3eb713cb039dd9053',1,'logger.h']]]
 ];
