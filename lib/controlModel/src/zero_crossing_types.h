@@ -3,7 +3,7 @@
 // course requirements at degree granting institutions only.  Not for
 // government, commercial, or other organizational use.
 //
-// File: controlModel_private.h
+// File: zero_crossing_types.h
 //
 // Code generated for Simulink model 'controlModel'.
 //
@@ -20,15 +20,32 @@
 //    4. MISRA C:2012 guidelines
 // Validation result: Not run
 //
-#ifndef RTW_HEADER_controlModel_private_h_
-#define RTW_HEADER_controlModel_private_h_
+
+#ifndef ZERO_CROSSING_TYPES_H
+#define ZERO_CROSSING_TYPES_H
 #include "rtwtypes.h"
-#include "zero_crossing_types.h"
-#include "controlModel_types.h"
 
-extern real32_T rt_atan2f_snf(real32_T u0, real32_T u1);
+// Trigger directions: falling, either, and rising
+typedef enum {
+  FALLING_ZERO_CROSSING = -1,
+  ANY_ZERO_CROSSING = 0,
+  RISING_ZERO_CROSSING = 1
+} ZCDirection;
 
-#endif                                 // RTW_HEADER_controlModel_private_h_
+// Previous state of a trigger signal
+typedef uint8_T ZCSigState;
+
+// Initial value of a trigger zero crossing signal
+#define UNINITIALIZED_ZCSIG            0x03U
+#define NEG_ZCSIG                      0x02U
+#define POS_ZCSIG                      0x01U
+#define ZERO_ZCSIG                     0x00U
+
+// Current state of a trigger signal
+typedef enum { FALLING_ZCEVENT = -1, NO_ZCEVENT = 0, RISING_ZCEVENT = 1 }
+  ZCEventType;
+
+#endif                                 // ZERO_CROSSING_TYPES_H
 
 //
 // File trailer for generated code.

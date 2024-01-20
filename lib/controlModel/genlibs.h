@@ -6,3 +6,4 @@
 #include "src/rt_defines.h"
 #include "src/rt_nonfinite.h"
 #include "src/rtwtypes.h"
+#include "src/zero_crossing_types.h"
