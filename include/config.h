@@ -133,7 +133,7 @@
 #define MAG_ODR			200 //!< Output data rate of magnetometer (sps). \note This is not the rate at which the sensor is read (i.e. #MAG_SAMPLING_FAC). \see MAG_SAMPLING_FAC
 
 //GAINS & CONVERSION
-#define SPEED_SCALE		1.0e-3F //!< Speed scale. \details cm/s to m/s.
+#define SPEED_SCALE		1.0e-3F //!< Speed scale. \details mm/s to m/s.
 #define DIST_SCALE		0.25F //!< Distance scale. \details Units of 0.25m to m.
 #define ACC_SCALE		(-1.0e-3F*9.806F) //!< Acceleration scale. \details mg to m/s^2. -1 is to have actual accelerations (no the inertial ones).
 #define GYRO_SCALE		(1.0e-3F*PI/180.0F) //!< Gyrometer scale \details mdps to rad/s.
@@ -335,6 +335,7 @@
 #define CPU_FREQ			600e6 //!< CPU clock speed (Hz). /warning Maximum value is 816e6 without cooling. \see https://www.pjrc.com/store/teensy40.html
 #define MTR_CTRL_MODE		1 //!< Control mode of steer motor (0=PWM or 1=DAC). \warning This setting must be consistent with ESCON Studio.
 #define EN_LONG_CTRL		0 //!< Enable the longitudinal control.
+#define EN_REMOTE_CTRL 		0 //!< Enable the remote controller.
 #define CW					LOW //!< Digital pin state for clockwise torque.
 #define NUM_ZERO_SAMPLES	500 //!< Samples used to perform the zero of sensors.
 #define STEERVEL_RATIO		(-36.0*1.25) //!< Speed ratio of steer velocity. \details Values from Simulink model.

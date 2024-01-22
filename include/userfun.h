@@ -31,7 +31,9 @@ void start_IObus(void) {
 	UART_GPS.end(), delay(66);
 	UART_GPS.begin(BAUD_GPS);*/
 	//start sbus
+#if EN_REMOTE_CTRL==1
 	iostatus.sbus = sbus.Begin(); //This inclues begin of the #UART_SBUS
+#endif
 }
 
 /*
@@ -190,6 +192,7 @@ void get_sensors(void) {
 	forkDisp_raw.forkDisp = analogRead(FORK_DISP);
 
 	//sbus
+#if EN_REMOTE_CTRL==1
 	if (sbus.Read()) {
 		if (check_sbus()) { //success!!!
 			sbus.ch(remote_raw.ch, NUM_CH_SBUS*sizeof(int16_t)); //read channels
@@ -200,6 +203,7 @@ void get_sensors(void) {
 		remote_raw.missing_frame = MAX_MISSING_SBUS; //set to #MAX_MISSING_SBUS to avoid overflow
 		for (uint8_t i = 0; i < NUM_CH_SBUS; ++i) remote_raw.ch[i] = ZERO_SBUS; //set channel to zero
 	}
+#endif
 }
 
 /*
@@ -219,7 +223,7 @@ void set_ctrl_input(void) sets the control input structure
 */
 void set_ctrl_input(void) {
 	//set speed
-	ctrl.controlModel_U.speed = SPEED_SCALE*float(speed_raw.speed);
+	if (speed_raw.speed >= -1) ctrl.controlModel_U.speed = SPEED_SCALE*float(speed_raw.speed); // Avoid negative values
 	ctrl.controlModel_U.dist = DIST_SCALE * float(speed_raw.dist);
 	//set the threee components of accs, gyros, mags
 	for (int i = 0; i < 3; i++) {
@@ -250,9 +254,11 @@ void set_ctrl_input(void) {
 	ctrl.controlModel_U.voltage = CONVERT_VOLTAGE_TO_V(float(voltage_raw.batVolt)) - voltage_raw.batVolt_offset;
 	//CPU temp
 	ctrl.controlModel_U.CPUTemp = tempmonGetTemp();
-	//set remote control (2 channels) sbus TODO
+	//set remote control (2 channels) sbus
+#if EN_REMOTE_CTRL==1
 	ctrl.controlModel_U.ref_inputs[0] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_ROLL_CH-1], MIN_REF_INPUT, MAX_REF_INPUT);
 	ctrl.controlModel_U.ref_inputs[1] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_THROTTLE_CH-1], MIN_REF_INPUT, MAX_REF_INPUT);
+#endif
 }
 
 /*
@@ -336,7 +342,11 @@ int8_t get_selector(void) {
 
 //get enable status
 bool get_enable(void) {
-	return ((remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS) && (ctrl.controlModel_Y.error_state_out < 1) && (ctrl.controlModel_U.error_state_in < 1)); //enable from remote control and check errors
+	bool remote_enable = true;
+#if EN_REMOTE_CTRL==1
+	remote_enable = (remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS);
+#endif
+	return (remote_enable && (ctrl.controlModel_Y.error_state_out < 1) && (ctrl.controlModel_U.error_state_in < 1)); //enable from remote control and check errors
 }
 
 //set drivers
@@ -437,13 +447,10 @@ void do_led() {
 void serial_flush(void) {
 	UART_SPEEDSENS.flush(); //speed sensor
 	UART_GPS.flush(); //gps
-	//UART_SBUS.flush(); //TODO sbus
 }
 
 void set_ctrl_param(void) {
-	//controlParams.propGainSpeed = .2;
-	//controlParams.intTimeSpeed = 0.5;
-	//controlParams.derTimeSpeed = 0.1;
+	
 }
 
 #endif
