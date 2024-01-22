@@ -39,6 +39,7 @@ var config_8h =
     [ "DEF_LED", "group__constants.html#gac75a3ec39d543ae303e8edef00c3dca1", null ],
     [ "DIST_SCALE", "group__constants.html#ga7769876a0046c44037b4c76478f304de", null ],
     [ "EN_LONG_CTRL", "group__userparams.html#ga9a51d002b1e9dfa98388248e5af855cd", null ],
+    [ "EN_REMOTE_CTRL", "group__userparams.html#gaedbbbcf0469490b3b16183d60e65c643", null ],
     [ "ERR_LED", "group__constants.html#ga29c80150517b1375edea1474971f4b39", null ],
     [ "FORK_DISP", "group__pin.html#ga43b52247e3fe06a477e44548566b315d", null ],
     [ "FULLEXT_FORKDISP", "group__userparams.html#ga2635709fc71b4c669dce3234d4d378ff", null ],

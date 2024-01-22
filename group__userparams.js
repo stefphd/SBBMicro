@@ -3,6 +3,7 @@ var group__userparams =
     [ "CPU_FREQ", "group__userparams.html#gab6b652797b16c31087c6e7fef45cc175", null ],
     [ "CW", "group__userparams.html#gabe61b07c31c2a3e90576eb4c5d95b024", null ],
     [ "EN_LONG_CTRL", "group__userparams.html#ga9a51d002b1e9dfa98388248e5af855cd", null ],
+    [ "EN_REMOTE_CTRL", "group__userparams.html#gaedbbbcf0469490b3b16183d60e65c643", null ],
     [ "FULLEXT_FORKDISP", "group__userparams.html#ga2635709fc71b4c669dce3234d4d378ff", null ],
     [ "IMP_AMP", "group__userparams.html#gaaf9e5d5232e5a152ef8917998538b43e", null ],
     [ "IMP_DUR", "group__userparams.html#ga71bbdfefc586dcb12cf9649ffefb2b32", null ],
