@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 4.99
+// Model version                  : 4.101
 // Simulink Coder version         : 9.8 (R2022b) 13-May-2022
-// C/C++ source code generated on : Sat Jan 20 19:19:11 2024
+// C/C++ source code generated on : Mon Jan 22 07:56:15 2024
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -47,6 +47,9 @@ const uint8_T controlModel_IN_SETCURR = 2U;
 
 // Definition for custom storage class: Struct
 controlParams_type controlParams = {
+  // controlTuningGain
+  1.0F,
+
   // gravity
   9.806F,
 
@@ -519,9 +522,11 @@ void ControlClass::update()
 
   // Product: '<Root>/Product6' incorporates:
   //   DiscreteTransferFcn: '<Root>/Discrete Transfer Fcn'
+  //   Gain: '<Root>/Gain1'
 
-  rtb_Product5 = (4.29489565F * controlModel_DW.DiscreteTransferFcn_states) * (
-    static_cast<real32_T>(rtb_Compare ? 1.0F : 0.0F));
+  rtb_Product5 = ((4.29489565F * controlModel_DW.DiscreteTransferFcn_states) *
+                  controlParams.controlTuningGain) * (static_cast<real32_T>
+    (rtb_Compare ? 1.0F : 0.0F));
 
   // Saturate: '<Root>/Saturation'
   if (rtb_Product5 > controlParams.maxCurrent) {

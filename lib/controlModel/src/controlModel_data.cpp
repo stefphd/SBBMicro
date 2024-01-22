@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 4.99
+// Model version                  : 4.101
 // Simulink Coder version         : 9.8 (R2022b) 13-May-2022
-// C/C++ source code generated on : Sat Jan 20 19:19:11 2024
+// C/C++ source code generated on : Mon Jan 22 07:56:15 2024
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -78,35 +78,35 @@ const ControlClass::ConstB_controlModel_T controlModel_ConstB = {
   ,                                    // '<S106>/Conversion'
 
   {
-    0.200109079F,
-    0.00199520122F,
-    -0.0199979153F,
-    0.000267698109F,
-    0.0682510808F,
-    7.30829415E-5F
+    0.0952455923F,
+    0.00220547104F,
+    -0.00950936228F,
+    0.000251590565F,
+    0.0311179552F,
+    7.44899735E-5F
   }
   ,                                    // '<S155>/Conversion'
 
   {
-    0.200087085F,
-    0.00199520122F,
-    -0.0199979153F,
-    0.000199520116F,
-    0.0682510808F,
-    7.30829415E-5F
+    0.0952338725F,
+    0.00220547104F,
+    -0.00950936228F,
+    0.000220547096F,
+    0.0311179552F,
+    7.44899735E-5F
   }
   ,                                    // '<S156>/Conversion'
 
   {
-    4.00174176E-5F,
-    3.99040232E-7F,
-    -3.99958344E-6F,
-    3.99040232E-7F,
-    0.000136502174F,
-    1.46165874E-7F,
-    -3.99958344E-6F,
-    1.46165874E-7F,
-    0.00100054988F
+    9.52338742E-5F,
+    2.20547099E-6F,
+    -9.50936192E-6F,
+    2.20547099E-6F,
+    0.000311179552F,
+    7.44899751E-7F,
+    -9.50936192E-6F,
+    7.44899751E-7F,
+    0.00100149983F
   }
   // '<S158>/Conversion'
 };

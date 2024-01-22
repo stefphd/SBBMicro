@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 4.99
+// Model version                  : 4.101
 // Simulink Coder version         : 9.8 (R2022b) 13-May-2022
-// C/C++ source code generated on : Sat Jan 20 19:19:11 2024
+// C/C++ source code generated on : Mon Jan 22 07:56:15 2024
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -43,6 +43,7 @@ extern "C"
 
 // Type definition for custom storage class: Struct
 struct controlParams_type {
+  real32_T controlTuningGain;          // Referenced by: '<Root>/Gain1'
   real32_T gravity;                    // Referenced by: '<Root>/Gain'
   real32_T maxCurrent;                 // Referenced by: '<Root>/Saturation'
   real32_T maxSteer;                   // Referenced by: '<Root>/Chart'
