@@ -63,7 +63,7 @@ struct ImuData { //raw acc (g), gyro (mdeg/s), and mag (mG) data
     \ingroup vars
 */
 struct Speed { //raw and filtered speed
-	int16_t speed; //!< Vehicle speed (in cm/s). \see SPEED_SCALE
+	int16_t speed; //!< Vehicle speed (in mm/s). \see SPEED_SCALE
 	uint16_t dist; //!< Elapsed distance (in units of 0.25m). \see DIST_SCALE
 };
 
