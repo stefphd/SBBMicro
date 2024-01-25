@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 4.101
+// Model version                  : 4.103
 // Simulink Coder version         : 9.8 (R2022b) 13-May-2022
-// C/C++ source code generated on : Mon Jan 22 07:56:15 2024
+// C/C++ source code generated on : Mon Jan 22 10:43:19 2024
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -24,6 +24,7 @@
 #define RTW_HEADER_controlModel_h_
 #include "rtwtypes.h"
 #include "controlModel_types.h"
+#include <cstring>
 
 extern "C"
 {
@@ -38,8 +39,6 @@ extern "C"
 #include "rtGetInf.h"
 
 }
-
-#include "zero_crossing_types.h"
 
 // Type definition for custom storage class: Struct
 struct controlParams_type {
@@ -85,7 +84,7 @@ class ControlClass
     real32_T MemoryX_DSTATE_g[2];      // '<S4>/MemoryX'
     real32_T MemoryX_DSTATE_o[3];      // '<S8>/MemoryX'
     real32_T UnitDelay_DSTATE;         // '<Root>/Unit Delay'
-    real32_T DiscreteTransferFcn_states;// '<Root>/Discrete Transfer Fcn'
+    real32_T DiscreteStateSpace_DSTATE;// '<Root>/Discrete State-Space'
     uint8_T is_c1_controlModel;        // '<Root>/Chart1'
     uint8_T is_active_c1_controlModel; // '<Root>/Chart1'
     uint8_T is_c3_controlModel;        // '<Root>/Chart'
@@ -93,11 +92,6 @@ class ControlClass
     boolean_T icLoad;                  // '<S6>/MemoryX'
     boolean_T icLoad_d;                // '<S4>/MemoryX'
     boolean_T icLoad_a;                // '<S8>/MemoryX'
-  };
-
-  // Zero-crossing (trigger) state
-  struct PrevZCX_controlModel_T {
-    ZCSigState DiscreteTransferFcn_Reset_ZCE;// '<Root>/Discrete Transfer Fcn'
   };
 
   // Invariant block signals (default storage)
@@ -208,9 +202,6 @@ class ControlClass
  private:
   // Block states
   DW_controlModel_T controlModel_DW;
-
-  // Triggered events
-  PrevZCX_controlModel_T controlModel_PrevZCX;
 
   // private member function(s) for subsystem '<S108>/SqrtUsedFcn'
   static void controlModel_SqrtUsedFcn(const real32_T rtu_u[9], boolean_T

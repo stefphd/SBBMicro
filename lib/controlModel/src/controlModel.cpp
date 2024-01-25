@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 4.101
+// Model version                  : 4.103
 // Simulink Coder version         : 9.8 (R2022b) 13-May-2022
-// C/C++ source code generated on : Mon Jan 22 07:56:15 2024
+// C/C++ source code generated on : Mon Jan 22 10:43:19 2024
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -33,7 +33,6 @@ extern "C"
 }
 
 #include "rt_defines.h"
-#include "zero_crossing_types.h"
 
 // Named constants for Chart: '<Root>/Chart'
 const uint8_T controlModel_IN_CHECKSTEER = 1U;
@@ -264,17 +263,17 @@ real32_T rt_atan2f_snf(real32_T u0, real32_T u1)
 // Model step function
 void ControlClass::update()
 {
+  // local block i/o variables
+  real32_T rtb_Gain1;
   real32_T rtb_P_b[9];
   real32_T tmp[3];
-  real32_T tmp_0[3];
   real32_T rtb_Reshapey[2];
-  real32_T Product3_a_idx_0;
+  real32_T Product3_a_idx_1;
   real32_T rtb_Exp;
   real32_T rtb_Product5;
   real32_T rtb_Sum;
+  real32_T tmp_0;
   real32_T tmp_1;
-  real32_T tmp_2;
-  boolean_T rtb_Compare;
 
   // Reshape: '<S6>/Reshapey' incorporates:
   //   Inport: '<Root>/dist'
@@ -318,16 +317,16 @@ void ControlClass::update()
 
   rtb_Product5 = controlModel_DW.Product2_c[0] + controlModel_DW.MemoryX_DSTATE
     [0];
-  tmp_1 = controlModel_DW.Product2_c[1] + controlModel_DW.MemoryX_DSTATE[1];
-  tmp_2 = controlModel_DW.Product2_c[2] + controlModel_DW.MemoryX_DSTATE[2];
+  tmp_0 = controlModel_DW.Product2_c[1] + controlModel_DW.MemoryX_DSTATE[1];
+  tmp_1 = controlModel_DW.Product2_c[2] + controlModel_DW.MemoryX_DSTATE[2];
 
   // Product: '<S62>/Product' incorporates:
   //   Constant: '<S6>/C'
 
   for (int32_T i = 0; i < 2; i++) {
-    rtb_Reshapey[i] = ((controlModel_ConstP.pooled5[i + 2] * tmp_1) +
+    rtb_Reshapey[i] = ((controlModel_ConstP.pooled5[i + 2] * tmp_0) +
                        (controlModel_ConstP.pooled5[i] * rtb_Product5)) +
-      (controlModel_ConstP.pooled5[i + 4] * tmp_2);
+      (controlModel_ConstP.pooled5[i + 4] * tmp_1);
   }
 
   // End of Product: '<S62>/Product'
@@ -379,34 +378,38 @@ void ControlClass::update()
 
   rtb_Exp = std::exp((rtb_Exp * rtb_Exp) * -99.9999924F);
 
+  // Gain: '<Root>/Gain1' incorporates:
+  //   Inport: '<Root>/gyros'
+  //   Math: '<Root>/Square1'
+
+  rtb_Gain1 = controlModel_U.gyros[1] * controlModel_U.gyros[1];
+
   // Product: '<Root>/Divide' incorporates:
   //   Inport: '<Root>/gyros'
   //   Math: '<Root>/Square'
-  //   Math: '<Root>/Square1'
   //   Sqrt: '<Root>/Square Root'
   //   Sum: '<Root>/Sum3'
 
-  tmp_1 = (1.0F / std::sqrt((controlModel_U.gyros[2] * controlModel_U.gyros[2])
-            + (controlModel_U.gyros[1] * controlModel_U.gyros[1]))) *
-    controlModel_U.gyros[1];
+  Product3_a_idx_1 = (1.0F / std::sqrt((controlModel_U.gyros[2] *
+    controlModel_U.gyros[2]) + rtb_Gain1)) * controlModel_U.gyros[1];
 
   // Signum: '<Root>/Sign' incorporates:
   //   Inport: '<Root>/gyros'
 
   if (rtIsNaNF(controlModel_U.gyros[2])) {
-    Product3_a_idx_0 = (rtNaNF);
+    tmp_0 = (rtNaNF);
   } else if (controlModel_U.gyros[2] < 0.0F) {
-    Product3_a_idx_0 = -1.0F;
+    tmp_0 = -1.0F;
   } else {
-    Product3_a_idx_0 = static_cast<real32_T>((controlModel_U.gyros[2] > 0.0F) ?
-      (static_cast<int32_T>(1)) : (static_cast<int32_T>(0)));
+    tmp_0 = static_cast<real32_T>((controlModel_U.gyros[2] > 0.0F) ? (
+      static_cast<int32_T>(1)) : (static_cast<int32_T>(0)));
   }
 
   // Trigonometry: '<Root>/Asin'
-  if (tmp_1 > 1.0F) {
-    tmp_1 = 1.0F;
-  } else if (tmp_1 < -1.0F) {
-    tmp_1 = -1.0F;
+  if (Product3_a_idx_1 > 1.0F) {
+    Product3_a_idx_1 = 1.0F;
+  } else if (Product3_a_idx_1 < -1.0F) {
+    Product3_a_idx_1 = -1.0F;
   } else {
     // no actions
   }
@@ -415,13 +418,13 @@ void ControlClass::update()
   //   Signum: '<Root>/Sign'
   //   Trigonometry: '<Root>/Asin'
 
-  tmp_1 = Product3_a_idx_0 * std::asin(tmp_1);
+  Product3_a_idx_1 = tmp_0 * std::asin(Product3_a_idx_1);
 
   // Saturate: '<Root>/Saturation1'
-  if (tmp_1 > controlParams.rollSaturation) {
-    tmp_1 = controlParams.rollSaturation;
-  } else if (tmp_1 < (-controlParams.rollSaturation)) {
-    tmp_1 = -controlParams.rollSaturation;
+  if (Product3_a_idx_1 > controlParams.rollSaturation) {
+    Product3_a_idx_1 = controlParams.rollSaturation;
+  } else if (Product3_a_idx_1 < (-controlParams.rollSaturation)) {
+    Product3_a_idx_1 = -controlParams.rollSaturation;
   } else {
     // no actions
   }
@@ -440,8 +443,8 @@ void ControlClass::update()
   //   Trigonometry: '<Root>/Atan'
 
   rtb_Exp = (((std::atan((1.0F / controlParams.gravity) * (rtb_Reshapey[1] *
-    controlModel_U.gyros[2])) * rtb_Exp) + ((1.0F - rtb_Exp) * tmp_1)) * rtb_Sum)
-    + rtb_Product5;
+    controlModel_U.gyros[2])) * rtb_Exp) + ((1.0F - rtb_Exp) * Product3_a_idx_1))
+             * rtb_Sum) + rtb_Product5;
 
   // Outputs for Enabled SubSystem: '<S35>/Enabled Subsystem' incorporates:
   //   EnablePort: '<S60>/Enable'
@@ -454,33 +457,39 @@ void ControlClass::update()
   //   Delay: '<S4>/MemoryX'
   //   Product: '<S60>/Product'
 
-  tmp_1 = (0.0F * controlModel_DW.MemoryX_DSTATE_g[1]) +
+  rtb_Product5 = (0.0F * controlModel_DW.MemoryX_DSTATE_g[1]) +
     controlModel_DW.MemoryX_DSTATE_g[0];
 
   // End of Outputs for SubSystem: '<S35>/Enabled Subsystem'
 
-  // Sum: '<S58>/Sum' incorporates:
+  // Gain: '<Root>/Gain1' incorporates:
   //   Constant: '<S4>/D'
   //   Inport: '<Root>/gyros'
   //   Product: '<S58>/C[k]*xhat[k|k-1]'
   //   Product: '<S58>/D[k]*u[k]'
   //   Sum: '<S58>/Add1'
+  //   Sum: '<S58>/Sum'
 
-  rtb_Product5 = rtb_Exp - ((0.0F * controlModel_U.gyros[0]) + tmp_1);
+  rtb_Gain1 = rtb_Product5;
+  rtb_Gain1 = rtb_Exp - ((0.0F * controlModel_U.gyros[0]) + rtb_Gain1);
 
   // Product: '<S58>/Product3' incorporates:
   //   DataTypeConversion: '<S51>/Conversion'
 
-  Product3_a_idx_0 = controlModel_ConstB.Conversion[0] * rtb_Product5;
-  rtb_Sum = controlModel_ConstB.Conversion[1] * rtb_Product5;
+  rtb_Sum = controlModel_ConstB.Conversion[0] * rtb_Gain1;
+  Product3_a_idx_1 = controlModel_ConstB.Conversion[1] * rtb_Gain1;
 
   // End of Outputs for SubSystem: '<S29>/MeasurementUpdate'
 
   // Outputs for Enabled SubSystem: '<S35>/Enabled Subsystem' incorporates:
   //   EnablePort: '<S60>/Enable'
 
-  // Sum: '<S60>/Add1'
-  rtb_Product5 = rtb_Exp - tmp_1;
+  // Gain: '<Root>/Gain1' incorporates:
+  //   Product: '<S60>/Product'
+  //   Sum: '<S60>/Add1'
+
+  rtb_Gain1 = rtb_Product5;
+  rtb_Gain1 = rtb_Exp - rtb_Gain1;
 
   // Product: '<S10>/Product' incorporates:
   //   Constant: '<S4>/C'
@@ -489,9 +498,9 @@ void ControlClass::update()
   //   Product: '<S60>/Product2'
   //   Sum: '<S35>/Add'
 
-  rtb_Exp = (((controlModel_ConstB.Conversion_i[1] * rtb_Product5) +
+  rtb_Exp = (((controlModel_ConstB.Conversion_i[1] * rtb_Gain1) +
               controlModel_DW.MemoryX_DSTATE_g[1]) * 0.0F) +
-    ((controlModel_ConstB.Conversion_i[0] * rtb_Product5) +
+    ((controlModel_ConstB.Conversion_i[0] * rtb_Gain1) +
      controlModel_DW.MemoryX_DSTATE_g[0]);
 
   // End of Outputs for SubSystem: '<S35>/Enabled Subsystem'
@@ -501,32 +510,23 @@ void ControlClass::update()
 
   controlModel_Y.roll_est = rtb_Exp;
 
-  // RelationalOperator: '<S3>/Compare' incorporates:
-  //   Constant: '<S3>/Constant'
+  // DiscreteStateSpace: '<Root>/Discrete State-Space' incorporates:
+  //   Inport: '<Root>/gyros'
 
-  rtb_Compare = (rtb_Reshapey[1] >= controlParams.speedMinCtrl);
-
-  // DiscreteTransferFcn: '<Root>/Discrete Transfer Fcn'
-  if (static_cast<boolean_T>(static_cast<int32_T>(((((static_cast<uint32_T>
-            (controlModel_PrevZCX.DiscreteTransferFcn_Reset_ZCE)) == POS_ZCSIG)
-          != rtb_Compare) ? (static_cast<int32_T>(1)) : (static_cast<int32_T>(0)))
-        & (((static_cast<uint32_T>
-             (controlModel_PrevZCX.DiscreteTransferFcn_Reset_ZCE)) !=
-            UNINITIALIZED_ZCSIG) ? (static_cast<int32_T>(1)) :
-           (static_cast<int32_T>(0)))))) {
-    controlModel_DW.DiscreteTransferFcn_states = 0.0F;
+  {
+    rtb_Gain1 = 2.30097127F*controlModel_DW.DiscreteStateSpace_DSTATE;
   }
 
-  controlModel_PrevZCX.DiscreteTransferFcn_Reset_ZCE = rtb_Compare ? (
-    static_cast<ZCSigState>(1)) : (static_cast<ZCSigState>(0));
+  // Gain: '<Root>/Gain1'
+  rtb_Gain1 *= controlParams.controlTuningGain;
 
   // Product: '<Root>/Product6' incorporates:
-  //   DiscreteTransferFcn: '<Root>/Discrete Transfer Fcn'
-  //   Gain: '<Root>/Gain1'
+  //   Constant: '<S3>/Constant'
+  //   RelationalOperator: '<S3>/Compare'
 
-  rtb_Product5 = ((4.29489565F * controlModel_DW.DiscreteTransferFcn_states) *
-                  controlParams.controlTuningGain) * (static_cast<real32_T>
-    (rtb_Compare ? 1.0F : 0.0F));
+  rtb_Product5 = (static_cast<real32_T>((rtb_Reshapey[1] >=
+    controlParams.speedMinCtrl) ? (static_cast<int32_T>(1)) :
+    (static_cast<int32_T>(0)))) * rtb_Gain1;
 
   // Saturate: '<Root>/Saturation'
   if (rtb_Product5 > controlParams.maxCurrent) {
@@ -605,12 +605,11 @@ void ControlClass::update()
 
   // Outport: '<Root>/user_data' incorporates:
   //   Constant: '<Root>/Constant3'
-  //   Constant: '<Root>/Constant5'
   //   Constant: '<Root>/Constant6'
   //   DataTypeConversion: '<Root>/Data Type Conversion'
   //   Outport: '<Root>/error_state_out'
 
-  controlModel_Y.user_data[0] = 0.0F;
+  controlModel_Y.user_data[0] = rtb_Gain1;
   controlModel_Y.user_data[1] = 0.0F;
   controlModel_Y.user_data[2] = static_cast<real32_T>
     (controlModel_Y.error_state_out);
@@ -658,8 +657,8 @@ void ControlClass::update()
 
   rtb_Product5 = controlModel_DW.Product2[0] + controlModel_DW.MemoryX_DSTATE_o
     [0];
-  tmp_1 = controlModel_DW.Product2[1] + controlModel_DW.MemoryX_DSTATE_o[1];
-  tmp_2 = controlModel_DW.Product2[2] + controlModel_DW.MemoryX_DSTATE_o[2];
+  tmp_0 = controlModel_DW.Product2[1] + controlModel_DW.MemoryX_DSTATE_o[1];
+  tmp_1 = controlModel_DW.Product2[2] + controlModel_DW.MemoryX_DSTATE_o[2];
 
   // Outport: '<Root>/steer_est' incorporates:
   //   Constant: '<S8>/C'
@@ -668,8 +667,8 @@ void ControlClass::update()
   for (int32_T i = 0; i < 2; i++) {
     controlModel_Y.steer_est[i] = 0.0F;
     controlModel_Y.steer_est[i] += controlModel_ConstP.pooled5[i] * rtb_Product5;
-    controlModel_Y.steer_est[i] += controlModel_ConstP.pooled5[i + 2] * tmp_1;
-    controlModel_Y.steer_est[i] += controlModel_ConstP.pooled5[i + 4] * tmp_2;
+    controlModel_Y.steer_est[i] += controlModel_ConstP.pooled5[i + 2] * tmp_0;
+    controlModel_Y.steer_est[i] += controlModel_ConstP.pooled5[i + 4] * tmp_1;
   }
 
   // End of Outport: '<Root>/steer_est'
@@ -699,65 +698,18 @@ void ControlClass::update()
   // Update for Delay: '<S6>/MemoryX'
   controlModel_DW.icLoad = false;
 
-  // Update for Delay: '<S4>/MemoryX'
-  controlModel_DW.icLoad_d = false;
+  // Product: '<S81>/A[k]*xhat[k|k-1]' incorporates:
+  //   Constant: '<S6>/A'
+  //   Delay: '<S6>/MemoryX'
 
-  // Product: '<S29>/A[k]*xhat[k|k-1]' incorporates:
-  //   Constant: '<S4>/A'
-  //   Delay: '<S4>/MemoryX'
-
-  rtb_Product5 = (-0.001F * controlModel_DW.MemoryX_DSTATE_g[1]) +
-    controlModel_DW.MemoryX_DSTATE_g[0];
-  tmp_1 = (0.0F * controlModel_DW.MemoryX_DSTATE_g[0]) +
-    controlModel_DW.MemoryX_DSTATE_g[1];
-
-  // Update for Delay: '<S4>/MemoryX' incorporates:
-  //   Constant: '<S4>/B'
-  //   Inport: '<Root>/gyros'
-  //   Product: '<S29>/B[k]*u[k]'
-  //   Product: '<S58>/Product3'
-  //   Sum: '<S29>/Add'
-
-  controlModel_DW.MemoryX_DSTATE_g[0] = ((0.001F * controlModel_U.gyros[0]) +
-    rtb_Product5) + Product3_a_idx_0;
-  controlModel_DW.MemoryX_DSTATE_g[1] = ((0.0F * controlModel_U.gyros[0]) +
-    tmp_1) + rtb_Sum;
-
-  // Update for UnitDelay: '<Root>/Unit Delay' incorporates:
-  //   Product: '<S10>/Product'
-
-  controlModel_DW.UnitDelay_DSTATE = rtb_Exp;
-
-  // Update for DiscreteTransferFcn: '<Root>/Discrete Transfer Fcn' incorporates:
-  //   Inport: '<Root>/gyros'
-
-  controlModel_DW.DiscreteTransferFcn_states = controlModel_U.gyros[0] -
-    (-0.828204155F * controlModel_DW.DiscreteTransferFcn_states);
-
-  // Update for Delay: '<S8>/MemoryX'
-  controlModel_DW.icLoad_a = false;
   for (int32_T i = 0; i < 3; i++) {
-    // Product: '<S81>/A[k]*xhat[k|k-1]' incorporates:
-    //   Constant: '<S6>/A'
-    //   Constant: '<S8>/A'
-    //   Delay: '<S6>/MemoryX'
-    //   Product: '<S133>/A[k]*xhat[k|k-1]'
-
-    Product3_a_idx_0 = controlModel_ConstP.pooled3[i + 3];
-    rtb_Exp = controlModel_ConstP.pooled3[i + 6];
-    tmp[i] = ((Product3_a_idx_0 * controlModel_DW.MemoryX_DSTATE[1]) +
+    tmp[i] = ((controlModel_ConstP.pooled3[i + 3] *
+               controlModel_DW.MemoryX_DSTATE[1]) +
               (controlModel_ConstP.pooled3[i] * controlModel_DW.MemoryX_DSTATE[0]))
-      + (rtb_Exp * controlModel_DW.MemoryX_DSTATE[2]);
-
-    // Product: '<S133>/A[k]*xhat[k|k-1]' incorporates:
-    //   Constant: '<S8>/A'
-    //   Delay: '<S8>/MemoryX'
-
-    tmp_0[i] = ((Product3_a_idx_0 * controlModel_DW.MemoryX_DSTATE_o[1]) +
-                (controlModel_ConstP.pooled3[i] *
-                 controlModel_DW.MemoryX_DSTATE_o[0])) + (rtb_Exp *
-      controlModel_DW.MemoryX_DSTATE_o[2]);
+      + (controlModel_ConstP.pooled3[i + 6] * controlModel_DW.MemoryX_DSTATE[2]);
   }
+
+  // End of Product: '<S81>/A[k]*xhat[k|k-1]'
 
   // Update for Delay: '<S6>/MemoryX' incorporates:
   //   Constant: '<S6>/B'
@@ -773,6 +725,63 @@ void ControlClass::update()
   controlModel_DW.MemoryX_DSTATE[2] = ((0.0F * controlModel_U.speed) + tmp[2]) +
     controlModel_DW.Product3_p[2];
 
+  // Update for Delay: '<S4>/MemoryX'
+  controlModel_DW.icLoad_d = false;
+
+  // Product: '<S29>/A[k]*xhat[k|k-1]' incorporates:
+  //   Constant: '<S4>/A'
+  //   Delay: '<S4>/MemoryX'
+
+  rtb_Product5 = (-0.001F * controlModel_DW.MemoryX_DSTATE_g[1]) +
+    controlModel_DW.MemoryX_DSTATE_g[0];
+  tmp_0 = (0.0F * controlModel_DW.MemoryX_DSTATE_g[0]) +
+    controlModel_DW.MemoryX_DSTATE_g[1];
+
+  // Update for Delay: '<S4>/MemoryX' incorporates:
+  //   Constant: '<S4>/B'
+  //   Inport: '<Root>/gyros'
+  //   Product: '<S29>/B[k]*u[k]'
+  //   Product: '<S58>/Product3'
+  //   Sum: '<S29>/Add'
+
+  controlModel_DW.MemoryX_DSTATE_g[0] = ((0.001F * controlModel_U.gyros[0]) +
+    rtb_Product5) + rtb_Sum;
+  controlModel_DW.MemoryX_DSTATE_g[1] = ((0.0F * controlModel_U.gyros[0]) +
+    tmp_0) + Product3_a_idx_1;
+
+  // Update for UnitDelay: '<Root>/Unit Delay' incorporates:
+  //   Product: '<S10>/Product'
+
+  controlModel_DW.UnitDelay_DSTATE = rtb_Exp;
+
+  // Update for DiscreteStateSpace: '<Root>/Discrete State-Space' incorporates:
+  //   Inport: '<Root>/gyros'
+
+  {
+    real32_T xnew[1];
+    xnew[0] = 0.828204155F*controlModel_DW.DiscreteStateSpace_DSTATE;
+    xnew[0] += 1.86655772F*controlModel_U.gyros[0];
+    (void) std::memcpy(&controlModel_DW.DiscreteStateSpace_DSTATE, xnew,
+                       sizeof(real32_T)*1);
+  }
+
+  // Update for Delay: '<S8>/MemoryX'
+  controlModel_DW.icLoad_a = false;
+
+  // Product: '<S133>/A[k]*xhat[k|k-1]' incorporates:
+  //   Constant: '<S8>/A'
+  //   Delay: '<S8>/MemoryX'
+
+  for (int32_T i = 0; i < 3; i++) {
+    tmp[i] = ((controlModel_ConstP.pooled3[i + 3] *
+               controlModel_DW.MemoryX_DSTATE_o[1]) +
+              (controlModel_ConstP.pooled3[i] *
+               controlModel_DW.MemoryX_DSTATE_o[0])) +
+      (controlModel_ConstP.pooled3[i + 6] * controlModel_DW.MemoryX_DSTATE_o[2]);
+  }
+
+  // End of Product: '<S133>/A[k]*xhat[k|k-1]'
+
   // Update for Delay: '<S8>/MemoryX' incorporates:
   //   Constant: '<S8>/B'
   //   Inport: '<Root>/steer'
@@ -780,12 +789,12 @@ void ControlClass::update()
   //   Product: '<S162>/Product3'
   //   Sum: '<S133>/Add'
 
-  controlModel_DW.MemoryX_DSTATE_o[0] = ((0.0F * controlModel_U.steer[1]) +
-    tmp_0[0]) + controlModel_DW.Product3[0];
-  controlModel_DW.MemoryX_DSTATE_o[1] = ((0.0F * controlModel_U.steer[1]) +
-    tmp_0[1]) + controlModel_DW.Product3[1];
-  controlModel_DW.MemoryX_DSTATE_o[2] = ((0.0F * controlModel_U.steer[1]) +
-    tmp_0[2]) + controlModel_DW.Product3[2];
+  controlModel_DW.MemoryX_DSTATE_o[0] = ((0.0F * controlModel_U.steer[1]) + tmp
+    [0]) + controlModel_DW.Product3[0];
+  controlModel_DW.MemoryX_DSTATE_o[1] = ((0.0F * controlModel_U.steer[1]) + tmp
+    [1]) + controlModel_DW.Product3[1];
+  controlModel_DW.MemoryX_DSTATE_o[2] = ((0.0F * controlModel_U.steer[1]) + tmp
+    [2]) + controlModel_DW.Product3[2];
 }
 
 // Model initialize function
@@ -795,7 +804,6 @@ void ControlClass::begin()
 
   // initialize non-finites
   rt_InitInfAndNaN(sizeof(real_T));
-  controlModel_PrevZCX.DiscreteTransferFcn_Reset_ZCE = UNINITIALIZED_ZCSIG;
 
   // InitializeConditions for Delay: '<S6>/MemoryX'
   controlModel_DW.icLoad = true;
@@ -817,8 +825,7 @@ void ControlClass::stop()
 ControlClass::ControlClass():
   controlModel_U(),
   controlModel_Y(),
-  controlModel_DW(),
-  controlModel_PrevZCX()
+  controlModel_DW()
 {
   // Currently there is no constructor body generated.
 }

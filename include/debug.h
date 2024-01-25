@@ -152,10 +152,10 @@ void do_debug(void) {
         //update vals
         txdata.u = ctrl.controlModel_U;
         txdata.y = ctrl.controlModel_Y;
-        txdata.y.user_data[0] = timing.max_tet;
-        txdata.y.user_data[1] = timing.dt_cycle;
-        txdata.y.user_data[2] = timing.tet;
-        txdata.y.user_data[3] = timing.dt_logger;
+        //txdata.y.user_data[0] = timing.max_tet;
+        //txdata.y.user_data[1] = timing.dt_cycle;
+        //txdata.y.user_data[2] = timing.tet;
+        //txdata.y.user_data[3] = timing.dt_logger;
         //write data
         Serial.write((uint8_t*) &txdata, sizeof(txdata));
         break;
