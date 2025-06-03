@@ -116,7 +116,7 @@ $(function(){initNavTree('md_docs_2extra_2software.html',''); initResizable(true
   <div class="headertitle"><div class="title">Software</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md25"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md24"></a></p>
 <p>The software documentation is divided in modules, in particular:</p>
 <ul>
 <li>Entry-point function: describes the documentation for the entry-point function, i.e. <a class="el" href="group__mainfun.html#gae66f6b31b5ad750f1fe042a706a4e3d4" title="Entry-point function.">main()</a></li>
@@ -134,24 +134,24 @@ $(function(){initNavTree('md_docs_2extra_2software.html',''); initResizable(true
 <li>MTP: functions for the MTP mode</li>
 <li>Debugging: functions for debugging and signal straming to and from PC</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md26"></a>
+<h1><a class="anchor" id="autotoc_md25"></a>
 Basic code</h1>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo</a></b></dt><dd>Basic code description (i.e. the user functions)</dd></dl>
-<h1><a class="anchor" id="autotoc_md27"></a>
+<h1><a class="anchor" id="autotoc_md26"></a>
 Data logging</h1>
 <p>By default the microcontroller logs the input and output signal of the control loop. THe log file has extension <code>*.sbb</code> and is saved in the internal SD memory, which can be read using the MTP mode. The log file is a binary file, containing a number of data chunk consisting of 64-floats, each of them having 4 bytes. For example, the data may be read from MATLAB using</p>
 <div class="fragment"><div class="line">fid = fopen(logfilename); %id of the log file (extension *.sbb)</div>
 <div class="line">data_vector = fread(fid,&#39;single&#39;); %vectorized data (single, i.e. float)</div>
 <div class="line">N = numel(data_vector)/64; %number of samples logged</div>
 <div class="line">data_matrix = reshape(data_vector, [64, N])&#39;; %reshape to have N x 64 matrix data, i.e. each column is a signal</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md28"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md27"></a>
 MTP mode</h1>
 <p>MTP mode allows to recognize the microcontroller as an MTP device (see e.g. <a href="https://en.wikipedia.org/wiki/Media_Transfer_Protocol">https://en.wikipedia.org/wiki/Media_Transfer_Protocol</a>), in order to be capable of getting log files (with extension <code>*.sbb</code>) from the internal SD memory. To enter in MTP mode, it is sufficient to keep the on/off button pressed for at least 3s when turning on. To get the MTP mode working in the PC side:</p>
 <ul>
 <li>Windows: no additional operation is usually necessary, the microcontroller should be automatically recognized as an MTP device</li>
 <li>Linux: install*gMTP* (from<a href="https://gmtp.sourceforge.io/downloads.htmls">https://gmtp.sourceforge.io/downloads.htmls</a>), which is a MTP client for UNIX and UNIX like systems (this should include the*libmtp* library)</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md29"></a>
+<h1><a class="anchor" id="autotoc_md28"></a>
 Debugging</h1>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo</a></b></dt><dd>Describe signal streaming and debugging to and from PC </dd></dl>
 </div></div><!-- contents -->

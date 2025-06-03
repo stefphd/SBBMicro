@@ -8,7 +8,7 @@ var searchData=
   ['ledon_5',['LEDON',['../group__macros.html#ga93b988914e9a59230d1ace60329816c0',1,'config.h']]],
   ['ledstate_6',['LEDstate',['../group__vars.html#gad6f185f81ec4b9377864c863c8fc4732',1,'objects.h']]],
   ['libs_2eh_7',['libs.h',['../libs_8h.html',1,'']]],
-  ['linux_8',['Linux',['../md_INSTALL__PREREQ.html#autotoc_md16',1,'']]],
+  ['linux_8',['Linux',['../md_INSTALL__PREREQ.html#autotoc_md15',1,'']]],
   ['list_9',['Todo List',['../todo.html',1,'']]],
   ['log_10',['LOG',['../namespaceLedMode.html#a8d6f6d02626a516c46ee703722a7f956',1,'LedMode']]],
   ['log_11',['log',['../structCounter.html#ac97deb4cf899b4095f6dd55de9545b4d',1,'Counter']]],
@@ -18,9 +18,9 @@ var searchData=
   ['log_5fsampling_5ffac_15',['LOG_SAMPLING_FAC',['../group__logfun.html#ga63e86ebc3b2725e421905f67f242aebd',1,'logger.h']]],
   ['logfile_16',['logFile',['../group__logfun.html#ga9863b3d596e46e9f4e19d4981b3e7518',1,'logger.h']]],
   ['logger_2eh_17',['logger.h',['../logger_8h.html',1,'']]],
-  ['logging_18',['logging',['../group__logfun.html',1,'Data logging'],['../md_docs_2extra_2software.html#autotoc_md27',1,'Data logging']]],
+  ['logging_18',['logging',['../group__logfun.html',1,'Data logging'],['../md_docs_2extra_2software.html#autotoc_md26',1,'Data logging']]],
   ['logsamplewritten_19',['logSampleWritten',['../group__logfun.html#ga474323a96b6ba97b2ca5a724186562ea',1,'logger.h']]],
   ['lon_20',['lon',['../structGPSData.html#a62eb9b4065fcda6964d743e53e571d12',1,'GPSData']]],
-  ['low_20voltage_20box_21',['Low-voltage box',['../md_docs_2extra_2hardware.html#autotoc_md20',1,'']]],
-  ['lv_20schematics_22',['LV schematics',['../md_docs_2extra_2hardware.html#autotoc_md23',1,'']]]
+  ['low_20voltage_20box_21',['Low-voltage box',['../md_docs_2extra_2hardware.html#autotoc_md19',1,'']]],
+  ['lv_20schematics_22',['LV schematics',['../md_docs_2extra_2hardware.html#autotoc_md22',1,'']]]
 ];

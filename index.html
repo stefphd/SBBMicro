@@ -118,6 +118,7 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a></p>
 <p>This repository contains the source code for the self-balancing-bike micro-controller unit (Teensy 4.1-based 🚀️). The introduction shows the files and folders contained in this repository and how they are organized, the prerequisites necessary, and the procedures to be used in order to build and upload the code, to generate the documentation, and to automatically generate the control-algorithm code from the Simulink model (using matlab tools).</p>
+<p>Windows is officially supported, although compilation is also implemented for Linux. MacOS is NOT supported.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Files</h1>
 <p>Files:</p>
@@ -154,15 +155,13 @@ Files</h1>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Pre-requisites</h1>
 <ul>
-<li><em>arduino-builder</em> (&gt;=1.6.1), also provided with Arduino IDE</li>
 <li><em>MATLAB/Simulink</em> with the <em>Embedded Coder Toolbox</em> installed (&gt;=2021a), for control algorithm code generation only</li>
 </ul>
 <p>No other dependecies are necessary: all used libraries are already included in <code>./lib/</code>.</p>
 <p>Additional utilities (only recommended):</p>
 <ul>
-<li><em>teensyduino</em>: not stricktly necessary for compilation b/c core code for teensy MCU is already included in <code>./tools/</code></li>
+<li><em>make</em> to build using the <code>Makefile</code>; alternativelly, shell or MATLAV scripts can be used</li>
 <li><em>Visual Studio Code</em> with <em>C/C++</em> extension for code completation</li>
-<li><em>make</em> to build using the <code>Makefile</code></li>
 <li><em>Doxygen</em> to generate the documentation</li>
 <li><em>KiCad</em> to open the schematic files in <code>./hardware</code></li>
 </ul>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['macos_0',['MacOS',['../md_INSTALL__PREREQ.html#autotoc_md17',1,'']]],
+  ['macos_0',['MacOS',['../md_INSTALL__PREREQ.html#autotoc_md16',1,'']]],
   ['macros_1',['Macros',['../group__macros.html',1,'']]],
   ['mag_2',['mag',['../structCounter.html#ab324067ff3821ec49f3f28622b1b93b8',1,'Counter::mag'],['../structIOstatus.html#acea068d33a2d06a94cee276a506c29c4',1,'IOstatus::mag']]],
   ['mag_5fodr_3',['MAG_ODR',['../group__constants.html#gaa42914727c0f5c56229dc8eb631194c0',1,'config.h']]],
@@ -15,7 +15,7 @@ var searchData=
   ['make_20and_20doxygen_12',['Make and Doxygen',['../md_INSTALL__PREREQ.html#autotoc_md13',1,'']]],
   ['make_20tools_13',['Make tools',['../index.html#autotoc_md6',1,'']]],
   ['mask_14',['MASK',['../classHostPort.html#a3a545c3efc1b521afd498f04adcbe713',1,'HostPort']]],
-  ['matlab_15',['Embedded Coder Toolbox (MATLAB)',['../md_INSTALL__PREREQ.html#autotoc_md18',1,'']]],
+  ['matlab_15',['Embedded Coder Toolbox (MATLAB)',['../md_INSTALL__PREREQ.html#autotoc_md17',1,'']]],
   ['matlab_20make_16',['MATLAB make',['../index.html#autotoc_md7',1,'']]],
   ['max_5fbr_5facc_17',['MAX_BR_ACC',['../group__constants.html#gacfeaf91cea237d198d808bd413576e3f',1,'config.h']]],
   ['max_5fbr_5fdisp_18',['MAX_BR_DISP',['../group__constants.html#ga9fb4bfb8c427d90bde3d9c51a33830b6',1,'config.h']]],
@@ -35,9 +35,9 @@ var searchData=
   ['min_5ftet_32',['min_tet',['../structTiming.html#ad44ef713a545a42539c5056a7b75c077',1,'Timing']]],
   ['min_5fvoltage_33',['MIN_VOLTAGE',['../group__constants.html#ga34badbf9acae6cc5c2eed2ab51b32d30',1,'config.h']]],
   ['missing_5fframe_34',['missing_frame',['../structRemoteCtrl.html#ae905d3f0c62fda7d64825d01493acbb1',1,'RemoteCtrl']]],
-  ['mode_35',['MTP mode',['../md_docs_2extra_2software.html#autotoc_md28',1,'']]],
+  ['mode_35',['MTP mode',['../md_docs_2extra_2software.html#autotoc_md27',1,'']]],
   ['mtp_36',['MTP',['../namespaceLedMode.html#a29705e031e56f6a3030dc158c68f8ab9',1,'LedMode::MTP'],['../group__mtpfun.html',1,'MTP']]],
-  ['mtp_20mode_37',['MTP mode',['../md_docs_2extra_2software.html#autotoc_md28',1,'']]],
+  ['mtp_20mode_37',['MTP mode',['../md_docs_2extra_2software.html#autotoc_md27',1,'']]],
   ['mtp_5fenable_5ftimeout_38',['MTP_ENABLE_TIMEOUT',['../group__mtpfun.html#gaf445ce0f5e2ca9ea7ece908baf75640e',1,'sbbmtp.h']]],
   ['mtp_5fled_39',['MTP_LED',['../group__constants.html#ga78e83fa846657dc71872e35d38cd431a',1,'config.h']]],
   ['mtpwait_40',['MTPWAIT',['../namespaceLedMode.html#a20dd4705b0f0e1a852193c5d9dca1676',1,'LedMode']]],

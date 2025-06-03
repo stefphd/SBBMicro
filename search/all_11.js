@@ -11,7 +11,7 @@ var searchData=
   ['sbus_5fsel_5fch_8',['SBUS_SEL_CH',['../group__constants.html#ga804f5f9b6a72c28f4f4ce530192343df',1,'config.h']]],
   ['sbus_5fthr_5for_9',['SBUS_THR_OR',['../group__constants.html#ga0db705d23493157da18e80027a7acf24',1,'config.h']]],
   ['sbus_5fthrottle_5fch_10',['SBUS_THROTTLE_CH',['../group__constants.html#ga25880e9e7d55fb92e6e112142889dd69',1,'config.h']]],
-  ['schematics_11',['schematics',['../md_docs_2extra_2hardware.html#autotoc_md24',1,'HV schematics'],['../md_docs_2extra_2hardware.html#autotoc_md23',1,'LV schematics']]],
+  ['schematics_11',['schematics',['../md_docs_2extra_2hardware.html#autotoc_md23',1,'HV schematics'],['../md_docs_2extra_2hardware.html#autotoc_md22',1,'LV schematics']]],
   ['sd_12',['sd',['../group__logfun.html#gaa6a69f686cea87b52058a57a904a33e7',1,'logger.h']]],
   ['sd_5fconfig_13',['SD_CONFIG',['../group__logfun.html#ga0584f45d96c62d7d203d272b99af6fa1',1,'logger.h']]],
   ['sdsector_5fsize_14',['SDSECTOR_SIZE',['../group__logfun.html#gaf53c96323082b86c5740ee588a0aa1d7',1,'logger.h']]],

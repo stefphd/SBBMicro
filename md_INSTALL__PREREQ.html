@@ -121,17 +121,7 @@ $(function(){initNavTree('md_INSTALL__PREREQ.html',''); initResizable(true); });
 Windows</h1>
 <h2><a class="anchor" id="autotoc_md11"></a>
 Arduino builder</h2>
-<p>You can either install the <em>arduino-builder</em> only or the <em>Arduino IDE</em>, which is shipped with the <em>arduino-builder</em> included. To install the <em>Arduino IDE</em>:</p>
-<ol type="1">
-<li>Download <em>Arduino IDE</em> from <a href="https://www.arduino.cc/en/software">here</a>.</li>
-<li>Run the installer <code>arduino-X.X.X-windows.exe</code> (where <code>X.X.X</code> is the software version)</li>
-<li>Follow the installation steps. Default installation folder should be <code>C:/Program Files (x86)/Arduino</code></li>
-<li><p class="startli">You can check if the installation finishes correctly by running in the terminal</p>
-<div class="fragment"><div class="line">&quot;C:/Program Files (x86)/Arduino/arduino-builder&quot; -version</div>
-</div><!-- fragment --><p class="startli">where <code>C:/Program Files (x86)/Arduino</code> is your installation path.</p>
-</li>
-</ol>
-<dl class="section attention"><dt>Attention</dt><dd>Default installation path should be <code>C:/Program Files (x86)/Arduino</code>. If you choose a different one, you need to change the <code>ARDUINO_FOLDER</code> variable in the <code>Makefile</code> according to your installation path.</dd></dl>
+<p>Arduino builder is shipped with this repository. No installation should be necessary, although you may use your own version of arduino builder.</p>
 <h2><a class="anchor" id="autotoc_md12"></a>
 Visual Studio Code</h2>
 <p>To install <em>Visual Studio Code</em>:</p>
@@ -154,20 +144,15 @@ Make and Doxygen</h2>
 <dd>
 For <em>make</em> other installation process may exist.</dd></dl>
 <h2><a class="anchor" id="autotoc_md14"></a>
-Teensyduino</h2>
-<p>Download and install <em>Teensyduino</em> from <a href="https://www.pjrc.com/teensy/td_download.html">here</a>, which is an Add-On for <em>Arduino IDE</em>.</p>
-<dl class="section attention"><dt>Attention</dt><dd>Installation of <em>Arduino IDE</em> is required.</dd></dl>
-<h2><a class="anchor" id="autotoc_md15"></a>
 KiCAD</h2>
 <p>Download and install <em>KiCAD</em> from <a href="https://www.kicad.org/download/windows/">here</a>.</p>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="autotoc_md15"></a>
 Linux</h1>
-<p>Depending on your Linux distrubution, you can easily install the pre-requisites using your package manager: <b>you are using Linux, so you are supposed to know this stuff!</b> For example, in ArchLinux to install <em>arduino-builder</em>, <em>Make</em> and <em>Doxygen</em> use</p>
-<div class="fragment"><div class="line">pacman -Sy arduino-builder make doxygen</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md17"></a>
+<p>Depending on your Linux distrubution, you can easily install the pre-requisites using your package manager: <b>you are using Linux, so you are supposed to know this stuff!</b></p>
+<h1><a class="anchor" id="autotoc_md16"></a>
 MacOS</h1>
 <p>Not implemented yet.</p>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md17"></a>
 Embedded Coder Toolbox (MATLAB)</h1>
 <p>For installing the <em>Embedded Coder Toolbox</em> in MATLAB</p><ol type="1">
 <li>Install MATLAB (if not installed)</li>
