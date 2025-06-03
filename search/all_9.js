@@ -14,5 +14,5 @@ var searchData=
   ['introduction_11',['Introduction',['../index.html',1,'']]],
   ['iostatus_12',['IOstatus',['../structIOstatus.html',1,'']]],
   ['iostatus_13',['iostatus',['../group__vars.html#ga6e78f9351356226867da7a1c38d67d01',1,'objects.h']]],
-  ['issues_14',['Issues',['../index.html#autotoc_md8',1,'Known issues'],['../todo.html#_todo000001',1,'Known issues']]]
+  ['issues_14',['issues',['../index.html#autotoc_md8',1,'Known issues'],['../todo.html#_todo000001',1,'Known issues']]]
 ];
