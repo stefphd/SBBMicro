@@ -28,11 +28,11 @@ BOARD_OPTIONS	:= speed=600,usb=mtpserial,opt=o3std,keys=en-us
 #Directories
 ifeq ($(OS), Linux)
 ARDUINO_FOLDER	:= /usr/share/arduino
-MATLAB_FOLDER   := /usr/local/MATLAB/R2022a
+MATLAB_FOLDER   := /usr/local/MATLAB/R2023a
 BUILD_TOOLS		:= ./tools/tools-linux
 else ifeq ($(OS), Windows_NT) 
 ARDUINO_FOLDER  := ./tools
-MATLAB_FOLDER   := C:/Program Files/MATLAB/R2022a
+MATLAB_FOLDER   := C:/Program Files/MATLAB/R2023a # <<< Edits with your matlab version
 BUILD_TOOLS		:= ./tools/tools-windows
 endif
 SRC				:= ./src
@@ -55,7 +55,7 @@ REBOOT			:= $(BUILD_TOOLS)/teensy_reboot
 HARDWARE		:= -hardware ./tools
 FQBN			:= -fqbn=teensy:avr:$(BOARD):$(BOARD_OPTIONS)
 LIBRARIES		:= -libraries ./ -libraries ./include/ -libraries ./lib/
-TOOLS			:= -tools "$(BUILD_TOOLS)" -tools "$(ARDUINO_FOLDER)/tools-builder"
+TOOLS			:= -tools $(BUILD_TOOLS) -tools $(ARDUINO_FOLDER)/tools-builder
 FLAGS			:= -warnings none #-verbose
 
 #---------------------------------------------------------------------------------
