@@ -11,7 +11,7 @@ set SRC=.\src
 set BOARD=teensy:avr:teensy41
 set BOARD_OPTIONS=speed=600,usb=mtpserial,opt=o3std,keys=en-us
 
-set ARDUINO_FOLDER=C:\Program Files (x86)\Arduino
+set ARDUINO_FOLDER=.\tools
 set TEENSY_TOOLS=.\tools\tools-windows
 
 set PATH="%ARDUINO_FOLDER%";%PATH%

@@ -3,6 +3,8 @@
 This repository contains the source code for the self-balancing-bike micro-controller unit (Teensy 4.1-based 🚀️).
 The introduction shows the files and folders contained in this repository and how they are organized, the prerequisites necessary, and the procedures to be used in order to build and upload the code, to generate the documentation, and to automatically generate the control-algorithm code from the Simulink model (using matlab tools).
 
+Windows is officially supported, although compilation is also implemented for Linux. MacOS is NOT supported. 
+
 ## Files
 
 Files:
@@ -38,16 +40,14 @@ Additional folders:
 
 ## Pre-requisites
 
-* *arduino-builder* (>=1.6.1), also provided with Arduino IDE
 * *MATLAB/Simulink* with the *Embedded Coder Toolbox* installed (>=2021a), for control algorithm code generation only
 
 No other dependecies are necessary: all used libraries are already included in `./lib/`.
 
 Additional utilities (only recommended):
 
-* *teensyduino*: not stricktly necessary for compilation b/c core code for teensy MCU is already included in `./tools/`
+* *make* to build using the `Makefile`; alternativelly, shell or MATLAV scripts can be used
 * *Visual Studio Code* with *C/C++* extension for code completation
-* *make* to build using the `Makefile`
 * *Doxygen* to generate the documentation
 * *KiCad* to open the schematic files in `./hardware`
 
@@ -164,25 +164,25 @@ One may also use *make* for the building, uploading and the documentation genera
 
 As an alternative to `make` and `gencode`, the code generation, buiding, uploading and documentation generation may be also performed at the same time from within the MATLAB command window. This employs a MATLAB function name `make` in `./matlab-tool/`. The function must be used inside MATLAB with the following syntax:
 
-- `make all` or just `make` to generate code from the Simulink model, build and upload
+* `make all` or just `make` to generate code from the Simulink model, build and upload
 
-- `make gencode` to generate the code only from the Simulink model. Note that this corresponds to call `gencode` with no input arguments, i.e. the first `*.slx` file found is used
+* `make gencode` to generate the code only from the Simulink model. Note that this corresponds to call `gencode` with no input arguments, i.e. the first `*.slx` file found is used
 
-- `make build` to build the code
+* `make build` to build the code
 
-- `make upload` to upload the code
+* `make upload` to upload the code
 
-- `make clean` to clean the build and cache directories
+* `make clean` to clean the build and cache directories
 
-- `make remake` to clean, build and upload the code
+* `make remake` to clean, build and upload the code
 
-- `make rebuild` to clean and rebuild
+* `make rebuild` to clean and rebuild
 
-- `make doc` to build the documentation
+* `make doc` to build the documentation
 
-- `make cleandoc` to clean the documentation
+* `make cleandoc` to clean the documentation
 
-- `make help` to print the help.
+* `make help` to print the help.
 
 \note Note that this function emulates the function `gencode` and the standard `make` commands. However, it does not require having `make` installed but only `doxygen` for the generation of the documentation.
 

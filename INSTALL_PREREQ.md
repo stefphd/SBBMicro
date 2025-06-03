@@ -4,20 +4,7 @@
 
 ### Arduino builder
 
-You can either install the *arduino-builder* only or the *Arduino IDE*, which is shipped with the *arduino-builder* included. To install the *Arduino IDE*:
-
-1. Download *Arduino IDE* from [here](https://www.arduino.cc/en/software).
-2. Run the installer `arduino-X.X.X-windows.exe` (where `X.X.X` is the software version)
-3. Follow the installation steps. Default installation folder should be `C:/Program Files (x86)/Arduino`
-4. You can check if the installation finishes correctly by running in the terminal
-   
-   ```bash
-    "C:/Program Files (x86)/Arduino/arduino-builder" -version
-   ```
-
-   where `C:/Program Files (x86)/Arduino` is your installation path.
-
-\attention Default installation path should be `C:/Program Files (x86)/Arduino`. If you choose a different one, you need to change the `ARDUINO_FOLDER` variable in the `Makefile` according to your installation path.
+Arduino builder is shipped with this repository. No installation should be necessary, although you may use your own version of arduino builder.
 
 ### Visual Studio Code
 
@@ -59,23 +46,13 @@ make -v
 
 \note For *make* other installation process may exist.
 
-### Teensyduino
-
-Download and install *Teensyduino* from [here](https://www.pjrc.com/teensy/td_download.html), which is an Add-On for *Arduino IDE*.
-
-\attention Installation of *Arduino IDE* is required.
-
 ### KiCAD
 
 Download and install *KiCAD* from [here](https://www.kicad.org/download/windows/).
 
 ## Linux
 
-Depending on your Linux distrubution, you can easily install the pre-requisites using your package manager: **you are using Linux, so you are supposed to know this stuff!** For example, in ArchLinux to install *arduino-builder*, *Make* and *Doxygen* use
-
-```bash
-pacman -Sy arduino-builder make doxygen
-```
+Depending on your Linux distrubution, you can easily install the pre-requisites using your package manager: **you are using Linux, so you are supposed to know this stuff!** 
 
 ## MacOS
 
