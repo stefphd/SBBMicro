@@ -28,7 +28,7 @@ BUILD_PATH          = './.build';
 CACHE_PATH          = './.cache';
 DOCS_PATH           = './docs';
 if ispc
-    ARDUINO_FOLDER  = 'C:/Program Files (x86)/Arduino';
+    ARDUINO_FOLDER  = './tools';
     BUILD_TOOLS     = './tools/tools-windows';
 elseif isunix
     ARDUINO_FOLDER  = '/usr/share/arduino';
