@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 4.103
-// Simulink Coder version         : 9.8 (R2022b) 13-May-2022
-// C/C++ source code generated on : Mon Jan 22 10:43:19 2024
+// Model version                  : 8.0
+// Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
+// C/C++ source code generated on : Thu Jul  3 09:15:31 2025
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -20,14 +20,14 @@
 //    4. MISRA C:2012 guidelines
 // Validation result: Not run
 //
-#ifndef RTW_HEADER_controlModel_private_h_
-#define RTW_HEADER_controlModel_private_h_
+#ifndef controlModel_private_h_
+#define controlModel_private_h_
 #include "rtwtypes.h"
 #include "controlModel_types.h"
 
 extern real32_T rt_atan2f_snf(real32_T u0, real32_T u1);
 
-#endif                                 // RTW_HEADER_controlModel_private_h_
+#endif                                 // controlModel_private_h_
 
 //
 // File trailer for generated code.

@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 4.103
-// Simulink Coder version         : 9.8 (R2022b) 13-May-2022
-// C/C++ source code generated on : Mon Jan 22 10:43:19 2024
+// Model version                  : 8.0
+// Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
+// C/C++ source code generated on : Thu Jul  3 09:15:31 2025
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -120,29 +120,39 @@ void ControlClass::controlModel_MeasurementUpdate(boolean_T rtu_Enable, const
   real32_T rtu_xhatkk1[3], const real32_T rtu_Dk[2], real32_T rtu_uk, real32_T
   rty_Lykyhatkk1[3], DW_MeasurementUpdate_controlM_T *localDW)
 {
+  int32_T i;
   real32_T rtu_yk_0[2];
+  real32_T rtu_xhatkk1_0;
+  real32_T rtu_xhatkk1_1;
+  real32_T rtu_xhatkk1_2;
 
   // Outputs for Enabled SubSystem: '<S81>/MeasurementUpdate' incorporates:
   //   EnablePort: '<S110>/Enable'
 
   if (rtu_Enable) {
     localDW->MeasurementUpdate_MODE = true;
-    for (int32_T i = 0; i < 2; i++) {
+
+    // Product: '<S110>/C[k]*xhat[k|k-1]'
+    rtu_xhatkk1_0 = rtu_xhatkk1[1];
+    rtu_xhatkk1_1 = rtu_xhatkk1[0];
+    rtu_xhatkk1_2 = rtu_xhatkk1[2];
+    for (i = 0; i < 2; i++) {
       // Sum: '<S110>/Sum' incorporates:
-      //   Product: '<S110>/C[k]*xhat[k|k-1]'
       //   Product: '<S110>/D[k]*u[k]'
       //   Sum: '<S110>/Add1'
 
-      rtu_yk_0[i] = rtu_yk[i] - ((((rtu_Ck[i + 2] * rtu_xhatkk1[1]) + (rtu_Ck[i]
-        * rtu_xhatkk1[0])) + (rtu_Ck[i + 4] * rtu_xhatkk1[2])) + (rtu_Dk[i] *
-        rtu_uk));
+      rtu_yk_0[i] = rtu_yk[i] - ((((rtu_Ck[i + 2] * rtu_xhatkk1_0) + (rtu_Ck[i] *
+        rtu_xhatkk1_1)) + (rtu_Ck[i + 4] * rtu_xhatkk1_2)) + (rtu_Dk[i] * rtu_uk));
     }
 
+    // End of Product: '<S110>/C[k]*xhat[k|k-1]'
+
     // Product: '<S110>/Product3'
-    for (int32_T i = 0; i < 3; i++) {
-      rty_Lykyhatkk1[i] = 0.0F;
-      rty_Lykyhatkk1[i] += rtu_Lk[i] * rtu_yk_0[0];
-      rty_Lykyhatkk1[i] += rtu_Lk[i + 3] * rtu_yk_0[1];
+    rtu_xhatkk1_0 = rtu_yk_0[1];
+    rtu_xhatkk1_1 = rtu_yk_0[0];
+    for (i = 0; i < 3; i++) {
+      rty_Lykyhatkk1[i] = (rtu_Lk[i + 3] * rtu_xhatkk1_0) + (rtu_Lk[i] *
+        rtu_xhatkk1_1);
     }
 
     // End of Product: '<S110>/Product3'
@@ -185,7 +195,11 @@ void ControlClass::controlModel_EnabledSubsystem(boolean_T rtu_Enable, const
   real32_T rtu_xhatkk1[3], real32_T rty_deltax[3],
   DW_EnabledSubsystem_controlMo_T *localDW)
 {
+  int32_T i;
   real32_T rtu_yk_0[2];
+  real32_T rtu_xhatkk1_0;
+  real32_T rtu_xhatkk1_1;
+  real32_T rtu_xhatkk1_2;
 
   // Outputs for Enabled SubSystem: '<S87>/Enabled Subsystem' incorporates:
   //   EnablePort: '<S112>/Enable'
@@ -193,21 +207,27 @@ void ControlClass::controlModel_EnabledSubsystem(boolean_T rtu_Enable, const
   if (rtu_Enable) {
     localDW->EnabledSubsystem_MODE = true;
 
+    // Product: '<S112>/Product'
+    rtu_xhatkk1_0 = rtu_xhatkk1[1];
+    rtu_xhatkk1_1 = rtu_xhatkk1[0];
+    rtu_xhatkk1_2 = rtu_xhatkk1[2];
+
     // Sum: '<S112>/Add1' incorporates:
     //   Product: '<S112>/Product'
 
-    for (int32_T i = 0; i < 2; i++) {
-      rtu_yk_0[i] = rtu_yk[i] - (((rtu_Ck[i + 2] * rtu_xhatkk1[1]) + (rtu_Ck[i] *
-        rtu_xhatkk1[0])) + (rtu_Ck[i + 4] * rtu_xhatkk1[2]));
+    for (i = 0; i < 2; i++) {
+      rtu_yk_0[i] = rtu_yk[i] - (((rtu_Ck[i + 2] * rtu_xhatkk1_0) + (rtu_Ck[i] *
+        rtu_xhatkk1_1)) + (rtu_Ck[i + 4] * rtu_xhatkk1_2));
     }
 
     // End of Sum: '<S112>/Add1'
 
     // Product: '<S112>/Product2'
-    for (int32_T i = 0; i < 3; i++) {
-      rty_deltax[i] = 0.0F;
-      rty_deltax[i] += rtu_Mk[i] * rtu_yk_0[0];
-      rty_deltax[i] += rtu_Mk[i + 3] * rtu_yk_0[1];
+    rtu_xhatkk1_0 = rtu_yk_0[1];
+    rtu_xhatkk1_1 = rtu_yk_0[0];
+    for (i = 0; i < 3; i++) {
+      rty_deltax[i] = (rtu_Mk[i + 3] * rtu_xhatkk1_0) + (rtu_Mk[i] *
+        rtu_xhatkk1_1);
     }
 
     // End of Product: '<S112>/Product2'
@@ -223,13 +243,11 @@ void ControlClass::controlModel_EnabledSubsystem(boolean_T rtu_Enable, const
 real32_T rt_atan2f_snf(real32_T u0, real32_T u1)
 {
   real32_T y;
-  if (static_cast<boolean_T>(static_cast<int32_T>((rtIsNaNF(u0) ?
-         (static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) | (rtIsNaNF(u1) ?
-         (static_cast<int32_T>(1)) : (static_cast<int32_T>(0)))))) {
+  if (static_cast<boolean_T>(static_cast<int32_T>(rtIsNaNF(u0) | rtIsNaNF(u1))))
+  {
     y = (rtNaNF);
-  } else if (static_cast<boolean_T>(static_cast<int32_T>((rtIsInfF(u0) ? (
-      static_cast<int32_T>(1)) : (static_cast<int32_T>(0))) & (rtIsInfF(u1) ? (
-      static_cast<int32_T>(1)) : (static_cast<int32_T>(0)))))) {
+  } else if (static_cast<boolean_T>(static_cast<int32_T>(rtIsInfF(u0) & rtIsInfF
+               (u1)))) {
     int32_T tmp;
     int32_T tmp_0;
     if (u0 > 0.0F) {
@@ -265,6 +283,7 @@ void ControlClass::update()
 {
   // local block i/o variables
   real32_T rtb_Gain1;
+  int32_T i;
   real32_T rtb_P_b[9];
   real32_T tmp[3];
   real32_T rtb_Reshapey[2];
@@ -323,7 +342,7 @@ void ControlClass::update()
   // Product: '<S62>/Product' incorporates:
   //   Constant: '<S6>/C'
 
-  for (int32_T i = 0; i < 2; i++) {
+  for (i = 0; i < 2; i++) {
     rtb_Reshapey[i] = ((controlModel_ConstP.pooled5[i + 2] * tmp_0) +
                        (controlModel_ConstP.pooled5[i] * rtb_Product5)) +
       (controlModel_ConstP.pooled5[i + 4] * tmp_1);
@@ -544,8 +563,7 @@ void ControlClass::update()
   //   Inport: '<Root>/steer'
   //   Outport: '<Root>/error_state_out'
 
-  if ((static_cast<uint32_T>(controlModel_DW.is_active_c3_controlModel)) == 0U)
-  {
+  if ((static_cast<int32_T>(controlModel_DW.is_active_c3_controlModel)) == 0) {
     controlModel_DW.is_active_c3_controlModel = 1U;
     controlModel_DW.is_c3_controlModel = controlModel_IN_UPDATEERR;
 
@@ -559,7 +577,7 @@ void ControlClass::update()
     controlModel_Y.error_state_out = 1U;
 
     // case IN_UPDATEERR:
-  } else if (controlModel_Y.error_state_out == 0ULL) {
+  } else if ((static_cast<int32_T>(controlModel_Y.error_state_out)) == 0) {
     if (std::abs(controlModel_U.steer[0]) > controlParams.maxSteer) {
       controlModel_DW.is_c3_controlModel = controlModel_IN_CHECKSTEER;
       controlModel_Y.error_state_out = 1U;
@@ -576,8 +594,7 @@ void ControlClass::update()
   // Chart: '<Root>/Chart1' incorporates:
   //   Outport: '<Root>/error_state_out'
 
-  if ((static_cast<uint32_T>(controlModel_DW.is_active_c1_controlModel)) == 0U)
-  {
+  if ((static_cast<int32_T>(controlModel_DW.is_active_c1_controlModel)) == 0) {
     controlModel_DW.is_active_c1_controlModel = 1U;
     controlModel_DW.is_c1_controlModel = controlModel_IN_SETCURR;
 
@@ -589,7 +606,7 @@ void ControlClass::update()
     controlModel_Y.curr_ref = 0.0F;
 
     // case IN_SETCURR:
-  } else if (controlModel_Y.error_state_out > 0ULL) {
+  } else if ((static_cast<int32_T>(controlModel_Y.error_state_out)) > 0) {
     controlModel_DW.is_c1_controlModel = controlModel_IN_IDLE;
 
     // Outport: '<Root>/curr_ref'
@@ -664,11 +681,10 @@ void ControlClass::update()
   //   Constant: '<S8>/C'
   //   Product: '<S114>/Product'
 
-  for (int32_T i = 0; i < 2; i++) {
-    controlModel_Y.steer_est[i] = 0.0F;
-    controlModel_Y.steer_est[i] += controlModel_ConstP.pooled5[i] * rtb_Product5;
-    controlModel_Y.steer_est[i] += controlModel_ConstP.pooled5[i + 2] * tmp_0;
-    controlModel_Y.steer_est[i] += controlModel_ConstP.pooled5[i + 4] * tmp_1;
+  for (i = 0; i < 2; i++) {
+    controlModel_Y.steer_est[i] = ((controlModel_ConstP.pooled5[i + 2] * tmp_0)
+      + (controlModel_ConstP.pooled5[i] * rtb_Product5)) +
+      (controlModel_ConstP.pooled5[i + 4] * tmp_1);
   }
 
   // End of Outport: '<Root>/steer_est'
@@ -698,18 +714,23 @@ void ControlClass::update()
   // Update for Delay: '<S6>/MemoryX'
   controlModel_DW.icLoad = false;
 
+  // Delay: '<S6>/MemoryX' incorporates:
+  //   Constant: '<S6>/A'
+  //   Product: '<S81>/A[k]*xhat[k|k-1]'
+
+  rtb_Product5 = controlModel_DW.MemoryX_DSTATE[1];
+  tmp_0 = controlModel_DW.MemoryX_DSTATE[0];
+  tmp_1 = controlModel_DW.MemoryX_DSTATE[2];
+
   // Product: '<S81>/A[k]*xhat[k|k-1]' incorporates:
   //   Constant: '<S6>/A'
   //   Delay: '<S6>/MemoryX'
 
-  for (int32_T i = 0; i < 3; i++) {
-    tmp[i] = ((controlModel_ConstP.pooled3[i + 3] *
-               controlModel_DW.MemoryX_DSTATE[1]) +
-              (controlModel_ConstP.pooled3[i] * controlModel_DW.MemoryX_DSTATE[0]))
-      + (controlModel_ConstP.pooled3[i + 6] * controlModel_DW.MemoryX_DSTATE[2]);
+  for (i = 0; i < 3; i++) {
+    tmp[i] = ((controlModel_ConstP.pooled3[i + 3] * rtb_Product5) +
+              (controlModel_ConstP.pooled3[i] * tmp_0)) +
+      (controlModel_ConstP.pooled3[i + 6] * tmp_1);
   }
-
-  // End of Product: '<S81>/A[k]*xhat[k|k-1]'
 
   // Update for Delay: '<S6>/MemoryX' incorporates:
   //   Constant: '<S6>/B'
@@ -740,6 +761,7 @@ void ControlClass::update()
   // Update for Delay: '<S4>/MemoryX' incorporates:
   //   Constant: '<S4>/B'
   //   Inport: '<Root>/gyros'
+  //   Product: '<S29>/A[k]*xhat[k|k-1]'
   //   Product: '<S29>/B[k]*u[k]'
   //   Product: '<S58>/Product3'
   //   Sum: '<S29>/Add'
@@ -768,19 +790,23 @@ void ControlClass::update()
   // Update for Delay: '<S8>/MemoryX'
   controlModel_DW.icLoad_a = false;
 
+  // Delay: '<S8>/MemoryX' incorporates:
+  //   Constant: '<S8>/A'
+  //   Product: '<S133>/A[k]*xhat[k|k-1]'
+
+  rtb_Exp = controlModel_DW.MemoryX_DSTATE_o[1];
+  rtb_Sum = controlModel_DW.MemoryX_DSTATE_o[0];
+  Product3_a_idx_1 = controlModel_DW.MemoryX_DSTATE_o[2];
+
   // Product: '<S133>/A[k]*xhat[k|k-1]' incorporates:
   //   Constant: '<S8>/A'
   //   Delay: '<S8>/MemoryX'
 
-  for (int32_T i = 0; i < 3; i++) {
-    tmp[i] = ((controlModel_ConstP.pooled3[i + 3] *
-               controlModel_DW.MemoryX_DSTATE_o[1]) +
-              (controlModel_ConstP.pooled3[i] *
-               controlModel_DW.MemoryX_DSTATE_o[0])) +
-      (controlModel_ConstP.pooled3[i + 6] * controlModel_DW.MemoryX_DSTATE_o[2]);
+  for (i = 0; i < 3; i++) {
+    tmp[i] = ((controlModel_ConstP.pooled3[i + 3] * rtb_Exp) +
+              (controlModel_ConstP.pooled3[i] * rtb_Sum)) +
+      (controlModel_ConstP.pooled3[i + 6] * Product3_a_idx_1);
   }
-
-  // End of Product: '<S133>/A[k]*xhat[k|k-1]'
 
   // Update for Delay: '<S8>/MemoryX' incorporates:
   //   Constant: '<S8>/B'

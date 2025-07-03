@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 4.103
-// Simulink Coder version         : 9.8 (R2022b) 13-May-2022
-// C/C++ source code generated on : Mon Jan 22 10:43:19 2024
+// Model version                  : 8.0
+// Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
+// C/C++ source code generated on : Thu Jul  3 09:15:31 2025
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -20,8 +20,8 @@
 //    4. MISRA C:2012 guidelines
 // Validation result: Not run
 //
-#ifndef RTW_HEADER_controlModel_h_
-#define RTW_HEADER_controlModel_h_
+#ifndef controlModel_h_
+#define controlModel_h_
 #include "rtwtypes.h"
 #include "controlModel_types.h"
 #include <cstring>
@@ -36,7 +36,7 @@ extern "C"
 extern "C"
 {
 
-#include "rtGetInf.h"
+#include "rtGetNaN.h"
 
 }
 
@@ -85,10 +85,10 @@ class ControlClass
     real32_T MemoryX_DSTATE_o[3];      // '<S8>/MemoryX'
     real32_T UnitDelay_DSTATE;         // '<Root>/Unit Delay'
     real32_T DiscreteStateSpace_DSTATE;// '<Root>/Discrete State-Space'
-    uint8_T is_c1_controlModel;        // '<Root>/Chart1'
     uint8_T is_active_c1_controlModel; // '<Root>/Chart1'
-    uint8_T is_c3_controlModel;        // '<Root>/Chart'
+    uint8_T is_c1_controlModel;        // '<Root>/Chart1'
     uint8_T is_active_c3_controlModel; // '<Root>/Chart'
+    uint8_T is_c3_controlModel;        // '<Root>/Chart'
     boolean_T icLoad;                  // '<S6>/MemoryX'
     boolean_T icLoad_d;                // '<S4>/MemoryX'
     boolean_T icLoad_a;                // '<S8>/MemoryX'
@@ -515,7 +515,7 @@ extern const ControlClass::ConstP_controlModel_T controlModel_ConstP;
 //  '<S163>' : 'controlModel/Steer estimator/ReducedQRN/Ground'
 //  '<S164>' : 'controlModel/Steer estimator/UseCurrentEstimator/Enabled Subsystem'
 
-#endif                                 // RTW_HEADER_controlModel_h_
+#endif                                 // controlModel_h_
 
 //
 // File trailer for generated code.

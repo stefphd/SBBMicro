@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 4.103
-// Simulink Coder version         : 9.8 (R2022b) 13-May-2022
-// C/C++ source code generated on : Mon Jan 22 10:43:19 2024
+// Model version                  : 8.0
+// Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
+// C/C++ source code generated on : Thu Jul  3 09:15:31 2025
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -20,8 +20,16 @@
 //    4. MISRA C:2012 guidelines
 // Validation result: Not run
 //
-#ifndef RTW_HEADER_rtGetNaN_h_
-#define RTW_HEADER_rtGetNaN_h_
+#ifndef rtGetNaN_h_
+#define rtGetNaN_h_
+
+extern "C"
+{
+
+#include "rt_nonfinite.h"
+
+}
+
 #include "rtwtypes.h"
 #ifdef __cplusplus
 
@@ -38,7 +46,7 @@ extern "C"
 }                                      // extern "C"
 
 #endif
-#endif                                 // RTW_HEADER_rtGetNaN_h_
+#endif                                 // rtGetNaN_h_
 
 //
 // File trailer for generated code.
