@@ -7,6 +7,7 @@ var userfun_8h =
     [ "do_led", "group__userfun.html#ga5e4b427672ce591ebe186358951f47c2", null ],
     [ "do_zeros", "group__userfun.html#ga49debdd770eb6926f7fc90e11311396b", null ],
     [ "get_enable", "group__userfun.html#ga10a641d6bb7088b74e35fd751a422cf4", null ],
+    [ "get_pb", "userfun_8h.html#a788e3e7a59b12efbb50ecbf450367ac8", null ],
     [ "get_selector", "group__userfun.html#ga7c68aacddf311ab62f6daa08f8b42c6e", null ],
     [ "get_sensors", "group__userfun.html#gaadef8420a246721121dfcb8e722d4a66", null ],
     [ "getTime", "group__userfun.html#ga32315808bd93c14f43ad88f6129f4f35", null ],
