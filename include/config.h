@@ -166,10 +166,10 @@
 #define MAX_MISSING_SBUS	10*SBUS_SAMPLING_FAC //!< Maximum missing packets for SBUS. \details Maximum missing packets for the SBUS communication. \note Check for missing packet is performed avery #SAMPLING_TIME milliseconds. \see SAMPLING_TIME
 #define MAX_REF_INPUT	1 //!< Maximum value for input reference. \details Maximum value for the input reference in the control model. Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
 #define MIN_REF_INPUT	-1 //!< Minimum value for input reference. \details Minimum value for the input reference in the control model.  Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
-#define SBUS_THROTTLE_CH 2 //!< Throttle channel in SBUS. \details Channel of SBUS for throttle reference. \warning Channel number is one-based.
-#define SBUS_ROLL_CH	1 //!< Roll channel in SBUS. \details Channel of SBUS for roll reference. \warning Channel number is one-based.
+#define SBUS_THROTTLE_CH 1 //!< Throttle channel in SBUS. \details Channel of SBUS for throttle reference. \warning Channel number is one-based.
+#define SBUS_ROLL_CH	2 //!< Roll channel in SBUS. \details Channel of SBUS for roll reference. \warning Channel number is one-based.
 #define SBUS_EN_CH		5 //!< Enable channel in SBUS. \details Channel of SBUS for enable signal. \warning Channel number is one-based.
-#define SBUS_BR_CH		6 //!< brake channel in SBUS. \details Channel of SBUS for brake signal. \warning Channel number is one-based.
+#define SBUS_PB_CH		6 //!< brake channel in SBUS. \details Channel of SBUS for brake signal. \warning Channel number is one-based.
 #define SBUS_THR_OR		3 //!< Direct throttle channel in SBUS. \details Channel of SBUS for overrideing the throttle channel. \warning Channel number is one-based.
 #define SBUS_SEL_CH		7 //!< 3 selector channel in SBUS. \warning Channel number is one-based.
 
@@ -334,8 +334,9 @@
 
 #define CPU_FREQ			600e6 //!< CPU clock speed (Hz). /warning Maximum value is 816e6 without cooling. \see https://www.pjrc.com/store/teensy40.html
 #define MTR_CTRL_MODE		1 //!< Control mode of steer motor (0=PWM or 1=DAC). \warning This setting must be consistent with ESCON Studio.
-#define EN_LONG_CTRL		0 //!< Enable the longitudinal control.
-#define EN_REMOTE_CTRL 		0 //!< Enable the remote controller.
+#define EN_LONG_CTRL		1 //!< Enable the longitudinal control.
+#define EN_REMOTE_CTRL 		1 //!< Enable the remote controller.
+#define EN_BRAKE_CTRL		0 //!< Enable the brake control.
 #define CW					LOW //!< Digital pin state for clockwise torque.
 #define NUM_ZERO_SAMPLES	500 //!< Samples used to perform the zero of sensors.
 #define STEERVEL_RATIO		(-36.0*1.25) //!< Speed ratio of steer velocity. \details Values from Simulink model.
@@ -348,13 +349,12 @@ const float imu_rotMat[3][3] = { {0, -cosf(YINCL_MCUBOX), -sinf(YINCL_MCUBOX)},
 const float mag_rotMat[3][3] = { {cosf(YINCL_MCUBOX), 0, sinf(YINCL_MCUBOX)},
 								  {0, -1, 0}, 
 								  {-sinf(YINCL_MCUBOX), 0, cosf(YINCL_MCUBOX)} }; //!< Rotation matrix from MAG frame to SAE body-fixed frame. \details This is the result of Ry(180deg)*Ry(#YINCL_MCUBOX). \see YINCL_MCUBOX
-//#define SWEEP_TEST
-//#define SIN_TEST
-//#define TEST_DURATION 10e3
-//#define SIN_WAVE 4
-//#define IMP_TEST					//!< Flag for impulse test. \details Impulse test consists of a cosine-shaped impulse with amplitude #IMP_AMP and duration #IMP_DUR. 
-#define IMP_DUR				100 	//!< Impulse duration (ms). \see IMP_TEST
-#define IMP_AMP				-10.0 	//!< Impulse amplitude (A). \see IMP_TEST
+
+#define SBB_TEST
+#define SBB_SPEED 2.5F
+#define SBB_ROLL 0.1F
+#define SBB_T_CRUISE 2.0F
+#define SBB_T_TURN 6.0F
 
 
 

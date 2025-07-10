@@ -256,39 +256,55 @@ void set_ctrl_input(void) {
 	ctrl.controlModel_U.CPUTemp = tempmonGetTemp();
 	//set remote control (2 channels) sbus
 #if EN_REMOTE_CTRL==1
-	ctrl.controlModel_U.ref_inputs[0] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_ROLL_CH-1], MIN_REF_INPUT, MAX_REF_INPUT);
-	ctrl.controlModel_U.ref_inputs[1] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_THROTTLE_CH-1], MIN_REF_INPUT, MAX_REF_INPUT);
+	ctrl.controlModel_U.ref_inputs[0] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_THROTTLE_CH-1], MIN_REF_INPUT, MAX_REF_INPUT);
+	ctrl.controlModel_U.ref_inputs[1] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_ROLL_CH-1], MIN_REF_INPUT, MAX_REF_INPUT);
 #endif
+}
+
+//get enable status
+bool get_enable(void) {
+	bool remote_enable = true;
+#if EN_REMOTE_CTRL==1
+	remote_enable = (remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS);
+#endif
+	return (remote_enable && (ctrl.controlModel_Y.error_state_out < 1) && (ctrl.controlModel_U.error_state_in < 1)); //enable from remote control and check errors
+}
+
+//get pb status
+bool get_pb(void) {
+	return (remote_raw.ch[SBUS_PB_CH-1] >= TRESHOLD_LOGIC_SBUS);
 }
 
 /*
 void do_control(void) performs control update cycle
 */
 void do_control(void) {
+
 	
 	//tests
-	#ifdef IMP_TEST
-	enable_new = get_selector();
-	if (enable_old != enable_new) {
-		if (enable_new) test_start = millis();
+#ifdef IMP_TEST
+	start_new = get_selector();
+	if (start_old != start_new) {
+		if (start_new) test_start = millis();
 	}
-	enable_old = enable_new;
+	start_old = start_new;
 	test_timer = millis() - test_start;
 	ctrl.controlModel_Y.curr_ref = 0;
-	if (enable_new != 0 && (test_timer <= IMP_DUR)) {
-		ctrl.controlModel_Y.curr_ref = 0.5F*IMP_AMP*(1.0F - cosf(2*PI*float(test_timer)/float(IMP_DUR)))*float(enable_new);
+	if (start_new != 0 && (test_timer <= IMP_DUR)) {
+		ctrl.controlModel_Y.curr_ref = 0.5F*IMP_AMP*(1.0F - cosf(2*PI*float(test_timer)/float(IMP_DUR)))*float(start_new);
 	} 
 	return;
-	#endif
+#endif
 
-	#ifdef SWEEP_TEST
-	enable_new = get_enable();
-	if (enable_old != enable_new) {
-		if (enable_new) test_start = millis();
+#ifdef SWEEP_TEST
+	start_new = get_enable();
+	if (start_old != start_new) {
+		if (start_new) test_start = millis();
+
 	}
-	enable_old = enable_new;
+	start_old = start_new;
 	test_timer = millis() - test_start;
-	if (enable_new) {
+	if (start_new) {
 		if (test_timer <= TEST_DURATION) {
 			float freq = 0.0F + float(test_timer)/float(TEST_DURATION) * (10.0F-0.0F);
 			float ampl = 2.0F;
@@ -296,21 +312,50 @@ void do_control(void) {
 		} else ctrl.controlModel_Y.curr_ref = 0, remote_raw.ch[SBUS_EN_CH-1] = TRESHOLD_LOGIC_SBUS/2;
 	} else ctrl.controlModel_Y.curr_ref = 0, remote_raw.ch[SBUS_EN_CH-1] = TRESHOLD_LOGIC_SBUS/2;
 	return;
-	#endif
+#endif
 
-	#ifdef SIN_TEST
-	enable_new = get_enable();
-	if (enable_old != enable_new) {
-		if (enable_new) test_start = millis();
+#ifdef SIN_TEST
+	start_new = get_enable();
+	if (start_old != start_new) {
+		if (start_new) test_start = millis();
 	}
-	enable_old = enable_new;
+	start_old = start_new;
 	test_timer = millis() - test_start;
-	if (enable_new) {
+	if (start_new) {
 		const float freq = 0.5F;
 		if (test_timer <= (2*SIN_WAVE*freq*1000.0F)) ctrl.controlModel_Y.curr_ref = 4.0F*sinf(2.0F*PI*freq*float(test_timer)/1000.0F);
 	} else ctrl.controlModel_Y.curr_ref = 0;
 	return;
-	#endif
+#endif
+
+#ifdef SBB_TEST
+	start_new = get_pb();
+	if (start_old != start_new) {
+		if (start_new) { 
+			test_start = millis();
+			test_run = 1;
+		}
+	}
+	start_old = start_new;
+	test_timer = millis() - test_start;
+	if (test_run) {
+		if (test_timer <= SBB_T_CRUISE*1000.0F) {
+			ctrl.controlModel_U.ref_inputs[0] = SBB_SPEED; //set speed reference
+			ctrl.controlModel_U.ref_inputs[1] = 0; //set roll reference
+
+		} else if (test_timer <= (SBB_T_CRUISE + SBB_T_TURN)*1000.0F) {
+			float sel = (float) get_selector();
+			ctrl.controlModel_U.ref_inputs[0] = SBB_SPEED; //set speed reference
+			ctrl.controlModel_U.ref_inputs[1] = SBB_ROLL * sel; //set roll reference
+		} else {
+			test_run = 0;
+		}
+	}
+	if (!test_run) {
+		ctrl.controlModel_U.ref_inputs[0] = 0; //set speed reference
+		ctrl.controlModel_U.ref_inputs[1] = 0; //set roll reference
+	}
+#endif
 
 	//update control
 	ctrl.update(); //this performs the control loop
@@ -340,22 +385,10 @@ int8_t get_selector(void) {
 	return 0;
 }
 
-//get enable status
-bool get_enable(void) {
-	bool remote_enable = true;
-#if EN_REMOTE_CTRL==1
-	remote_enable = (remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS);
-#endif
-	return (remote_enable && (ctrl.controlModel_Y.error_state_out < 1) && (ctrl.controlModel_U.error_state_in < 1)); //enable from remote control and check errors
-}
-
 //set drivers
 void set_driver(void) {
 	bool enable = get_enable();
-
-	// override control throttle_ref
-	//ctrl.controlModel_Y.throttle_ref =  CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_THR_OR-1], MIN_REF_INPUT, MAX_REF_INPUT);
-
+	
 	//set motor driver
 #if MTR_CTRL_MODE==0
 	analogWrite(PWM_PIN, constrain(CONVERT_CURRENT_TO_PWM(ctrl.controlModel_Y.curr_ref), PWM_MIN*(powf(2, PWM_RES) - 1), PWM_MAX*(powf(2, PWM_RES) - 1))); 
@@ -370,12 +403,13 @@ void set_driver(void) {
 	dac.analogWrite(DAC_THROTTLE_CH, (ctrl.controlModel_Y.throttle_ref >= 0 && enable) ? 
 									 constrain(CONVERT_TRHOTTLE_TO_DAC(ctrl.controlModel_Y.throttle_ref), 0, pow(2, DAC_RES) - 1) :
 									 CONVERT_TRHOTTLE_TO_DAC(0)); 
-	
+#endif
+#if EN_BRAKE_CTRL==1
 	//set brake stepper motor
 	int32_t brake_motor_position = (ctrl.controlModel_Y.throttle_ref <= 0) ? 
 									 constrain(CONVERT_TRHOTTLE_TO_STEPS(-ctrl.controlModel_Y.throttle_ref),0,CONVERT_BRLEV_TO_STEPS(MAX_BR_DISP)) :
 									 CONVERT_TRHOTTLE_TO_STEPS(0);
-	if (remote_raw.ch[SBUS_BR_CH-1] >= TRESHOLD_LOGIC_SBUS) brake_motor_position = CONVERT_BRLEV_TO_STEPS(MAX_BR_DISP);
+	if (remote_raw.ch[SBUS_PB_CH-1] >= TRESHOLD_LOGIC_SBUS) brake_motor_position = CONVERT_BRLEV_TO_STEPS(MAX_BR_DISP);
 	bool is_brake_motor_arrived = brakeMotor.getPosition() == brake_motor_position;
 	if (is_brake_motor_arrived) BR_DISABLE;
 	if (!brakeMotor.isMoving && !is_brake_motor_arrived){ 
