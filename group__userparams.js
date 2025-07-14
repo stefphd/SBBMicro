@@ -13,7 +13,6 @@ var group__userparams =
     [ "SBB_SPEED", "group__userparams.html#gadd37234eeed91b337028f4fda277235c", null ],
     [ "SBB_T_CRUISE", "group__userparams.html#ga8313a75490e6b9fedb98f4ea59dbf9e1", null ],
     [ "SBB_T_TURN", "group__userparams.html#ga9f445bc730faa756d054904a7499d1a9", null ],
-    [ "SBB_TEST", "group__userparams.html#gabc100776258565d2af97e724e4ab59a1", null ],
     [ "STEERVEL_RATIO", "group__userparams.html#ga8395bd4f9136d83d19f90e0a1790f619", null ],
     [ "YINCL_MCUBOX", "group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4", null ],
     [ "imu_rotMat", "group__userparams.html#ga58b13742f4753d2205930a46e8b11398", null ],

@@ -111,7 +111,6 @@ var config_8h =
     [ "SBB_SPEED", "group__userparams.html#gadd37234eeed91b337028f4fda277235c", null ],
     [ "SBB_T_CRUISE", "group__userparams.html#ga8313a75490e6b9fedb98f4ea59dbf9e1", null ],
     [ "SBB_T_TURN", "group__userparams.html#ga9f445bc730faa756d054904a7499d1a9", null ],
-    [ "SBB_TEST", "group__userparams.html#gabc100776258565d2af97e724e4ab59a1", null ],
     [ "SBUS_EN_CH", "group__constants.html#gac700cd5d072e344ecf114ab9d64a4af3", null ],
     [ "SBUS_PB_CH", "group__constants.html#gac56c448545a229742ee4d0926acb4d84", null ],
     [ "SBUS_ROLL_CH", "group__constants.html#gaa643024a0768044263862ecd1776993a", null ],
