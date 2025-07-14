@@ -256,8 +256,8 @@ void set_ctrl_input(void) {
 	ctrl.controlModel_U.CPUTemp = tempmonGetTemp();
 	//set remote control (2 channels) sbus
 #if EN_REMOTE_CTRL==1
-	ctrl.controlModel_U.ref_inputs[0] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_THROTTLE_CH-1], MIN_REF_INPUT, MAX_REF_INPUT);
-	ctrl.controlModel_U.ref_inputs[1] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_ROLL_CH-1], MIN_REF_INPUT, MAX_REF_INPUT);
+	ctrl.controlModel_U.ref_inputs[0] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_THROTTLE_CH-1], MIN_REF_INPUT1, MAX_REF_INPUT1);
+	ctrl.controlModel_U.ref_inputs[1] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_ROLL_CH-1], MIN_REF_INPUT2, MAX_REF_INPUT2);
 #endif
 }
 
