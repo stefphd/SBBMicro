@@ -335,19 +335,26 @@ $(function(){initNavTree('config_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>                                  {-sinf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>), 0, cosf(<a class="code hl_define" href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a>)} }; </div>
 </div>
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno"><a class="line" href="group__userparams.html#gabc100776258565d2af97e724e4ab59a1">  355</a></span><span class="preprocessor">#define SBB_TEST</span></div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno"><a class="line" href="group__userparams.html#gadd37234eeed91b337028f4fda277235c">  356</a></span><span class="preprocessor">#define SBB_SPEED 2.5F</span></div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno"><a class="line" href="group__userparams.html#gaeb1ceaf13d962251305546437378cba4">  357</a></span><span class="preprocessor">#define SBB_ROLL 0.1F</span></div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno"><a class="line" href="group__userparams.html#ga8313a75490e6b9fedb98f4ea59dbf9e1">  358</a></span><span class="preprocessor">#define SBB_T_CRUISE 2.0F</span></div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno"><a class="line" href="group__userparams.html#ga9f445bc730faa756d054904a7499d1a9">  359</a></span><span class="preprocessor">#define SBB_T_TURN 6.0F</span></div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span></div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span><span class="comment">//.......................................EOF.....................................</span></div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span> </div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span><span class="comment">//#define SWEEP_TEST</span></div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="comment">//#define SIN_TEST</span></div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="comment">//#define TEST_DURATION 10e3</span></div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span><span class="comment">//#define SIN_WAVE 4</span></div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span><span class="comment">//#define IMP_TEST  //!&lt; Flag for impulse test. \details Impulse test consists of a cosine-shaped impulse with amplitude #IMP_AMP and duration #IMP_DUR. </span></div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span><span class="comment">//#define IMP_DUR   100     //!&lt; Impulse duration (ms). \see IMP_TEST</span></div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span><span class="comment">//#define IMP_AMP   -10.0   //!&lt; Impulse amplitude (A). \see IMP_TEST</span></div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span><span class="comment">// SBB test params</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno"><a class="line" href="group__userparams.html#gabc100776258565d2af97e724e4ab59a1">  364</a></span><span class="preprocessor">#define SBB_TEST </span></div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno"><a class="line" href="group__userparams.html#gadd37234eeed91b337028f4fda277235c">  365</a></span><span class="preprocessor">#define SBB_SPEED 2.5F </span></div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno"><a class="line" href="group__userparams.html#gaeb1ceaf13d962251305546437378cba4">  366</a></span><span class="preprocessor">#define SBB_ROLL 0.1F </span></div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno"><a class="line" href="group__userparams.html#ga8313a75490e6b9fedb98f4ea59dbf9e1">  367</a></span><span class="preprocessor">#define SBB_T_CRUISE 2.0F </span></div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno"><a class="line" href="group__userparams.html#ga9f445bc730faa756d054904a7499d1a9">  368</a></span><span class="preprocessor">#define SBB_T_TURN 6.0F </span></div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span></div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span><span class="comment">//.......................................EOF.....................................</span></div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span> </div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span> </div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="agroup__userparams_html_ga58b13742f4753d2205930a46e8b11398"><div class="ttname"><a href="group__userparams.html#ga58b13742f4753d2205930a46e8b11398">imu_rotMat</a></div><div class="ttdeci">const float imu_rotMat[3][3]</div><div class="ttdoc">Rotation matrix from IMU frame to SAE body-fixed frame.</div><div class="ttdef"><b>Definition</b> config.h:348</div></div>
 <div class="ttc" id="agroup__userparams_html_gaec13acb5dce7cb97bcff20113fac24b4"><div class="ttname"><a href="group__userparams.html#gaec13acb5dce7cb97bcff20113fac24b4">YINCL_MCUBOX</a></div><div class="ttdeci">#define YINCL_MCUBOX</div><div class="ttdoc">Pitch iinclination of MCU box (in rad).</div><div class="ttdef"><b>Definition</b> config.h:347</div></div>
 <div class="ttc" id="agroup__userparams_html_gaf9442460cbb06c83036b0cfa19d20658"><div class="ttname"><a href="group__userparams.html#gaf9442460cbb06c83036b0cfa19d20658">mag_rotMat</a></div><div class="ttdeci">const float mag_rotMat[3][3]</div><div class="ttdoc">Rotation matrix from MAG frame to SAE body-fixed frame.</div><div class="ttdef"><b>Definition</b> config.h:351</div></div>

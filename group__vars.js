@@ -85,6 +85,7 @@ var group__vars =
     [ "remote_raw", "group__vars.html#ga1bfad5bd762f1797f73ee58a1e78c888", null ],
     [ "riderTorque_raw", "group__vars.html#gab160016dad586229de1321833886d5f1", null ],
     [ "sampling_timer", "group__vars.html#ga0b10c6265eae7b433713dad809a6a8b4", null ],
+    [ "sel", "group__vars.html#gab508c4890b332f77c6b00fb0069aedfa", null ],
     [ "speed_raw", "group__vars.html#gaadda3755d69a6015938e992342800dc1", null ],
     [ "speedSensor", "group__vars.html#ga15df8c8704f3ce0d17ac1856757d3842", null ],
     [ "start_new", "group__vars.html#gafd6980188d1cd4910be06d53c90f6822", null ],
