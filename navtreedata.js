@@ -86,7 +86,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "HostPort_8cpp.html",
-"group__userfun.html#ga01f554db1c07c31f60f5167060279699"
+"group__pin.html#gaf5a48adc9d939102a42f2829b7a1b8ac"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
