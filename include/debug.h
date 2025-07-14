@@ -113,7 +113,7 @@ enum serialAction {
   TX_TIME = 0x02,
   TX_SIGNAMES = 0x03
 }; //!< Serial commands.
-const int NUMSIGS = 39; //!< Number of signals.
+const int NUMSIGS = 41; //!< Number of signals.
 const char SPLIT_CHAR = '\0'; //!< Char to split strings
 String signames[NUMSIGS] = {
     "Speed", "Distance", 
@@ -128,6 +128,7 @@ String signames[NUMSIGS] = {
     "CPU temp", "Voltage", 
     "Ref input 1", "Ref input 2", 
     "Err state in", 
+    "SE switch", "SC switch", 
     "Curr ref", "Throttle", 
     "Roll est", "Yaw est", 
     "Pos est x", "Pos est y",

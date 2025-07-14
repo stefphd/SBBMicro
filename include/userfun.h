@@ -218,6 +218,27 @@ bool check_sbus(void)  {
 	return true; //all checks ok
 }
 
+//get enable status
+bool get_enable(void) {
+	bool remote_enable = true;
+#if EN_REMOTE_CTRL==1
+	remote_enable = (remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS);
+#endif
+	return (remote_enable && (ctrl.controlModel_Y.error_state_out < 1) && (ctrl.controlModel_U.error_state_in < 1)); //enable from remote control and check errors
+}
+
+//get pb status
+bool get_pb(void) {
+	return (remote_raw.ch[SBUS_PB_CH-1] >= TRESHOLD_LOGIC_SBUS);
+}
+
+//get selector
+int8_t get_selector(void) {
+	// return +1 if SBUS_SEL_CH is UP, -1 if is DOWN, 0 otherwise
+	return (remote_raw.ch[SBUS_SEL_CH-1] >= TRESHOLD_POS_SBUS) ? +1 :
+	( (remote_raw.ch[SBUS_SEL_CH-1] <= TRESHOLD_NEG_SBUS) ? -1 : 0);
+}
+
 /*
 void set_ctrl_input(void) sets the control input structure
 */
@@ -254,32 +275,14 @@ void set_ctrl_input(void) {
 	ctrl.controlModel_U.voltage = CONVERT_VOLTAGE_TO_V(float(voltage_raw.batVolt)) - voltage_raw.batVolt_offset;
 	//CPU temp
 	ctrl.controlModel_U.CPUTemp = tempmonGetTemp();
-	//set remote control (2 channels) sbus
+	//set remote control sbus
 #if EN_REMOTE_CTRL==1
 	ctrl.controlModel_U.ref_inputs[0] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_THROTTLE_CH-1], MIN_REF_INPUT1, MAX_REF_INPUT1);
 	ctrl.controlModel_U.ref_inputs[1] = CONVERT_CHANNEL_TO_FLOAT(remote_raw.ch[SBUS_ROLL_CH-1], MIN_REF_INPUT2, MAX_REF_INPUT2);
+	// SE and SC switches
+	ctrl.controlModel_U.se_switch = (float) get_pb(); //get push button state
+	ctrl.controlModel_U.sc_switch = (float) get_selector(); //get selector state
 #endif
-}
-
-//get enable status
-bool get_enable(void) {
-	bool remote_enable = true;
-#if EN_REMOTE_CTRL==1
-	remote_enable = (remote_raw.ch[SBUS_EN_CH-1] >= TRESHOLD_LOGIC_SBUS);
-#endif
-	return (remote_enable && (ctrl.controlModel_Y.error_state_out < 1) && (ctrl.controlModel_U.error_state_in < 1)); //enable from remote control and check errors
-}
-
-//get pb status
-bool get_pb(void) {
-	return (remote_raw.ch[SBUS_PB_CH-1] >= TRESHOLD_LOGIC_SBUS);
-}
-
-//get selector
-int8_t get_selector(void) {
-	// return +1 if SBUS_SEL_CH is UP, -1 if is DOWN, 0 otherwise
-	return (remote_raw.ch[SBUS_SEL_CH-1] >= TRESHOLD_POS_SBUS) ? +1 :
-	( (remote_raw.ch[SBUS_SEL_CH-1] <= TRESHOLD_NEG_SBUS) ? -1 : 0);
 }
 
 /*

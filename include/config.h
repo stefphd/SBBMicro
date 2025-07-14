@@ -361,7 +361,7 @@ const float mag_rotMat[3][3] = { {cosf(YINCL_MCUBOX), 0, sinf(YINCL_MCUBOX)},
 //#define IMP_AMP	-10.0 	//!< Impulse amplitude (A). \see IMP_TEST
 
 // SBB test params
-#define SBB_TEST //!< Flag to enable the SBB test
+// #define SBB_TEST //!< Flag to enable the SBB test
 #define SBB_SPEED 2.5F //!< Cruise speed (m/s)
 #define SBB_ROLL 0.1F //!< Turn roll angle (rad)
 #define SBB_T_CRUISE 2.0F //!< Cruise time (s)

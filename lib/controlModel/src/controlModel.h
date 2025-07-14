@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 8.0
+// Model version                  : 8.5
 // Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
-// C/C++ source code generated on : Thu Jul  3 09:15:31 2025
+// C/C++ source code generated on : Mon Jul 14 11:20:39 2025
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -149,6 +149,8 @@ class ControlClass
     real32_T voltage;                  // '<Root>/voltage'
     real32_T ref_inputs[2];            // '<Root>/ref_inputs'
     uint8_T error_state_in;            // '<Root>/error_state_in'
+    real32_T se_switch;                // '<Root>/se_switch'
+    real32_T sc_switch;                // '<Root>/sc_switch'
   };
 
   // External outputs (root outports fed by signals with default storage)
