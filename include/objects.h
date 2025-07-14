@@ -189,6 +189,7 @@ struct RemoteCtrl { //controller channels
 		- Channel 4: left/right positoon of the left stick.
 		- Channel 5: logic state of the SD switch.
 		- Channel 6: logic state of the SE switch.
+		- Channel 7: logic state of the SC switch.
 
 		Values range from #MIN_SBUS to #MAX_SBUS and are initialized to #ZERO_SBUS. For logic channels the low state is #MIN_SBUS, while the
 		high state is #MAX_SBUS.
@@ -247,6 +248,7 @@ TS4::Stepper brakeMotor(BR_STEP_PIN, BR_DIR_PIN); //!< Stepper object for the br
 int8_t start_old = 0;
 int8_t start_new = 0;
 int8_t test_run = 0;
+int8_t sel = 0; // selector
 uint32_t test_timer = 0, test_start = 0;
 
 

@@ -275,11 +275,17 @@ bool get_pb(void) {
 	return (remote_raw.ch[SBUS_PB_CH-1] >= TRESHOLD_LOGIC_SBUS);
 }
 
+//get selector
+int8_t get_selector(void) {
+	// return +1 if SBUS_SEL_CH is UP, -1 if is DOWN, 0 otherwise
+	return (remote_raw.ch[SBUS_SEL_CH-1] >= TRESHOLD_POS_SBUS) ? +1 :
+	( (remote_raw.ch[SBUS_SEL_CH-1] <= TRESHOLD_NEG_SBUS) ? -1 : 0);
+}
+
 /*
 void do_control(void) performs control update cycle
 */
 void do_control(void) {
-
 	
 	//tests
 #ifdef IMP_TEST
@@ -332,6 +338,7 @@ void do_control(void) {
 	start_new = get_pb();
 	if (start_old != start_new) {
 		if (start_new) { 
+			sel = get_selector();
 			test_start = millis();
 			test_run = 1;
 		}
@@ -341,20 +348,21 @@ void do_control(void) {
 	if (test_run) {
 		if (test_timer <= SBB_T_CRUISE*1000.0F) {
 			ctrl.controlModel_U.ref_inputs[0] = SBB_SPEED; //set speed reference
-			ctrl.controlModel_U.ref_inputs[1] = 0; //set roll reference
+			ctrl.controlModel_U.ref_inputs[1] = 0.0F; //set roll reference
 
 		} else if (test_timer <= (SBB_T_CRUISE + SBB_T_TURN)*1000.0F) {
-			float sel = (float) get_selector();
 			ctrl.controlModel_U.ref_inputs[0] = SBB_SPEED; //set speed reference
-			ctrl.controlModel_U.ref_inputs[1] = SBB_ROLL * sel; //set roll reference
+			ctrl.controlModel_U.ref_inputs[1] = (sel > 0) ? -SBB_ROLL : ( (sel < 0) ? +SBB_ROLL : 0.0F); //set roll reference
 		} else {
 			test_run = 0;
 		}
 	}
+	/*
 	if (!test_run) {
 		ctrl.controlModel_U.ref_inputs[0] = 0; //set speed reference
 		ctrl.controlModel_U.ref_inputs[1] = 0; //set roll reference
 	}
+	*/
 #endif
 
 	//update control
@@ -372,17 +380,6 @@ void check_error(void) {
 	//check error is also performed in the control loop, so only low-level checks are performed in the code, such as....
 	//Instead, steering limits etc. are checked in the control loop (see simulink model)
 	//save error state in ctrl.controlModel_U to change error state inside the control loop
-}
-
-//get selector
-int8_t get_selector(void) {
-	if (remote_raw.ch[SBUS_SEL_CH-1] >= TRESHOLD_POS_SBUS) {
-		return +1;
-	}
-	if (remote_raw.ch[SBUS_SEL_CH-1] <= TRESHOLD_NEG_SBUS) {
-		return -1;
-	}
-	return 0;
 }
 
 //set drivers
