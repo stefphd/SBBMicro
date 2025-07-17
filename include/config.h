@@ -164,10 +164,10 @@
 #define TRESHOLD_POS_SBUS	1400 //!< Treshold for positive value. \details Treshold value for positive state received by the SBUS. If greaten than this value, it is a +1.
 #define TRESHOLD_NEG_SBUS	600 //!< Treshold for negative value. \details Treshold value for positive state received by the SBUS. If lower than this value, it is a -1.
 #define MAX_MISSING_SBUS	10*SBUS_SAMPLING_FAC //!< Maximum missing packets for SBUS. \details Maximum missing packets for the SBUS communication. \note Check for missing packet is performed avery #SAMPLING_TIME milliseconds. \see SAMPLING_TIME
-#define MAX_REF_INPUT1	5.0F //!< Maximum value for input reference 1. \details Maximum value for the input reference in the control model. Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
+#define MAX_REF_INPUT1	1.0F //!< Maximum value for input reference 1. \details Maximum value for the input reference in the control model. Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
 #define MIN_REF_INPUT1	0.0F //!< Minimum value for input reference 1. \details Minimum value for the input reference in the control model.  Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
-#define MAX_REF_INPUT2	0.1F //!< Maximum value for input reference 2. \details Maximum value for the input reference in the control model. Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
-#define MIN_REF_INPUT2	-0.1F //!< Minimum value for input reference 2. \details Minimum value for the input reference in the control model.  Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
+#define MAX_REF_INPUT2	1.0F //!< Maximum value for input reference 2. \details Maximum value for the input reference in the control model. Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
+#define MIN_REF_INPUT2	-1.0F //!< Minimum value for input reference 2. \details Minimum value for the input reference in the control model.  Signals from SBUS (int16_t) are remapped within #MIN_SBUS and #MAX_SBUS as float numbers. \see MIN_SBUS MAX_SBUS CONVERT_CHANNEL_TO_FLOAT
 #define SBUS_THROTTLE_CH 1 //!< Throttle channel in SBUS. \details Channel of SBUS for throttle reference. \warning Channel number is one-based.
 #define SBUS_ROLL_CH	2 //!< Roll channel in SBUS. \details Channel of SBUS for roll reference. \warning Channel number is one-based.
 #define SBUS_EN_CH		5 //!< Enable channel in SBUS. \details Channel of SBUS for enable signal. \warning Channel number is one-based.
@@ -339,6 +339,7 @@
 #define EN_LONG_CTRL		1 //!< Enable the longitudinal control.
 #define EN_REMOTE_CTRL 		1 //!< Enable the remote controller.
 #define EN_BRAKE_CTRL		0 //!< Enable the brake control.
+#define TEST_THROTTLE		1 //!< Test the throttle using the remote controller.
 #define CW					LOW //!< Digital pin state for clockwise torque.
 #define NUM_ZERO_SAMPLES	500 //!< Samples used to perform the zero of sensors.
 #define STEERVEL_RATIO		(-36.0*1.25) //!< Speed ratio of steer velocity. \details Values from Simulink model.

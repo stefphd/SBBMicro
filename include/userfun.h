@@ -400,6 +400,9 @@ void set_driver(void) {
 
 #if EN_LONG_CTRL==1
 	//set throttle signal
+#if TEST_THROTTLE==1
+	ctrl.controlModel_Y.throttle_ref = ctrl.controlModel_U.ref_inputs[0];
+#endif
 	dac.analogWrite(DAC_THROTTLE_CH, (ctrl.controlModel_Y.throttle_ref >= 0 && enable) ? 
 									 constrain(CONVERT_TRHOTTLE_TO_DAC(ctrl.controlModel_Y.throttle_ref), 0, pow(2, DAC_RES) - 1) :
 									 CONVERT_TRHOTTLE_TO_DAC(0)); 
