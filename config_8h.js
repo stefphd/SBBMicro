@@ -126,6 +126,7 @@ var config_8h =
     [ "STEER_POS", "group__pin.html#gad33d8242119f64a4afd8e0525ffbaa17", null ],
     [ "STEER_SPEED", "group__pin.html#ga5efa9432b982a6616f35abd1768f7e52", null ],
     [ "STEERVEL_RATIO", "group__userparams.html#ga8395bd4f9136d83d19f90e0a1790f619", null ],
+    [ "TEST_THROTTLE", "group__userparams.html#ga6b6ea4f3ed442dbe06d71c775e199c73", null ],
     [ "TRESHOLD_LOGIC_SBUS", "group__constants.html#ga26ac23ae708d5f1598d41bfdbc411880", null ],
     [ "TRESHOLD_NEG_SBUS", "group__constants.html#gaaade20d839773a652b5f279c3adc13bf", null ],
     [ "TRESHOLD_POS_SBUS", "group__constants.html#gac8e87bce147f19267b8ba68f2dcc6770", null ],
