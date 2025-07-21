@@ -339,7 +339,7 @@
 #define EN_LONG_CTRL		1 //!< Enable the longitudinal control.
 #define EN_REMOTE_CTRL 		1 //!< Enable the remote controller.
 #define EN_BRAKE_CTRL		0 //!< Enable the brake control.
-#define TEST_THROTTLE		1 //!< Test the throttle using the remote controller.
+#define TEST_THROTTLE		0 //!< Test the throttle using the remote controller.
 #define CW					LOW //!< Digital pin state for clockwise torque.
 #define NUM_ZERO_SAMPLES	500 //!< Samples used to perform the zero of sensors.
 #define STEERVEL_RATIO		(-36.0*1.25) //!< Speed ratio of steer velocity. \details Values from Simulink model.

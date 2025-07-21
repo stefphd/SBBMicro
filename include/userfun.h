@@ -289,7 +289,7 @@ void set_ctrl_input(void) {
 void do_control(void) performs control update cycle
 */
 void do_control(void) {
-	
+
 	//tests
 #ifdef IMP_TEST
 	start_new = get_selector();
@@ -335,37 +335,6 @@ void do_control(void) {
 		if (test_timer <= (2*SIN_WAVE*freq*1000.0F)) ctrl.controlModel_Y.curr_ref = 4.0F*sinf(2.0F*PI*freq*float(test_timer)/1000.0F);
 	} else ctrl.controlModel_Y.curr_ref = 0;
 	return;
-#endif
-
-#ifdef SBB_TEST
-	start_new = get_pb();
-	if (start_old != start_new) {
-		if (start_new) { 
-			sel = get_selector();
-			test_start = millis();
-			test_run = 1;
-		}
-	}
-	start_old = start_new;
-	test_timer = millis() - test_start;
-	if (test_run) {
-		if (test_timer <= SBB_T_CRUISE*1000.0F) {
-			ctrl.controlModel_U.ref_inputs[0] = SBB_SPEED; //set speed reference
-			ctrl.controlModel_U.ref_inputs[1] = 0.0F; //set roll reference
-
-		} else if (test_timer <= (SBB_T_CRUISE + SBB_T_TURN)*1000.0F) {
-			ctrl.controlModel_U.ref_inputs[0] = SBB_SPEED; //set speed reference
-			ctrl.controlModel_U.ref_inputs[1] = (sel > 0) ? -SBB_ROLL : ( (sel < 0) ? +SBB_ROLL : 0.0F); //set roll reference
-		} else {
-			test_run = 0;
-		}
-	}
-	/*
-	if (!test_run) {
-		ctrl.controlModel_U.ref_inputs[0] = 0; //set speed reference
-		ctrl.controlModel_U.ref_inputs[1] = 0; //set roll reference
-	}
-	*/
 #endif
 
 	//update control
