@@ -18,8 +18,8 @@
 #define RING_BUF_SIZE		DATAPACKET_SIZE*10 //!< Size of the ring buffer. \details Bytes of data packet multiplied by the buffered samples. \ingroup logfun
 #define SDSECTOR_SIZE		512 //!< Size of the SD sector (in bytes). \details Note that it is a multiple of #DATAPACKET_SIZE \ingroup logfun
 #define FILENAME_MAXSIZE	32 //!< Max length of the name of the log file. \details Standard length of the name should be 27 chars w/ format log_YYYY-MM-DD_hh.mm.ss.sbb. \see FILENAME_FORMAT \ingroup logfun
-#define FILENAME_FORMAT		"log_%04d-%02d-%02d_%02d.%02d.%02d.sbb" //!< Log filename format. \details The current name format is log_YYYY-MM-DD_hh.mm.ss.sbb. \ingroup logfun
-#define FILENAME_ENTRIES	year(), month(), day(), hour(), minute(), second() //!< Entries of the log filename format. \details Please refer to #FILENAME_FORMAT for the filename format used. \ingroup logfun \see FILENAME_FORMAT
+#define FILENAME_FORMAT		"log_%04d-%02d-%02d_%02d.%02d.sbb" //!< Log filename format. \details The current name format is log_YYYY-MM-DD_hh.mm.ss.sbb. \ingroup logfun
+#define FILENAME_ENTRIES	year(), month(), day(), hour(), minute() //!< Entries of the log filename format. \details Please refer to #FILENAME_FORMAT for the filename format used. \ingroup logfun \see FILENAME_FORMAT
 #define FILENAME_REPORT 	"report.log" //!< Filename for report log
 
 #if DOLOG == 1

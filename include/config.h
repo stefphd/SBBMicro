@@ -121,7 +121,7 @@
 #define IMU_SAMPLING_FAC	1 //!< Sampling factor of IMU (expressed in units of #SAMPLING_TIME). \note This is the rate at which the sensor is read, not its output data rate (i.e. #ACC_ODR or #GYRO_ODR). \see SAMPLING_TIME ACC_ODR GYRO_ODR
 #define MAG_SAMPLING_FAC	5 //!< Sampling factor of magnetometer (expressed in units of #SAMPLING_TIME). \note This is the rate at which the sensor is read, not its output data rate (i.e. #MAG_ODR). \see SAMPLING_TIME MAG_ODR
 #define SBUS_SAMPLING_FAC	14 //!< Sampling factor of the SBUSr receiver. \note This is the rate at which the sensor is read, not its output data rate. \warning Not used now. SBUS is read as fast as possible. \see SAMPLING_TIME
-#define DEF_LED 			500 //!< Sampling factor of led in default mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::DEF
+#define DEF_LED 			2500 //!< Sampling factor of led in default mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::DEF
 #define LOG_LED 			500 //!< Sampling factor of led in log mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::LOG
 #define MTP_LED 			250 //!< Sampling factor of led in mtp mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::MTP
 #define ERR_LED 			10000 //!< Sampling factor of led in error mode (expressed in units of #SAMPLING_TIME). \see SAMPLING_TIME LedMode::ERR
