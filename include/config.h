@@ -337,7 +337,7 @@
 #define CPU_FREQ			600e6 //!< CPU clock speed (Hz). /warning Maximum value is 816e6 without cooling. \see https://www.pjrc.com/store/teensy40.html
 #define MTR_CTRL_MODE		1 //!< Control mode of steer motor (0=PWM or 1=DAC). \warning This setting must be consistent with ESCON Studio.
 #define EN_LONG_CTRL		1 //!< Enable the longitudinal control.
-#define EN_REMOTE_CTRL 		1 //!< Enable the remote controller.
+#define EN_REMOTE_CTRL 		0 //!< Enable the remote controller.
 #define EN_BRAKE_CTRL		0 //!< Enable the brake control.
 #define TEST_THROTTLE		0 //!< Test the throttle using the remote controller.
 #define CW					LOW //!< Digital pin state for clockwise torque.

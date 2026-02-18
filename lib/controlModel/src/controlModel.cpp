@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 8.5
-// Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
-// C/C++ source code generated on : Mon Jul 14 11:20:39 2025
+// Model version                  : 10.0
+// Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
+// C/C++ source code generated on : Tue Feb 10 15:18:44 2026
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -49,6 +49,9 @@ controlParams_type controlParams = {
   // controlTuningGain
   1.0F,
 
+  // RollRateGain
+  20.0F,
+
   // gravity
   9.806F,
 
@@ -62,7 +65,7 @@ controlParams_type controlParams = {
   0.5F,
 
   // speedMinCtrl
-  1.0F
+  -1.0F
 };
 
 //
@@ -122,9 +125,10 @@ void ControlClass::controlModel_MeasurementUpdate(boolean_T rtu_Enable, const
 {
   int32_T i;
   real32_T rtu_yk_0[2];
-  real32_T rtu_xhatkk1_0;
-  real32_T rtu_xhatkk1_1;
-  real32_T rtu_xhatkk1_2;
+  real32_T rtu_Ck_idx_0;
+  real32_T rtu_Ck_idx_1;
+  real32_T rty_Lykyhatkk1_0;
+  real32_T tmp;
 
   // Outputs for Enabled SubSystem: '<S81>/MeasurementUpdate' incorporates:
   //   EnablePort: '<S110>/Enable'
@@ -133,27 +137,40 @@ void ControlClass::controlModel_MeasurementUpdate(boolean_T rtu_Enable, const
     localDW->MeasurementUpdate_MODE = true;
 
     // Product: '<S110>/C[k]*xhat[k|k-1]'
-    rtu_xhatkk1_0 = rtu_xhatkk1[1];
-    rtu_xhatkk1_1 = rtu_xhatkk1[0];
-    rtu_xhatkk1_2 = rtu_xhatkk1[2];
-    for (i = 0; i < 2; i++) {
-      // Sum: '<S110>/Sum' incorporates:
-      //   Product: '<S110>/D[k]*u[k]'
-      //   Sum: '<S110>/Add1'
-
-      rtu_yk_0[i] = rtu_yk[i] - ((((rtu_Ck[i + 2] * rtu_xhatkk1_0) + (rtu_Ck[i] *
-        rtu_xhatkk1_1)) + (rtu_Ck[i + 4] * rtu_xhatkk1_2)) + (rtu_Dk[i] * rtu_uk));
+    rtu_Ck_idx_0 = 0.0F;
+    rtu_Ck_idx_1 = 0.0F;
+    for (i = 0; i < 3; i++) {
+      tmp = rtu_xhatkk1[i];
+      rtu_Ck_idx_0 += rtu_Ck[2 * i] * tmp;
+      rtu_Ck_idx_1 += rtu_Ck[(2 * i) + 1] * tmp;
     }
 
     // End of Product: '<S110>/C[k]*xhat[k|k-1]'
 
+    // Sum: '<S110>/Sum' incorporates:
+    //   Product: '<S110>/D[k]*u[k]'
+    //   Sum: '<S110>/Add1'
+
+    rtu_yk_0[0] = rtu_yk[0] - ((rtu_Dk[0] * rtu_uk) + rtu_Ck_idx_0);
+    rtu_yk_0[1] = rtu_yk[1] - ((rtu_Dk[1] * rtu_uk) + rtu_Ck_idx_1);
+
     // Product: '<S110>/Product3'
-    rtu_xhatkk1_0 = rtu_yk_0[1];
-    rtu_xhatkk1_1 = rtu_yk_0[0];
-    for (i = 0; i < 3; i++) {
-      rty_Lykyhatkk1[i] = (rtu_Lk[i + 3] * rtu_xhatkk1_0) + (rtu_Lk[i] *
-        rtu_xhatkk1_1);
+    rty_Lykyhatkk1[0] = 0.0F;
+    rty_Lykyhatkk1[1] = 0.0F;
+    rty_Lykyhatkk1[2] = 0.0F;
+    rtu_Ck_idx_0 = rty_Lykyhatkk1[0];
+    rtu_Ck_idx_1 = rty_Lykyhatkk1[1];
+    rty_Lykyhatkk1_0 = rty_Lykyhatkk1[2];
+    for (i = 0; i < 2; i++) {
+      tmp = rtu_yk_0[i];
+      rtu_Ck_idx_0 += rtu_Lk[3 * i] * tmp;
+      rtu_Ck_idx_1 += rtu_Lk[(3 * i) + 1] * tmp;
+      rty_Lykyhatkk1_0 += rtu_Lk[(3 * i) + 2] * tmp;
     }
+
+    rty_Lykyhatkk1[2] = rty_Lykyhatkk1_0;
+    rty_Lykyhatkk1[1] = rtu_Ck_idx_1;
+    rty_Lykyhatkk1[0] = rtu_Ck_idx_0;
 
     // End of Product: '<S110>/Product3'
   } else if (localDW->MeasurementUpdate_MODE) {
@@ -196,10 +213,13 @@ void ControlClass::controlModel_EnabledSubsystem(boolean_T rtu_Enable, const
   DW_EnabledSubsystem_controlMo_T *localDW)
 {
   int32_T i;
-  real32_T rtu_yk_0[2];
   real32_T rtu_xhatkk1_0;
   real32_T rtu_xhatkk1_1;
   real32_T rtu_xhatkk1_2;
+  real32_T rtu_yk_0;
+  real32_T rty_deltax_0;
+  real32_T rty_deltax_1;
+  real32_T rty_deltax_2;
 
   // Outputs for Enabled SubSystem: '<S87>/Enabled Subsystem' incorporates:
   //   EnablePort: '<S112>/Enable'
@@ -207,30 +227,37 @@ void ControlClass::controlModel_EnabledSubsystem(boolean_T rtu_Enable, const
   if (rtu_Enable) {
     localDW->EnabledSubsystem_MODE = true;
 
+    // Product: '<S112>/Product2'
+    rty_deltax[0] = 0.0F;
+    rty_deltax[1] = 0.0F;
+    rty_deltax[2] = 0.0F;
+
     // Product: '<S112>/Product'
     rtu_xhatkk1_0 = rtu_xhatkk1[1];
     rtu_xhatkk1_1 = rtu_xhatkk1[0];
     rtu_xhatkk1_2 = rtu_xhatkk1[2];
 
-    // Sum: '<S112>/Add1' incorporates:
-    //   Product: '<S112>/Product'
-
+    // Product: '<S112>/Product2'
+    rty_deltax_0 = rty_deltax[0];
+    rty_deltax_1 = rty_deltax[1];
+    rty_deltax_2 = rty_deltax[2];
     for (i = 0; i < 2; i++) {
-      rtu_yk_0[i] = rtu_yk[i] - (((rtu_Ck[i + 2] * rtu_xhatkk1_0) + (rtu_Ck[i] *
-        rtu_xhatkk1_1)) + (rtu_Ck[i + 4] * rtu_xhatkk1_2));
-    }
+      // Sum: '<S112>/Add1' incorporates:
+      //   Product: '<S112>/Product'
 
-    // End of Sum: '<S112>/Add1'
+      rtu_yk_0 = rtu_yk[i] - (((rtu_Ck[i + 2] * rtu_xhatkk1_0) + (rtu_Ck[i] *
+        rtu_xhatkk1_1)) + (rtu_Ck[i + 4] * rtu_xhatkk1_2));
+
+      // Product: '<S112>/Product2'
+      rty_deltax_0 += rtu_Mk[3 * i] * rtu_yk_0;
+      rty_deltax_1 += rtu_Mk[(3 * i) + 1] * rtu_yk_0;
+      rty_deltax_2 += rtu_Mk[(3 * i) + 2] * rtu_yk_0;
+    }
 
     // Product: '<S112>/Product2'
-    rtu_xhatkk1_0 = rtu_yk_0[1];
-    rtu_xhatkk1_1 = rtu_yk_0[0];
-    for (i = 0; i < 3; i++) {
-      rty_deltax[i] = (rtu_Mk[i + 3] * rtu_xhatkk1_0) + (rtu_Mk[i] *
-        rtu_xhatkk1_1);
-    }
-
-    // End of Product: '<S112>/Product2'
+    rty_deltax[2] = rty_deltax_2;
+    rty_deltax[1] = rty_deltax_1;
+    rty_deltax[0] = rty_deltax_0;
   } else if (localDW->EnabledSubsystem_MODE) {
     contro_EnabledSubsystem_Disable(rty_deltax, localDW);
   } else {
@@ -281,18 +308,20 @@ real32_T rt_atan2f_snf(real32_T u0, real32_T u1)
 // Model step function
 void ControlClass::update()
 {
-  // local block i/o variables
-  real32_T rtb_Gain1;
   int32_T i;
   real32_T rtb_P_b[9];
   real32_T tmp[3];
   real32_T rtb_Reshapey[2];
+  real32_T Product3_a_idx_0;
   real32_T Product3_a_idx_1;
+  real32_T pooled3;
   real32_T rtb_Exp;
   real32_T rtb_Product5;
+  real32_T rtb_Reshapey_0;
   real32_T rtb_Sum;
   real32_T tmp_0;
   real32_T tmp_1;
+  real32_T tmp_2;
 
   // Reshape: '<S6>/Reshapey' incorporates:
   //   Inport: '<Root>/dist'
@@ -334,27 +363,30 @@ void ControlClass::update()
   // Sum: '<S87>/Add' incorporates:
   //   Delay: '<S6>/MemoryX'
 
-  rtb_Product5 = controlModel_DW.Product2_c[0] + controlModel_DW.MemoryX_DSTATE
-    [0];
-  tmp_0 = controlModel_DW.Product2_c[1] + controlModel_DW.MemoryX_DSTATE[1];
-  tmp_1 = controlModel_DW.Product2_c[2] + controlModel_DW.MemoryX_DSTATE[2];
+  tmp[0] = controlModel_DW.Product2_c[0] + controlModel_DW.MemoryX_DSTATE[0];
+  tmp[1] = controlModel_DW.Product2_c[1] + controlModel_DW.MemoryX_DSTATE[1];
+  tmp[2] = controlModel_DW.Product2_c[2] + controlModel_DW.MemoryX_DSTATE[2];
 
   // Product: '<S62>/Product' incorporates:
   //   Constant: '<S6>/C'
 
-  for (i = 0; i < 2; i++) {
-    rtb_Reshapey[i] = ((controlModel_ConstP.pooled5[i + 2] * tmp_0) +
-                       (controlModel_ConstP.pooled5[i] * rtb_Product5)) +
-      (controlModel_ConstP.pooled5[i + 4] * tmp_1);
+  rtb_Product5 = 0.0F;
+  rtb_Reshapey_0 = 0.0F;
+  for (i = 0; i < 3; i++) {
+    tmp_0 = tmp[i];
+    rtb_Product5 += controlModel_ConstP.pooled5[2 * i] * tmp_0;
+    rtb_Reshapey_0 += controlModel_ConstP.pooled5[(2 * i) + 1] * tmp_0;
   }
 
-  // End of Product: '<S62>/Product'
+  // Outport: '<Root>/dist_est' incorporates:
+  //   Product: '<S62>/Product'
 
-  // Outport: '<Root>/dist_est'
-  controlModel_Y.dist_est = rtb_Reshapey[0];
+  controlModel_Y.dist_est = rtb_Product5;
 
-  // Outport: '<Root>/speed_est'
-  controlModel_Y.speed_est = rtb_Reshapey[1];
+  // Outport: '<Root>/speed_est' incorporates:
+  //   Product: '<S62>/Product'
+
+  controlModel_Y.speed_est = rtb_Reshapey_0;
 
   // Delay: '<S4>/MemoryX' incorporates:
   //   Constant: '<S4>/X0'
@@ -367,11 +399,12 @@ void ControlClass::update()
   // Math: '<S7>/Exp' incorporates:
   //   Gain: '<S7>/Gain'
   //   Math: '<S7>/Square'
+  //   Product: '<S62>/Product'
   //
   //  About '<S7>/Exp':
   //   Operator: exp
 
-  rtb_Exp = std::exp((rtb_Reshapey[1] * rtb_Reshapey[1]) * -99.9999924F);
+  rtb_Exp = std::exp((rtb_Reshapey_0 * rtb_Reshapey_0) * -99.9999924F);
 
   // Product: '<Root>/Product5' incorporates:
   //   Inport: '<Root>/accs'
@@ -397,20 +430,16 @@ void ControlClass::update()
 
   rtb_Exp = std::exp((rtb_Exp * rtb_Exp) * -99.9999924F);
 
-  // Gain: '<Root>/Gain1' incorporates:
-  //   Inport: '<Root>/gyros'
-  //   Math: '<Root>/Square1'
-
-  rtb_Gain1 = controlModel_U.gyros[1] * controlModel_U.gyros[1];
-
   // Product: '<Root>/Divide' incorporates:
   //   Inport: '<Root>/gyros'
   //   Math: '<Root>/Square'
+  //   Math: '<Root>/Square1'
   //   Sqrt: '<Root>/Square Root'
   //   Sum: '<Root>/Sum3'
 
-  Product3_a_idx_1 = (1.0F / std::sqrt((controlModel_U.gyros[2] *
-    controlModel_U.gyros[2]) + rtb_Gain1)) * controlModel_U.gyros[1];
+  Product3_a_idx_0 = (1.0F / std::sqrt((controlModel_U.gyros[2] *
+    controlModel_U.gyros[2]) + (controlModel_U.gyros[1] * controlModel_U.gyros[1])))
+    * controlModel_U.gyros[1];
 
   // Signum: '<Root>/Sign' incorporates:
   //   Inport: '<Root>/gyros'
@@ -420,15 +449,14 @@ void ControlClass::update()
   } else if (controlModel_U.gyros[2] < 0.0F) {
     tmp_0 = -1.0F;
   } else {
-    tmp_0 = static_cast<real32_T>((controlModel_U.gyros[2] > 0.0F) ? (
-      static_cast<int32_T>(1)) : (static_cast<int32_T>(0)));
+    tmp_0 = (controlModel_U.gyros[2] > 0.0F) ? 1.0F : 0.0F;
   }
 
   // Trigonometry: '<Root>/Asin'
-  if (Product3_a_idx_1 > 1.0F) {
-    Product3_a_idx_1 = 1.0F;
-  } else if (Product3_a_idx_1 < -1.0F) {
-    Product3_a_idx_1 = -1.0F;
+  if (Product3_a_idx_0 > 1.0F) {
+    Product3_a_idx_0 = 1.0F;
+  } else if (Product3_a_idx_0 < -1.0F) {
+    Product3_a_idx_0 = -1.0F;
   } else {
     // no actions
   }
@@ -437,13 +465,13 @@ void ControlClass::update()
   //   Signum: '<Root>/Sign'
   //   Trigonometry: '<Root>/Asin'
 
-  Product3_a_idx_1 = tmp_0 * std::asin(Product3_a_idx_1);
+  Product3_a_idx_0 = tmp_0 * std::asin(Product3_a_idx_0);
 
   // Saturate: '<Root>/Saturation1'
-  if (Product3_a_idx_1 > controlParams.rollSaturation) {
-    Product3_a_idx_1 = controlParams.rollSaturation;
-  } else if (Product3_a_idx_1 < (-controlParams.rollSaturation)) {
-    Product3_a_idx_1 = -controlParams.rollSaturation;
+  if (Product3_a_idx_0 > controlParams.rollSaturation) {
+    Product3_a_idx_0 = controlParams.rollSaturation;
+  } else if (Product3_a_idx_0 < (-controlParams.rollSaturation)) {
+    Product3_a_idx_0 = -controlParams.rollSaturation;
   } else {
     // no actions
   }
@@ -456,59 +484,49 @@ void ControlClass::update()
   //   Product: '<Root>/Product1'
   //   Product: '<Root>/Product2'
   //   Product: '<Root>/Product3'
+  //   Product: '<S62>/Product'
   //   Saturate: '<Root>/Saturation1'
   //   Sum: '<Root>/Sum1'
   //   Sum: '<S5>/Sum'
   //   Trigonometry: '<Root>/Atan'
 
-  rtb_Exp = (((std::atan((1.0F / controlParams.gravity) * (rtb_Reshapey[1] *
-    controlModel_U.gyros[2])) * rtb_Exp) + ((1.0F - rtb_Exp) * Product3_a_idx_1))
-             * rtb_Sum) + rtb_Product5;
-
-  // Outputs for Enabled SubSystem: '<S35>/Enabled Subsystem' incorporates:
-  //   EnablePort: '<S60>/Enable'
+  rtb_Product5 += ((std::atan((1.0F / controlParams.gravity) * (rtb_Reshapey_0 *
+    controlModel_U.gyros[2])) * rtb_Exp) + ((1.0F - rtb_Exp) * Product3_a_idx_0))
+    * rtb_Sum;
 
   // Outputs for Enabled SubSystem: '<S29>/MeasurementUpdate' incorporates:
   //   EnablePort: '<S58>/Enable'
 
-  // Product: '<S58>/C[k]*xhat[k|k-1]' incorporates:
+  // Sum: '<S58>/Sum' incorporates:
   //   Constant: '<S4>/C'
-  //   Delay: '<S4>/MemoryX'
-  //   Product: '<S60>/Product'
-
-  rtb_Product5 = (0.0F * controlModel_DW.MemoryX_DSTATE_g[1]) +
-    controlModel_DW.MemoryX_DSTATE_g[0];
-
-  // End of Outputs for SubSystem: '<S35>/Enabled Subsystem'
-
-  // Gain: '<Root>/Gain1' incorporates:
   //   Constant: '<S4>/D'
+  //   Delay: '<S4>/MemoryX'
   //   Inport: '<Root>/gyros'
   //   Product: '<S58>/C[k]*xhat[k|k-1]'
   //   Product: '<S58>/D[k]*u[k]'
   //   Sum: '<S58>/Add1'
-  //   Sum: '<S58>/Sum'
 
-  rtb_Gain1 = rtb_Product5;
-  rtb_Gain1 = rtb_Exp - ((0.0F * controlModel_U.gyros[0]) + rtb_Gain1);
+  rtb_Exp = rtb_Product5 - (((0.0F * controlModel_DW.MemoryX_DSTATE_g[1]) +
+    controlModel_DW.MemoryX_DSTATE_g[0]) + (0.0F * controlModel_U.gyros[0]));
 
   // Product: '<S58>/Product3' incorporates:
   //   DataTypeConversion: '<S51>/Conversion'
 
-  rtb_Sum = controlModel_ConstB.Conversion[0] * rtb_Gain1;
-  Product3_a_idx_1 = controlModel_ConstB.Conversion[1] * rtb_Gain1;
+  Product3_a_idx_0 = controlModel_ConstB.Conversion[0] * rtb_Exp;
+  Product3_a_idx_1 = controlModel_ConstB.Conversion[1] * rtb_Exp;
 
   // End of Outputs for SubSystem: '<S29>/MeasurementUpdate'
 
   // Outputs for Enabled SubSystem: '<S35>/Enabled Subsystem' incorporates:
   //   EnablePort: '<S60>/Enable'
 
-  // Gain: '<Root>/Gain1' incorporates:
+  // Sum: '<S60>/Add1' incorporates:
+  //   Constant: '<S4>/C'
+  //   Delay: '<S4>/MemoryX'
   //   Product: '<S60>/Product'
-  //   Sum: '<S60>/Add1'
 
-  rtb_Gain1 = rtb_Product5;
-  rtb_Gain1 = rtb_Exp - rtb_Gain1;
+  rtb_Exp = rtb_Product5 - ((0.0F * controlModel_DW.MemoryX_DSTATE_g[1]) +
+    controlModel_DW.MemoryX_DSTATE_g[0]);
 
   // Product: '<S10>/Product' incorporates:
   //   Constant: '<S4>/C'
@@ -517,9 +535,9 @@ void ControlClass::update()
   //   Product: '<S60>/Product2'
   //   Sum: '<S35>/Add'
 
-  rtb_Exp = (((controlModel_ConstB.Conversion_i[1] * rtb_Gain1) +
-              controlModel_DW.MemoryX_DSTATE_g[1]) * 0.0F) +
-    ((controlModel_ConstB.Conversion_i[0] * rtb_Gain1) +
+  rtb_Product5 = (((controlModel_ConstB.Conversion_i[1] * rtb_Exp) +
+                   controlModel_DW.MemoryX_DSTATE_g[1]) * 0.0F) +
+    ((controlModel_ConstB.Conversion_i[0] * rtb_Exp) +
      controlModel_DW.MemoryX_DSTATE_g[0]);
 
   // End of Outputs for SubSystem: '<S35>/Enabled Subsystem'
@@ -527,31 +545,28 @@ void ControlClass::update()
   // Outport: '<Root>/roll_est' incorporates:
   //   Product: '<S10>/Product'
 
-  controlModel_Y.roll_est = rtb_Exp;
+  controlModel_Y.roll_est = rtb_Product5;
 
-  // DiscreteStateSpace: '<Root>/Discrete State-Space' incorporates:
+  // Gain: '<Root>/Gain1' incorporates:
+  //   Gain: '<Root>/Gain2'
   //   Inport: '<Root>/gyros'
 
-  {
-    rtb_Gain1 = 2.30097127F*controlModel_DW.DiscreteStateSpace_DSTATE;
-  }
-
-  // Gain: '<Root>/Gain1'
-  rtb_Gain1 *= controlParams.controlTuningGain;
+  rtb_Exp = (controlParams.RollRateGain * controlModel_U.gyros[0]) *
+    controlParams.controlTuningGain;
 
   // Product: '<Root>/Product6' incorporates:
   //   Constant: '<S3>/Constant'
+  //   Product: '<S62>/Product'
   //   RelationalOperator: '<S3>/Compare'
 
-  rtb_Product5 = (static_cast<real32_T>((rtb_Reshapey[1] >=
-    controlParams.speedMinCtrl) ? (static_cast<int32_T>(1)) :
-    (static_cast<int32_T>(0)))) * rtb_Gain1;
+  rtb_Sum = (static_cast<real32_T>((rtb_Reshapey_0 >= controlParams.speedMinCtrl)
+              ? 1.0F : 0.0F)) * rtb_Exp;
 
   // Saturate: '<Root>/Saturation'
-  if (rtb_Product5 > controlParams.maxCurrent) {
-    rtb_Product5 = controlParams.maxCurrent;
-  } else if (rtb_Product5 < (-controlParams.maxCurrent)) {
-    rtb_Product5 = -controlParams.maxCurrent;
+  if (rtb_Sum > controlParams.maxCurrent) {
+    rtb_Sum = controlParams.maxCurrent;
+  } else if (rtb_Sum < (-controlParams.maxCurrent)) {
+    rtb_Sum = -controlParams.maxCurrent;
   } else {
     // no actions
   }
@@ -599,7 +614,7 @@ void ControlClass::update()
     controlModel_DW.is_c1_controlModel = controlModel_IN_SETCURR;
 
     // Outport: '<Root>/curr_ref'
-    controlModel_Y.curr_ref = rtb_Product5;
+    controlModel_Y.curr_ref = rtb_Sum;
   } else if ((static_cast<uint32_T>(controlModel_DW.is_c1_controlModel)) ==
              controlModel_IN_IDLE) {
     // Outport: '<Root>/curr_ref'
@@ -615,7 +630,7 @@ void ControlClass::update()
     controlModel_DW.is_c1_controlModel = controlModel_IN_SETCURR;
 
     // Outport: '<Root>/curr_ref'
-    controlModel_Y.curr_ref = rtb_Product5;
+    controlModel_Y.curr_ref = rtb_Sum;
   }
 
   // End of Chart: '<Root>/Chart1'
@@ -626,7 +641,7 @@ void ControlClass::update()
   //   DataTypeConversion: '<Root>/Data Type Conversion'
   //   Outport: '<Root>/error_state_out'
 
-  controlModel_Y.user_data[0] = rtb_Gain1;
+  controlModel_Y.user_data[0] = rtb_Exp;
   controlModel_Y.user_data[1] = 0.0F;
   controlModel_Y.user_data[2] = static_cast<real32_T>
     (controlModel_Y.error_state_out);
@@ -672,22 +687,26 @@ void ControlClass::update()
   // Sum: '<S139>/Add' incorporates:
   //   Delay: '<S8>/MemoryX'
 
-  rtb_Product5 = controlModel_DW.Product2[0] + controlModel_DW.MemoryX_DSTATE_o
-    [0];
-  tmp_0 = controlModel_DW.Product2[1] + controlModel_DW.MemoryX_DSTATE_o[1];
-  tmp_1 = controlModel_DW.Product2[2] + controlModel_DW.MemoryX_DSTATE_o[2];
+  tmp[0] = controlModel_DW.Product2[0] + controlModel_DW.MemoryX_DSTATE_o[0];
+  tmp[1] = controlModel_DW.Product2[1] + controlModel_DW.MemoryX_DSTATE_o[1];
+  tmp[2] = controlModel_DW.Product2[2] + controlModel_DW.MemoryX_DSTATE_o[2];
 
-  // Outport: '<Root>/steer_est' incorporates:
+  // Product: '<S114>/Product' incorporates:
   //   Constant: '<S8>/C'
-  //   Product: '<S114>/Product'
+  //   Outport: '<Root>/steer_est'
 
-  for (i = 0; i < 2; i++) {
-    controlModel_Y.steer_est[i] = ((controlModel_ConstP.pooled5[i + 2] * tmp_0)
-      + (controlModel_ConstP.pooled5[i] * rtb_Product5)) +
-      (controlModel_ConstP.pooled5[i + 4] * tmp_1);
+  rtb_Reshapey_0 = 0.0F;
+  rtb_Exp = 0.0F;
+  for (i = 0; i < 3; i++) {
+    tmp_0 = tmp[i];
+    rtb_Reshapey_0 += controlModel_ConstP.pooled5[2 * i] * tmp_0;
+    rtb_Exp += controlModel_ConstP.pooled5[(2 * i) + 1] * tmp_0;
   }
 
-  // End of Outport: '<Root>/steer_est'
+  controlModel_Y.steer_est[1] = rtb_Exp;
+  controlModel_Y.steer_est[0] = rtb_Reshapey_0;
+
+  // End of Product: '<S114>/Product'
 
   // MATLAB Function: '<S160>/SqrtUsedFcn' incorporates:
   //   Constant: '<S160>/isSqrtUsed'
@@ -714,22 +733,69 @@ void ControlClass::update()
   // Update for Delay: '<S6>/MemoryX'
   controlModel_DW.icLoad = false;
 
-  // Delay: '<S6>/MemoryX' incorporates:
-  //   Constant: '<S6>/A'
-  //   Product: '<S81>/A[k]*xhat[k|k-1]'
+  // Product: '<S81>/A[k]*xhat[k|k-1]'
+  rtb_Reshapey_0 = 0.0F;
+  rtb_Exp = 0.0F;
+  rtb_Sum = 0.0F;
 
-  rtb_Product5 = controlModel_DW.MemoryX_DSTATE[1];
-  tmp_0 = controlModel_DW.MemoryX_DSTATE[0];
-  tmp_1 = controlModel_DW.MemoryX_DSTATE[2];
+  // Update for Delay: '<S4>/MemoryX'
+  controlModel_DW.icLoad_d = false;
 
-  // Product: '<S81>/A[k]*xhat[k|k-1]' incorporates:
-  //   Constant: '<S6>/A'
-  //   Delay: '<S6>/MemoryX'
+  // Product: '<S29>/A[k]*xhat[k|k-1]' incorporates:
+  //   Constant: '<S4>/A'
+  //   Delay: '<S4>/MemoryX'
 
+  tmp_1 = controlModel_DW.MemoryX_DSTATE_g[0];
+  tmp_2 = 0.0F * controlModel_DW.MemoryX_DSTATE_g[0];
+  tmp_0 = controlModel_DW.MemoryX_DSTATE_g[1];
+
+  // Update for Delay: '<S4>/MemoryX' incorporates:
+  //   Constant: '<S4>/A'
+  //   Constant: '<S4>/B'
+  //   Inport: '<Root>/gyros'
+  //   Product: '<S29>/A[k]*xhat[k|k-1]'
+  //   Product: '<S29>/B[k]*u[k]'
+  //   Product: '<S58>/Product3'
+  //   Sum: '<S29>/Add'
+
+  controlModel_DW.MemoryX_DSTATE_g[0] = (((-0.001F * tmp_0) + tmp_1) + (0.001F *
+    controlModel_U.gyros[0])) + Product3_a_idx_0;
+  controlModel_DW.MemoryX_DSTATE_g[1] = ((0.0F * controlModel_U.gyros[0]) +
+    (tmp_2 + tmp_0)) + Product3_a_idx_1;
+
+  // Update for UnitDelay: '<Root>/Unit Delay' incorporates:
+  //   Product: '<S10>/Product'
+
+  controlModel_DW.UnitDelay_DSTATE = rtb_Product5;
+
+  // Update for Delay: '<S8>/MemoryX'
+  controlModel_DW.icLoad_a = false;
+
+  // Product: '<S133>/A[k]*xhat[k|k-1]'
+  tmp_1 = 0.0F;
+  tmp_2 = 0.0F;
+  rtb_Product5 = 0.0F;
   for (i = 0; i < 3; i++) {
-    tmp[i] = ((controlModel_ConstP.pooled3[i + 3] * rtb_Product5) +
-              (controlModel_ConstP.pooled3[i] * tmp_0)) +
-      (controlModel_ConstP.pooled3[i + 6] * tmp_1);
+    // Product: '<S81>/A[k]*xhat[k|k-1]' incorporates:
+    //   Constant: '<S6>/A'
+    //   Delay: '<S6>/MemoryX'
+
+    tmp_0 = controlModel_DW.MemoryX_DSTATE[i];
+    Product3_a_idx_0 = controlModel_ConstP.pooled3[3 * i];
+    rtb_Reshapey_0 += Product3_a_idx_0 * tmp_0;
+    Product3_a_idx_1 = controlModel_ConstP.pooled3[(3 * i) + 1];
+    rtb_Exp += Product3_a_idx_1 * tmp_0;
+    pooled3 = controlModel_ConstP.pooled3[(3 * i) + 2];
+    rtb_Sum += pooled3 * tmp_0;
+
+    // Product: '<S133>/A[k]*xhat[k|k-1]' incorporates:
+    //   Constant: '<S8>/A'
+    //   Delay: '<S8>/MemoryX'
+
+    tmp_0 = controlModel_DW.MemoryX_DSTATE_o[i];
+    tmp_1 += Product3_a_idx_0 * tmp_0;
+    tmp_2 += Product3_a_idx_1 * tmp_0;
+    rtb_Product5 += pooled3 * tmp_0;
   }
 
   // Update for Delay: '<S6>/MemoryX' incorporates:
@@ -739,74 +805,12 @@ void ControlClass::update()
   //   Product: '<S81>/B[k]*u[k]'
   //   Sum: '<S81>/Add'
 
-  controlModel_DW.MemoryX_DSTATE[0] = ((0.0F * controlModel_U.speed) + tmp[0]) +
-    controlModel_DW.Product3_p[0];
-  controlModel_DW.MemoryX_DSTATE[1] = ((0.0F * controlModel_U.speed) + tmp[1]) +
-    controlModel_DW.Product3_p[1];
-  controlModel_DW.MemoryX_DSTATE[2] = ((0.0F * controlModel_U.speed) + tmp[2]) +
-    controlModel_DW.Product3_p[2];
-
-  // Update for Delay: '<S4>/MemoryX'
-  controlModel_DW.icLoad_d = false;
-
-  // Product: '<S29>/A[k]*xhat[k|k-1]' incorporates:
-  //   Constant: '<S4>/A'
-  //   Delay: '<S4>/MemoryX'
-
-  rtb_Product5 = (-0.001F * controlModel_DW.MemoryX_DSTATE_g[1]) +
-    controlModel_DW.MemoryX_DSTATE_g[0];
-  tmp_0 = (0.0F * controlModel_DW.MemoryX_DSTATE_g[0]) +
-    controlModel_DW.MemoryX_DSTATE_g[1];
-
-  // Update for Delay: '<S4>/MemoryX' incorporates:
-  //   Constant: '<S4>/B'
-  //   Inport: '<Root>/gyros'
-  //   Product: '<S29>/A[k]*xhat[k|k-1]'
-  //   Product: '<S29>/B[k]*u[k]'
-  //   Product: '<S58>/Product3'
-  //   Sum: '<S29>/Add'
-
-  controlModel_DW.MemoryX_DSTATE_g[0] = ((0.001F * controlModel_U.gyros[0]) +
-    rtb_Product5) + rtb_Sum;
-  controlModel_DW.MemoryX_DSTATE_g[1] = ((0.0F * controlModel_U.gyros[0]) +
-    tmp_0) + Product3_a_idx_1;
-
-  // Update for UnitDelay: '<Root>/Unit Delay' incorporates:
-  //   Product: '<S10>/Product'
-
-  controlModel_DW.UnitDelay_DSTATE = rtb_Exp;
-
-  // Update for DiscreteStateSpace: '<Root>/Discrete State-Space' incorporates:
-  //   Inport: '<Root>/gyros'
-
-  {
-    real32_T xnew[1];
-    xnew[0] = 0.828204155F*controlModel_DW.DiscreteStateSpace_DSTATE;
-    xnew[0] += 1.86655772F*controlModel_U.gyros[0];
-    (void) std::memcpy(&controlModel_DW.DiscreteStateSpace_DSTATE, xnew,
-                       sizeof(real32_T)*1);
-  }
-
-  // Update for Delay: '<S8>/MemoryX'
-  controlModel_DW.icLoad_a = false;
-
-  // Delay: '<S8>/MemoryX' incorporates:
-  //   Constant: '<S8>/A'
-  //   Product: '<S133>/A[k]*xhat[k|k-1]'
-
-  rtb_Exp = controlModel_DW.MemoryX_DSTATE_o[1];
-  rtb_Sum = controlModel_DW.MemoryX_DSTATE_o[0];
-  Product3_a_idx_1 = controlModel_DW.MemoryX_DSTATE_o[2];
-
-  // Product: '<S133>/A[k]*xhat[k|k-1]' incorporates:
-  //   Constant: '<S8>/A'
-  //   Delay: '<S8>/MemoryX'
-
-  for (i = 0; i < 3; i++) {
-    tmp[i] = ((controlModel_ConstP.pooled3[i + 3] * rtb_Exp) +
-              (controlModel_ConstP.pooled3[i] * rtb_Sum)) +
-      (controlModel_ConstP.pooled3[i + 6] * Product3_a_idx_1);
-  }
+  controlModel_DW.MemoryX_DSTATE[0] = ((0.0F * controlModel_U.speed) +
+    rtb_Reshapey_0) + controlModel_DW.Product3_p[0];
+  controlModel_DW.MemoryX_DSTATE[1] = ((0.0F * controlModel_U.speed) + rtb_Exp)
+    + controlModel_DW.Product3_p[1];
+  controlModel_DW.MemoryX_DSTATE[2] = ((0.0F * controlModel_U.speed) + rtb_Sum)
+    + controlModel_DW.Product3_p[2];
 
   // Update for Delay: '<S8>/MemoryX' incorporates:
   //   Constant: '<S8>/B'
@@ -815,12 +819,12 @@ void ControlClass::update()
   //   Product: '<S162>/Product3'
   //   Sum: '<S133>/Add'
 
-  controlModel_DW.MemoryX_DSTATE_o[0] = ((0.0F * controlModel_U.steer[1]) + tmp
-    [0]) + controlModel_DW.Product3[0];
-  controlModel_DW.MemoryX_DSTATE_o[1] = ((0.0F * controlModel_U.steer[1]) + tmp
-    [1]) + controlModel_DW.Product3[1];
-  controlModel_DW.MemoryX_DSTATE_o[2] = ((0.0F * controlModel_U.steer[1]) + tmp
-    [2]) + controlModel_DW.Product3[2];
+  controlModel_DW.MemoryX_DSTATE_o[0] = ((0.0F * controlModel_U.steer[1]) +
+    tmp_1) + controlModel_DW.Product3[0];
+  controlModel_DW.MemoryX_DSTATE_o[1] = ((0.0F * controlModel_U.steer[1]) +
+    tmp_2) + controlModel_DW.Product3[1];
+  controlModel_DW.MemoryX_DSTATE_o[2] = ((0.0F * controlModel_U.steer[1]) +
+    rtb_Product5) + controlModel_DW.Product3[2];
 }
 
 // Model initialize function

@@ -117,7 +117,7 @@ void start_logger(void) {
 	for (int i = 0; i < (sizeof(fill_packet) / sizeof(float)); i++) fill_packet[i] = *((float*) &nanVal);
 
 	//print report
-	if (doLog) print_report(0);
+	//if (doLog) print_report(0);
   
     if (doLog) LEDmode = LedMode::LOG;
 }

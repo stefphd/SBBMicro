@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'controlModel'.
 //
-// Model version                  : 8.5
-// Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
-// C/C++ source code generated on : Mon Jul 14 11:20:39 2025
+// Model version                  : 10.0
+// Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
+// C/C++ source code generated on : Tue Feb 10 15:18:44 2026
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -24,7 +24,6 @@
 #define controlModel_h_
 #include "rtwtypes.h"
 #include "controlModel_types.h"
-#include <cstring>
 
 extern "C"
 {
@@ -43,6 +42,7 @@ extern "C"
 // Type definition for custom storage class: Struct
 struct controlParams_type {
   real32_T controlTuningGain;          // Referenced by: '<Root>/Gain1'
+  real32_T RollRateGain;               // Referenced by: '<Root>/Gain2'
   real32_T gravity;                    // Referenced by: '<Root>/Gain'
   real32_T maxCurrent;                 // Referenced by: '<Root>/Saturation'
   real32_T maxSteer;                   // Referenced by: '<Root>/Chart'
@@ -84,7 +84,6 @@ class ControlClass
     real32_T MemoryX_DSTATE_g[2];      // '<S4>/MemoryX'
     real32_T MemoryX_DSTATE_o[3];      // '<S8>/MemoryX'
     real32_T UnitDelay_DSTATE;         // '<Root>/Unit Delay'
-    real32_T DiscreteStateSpace_DSTATE;// '<Root>/Discrete State-Space'
     uint8_T is_active_c1_controlModel; // '<Root>/Chart1'
     uint8_T is_c1_controlModel;        // '<Root>/Chart1'
     uint8_T is_active_c3_controlModel; // '<Root>/Chart'
@@ -234,6 +233,7 @@ extern const ControlClass::ConstP_controlModel_T controlModel_ConstP;
 //-
 //  These blocks were eliminated from the model due to optimizations:
 //
+//  Block '<Root>/Discrete State-Space' : Unused code path elimination
 //  Block '<S51>/Data Type Duplicate' : Unused code path elimination
 //  Block '<S52>/Data Type Duplicate' : Unused code path elimination
 //  Block '<S53>/Conversion' : Unused code path elimination
